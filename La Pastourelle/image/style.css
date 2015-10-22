@@ -1,0 +1,198 @@
+/* Document CSS
+ * style.css 
+ */
+ 
+ 
+ /* BODY */
+ #body  /* toute la page ainsi que le fond d'ecran */
+ {
+	width: 924px;
+	margin: auto;
+	background-repeat: repeat-x,repeat-y;
+	background-image: url(image/230.gif);
+	font-family: "Arial";
+	text-align : justify; 
+	color: #4F5857;
+ }
+ 
+ 
+ /* HEADER */
+ /*-----------------------------------------------------------------------------------*/
+ #header  /* espace titre : logo, slogan, menu , etccc ...... */
+ {
+	width: 924px;
+	height: 329px;
+	background-color:#ffffff;
+ }
+ 
+#header_haut
+{
+	width: 924px;
+	height: 300px;
+}
+ 
+/* COTE GAUCHE */
+
+ #colonne_gauche
+{
+	float:left;
+	width: 445px;
+	height: 300px;
+}
+
+/* logo */
+ #conteneur_logo
+{
+	width: 445px;
+	height: 175px;
+	background-repeat: no-repeat;
+	background-image: url(image/logo_site.png);
+}
+
+/* actualités */
+ #conteneur_actualites
+{
+	width: 445px;
+	height:125px;
+	background-repeat: no-repeat;
+	background-image: url(image/actualites.png);
+}
+
+#tampon_act_haut
+{
+	width: 445px;
+	height:50px;
+}
+
+#interieur_actualite
+{
+	width: 370px;
+	height:65px;
+	margin: 0px 20px 20px 55px;
+}
+
+/* COTE DROIT: menu */
+#colonne_droite
+{
+	float:left;
+	width: 479px;
+	height: 295px;
+	background-color:#ffffff;
+}
+
+/* images defilantes flash */
+#conteneur_images
+{
+	width: 479px;
+	height: 295px;
+}
+
+/* bas */
+#bas
+{
+	width: 924px;
+	height: 29px;
+	background-image: url(image/bas.png);
+}
+
+/* haut */
+#haut
+{
+	margin-top: 29px;
+	width: 924px;
+	height: 25px;
+	background-image: url(image/haut.png);
+}
+
+ 
+ 
+ /* CORPS DE LA PAGE == PAGE D'ACCUEIL*/
+ /*------------------------------------------------------------------------------------*/
+  #corps
+ {
+	width: 924px;
+	overflow: hidden;
+	background-color:#ffffff;
+ }
+ 
+/* Menu */
+ #menu
+{
+	width :800px;
+	height : 25px;
+	margin-left: 62px;
+}
+
+
+ /* PIED DE PAGE */
+ /*---------------------------------------------------------------------------*/
+  #footer
+ {
+	width:924;
+	overflow: hidden;
+	background-color:#ffffff;
+ }
+ 
+.footer 
+{
+	
+	font-size: 13px;
+	margin-bottom: 5px;
+	text-align: center; 
+	color: grey;
+    
+}
+
+/** liens hypertexte */
+
+  a  
+  {   
+  color:#ff0000;   
+  text-decoration:none;  
+ } 
+ 
+  a:hover  
+  {   
+  color:#000000;   
+  text-decoration:underline;  
+ }
+  
+  
+
+/** page d'accueil */
+/*--------------------------------------------------------------------------------*/
+
+#accueil
+{	
+	font-size: 16px;
+	margin: 100px;
+	text-align: justify;
+}
+
+/** page des liens hypertextes */
+/*--------------------------------------------------------------------------------*/
+
+#liens
+{	
+	margin : 40px 20px 20px 20px;
+	font-size: 16px;
+	margin: 50px;
+}
+
+
+/** images */
+img
+{
+	border : 5px;
+	border-style : solid;
+	border-color : white;
+}
+
+#espace_reserve
+{	
+	--margin: 50px;
+	--margin-left: 100px;
+	width: 652px;
+	height:139px;
+	background-image:url(image/espace_reserve.png);;
+}

@@ -1,0 +1,495 @@
+/* Document CSS
+ * style.css 
+ */
+ /* HEADER */
+ /*-----------------------------------------------------------------------------------*/
+ #header  /* espace titre : logo, slogan, menu , etccc ...... */
+ {
+	width: 924px;
+	height: 280px;
+ }
+ 
+/* COTE GAUCHE */
+
+ #colonne_gauche
+{
+	float:left;
+	width: 445px;
+	height: 300px;
+}
+
+/* logo */
+ #conteneur_logo
+{	
+	width: 445px;
+	height: 255px;
+	background-repeat: no-repeat;
+	background-image: url(image/logo_site.png);
+}
+	.header_txt_00
+	{
+		margin-top: 110px;
+		margin-left: 50px;
+		position:absolute;
+		color: #d10000;
+		font-family: Comic Sans MS, serif;
+		font-weight: bold;
+		font-size: 15px;
+	}
+	.header_txt_01
+	{
+		margin-top: 130px;
+		margin-left: 50px;
+		position:absolute;
+		color: black;
+		font-family: Comic Sans MS, serif;
+		font-weight: bold;
+		font-size: 13px;
+	}
+	.header_txt_02
+	{
+		margin-top: 155px;
+		margin-left: 140px;
+		width: 120px;
+		position:absolute;
+		color: black;
+		font-family: Comic Sans MS, serif;
+		font-weight: bold;
+		font-size: 12px;
+		text-align: center;
+	}
+	.header_txt_03
+	{
+		margin-top: -26px;
+		margin-left: 48px;
+		width: 120px;
+		position:absolute;
+		color: #e57777;
+		font-family: "Shonar Bangla", serif;
+		font-size: 15px;
+		text-align: center;
+	}
+	.header_txt_04
+	{
+		margin-top: -26px;
+		margin-left: 40px;
+		width: 120px;
+		position:absolute;
+		color: #e57777;
+		font-family: "Shonar Bangla", serif;
+		font-size: 15px;
+		text-align: center;
+	}
+	.header_txt_05
+	{
+		margin-top: -25px;
+		margin-left: 40px;
+		width: 120px;
+		position:absolute;
+		color: #e57777;
+		font-family: "Shonar Bangla", serif;
+		font-size: 15px;
+		text-align: center;
+	}
+/* actualités */
+ #conteneur_actualites
+{
+	width: 445px;
+	height:125px;
+	background-repeat: no-repeat;
+	background-image: url(image/actualites.png);
+}
+
+#tampon_act_haut
+{
+	width: 445px;
+	height:50px;
+}
+
+#interieur_actualite
+{
+	width: 370px;
+	height:65px;
+	margin: 0px 20px 20px 55px;
+}
+
+/* COTE DROIT */
+#colonne_droite
+{
+	float: left;
+	width: 479px;
+	height: 255px;
+	background-image: url(image/fd_blanc_droit.png);
+}
+
+/* images defilantes flash */
+#conteneur_images
+{
+	margin-left: 36px;
+	width: 380px;
+	height: 245px;
+}
+
+/*Monde avec logos */
+#monde
+{
+	display: block;
+}
+	#monde a:hover
+	{
+		text-decoration: none;
+	}
+	
+#europe
+{
+	position: absolute;
+	background-image: url("image/mondeLogo/europe.png");
+	background-position: 0 -104px;
+	margin-left: 397px;
+	margin-top: 15px;
+	width: 169px;
+	height: 140px;
+	display: block;
+}
+	#europe:hover
+	{
+		background-position: 0 9px;
+	}
+#asie
+{
+	position: absolute;
+	background-image: url("image/mondeLogo/asie.png");
+	background-position: 0 239px;
+	margin-left: 538px;
+	margin-top: 24px;
+	width: 262px;
+	height: 239px;
+	display: block;
+}
+	#asie:hover
+	{
+		background-position: 0 1px;
+	}
+/*#antartique
+{
+	position: absolute;
+	background-image: url("image/mondeLogo/antartique.png");
+	background-position: 0 0px;
+	margin-left: 100px;
+	margin-top: 400px;
+	width: 566px;
+	height: 54px;
+	display: block;
+}
+	#antartique:hover
+	{
+		background-position: 0 -1px;
+	}*/
+#afrique
+{
+	position: absolute;
+	background-image: url("image/mondeLogo/afrique.png");
+	background-position: 0 -205px;
+	margin-left: 397px;
+	margin-top: 126px;
+	width: 186px;
+	height: 205px;
+	display: block;
+}
+	#afrique:hover
+	{
+		background-position: 0 2px;
+	}
+#amerNord
+{
+	position: absolute;
+	background-image: url("image/mondeLogo/amerNord.png");
+	background-position: 0 202px;
+	margin-left: 85px;
+	margin-top: 9px;
+	width: 343px;
+	height: 202px;
+	display: block;
+}
+	#amerNord:hover
+	{
+		background-position: 0 -4px;
+	}
+#amerSud
+{
+	position: absolute;
+	background-image: url("image/mondeLogo/amerSud.png");
+	background-position: 0 -205px;
+	margin-left: 233px;
+	margin-top: 191px;
+	width: 118px;
+	height: 201px;
+	display: block;
+}
+	#amerSud:hover
+	{
+		background-position: 0 2px;
+	}
+#oceanie
+{
+	position: absolute;
+	background-image: url("image/mondeLogo/oceanie.png");
+	background-position: 0 131px;
+	margin-left: 708px;
+	margin-top: 237px;
+	width: 200px;
+	height: 131px;
+	display: block;
+}
+	#oceanie:hover
+	{
+		background-position: 0 0px;
+	}
+.img_logo {
+	border: 0;
+	position: absolute;
+	background-image: url("image/mondeLogo/logo.png");
+	background-position: 0 70px;
+	width: 50px;
+	height: 72px;
+	display: block;
+}
+	.img_logo:hover {
+		background-position: 0 -8px;
+	}
+#img_cont_logo
+{
+	width: 900px;
+	height: 900px;
+	position:absolute;
+}
+/* bas */
+#bas
+{
+	margin-bottom: 25px;
+	width: 924px;
+	height: 29px;
+	background-image: url(image/bas.png);
+}
+#monde
+{
+	position: absolute;
+	left: 50%;
+	margin-left: 222px;
+	margin-top: -13px;
+}
+	#monde img 
+	{
+		border: 0px;
+	}
+#lang
+{
+	position: absolute;
+	width: 924px;
+	height: 12px;
+	margin-top: -11px;
+}
+	#lang p
+	{
+		/*text-align:center;*/		text-align:right;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+	}
+	#lang img 
+	{
+		border: 0px;
+	}
+#mp3
+{
+	position: absolute;
+	width: 200px;
+	margin-left: 46px;	margin-top: -24px;
+}
+	#mp3 img 
+	{
+		border: 0px;
+	}
+#livre
+{
+	position: absolute;
+	left:55%;
+	margin-left: -97px;
+	margin-top: -24px;
+}
+	#livre img 
+	{
+		border: 0px;
+	}#mondeL	{	position: absolute;	right:25%;	margin-left: -97px;	margin-top: -24px;}	#mondeL img 	{		border: 0px;	}	
+/* haut */
+#haut
+{
+	margin-top: 12px;
+	width: 924px;
+	height: 25px;
+	background-image: url(image/haut.png);
+}
+
+ 
+ 
+ /* CORPS DE LA PAGE == PAGE D'ACCUEIL*/
+ /*------------------------------------------------------------------------------------*/
+  #corps
+ {
+	width: 924px;
+	overflow: hidden;
+	background-color:#ffffff;
+ }
+ 
+/* Menu */
+ #menu
+{
+	width :880px;
+	height : 25px;
+	margin-left: 62px;
+	margin-top:20px;
+}
+#menuM
+{
+	width :880px;
+	height : 25px;
+	margin-left: 62px;
+	margin-top: -3px;
+}
+#menuA
+{
+	width :880px;
+	height : 25px;
+	margin-left: 62px;
+	margin-top: -48px;
+}
+#menu2
+{
+	font-size: 14px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+ /* PIED DE PAGE */
+ /*---------------------------------------------------------------------------*/
+  #footer
+ {
+	width:924;
+	overflow: hidden;
+	background-color:#ffffff;
+ }
+ 
+.footer 
+{
+	
+	font-size: 13px;
+	margin-bottom: 5px;
+	text-align: center; 
+	color: grey;
+    
+}
+
+/** liens hypertexte */
+
+  a  
+  {   
+  /*color:#ff0000;   */
+  /*text-decoration:none;  */
+ } 
+ 
+  a:hover  
+  {   
+  color:#000000;   
+ }
+  
+/** titre */
+H1
+{
+	font-size:20px;
+}
+
+/** Formulaires **/
+.formS label
+{
+	display:block;
+	width:210px;
+	text-align: right;
+	margin-right: 30px;
+	float:left;
+}
+.formS input, .formS textarea, .formS select
+{
+	margin-bottom: 5px;
+	border: solid black 1px
+}
+/** page d'accueil */
+/*--------------------------------------------------------------------------------*/
+
+#accueil
+{	
+	font-size: 16px;
+	margin: 25px 50px 50px 50px;
+	text-align: justify;
+}
+
+#page_tab
+{
+	font-size: 16px;
+	text-align: justify;
+}
+/** Page demandeMembre.php */
+/*--------------------------------------------------------------------------------*/
+.tabMessNoValid td
+{
+	padding: 30px;
+}
+.tabMembNoValid td
+{
+	padding: 5px;
+}
+
+/** page des liens hypertextes */
+/*--------------------------------------------------------------------------------*/
+
+#liens
+{	
+	font-size: 16px;
+	margin: 50px;
+}
+#liens td
+{	
+	border-bottom: 3px;
+}
+
+/** images */
+img
+{
+	border : 5px;
+	border-style : solid;
+	border-color : white;
+}
+
+#espace_reserve
+{	
+	margin: 50px;
+	margin-left: 150px;
+	width: 652px;
+	height:139px;
+	background-image:url(image/espace_reserve.png);;
+}
+/* Page compte rendu */
+.form-compteRendu
+{
+	font-family: "Arial";
+	text-align : justify; 
+	color: #4F5857;
+	font-size: 16px;
+	width: 924px;
+	padding-left: 50px;
+}
+/* Page change texte */
+.select_lang_txt
+{
+	width: 150px;
+}

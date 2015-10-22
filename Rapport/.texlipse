@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Sun May 31 21:17:34 CEST 2015
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=Rapport.tex
+outputFile=Rapport.pdf
+langSpell=fr
+markDer=true
+srcDir=

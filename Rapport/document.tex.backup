@@ -1,0 +1,1937 @@
+\documentclass[11pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=1.5cm]{geometry}
+\usepackage{xspace}
+\usepackage[toc,page]{appendix} 
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-uml}
+\usepackage{lscape}
+\setlength{\columnseprule}{0.5pt}
+ \parskip=10pt
+\usepackage{sidecap}
+\usepackage{wrapfig}
+\usepackage{pgfkeys}
+\usepackage{array}
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[bookmarks={true},bookmarksopen={true}]{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage[babel=true]{csquotes}
+\usepackage{url} % Pour écrire des adresses cliquables.
+\usepackage{lmodern} % Pour changer le pack de police.
+\usepackage{etoolbox}
+\usepackage{colortbl}
+\usepackage[final]{pdfpages} 
+\usepackage{titlesec}
+\usepackage{multirow}
+\newcommand{\chapterP}{\chapter}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\pagestyle{fancy}
+\usepackage{caption}
+\usepackage{indentfirst}
+\setlength{\parindent}{15pt}
+
+\captionsetup[table]{labelformat=empty}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[L]{Projet JEE}
+\fancyhead[C]{Reseau Info 1}
+\fancyhead[R]{\leftmark}
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[L]{IUT de Rodez}
+\fancyfoot[C]{- \thepage -}
+\fancyfoot[R]{2014 - 2015}
+
+\usepackage[light,math]{iwona}
+
+\setcounter{secnumdepth}{5}
+\renewcommand{\thechapter}{\Alph{chapter}}
+\renewcommand{\thesection}{\Alph{chapter}.\Roman{section})}
+\renewcommand{\thesubsection}{\Alph{chapter}.\Roman{section}.\arabic{subsection})}
+\renewcommand{\thesubsubsection}{\Alph{chapter}.\Roman{section}.\arabic{subsection}.\alph{subsubsection})}
+\parskip 5pt
+
+\tikzstyle{line}=[-, thick]
+
+\titlespacing\section{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus
+2pt}
+ \titlespacing\paragraph{0pt}{2pt plus 1pt minus 0pt}{0pt plus 2pt minus 2pt}
+\titlespacing\chapter{0pt}{5pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\title{Projet JEE\\Reseau Info 1}
+\author{DEMERY Cyril\\RIBEIRO DA SILVA Baptiste\\BARRE Sylvain\\GAUVRIT
+  Bryan\\RIBAS Nathan}
+\date{2014 - 2015}
+
+\pdfinfo{%
+  /Title    (Projet JEE - Reseau Info1)
+  /Author   (DEMERY Cyril)
+  /Creator  (DEMERY Cyril)
+  /Producer ()
+  /Subject  (Java Enterprise Edition)
+  /Keywords ()
+}
+
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{5}
+\tableofcontents
+\chapter{Plan Projet}
+Dans cette partie, nous allons présenter la méthode utilisée afin d'organiser
+notre projet, grâce à la planification, au travail de groupe et à la gestion
+de configuration.
+\section{Planification et ordonnancement}
+Tout d'abord, étant donné que le projet dure une trentaine de jours, nous avons
+décidé de le découper en trois itérations de 10 jours, chacune
+terminée par une réunion avec le client, auxquelles s'ajoutent éventuellement 
+des
+réunions additionnelles avec d'autres enseignants. Voilà au final ce que nous
+avons réussi à organiser en termes de réunions :
+\par 
+\begin{table}[!htb]
+    \caption{Organisation du projet dans le temps}
+    \begin{minipage}{.5\linewidth}
+          \centering
+      \caption{Calendrier du mois de Mai}
+      \begin{tabular}{|c | c | c | c | c | c | c |}
+  \hline
+  Lundi & Mardi & Mercredi & Jeudi & Vendredi & Samedi & Dimanche \\
+  \hline
+27 & 28 & 29 & \cellcolor{yellow} 30 & \cellcolor{gray}1 & \cellcolor{gray}2 &
+\cellcolor{gray}3
+\\
+  \hline
+4 & 5 & 6 & 7 & \cellcolor{gray}8 & \cellcolor{gray}9 & \cellcolor{gray}10 \\ 
+  \hline
+ 11 & 12 & \cellcolor{green} 13 & \cellcolor{gray}14 &
+\cellcolor{gray}15 & \cellcolor{gray}16 & \cellcolor{gray}17 \\
+  \hline
+18 & \cellcolor{yellow} 19 & 20 & 21 & 22 & \cellcolor{gray}23
+& \cellcolor{gray}24 \\
+  \hline
+\cellcolor{gray}25 & \cellcolor{yellow} 26 & 27 & 28 & 29 & \cellcolor{gray}30 &
+\cellcolor{gray}31
+\\
+  \hline
+ 1 & 2 & 3 & 4 & 5 & \cellcolor{gray}6 & \cellcolor{gray}7 \\
+  \hline
+\end{tabular}
+   \end{minipage}
+    \begin{minipage}{.7\linewidth}
+      \centering
+        \caption{Légende}
+\begin{tabular}{| c | p{4cm} |}
+  \hline
+  Couleur & Description \\
+  \hline
+\cellcolor{yellow}& Réunion avec le client \\
+  \hline
+\cellcolor{green}& Réunion avec Mr Belières pour
+l'interface Web \\
+  \hline
+\cellcolor{gray} & Jours non-travaillés à l'IUT \\ 
+  \hline
+\end{tabular}
+
+    \end{minipage} 
+\end{table}
+
+
+\par Par la suite, nous avons essayé de planifier la première itération : 
+\includepdf[pages=1]{debut.pdf}
+\par Nous avons essayé de déterminer les tâches au mieux, mais nous nous sommes
+heurtés à des difficultés étant donné que nous n'avons que de maigres
+connaissances en JEE et ce que cela implique comme choix de réalisation.\\
+\par Par conséquent, nous avons décidé réaliser cette planification, au moins
+de la première itération, en nous donnant quatre jours pour acquérir des 
+connaissances 
+en JEE, puis trois jours de plus pour concevoir la partie visible du site 
+(architecture des 
+pages) et en parallèle, nous avons trois jours pour réaliser la partie immergée 
+de 
+l'iceberg, c'est à dire les liens entre les diverses parties du site et leurs 
+propriétés.\\
+\par Toutefois, suite à la réunion du 29 avril avec M. Barrios, nous avons
+revu nos objectifs, car le modèle de planification présenté ci-dessus
+n'était pas un modèle agile mais plutôt celui d'un cycle de vie en cascade. 
+De cette manière, tout était censé être établi d'avance et nous n'avions pas
+prévu de revenir sur la conception.\\
+\par Nous avions également mal estimé le temps des choses, en donnant trop de
+temps de réalisation à la programmation côté client, alors que c'est la
+programmation côté serveur la plus importante car c'est elle qui correspond aux
+fonctions \og Métiers \fg. Idem pour l'apprentissage de JEE que nous avons sous
+estimé, avec seulement trois jours estimés, ce qui est trop peu pour assimiler la
+persistance, les servlets, le JSP, l'architecture d'un site JEE ainsi que le
+déploiement de serveur.\\
+ \par Suite à cela, nous avons refait une planification
+en intégrant les remarques.
+\includepdf[pages=1]{iteration1.pdf}
+Nous avons ici corrigé les erreurs de la précédente planification : 
+\begin{itemize}
+  \item Le cycle de vie est maintenant itératif
+  \item La durée de l'étape \og Base de JEE \fg a été revue à la hausse
+\end{itemize}
+\par Nous répétons donc les étapes sur chaque itération, en rajoutant des
+éléments à chaque fois. Par exemple, la première itération est basée sur le
+forum, tandis que la deuxième est plus sur l'aspect blog et annonces.\\
+\par Notons également l'affectation des ressources, avec Bryan, Cyril et Sylvain
+qui s'occupent essentiellement de la partie serveur, tandis que Baptiste et
+Nathan sont en charge des parties clientes. En ce qui concerne le JEE, tout le
+monde apprend en individuel, mais à contrario la conception est effectuée par
+tout le monde lors de réunions pour cette itération. 
+\includepdf[pages=1]{iteration2.pdf}
+\includepdf[pages=1]{iteration2taches.pdf}
+\par Cette planification correspond à celle de la fin de la première itération
+et du début de la seconde.
+\par On constate que de nouvelles tâches se sont rajoutées : celles de
+maintenance des composants déjà réalisés, afin d'assurer une compatibilité avec 
+l'intégration des nouveaux composants. \\
+\par Pour ce qui est de la première itération, lors de sa fin, il manquait deux
+classes sur six dans la partie programmation serveur, retard qui a été
+finalement rattrapé deux jours plus tard. Également, l'avancement de la partie
+cliente a été retardé car seul Baptiste a eu le temps de s'y consacrer.\\
+\par Nous constatons également que la durée de la partie \og Base de JEE \fg a
+été étendue pour atteindre une quinzaine de jours, car tous les membres du
+groupe n'ont pas eu le temps de se consacrer à l'apprentissage et ont pris du
+retard dans la livraison des composants.\\
+\par Ensuite, en ce qui concerne l'affectation des rôles, Cyril s'occupera de la
+maintenance, Sylvain et Baptiste seront en charge de la conception et de la
+programmation des nouveaux composants, tandis que Nathan et Bryan réaliseront
+l'IHM et les servlets associées.\\
+\par Toutefois, suite à la réunion de fin d'itération et de suivi de projet avec
+M. Barrios, il a été convenu que seul Nathan allait s'occuper de l'IHM, que
+Cyril et Baptiste allaient écrire les nouvelles classes côté serveur en binôme 
+et que
+Bryan et Sylvain allaient se charger de l'intégration des classes métiers dans
+l'IHM avec les servlets associées. 
+\includepdf[pages=1]{iteration3.pdf}
+\includepdf[pages=1]{iteration3_taches.pdf}
+\par Sur cette dernière plannification, nous avons revu nos objectifs à la 
+baisse, et certaines parties
+ne seront pas traitées, comme la FaQ (Foire aux Questions), les pages
+personnelles ainsi que le système de grade. \\
+\par Lors de la dernière réunion, il a été mentionné que le
+travail devait être réparti plus équitablement au sein de l'équipe, et que ce
+n'était pas à une personne de réaliser l'intégralité du projet en attribuant que
+des rôles accessoires aux autres. C'est pourquoi le travail de cette itération a 
+été répartie de telle manière qu'un membre ne s'occupe pas trop de plusieurs 
+parties, comme cela a été le cas sur l'itération précédente, où finalement Cyril 
+s'est occupé de la conception, de la programmation et de la maintenance. \\
+\par Comme vous pouvez le constater, nous sommes en retard sur l'itération 2 et 
+c'est pourquoi les implémentations qui devaient être réalisées ont été annulées. 
+Ainsi, cette itération aura uniquement pour but de maintenir ce qui a déjà été 
+codé et de terminer l'interface qui est très en retard, avec seulement les pages 
+d'inscription, connexion et d'index réalisées. \\
+\par Enfin, comme vous pouvez le constater, nous avons rajouté la tâche \og 
+rédaction du rapport \fg qui nous a été conseillée par M. Barrios, même si le 
+rapport a été écrit au fur et à mesure de l'avancement du projet.
+\includepdf[pages=1]{fin.pdf}
+\includepdf[pages=1]{fintaches.pdf}
+\par Sur cette dernière planification nous voyons comment nous nous sommes
+finalement arrangés pour cette dernière itération, ainsi que les objectifs qui
+ont été accomplis complètement ou pas.\\
+\par Nous pouvons constater quelques différences par rapport à celle donnée en
+début d'itération dû à une réaffectation des rôles, car certaines personnes
+n'avaient pas codé de classes métiers. Nous avons dû également gérer le retard
+sur l'IHM, principalement causé par une mise au travail tardive des personnes
+chargées de s'en occuper, de ce fait la charte graphique a été établie
+tardivement et l'étude de l'existant n'a été faite qu'à la fin alors qu'elle
+était prévue au début, ce qui a posé des problèmes car l'index du forum n'était pas en
+correspondance avec ce qui était attendu.\\
+\par Un autre problème à surmonter sur cette fin d'itération a été le changement
+régulier d'en-tête et/ou de principe de fonctionnement des classes métiers, avec
+une très grande différence entre ce qui a été produit la semaine dernière et ce
+qui a été fait cette semaine, notamment parce que les classes sont maintenant
+indépendantes de la persistence, et qu'on peut les instancier et faire des
+manipulations de bases sans SGBD installé.
+
+\section{Structuration de l'équipe et organisation}
+\par Dans cette partie nous présenterons la composition du groupe ainsi que les
+choix d'organisation qui ont été effectués.\\
+
+\par Pour la première itération, il a été convenu que chacun travaille seul afin
+d'acquérir les bases. En revanche, pour les itérations 2 et 3, les membres du
+groupe travailleront en binôme, afin de pouvoir partager les connaissances et
+commettre moins d'erreurs de programmation. \\
+
+\par En ce qui concerne le rôle de chacun, il a été convenu que seul le rôle de
+Gestionnaire de Configuration allait changer de responsable. Durant la première
+itération, ce fut Baptiste qui occupa ce poste, puis par la suite Nathan. Le
+rôle de Chef de Projet a été attribué à Cyril, et celui de Secrétaire de Projet
+à Sylvain. Nous avons présenté tout cela dans un tableau récapitulatif :
+
+\begin{table}[!htb]
+\caption{Composition du groupe} 
+\centering
+\begin{tabular}{| c | c | p{4cm} |}
+	\hline
+  Id. & Membres & Rôle\\\hline
+  BS & BARRE Sylvain & Secrétaire de projet\\\hline
+  DC & DEMERY Cyril & Chef de projet\\\hline
+  GB & GAUVRIT Bryan & \\\hline
+  RN & RIBAS Nathan &\multirow{2}{3cm}{Gestionnaire de
+  configuration}\\\cline{1-2} RB &  RIBEIRO DA SILVA Baptiste &\\\hline
+\end{tabular}
+\end{table}
+
+\section{Gestion de configuration}
+Afin de travailler le plus efficacement possible nous nous sommes assurés que
+tout le monde dispose de : 
+\begin{itemize}
+  \item Eclipse Luna SR2 JEE avec GlassfishTools et EclipseLink
+  \item JDK 8.05 minimum
+  \item Java EE 7
+  \item Glassfish 4
+  \item Oracle 10g/11g Express Edition
+\end{itemize}
+
+\par Nous avons également essayé d'implanter GIT, mais sans succès car nous
+n'arrivions pas à régler l'intégration pour qu'elle avertisse lors de conflit
+sur l'hébergement de fichiers retouchés par plusieurs personnes. Suite à la 
+réunion de fin  de première itération, M. Barrios nous a conseillé d'utiliser 
+SVN comme logiciel de gestion de version, mais nous n'avons pas eu le temps de 
+mettre en place cet outil.\\
+\par Du coup, lorsqu'un membre édite le code source ou les spécifications, il
+rajoute son travail sur le dossier commun du Drive de Google et Cyril s'occupe
+de centraliser la version stable et de la mettre en ligne.
+
+\par En ce qui concerne la configuration de développement de chacun, voici un
+tableau récapitulatif :
+\begin{table}[!htb]
+\caption{Configuration des membres du groupe} 
+\centering
+      \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{2cm} | p{4cm} |}
+  \hline
+  Membres & Machine & CPU & RAM & OS \\
+  \hline
+	\multirow{3}{*}{DEMERY Cyril} & Tour Appartement & i5-3570 @3.2GHz &
+	8Go DDR3 & \begin{minipage}{3cm}
+\medskip \par
+\begin{itemize}
+\item Windows 7 Ultimate x64
+\item Ubuntu 14.04 x64
+\end{itemize}
+\medskip
+\end{minipage}
+	\\\cline{2-5}
+	& Tour Maison & i7-3770k @3.3GHz & 8Go
+	DDR3 
+& Windows 7 Family x64
+	\\\cline{2-5}
+	& Laptop & T4400 @2.2GHz & 4Go DDR3 & Debian 7.4 x86
+	\\\hline
+	RIBAS Nathan & Laptop & i5-4210U @2.4GHz & 4Go DDR3 & Windows 7 Pro x64
+	\\\hline
+		BARRE Sylvain & Laptop & i7-4700MQ @2.4GHz & 4Go DDR3 & Windows 
+8.1 Home x64
+	\\\hline
+	        RIBEIRO DA SILVA Baptiste & Laptop & Celeron B800 @1.50Ghz & 6Go 
+DDR3 & Windows 10 Pro x64
+    \\\hline
+	
+\end{tabular}
+   \end{table}
+   \par Sur la page suivante, nous voyons que la configuration de chacun est 
+très variée, et par conséquent, il a fallu utiliser des outils spécifiques à 
+chaque environnement de travail. Ce n'est pas un problème pour des outils tels 
+qu'Eclipse, Java et VisualParadigm qui sont multi-plateformes, de même que pour 
+la base Oracle. Là où un souci s'est posé, c'est avec les traitements de texte 
+et les rapports. En effet, il était impossible d'ouvrir un document OpenOffice 
+sous Word et inversement sans perdre la mise en page.\\
+   \par Du coup, en ce qui concerne la documentation, elle est rédigée par 
+Sylvain pour les
+comptes rendus de réunion sous Microsoft Word 2013, et les rapports sont
+rédigés en LaTeX sous Kile et Texlipse par Cyril, ainsi, on ne perd ni la mise 
+en forme, ni les éventuels fichiers liés lors d'un changement de machine, il 
+suffit d'avoir les bonnes bibliothèques installées. Tous ses documents sont 
+ensuite centralisés au format PDF sur le dossier du groupe sur le Drive, en 
+s'assurant de bien garder la dernière version.\\
+\par De la même manière, nous avions un problème pour définir le logiciel de 
+planification à utiliser, vu que MS Project n'était pas disponible sous Linux. 
+Nous avons donc le choix soit entre un logiciel multi-plateformes, soit sur un 
+système directement implanté Internet. Notre choix s'est porté sur la première option et le 
+logiciel Planner, qui ne dispose pas d'options très poussées, mais convient très 
+bien pour un projet avec quelques personnes.
+
+\chapter{Spécification}
+	Nous avons choisi de réaliser le réseau communautaire "info1" en JEE. 
+Pour
+	cela, nous avons décidé de concevoir : 
+	\begin{itemize}
+\item un forum
+\item un système de blog
+\item un système d'annonces
+\item un système de messages privés
+\end{itemize}
+\par Bien sûr, si le temps nous le permet, nous perfectionnerons ces systèmes,
+avec pourquoi pas un passage à la messagerie instantanée pour les messages 
+privés, ainsi qu'un système de modération pour les diverses parties.
+\section{Spécification générale}
+\subsection{Membres}
+Un membre est identifié par une adresse e-mail et un mot de passe. Son
+identité est valable sur n'importe quelle partie du site. Néanmoins, plusieurs 
+informations sont nécessaires lors de l'inscription, comme le mot de passe, le 
+nom, le prénom, et l'adresse mail. Le nom de l’utilisateur sera affiché en clair 
+sur le site, car il s'agit d'un site destiné aux étudiants, donc inutile de 
+parler via un pseudo. L'adresse mail fera office d'identifiant de connexion et 
+devra donc être
+ unique. Elle devra aussi être valide, car c'est elle qui sera utilisée en cas 
+de perte de mot de passe. 
+ \par Un membre inscrit pourra :
+	\begin{itemize}
+\item Changer son mot de passe
+\item Créer des sujets sur le forum et modifier les siens
+\item Publier des réponses sur le forum et modifier les siennes
+	\end{itemize}
+\par Un membre, connecté ou non, pourra consulter l'intégralité du site mais
+seul un membre inscrit pourra publier et envoyer des messages privés.\\
+ \par Les dates d'inscription et de
+dernière connexion d'un membre seront également accessibles. Il sera possible 
+de consulter la liste des membres inscrits sur le site.
+\subsection{Forum}
+Le forum permettra aux utilisateurs d'échanger et de poser des questions. Il 
+sera défini par des sections, des catégories, des sujets et des réponses.
+\subsubsection{Section}
+Une section est identifiée par un nom. Elle permet de regrouper des
+catégories. Un nom de section est unique. Il sera possible de supprimer une 
+section, et
+de consulter la liste des catégories du forum.
+\subsubsection{Catégorie}
+Une catégorie est définie par une section, un nom et une description. Il ne
+peut pas exister deux catégories avec le même nom dans le système. Elle pourra 
+contenir des sujets.
+Il sera possible de modifier la description de sa catégorie mais pas son
+titre.\\
+\par Également, nous disposerons d'une fonction permettant de supprimer une
+catégorie, qui supprimera les sujets associées à celles-ci et les réponses 
+associées à ces sujets, ainsi que d'une fonction pour changer la section de la
+catégorie.
+Enfin, il sera possible de consulter la liste des catégories du forum,
+ainsi que la liste des catégories ayant pour parent une section donnée.
+\subsubsection{Sujet}
+Un sujet est posté par un membre dans une catégorie. Il comporte un titre, un 
+contenu, et état qui permettra de savoir s'il est
+résolu ou non, ainsi qu'une date de création et d'une date de dernière 
+modification. Pour une catégorie donnée, le titre du sujet doit être unique.\\
+\par Il ne sera possible de modifier un sujet que s'il n'est pas déjà résolu et
+que l'on en est l'auteur. On pourra également changer l'état du sujet et le 
+supprimer, en retirant les réponses qui lui sont associées.
+Il sera aussi possible de modifier la catégorie du sujet.\\
+\par Enfin, il sera possible de consulter une liste de tous les sujets présents
+dans une catégorie, ainsi que celle de tous les sujets du forum et celle de 
+tous les sujets postés par un membre donné.\\
+\par Si l'auteur est supprimé, le sujet est conservé, et l'auteur passe en
+\og Anonyme \fg
+\subsection{Réponse}
+Une réponse est postée par un membre sur un sujet. Elle comporte un contenu
+ainsi qu'une date de création et d'une date de dernière modification. Il sera
+possible de modifier une réponse si l'on en est l'auteur. On pourra également la
+ supprimer.\\
+\par Enfin, il sera possible de consulter une liste de toutes les réponses d'un
+sujet, ainsi que celle de toutes les réponses du forum et celle de toutes les 
+réponses postées par un membre donné.\\
+\par On ne pourra pas faire des réponses de réponses (encapsulation), il faudra
+citer.\\
+\par Dans le cas général, si l'auteur est supprimé, la réponse l'est aussi,
+sauf pour les réponses du forum où l'auteur passe en \og Anonyme
+\fg
+\subsection{Système de blogs}
+\subsubsection{Blog}
+Un blog appartient à un seul et unique membre qui ne peut posséder qu'un
+seul blog. Le blog a un titre et peut posséder une description et contenir
+des articles.
+\subsection{Article}
+Un article de blog est caractérisé par un titre, une description rapide (qui
+prendra la valeur de la première phrase du contenu si aucune description n’est 
+donnée) et un contenu. Le membre pourra à tout instant créer un article, le
+modifier et le supprimer.
+
+\par Pour les commentaires des articles, se référer au paragraphe concernant les
+réponses.
+\subsection{Annonces}
+ Les annonces peuvent être vues par tout le monde. Chaque annonce est créée par 
+un seul membre qui pourra par la suite la modifier ou même la supprimer. Pour
+une annonce donnée et un utilisateur donné, il sera possible de commenter
+l’annonce (mais pas un commentaire de l’annonce). Si l’auteur de l’annonce voit
+son compte supprimé, l’annonce sera supprimée à son tour.\\
+\par Pour les commentaires des annonces, se référer au paragraphe concernant les
+réponses.
+
+\subsection{Messages privés}  
+\par Un message privé concerne deux membres : un expéditeur et un destinataire
+via leur adresse mail (qui joue le rôle d'identifiant unique). L'expéditeur
+rédige un message avec un titre à destination d'un autre membre existant, mais
+pas lui-même. Il peut éditer et supprimer le message tant que le destinataire ne
+l'a pas consulté.\\
+\par Lorsque le message est lu, le statut
+change pour l'expéditeur et le destinataire (\og non lu \fg devient \og lu \fg).
+Le destinataire a la possibilité de répondre au message, sans toutefois
+restituer le message précédent comme citation.\\
+\par Le contenu du message devra être sécurisé afin que seul l'expéditeur et le
+destinataire aient accès au corps de texte.
+
+\section{Spécification détaillée}
+\setlength{\parindent}{0pt}
+Vous trouverez ici notre diagramme de cas d'utilisation, ainsi que la rédaction de chacun des cas.
+\begin{landscape}
+\begin{center}
+\includegraphics{usecase.jpg}
+\end{center}
+\end{landscape}
+
+\subsection{Consulter un forum}
+\subsubsection*{Identification}
+\underline{Nom :} Consulter un forum\\
+\underline{Objectif :} Offre la possibilité à un utilisateur de voir les catégories, les sujets et les réponses d’un forum\\
+\underline{Acteur principal :} Visiteurs\\
+\underline{Date :} 6 mai 2015\\
+\underline{Responsable :} GAUVRIT Bryan, DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} Aucune
+\\Le scénario nominal :
+\begin{enumerate}
+\item Une personne peut voir tous les forums et cliquer sur une catégorie
+\item La personne peut voir les catégories et cliquer sur un sujet
+\item La personne peut voir le sujet et toutes les réponses associées à celui-ci
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Aucun enchainement alternatif
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+
+\subsection{Consulter un blog}
+\subsubsection*{Identification}
+\underline{Nom :} Consulter un blog\\
+\underline{Objectif :} Offre la possibilité à un utilisateur de voir le contenu du blog d’un membre\\
+\underline{Acteur principal :} Visiteurs\\
+\underline{Date :} 6 mai 2015\\
+\underline{Responsable :} GAUVRIT Bryan, DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} Aucune
+\\Le scénario nominal :
+\begin{enumerate}
+\item Une personne peut voir tous les blogs dans une liste et y accéder
+\item Sur un blog, une personne peut voir toutes les news et y accéder
+\item Sur une news, une personne peut voir toutes les réponses associées à cette news
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Aucun enchainement alternatif
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Consulter une annonce}
+\subsubsection*{Identification}
+\underline{Nom :} Consulter une annonce\\
+\underline{Objectif :} Offre la possibilité à un utilisateur de voir une annonce d’un membre\\
+\underline{Acteur principal :} Visiteurs\\
+\underline{Date :} 6 mai 2015\\
+\underline{Responsable :} GAUVRIT Bryan, DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} Aucune
+\\Le scénario nominal :
+\begin{enumerate}
+\item Une personne peut voir toutes les annonces présentes sur le site et y accéder
+\item Sur une annonce, une personne peut voir toutes les réponses associées à celle-ci
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Aucun enchainement alternatif
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{S'inscrire sur le site}
+\subsubsection*{Identification}
+\underline{Nom :} S’inscrire sur le site\\
+\underline{Objectif :} Offre la possibilité à un utilisateur de s’inscrire sur le site web\\
+\underline{Acteur principal :} Visiteurs\\
+\underline{Date :} 3 mai 2015\\
+\underline{Responsable :} DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} Aucune
+\\Le scénario nominal :
+\begin{enumerate}
+\item Une personne clique sur le bouton \og s’inscrire \fg
+\item La personne entre son nom
+\item La personne entre son prénom
+\item La personne entre son adresse mail
+\item La personne entre son mot de passe
+\item La personne entre une nouvelle fois son mot de passe
+\item La personne clique sur le bouton \og envoyer \fg
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Point 2 de la séquence nominale : Le format du nom est incorrect
+  \begin{itemize}
+ \item La personne doit recommencer la saisie de son nom
+ \item Retour au scénario nominal 2\\
+  \end{itemize}
+Point 3 de la séquence nominale : Le format du prénom est incorrect
+  \begin{itemize}
+ \item La personne doit recommencer la saisie de son prénom
+ \item Retour au scénario nominal 3\\
+  \end{itemize}
+Point 4 de la séquence nominale : Le format de l’adresse mail est incorrect
+  \begin{itemize}
+ \item La personne doit recommencer la saisie de son adresse mail
+ \item Retour au scénario nominal 4\\
+  \end{itemize}
+Point 5 de la séquence nominale : Le format du mot de passe est incorrect
+  \begin{itemize}
+ \item La personne doit recommencer la saisie de son mot de passe
+ \item Retour au scénario nominal 5\\
+  \end{itemize}
+Point 6 de la séquence nominale : La confirmation de mot de passe ne correspond pas au mot de passe précédent
+  \begin{itemize}
+ \item La personne doit recommencer la saisie de la confirmation de son mot de passe
+ \item Retour au scénario nominal 6
+  \end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+  Point 7 de la séquence nominale : Le formulaire contient une erreur
+    \begin{itemize}
+\item La personne doit recommencer la saisie de ses informations
+\item Retour au scénario nominal 2\\
+  \end{itemize}
+    Point 7 de la séquence nominale : L'adresse mail est déjà utilisée par un autre membre
+    \begin{itemize}
+\item La personne doit recommencer la saisie de ses informations
+\item Retour au scénario nominal 2
+  \end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Remarque concernant la fiabilité\\
+Les accès doivent être sécurisés et la saisie du code confidentiel ne doit pas faire apparaître le code en clair
+
+
+\subsection{S'authentifier au site}
+\subsubsection*{Identification}
+\underline{Nom :} S’authentifier au site\\
+\underline{Objectif :} Offre la possibilité à un utilisateur de s’authentifier au site web\\
+\underline{Acteur principal :} Visiteurs\\
+\underline{Date :} 3 mai 2015\\
+\underline{Responsable :} DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} Aucune
+\\Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur le bouton \og se connecter \fg
+\item La personne doit entrer son adresse mail
+\item La personne doit entrer son mot de passe
+\item La personne appuie sur le bouton \og Connexion \fg
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Point 2 de la séquence nominale : Le format de l’adresse mail est incorrect
+  \begin{itemize}
+   \item La personne doit recommencer la saisie de son adresse mail
+   \item Retour au scénario nominal 2\\
+  \end{itemize}
+
+Point 3 de la séquence nominale : Le format du mot de passe est incorrect
+  \begin{itemize}
+   \item La personne doit recommencer la saisie de son mot de passe
+ \item Retour au scénario nominal 3
+  \end{itemize}
+
+
+\subsubsection*{Enchaînements d’exception}
+  Point 4 de la séquence nominale : L’adresse mail ou le mot de passe est invalide
+  \begin{itemize}
+   \item La personne doit recommencer la saisie de ses informations
+ \item Retour au scénario nominal 2
+  \end{itemize}
+
+
+\subsubsection*{Rubrique optionnelle} 
+Remarque concernant la fiabilité\\
+Les accès doivent être sécurisés et la saisie du code confidentiel ne doit pas faire apparaître le code en clair
+
+\subsection{Ajouter un sujet au forum}
+\subsubsection*{Identification}
+\underline{Nom :} Ajouter un sujet au forum\\
+\underline{Objectif :} Offre la possibilité à un membre d’ajouter un sujet dans une catégorie d'un forum\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 6 mai 2015\\
+\underline{Responsable :} GAUVRIT Bryan, DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite
+\\Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur une section dans laquelle elle veut insérer son nouveau sujet
+\item La personne clique sur une catégorie dans laquelle elle veut insérer son nouveau sujet
+\item La personne clique sur le bouton \og ajouter un sujet \fg
+\item La personne entre un nom de sujet
+\item La personne entre la question qu’elle veut poser dans son sujet
+\item La personne clique sur le bouton \og Envoyer \fg
+\end{enumerate}
+\subsubsection*{Enchaînements alternatifs}
+Point 4 de la séquence nominale : Le format du nom du sujet est incorrect ou déjà existant dans la catégorie
+\begin{itemize}
+ \item La personne doit recommencer la saisie du sujet
+\item Retour au scénario nominal 4\\
+\end{itemize}
+
+Point 5 de la séquence nominale : Le format de la question posée est incorrect
+\begin{itemize}
+ \item La personne doit recommencer la saisie de la question
+\item Retour au scénario nominal 5
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 6 de la séquence nominale : La personne essaie d’envoyer un sujet invalide
+\begin{itemize}
+ \item La personne est prévenue qu’il y a une erreur
+ \item Retour au scénario nominal 4
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Modifier un sujet du forum}
+\subsubsection*{Identification}
+\underline{Nom :} Modifier un sujet du forum\\
+\underline{Objectif :} Offre la possibilité à un membre de modifier le titre, le contenu ou le statut d’un sujet dans le forum\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 6 mai 2015\\
+\underline{Responsable :} GAUVRIT Bryan, DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite
+\\Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur une section dans laquelle elle veut insérer son nouveau sujet
+\item La personne clique sur une catégorie dans laquelle elle veut insérer son nouveau sujet
+\item Une personne clique sur un sujet dont elle est l’auteur
+\item La personne clique sur un bouton modifier qui est présent uniquement si ce sujet lui appartient
+\item La personne modifie le titre de son sujet
+\item La personne modifie le contenu de son sujet
+\item La personne modifie le statut de son sujet
+\item La personne clique sur le bouton \og valider \fg
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Point 5 de la séquence nominale : Le titre du sujet est invalide
+\begin{itemize}
+ \item La personne doit recommencer la saisie du titre du sujet
+ \item Retour au scénario nominal 5\\
+\end{itemize}
+
+Point 6 de la séquence nominale : Le contenu du sujet est invalide
+\begin{itemize}
+ \item La personne doit recommencer la saisie du contenu
+ \item Retour au scénario nominal 6
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 8 de la séquence nominale : La personne essaie d’envoyer un sujet invalide
+\begin{itemize}
+ \item La personne est prévenue d’une erreur
+ \item Retour au scénario nominal 5
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Supprimer un sujet du forum}
+\subsubsection*{Identification}
+\underline{Nom :} Supprimer un sujet du forum\\
+\underline{Objectif :} Offre la possibilité à un membre de supprimer un de ses sujets dans le forum\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 6 mai 2015\\
+\underline{Responsable :} GAUVRIT Bryan, DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite
+\\Le scénario nominal : 
+\begin{enumerate}
+\item Une personne accède à un sujet dont elle est l’auteur
+\item La personne clique sur un bouton \og supprimer \fg 
+\item La personne doit confirmer la suppression de ce sujet
+\end{enumerate}
+
+
+\subsubsection*{Enchaînements alternatifs}
+Aucun enchainement alternatif
+
+\subsubsection*{Enchaînements d’exception}
+Aucun enchainement d’exception
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Ajouter une réponse à un sujet}
+\subsubsection*{Identification}
+\underline{Nom :} Ajouter une réponse à un sujet\\
+\underline{Objectif :} Offre la possibilité à un membre d’écrire une réponse à un sujet \\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 11 mai 2015\\
+\underline{Responsable :} BARRE Sylvain, DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite
+\\Le scénario nominal : 
+\begin{enumerate}
+\item La personne clique sur un sujet auquel elle veut répondre
+\item La personne entre une réponse
+\item La personne clique sur le bouton \og valider \fg 
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Point 2 de la séquence nominale : Le format de la réponse est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie de sa réponse
+\item Retour au scénario nominal 2
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 1 de la séquence nominale : La personne essaie de répondre sur un sujet résolu
+\begin{itemize}
+\item La personne est prévenue d’une erreur
+\item Retour au scénario nominal 1\\
+\end{itemize}
+
+Point 1 de la séquence nominale : La personne essaie d’envoyer un sujet non valide
+\begin{itemize}
+\item La personne est prévenue d’une erreur
+\item Retour au scénario nominal 2
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Modifier une réponse}
+\subsubsection*{Identification}
+\underline{Nom :} Modifier une réponse\\
+\underline{Objectif :} Offre la possibilité à un membre de modifier sa réponse\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 11 mai 2015\\
+\underline{Responsable :} BARRE Sylvain, DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite
+\\Le scénario nominal : 
+\begin{enumerate}
+  \item La personne choisit une réponse qui lui appartient
+  \item La personne clique sur le bouton \og modifier \fg 
+  \item La personne modifie sa réponse
+  \item La personne appuie sur le bouton \og envoyer \fg
+\end{enumerate}
+
+
+\subsubsection*{Enchaînements alternatifs}
+Point 3 de la séquence nominale : Le format de la réponse est incorrect
+\begin{itemize}
+ \item La personne doit recommencer la saisie de sa réponse
+ \item Retour au scénario nominal 3
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 4 de la séquence nominale : La personne essaie d’envoyer une réponse non valide
+\begin{itemize}
+ \item La personne est prévenue d’une erreur
+ \item Retour au scénario nominal 3
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Supprimer une réponse}
+\subsubsection*{Identification}
+\underline{Nom :} Supprimer une réponse\\
+\underline{Objectif :} Offre la possibilité à un membre de supprimer une de ses réponses\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 11 mai 2015\\
+\underline{Responsable :} BARRE Sylvain, DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite
+\\Le scénario nominal : 
+\begin{enumerate}
+ \item La personne choisit une réponse lui appartenant
+ \item La personne demande de supprimer la réponse
+ \item La personne doit confirmer sa suppression
+ \item La suppression est enregistrée
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Aucun enchainement alternatif
+
+\subsubsection*{Enchaînements d’exception}
+Aucun enchainement d’exception
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+
+
+\subsection{Modifier son mot de passe}
+\subsubsection*{Identification}
+\underline{Nom :} Modifier son mot de passe\\
+\underline{Objectif :} offre la possibilité à un membre de changer son mot de passe \\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 3 mai 2015\\
+\underline{Responsable :} DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite
+\\Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur son compte
+\item La personne appuie sur le bouton \og modifier \fg à côté de son mot de passe
+\item La personne entre un nouveau mot de passe
+\item La personne entre une confirmation de ce mot de passe
+\item La personne appuie sur le bouton \og envoyer \fg
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Point 3 de la séquence nominale : Le format du mot de passe est incorrect
+\begin{itemize}
+ \item La personne doit recommencer la saisie du mot de passe
+  \item Retour au scénario nominal 3\\
+\end{itemize}
+
+Point 4 de la séquence nominale : Le format de la confirmation du mot de passe est incorrect
+\begin{itemize}
+ \item La personne doit recommencer la saisie de la confirmation de son mot de passe
+  \item Retour au scénario nominal 4
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 5 de la séquence nominale : Les deux mots de passe ne correspondent pas
+\begin{itemize}
+ \item La personne est prévenue de l’erreur
+ \item Retour au scénario nominal 3
+ \end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Remarque concernant la fiabilité\\
+Les accès doivent être sécurisés et la saisie du code confidentiel ne doit pas faire apparaître le code en clair
+\subsection{Créer une annonce}
+\subsubsection*{Identification}
+\underline{Nom :} Créer une annonce\\
+\underline{Objectif :} Offre la possibilité à un membre de créer une annonce \\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 17 mai 2015\\
+\underline{Responsable :} DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite\\
+Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur \og mon compte \fg
+\item La personne clique sur son \og Consulter mes annonces \fg
+\item La personne appuie sur le bouton \og créer une annonce \fg
+\item La personne entre un titre
+\item La personne entre un contenu 
+\item La personne appuie sur le bouton \og envoyer \fg
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Point 4 de la séquence nominale : Le format du titre est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du titre
+\item Retour au scénario nominal 4\\
+\end{itemize}
+Point 5 de la séquence nominale : Le format du contenu est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du contenu
+\item Retour au scénario nominal 5
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 6 de la séquence nominale : Le titre ou le contenu à un format incorrect
+\begin{itemize}
+\item La personne est prévenue de l’erreur
+\item Retour au scénario nominal 4
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Modifier une annonce}
+\subsubsection*{Identification}
+\underline{Nom :} Modifier une annonce\\
+\underline{Objectif :} Offre la possibilité à un membre de modifier son annonce\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 17 mai 2015\\
+\underline{Responsable :} DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite\\
+Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur \og mon compte \fg
+\item La personne clique sur le bouton \og Consulter mes annonces \fg
+\item La personne appuie sur le bouton \og modifier \fg 
+\item La personne entre un nouveau titre
+\item La personne entre un nouveau contenu
+\item La personne appuie sur le bouton \og envoyer \fg
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Point 4 de la séquence nominale : Le format du titre est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du titre
+\item Retour au scénario nominal 4\\
+\end{itemize}
+Point 5 de la séquence nominale : Le format du contenu est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du contenu
+\item Retour au scénario nominal 5
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 6 de la séquence nominale : Le titre ou le contenu à un format incorrect
+\begin{itemize}
+\item La personne est prévenue de l’erreur
+\item Retour au scénario nominal 4
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Supprimer une news}
+\subsubsection*{Identification}
+\underline{Nom :} Supprimer une news\\
+\underline{Objectif :} Offre la possibilité à un membre de supprimer sa news\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 17 mai 2015\\
+\underline{Responsable :} DEMERY Cyril\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite\\
+Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur \og mon compte \fg
+\item La personne clique sur le bouton \og Consulter mes annonces \fg
+\item La personne appuie sur le bouton \og supprimer \fg 
+\item La personne doit confirmer sa suppression
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Aucun enchainement alternatif
+
+\subsubsection*{Enchaînements d’exception}
+Aucun enchainement d’exception
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Modifier le blog}
+\subsubsection*{Identification}
+\underline{Nom :} Modifier le blog\\
+\underline{Objectif :} Offre la possibilité à un membre de modifier le titre et le contenu du blog\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 21 mai 2015\\
+\underline{Responsable :} DEMERY Cyril, RIBEIRO DA SILVA Baptiste\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite\\
+Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur \og mon compte \fg
+\item La personne clique sur le bouton \og Consulter mon blog \fg
+\item La personne appuie sur le bouton \og modifier \fg 
+\item La personne entre un nouveau titre
+\item La personne entre un nouveau contenu
+\item La personne appuie sur le bouton \og envoyer \fg
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Point 4 de la séquence nominale : Le format du titre est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du titre
+\item Retour au scénario nominal 4\\
+\end{itemize}
+Point 5 de la séquence nominale : Le format du contenu est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du contenu
+\item Retour au scénario nominal 5
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 6 de la séquence nominale : Le titre ou le contenu à un format incorrect
+\begin{itemize}
+\item La personne est prévenue de l’erreur
+\item Retour au scénario nominal 4
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Ajouter une news}
+\subsubsection*{Identification}
+\underline{Nom :} Ajouter une news\\
+\underline{Objectif :} Offre la possibilité à un membre d’ajouter une news\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 23 mai 2015\\
+\underline{Responsable :} DEMERY Cyril, RIBEIRO DA SILVA Baptiste\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite\\
+Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur \og mon compte \fg
+\item La personne clique sur le bouton \og mon blog \fg
+\item La personne appuie sur le bouton \og ajouter une news \fg 
+\item La personne entre un nouveau titre
+\item La personne entre un nouveau contenu
+\item La personne entre une description rapide
+\item La personne appuie sur le bouton \og envoyer \fg
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Point 4 de la séquence nominale : Le format du titre est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du titre
+\item Retour au scénario nominal 4\\
+\end{itemize}
+Point 5 de la séquence nominale : Le format du contenu est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du contenu
+\item Retour au scénario nominal 5\\
+\end{itemize}
+Point 6 de la séquence nominale : Le format de la description est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie de la description
+\item Retour au scénario nominal 6
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 7 de la séquence nominale : Le titre, le contenu ou la description à un format incorrect
+\begin{itemize}
+\item La personne est prévenue de l’erreur
+\item Retour au scénario nominal 4
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Aucune remarque
+
+\subsection{Consulter un message privé}
+\subsubsection*{Identification}
+\underline{Nom :} Consulter un message privé\\
+\underline{Objectif :} Offre la possibilité à un utilisateur de lire un message privé\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 28 mai 2015\\
+\underline{Responsable :} DEMERY Cyril, RIBAS Nathan\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite\\
+\\Le scénario nominal :
+\begin{enumerate}
+\item La personne voit la liste de ses messages privés et peut y accéder
+\item Sur un message privé elle peut lire le titre et le message
+\end{enumerate}
+
+\subsubsection*{Enchaînements alternatifs}
+Aucun enchainement alternatif
+
+\subsubsection*{Enchaînements d’exception}
+Point 6 de la séquence nominale : La personne tente d'accéder à un message dont elle n'est ni l'auteur ni le destinataire
+\begin{itemize}
+\item La personne est prévenue de l’erreur
+\item Retour au scénario nominal 1
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Remarque concernant la sécurité\\
+Pour des raisons de confidentialité, le corps du message sera crypté et seuls l'auteur et le destinataire pourront le lire
+
+
+
+\subsection{Envoyer un message privé}
+\subsubsection*{Identification}
+\underline{Nom :} Envoyer un message privé\\
+\underline{Objectif :} Offre la possibilité à un membre d’envoyer un message privé à un autre membre\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 28 mai 2015\\
+\underline{Responsable :} DEMERY Cyril, RIBAS Nathan\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite\\
+Le scénario nominal : 
+\begin{enumerate}
+\item Une personne clique sur \og message (nb messages) \fg
+\item La personne clique sur \og rédiger un message \fg
+\item La personne entre l’objet 
+\item La personne entre le destinataire
+\item La personne entre le message
+\item La personne appuie sur le bouton \og envoyer \fg
+\end{enumerate}
+
+
+\subsubsection*{Enchaînements alternatifs}
+Point 3 de la séquence nominale : Le format de l’objet est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie de l’objet
+\item Retour au scénario nominal 3\\
+\end{itemize}
+Point 4 de la séquence nominale : Le format du destinataire est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du destinataire
+\item Retour au scénario nominal 4\\
+\end{itemize}
+Point 5 de la séquence nominale : Le format du message est incorrect
+\begin{itemize}
+\item La personne doit recommencer la saisie du message
+\item Retour au scénario nominal 5
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 6 de la séquence nominale : La combinaison objet/destinataire/message est incorrecte
+\begin{itemize}
+\item La personne est prévenue de l’erreur
+\item Retour au scénario nominal 3
+\end{itemize}
+
+
+\subsubsection*{Rubrique optionnelle} 
+Remarque concernant la sécurité\\
+Pour des raisons de confidentialité, le corps du message sera crypté et seuls l'auteur et le destinataire pourront le lire
+
+\subsection{Modifier une message privé}
+\subsubsection*{Identification}
+\underline{Nom :} Modifier un message privé\\
+\underline{Objectif :} Offre la possibilité à un membre de modifier son message privé\\
+\underline{Acteur principal :} Membres\\
+\underline{Date :} 28 mai 2015\\
+\underline{Responsable :} DEMERY Cyril, RIBAS Nathan\\
+\underline{Version :} 1.0
+
+\subsubsection*{Séquencement}
+\underline{Précondition :} La personne doit être inscrite
+\\Le scénario nominal : 
+\begin{enumerate}
+  \item La personne choisit un message privé qu'elle a envoyé
+  \item La personne clique sur le bouton \og modifier \fg 
+  \item La personne modifie son message
+  \item La personne modifie son objet de message
+  \item La personne appuie sur le bouton \og envoyer \fg
+\end{enumerate}
+
+
+\subsubsection*{Enchaînements alternatifs}
+Point 3 de la séquence nominale : Le format du message est incorrect
+\begin{itemize}
+ \item La personne doit recommencer la saisie du message
+ \item Retour au scénario nominal 3 \\
+\end{itemize}
+
+Point 4 de la séquence nominale : Le format du titre est incorrect
+\begin{itemize}
+ \item La personne doit recommencer la saisie du titre
+ \item Retour au scénario nominal 4
+\end{itemize}
+
+\subsubsection*{Enchaînements d’exception}
+Point 5 de la séquence nominale : La personne essaie de modifier un message lu
+\begin{itemize}
+ \item La personne est prévenue d’une erreur
+ \item Retour au scénario nominal 1\\
+\end{itemize}
+
+Point 5 de la séquence nominale : La personne essaie d’envoyer une réponse non valide
+\begin{itemize}
+ \item La personne est prévenue d’une erreur
+ \item Retour au scénario nominal 3
+\end{itemize}
+
+\subsubsection*{Rubrique optionnelle} 
+Remarque concernant la sécurité\\
+Pour des raisons de confidentialité, le corps du message sera crypté et seuls l'auteur et le destinataire pourront le lire
+
+
+\setlength{\parindent}{15pt}
+\chapter{Conception}
+La conception est une partie essentielle du projet, elle permet d'indiquer la
+direction à suivre pour tout ce qui concerne le domaine technique. Nous avons
+dû prendre plusieurs décisions sur ce projet, que ce soit pour les bases de
+données, les classes à créer ou la manière de programmer et l'IHM.
+\section{Base de données}
+Nous avons décidé d'utiliser la base de données Oracle express 10/11g, car
+c'est une base capable de traiter des gros flux de données avec efficacité, et
+c'est une base qui nous est familière. Nous aurions pu utiliser d'autres
+options, comme la base de données embarquée de Java : JavaDB, ou encore MySQL.
+Toutefois, certains éléments nous ont poussés vers la base d'Oracle.
+\begin{table}[!htb]
+\caption{Comparaison des différents SGBD} 
+\centering
+\begin{tabular}{|c | c | c | c | c |}
+    \hline
+  SGBD & Contraintes d'intégrité & Temps d'apprentissage & Puissance & Respect
+de SQL\\\hline
+  JavaDB & Ok & Moyen & Élevée & Bon\\\hline
+  MySQL & Mal gérées & Moyen & Limitée & Moyenne\\\hline
+  Oracle 10g & Ok & Rapide & Élevée & Très bon\\\hline
+\end{tabular}
+\end{table}
+\par Comme vous le voyez dans ce tableau, nous aurions pu utiliser soit JavaDb,
+soit Oracle, mais ayant été formés sur le SGBD Oracle cette année et
+sachant le manipuler, nous avons opté pour celui-ci. Toutefois, il dispose de
+plusieurs inconvénients, comme son poids et son coût, également le fait que la
+base ne soit pas embarquée, ce qui implique de devoir la recréer sur tous les
+serveurs où l'on veut lancer le WAR. Enfin, il est disproportionné par rapport
+à notre projet où JavaDB aurait été suffisant.
+
+\par Concernant la conception du côté des bases de données, toutes nos classes
+essentielles sont enregistrées dans la base. Nous sommes donc arrivés au schéma 
+relationnel
+suivant (+ est une clé primaire, \# une clé étrangère) : 
+\begin{verbatim}
+tmembre (+idmembre, lenom, leprenom, date_inscription, lepass, lemail, date_der_co);
+tforum (+idfor, letitre);
+tcategorie (+idcat, letitre, descript, #parent);
+tmessage_titrable (+idmes, type_c, content, letitre, date_creation, date_modif, #lemembre);
+tannonce (+idmes);
+tsujet (+idmes, resolu, #lacat);
+treponse (+idmes, content, date_creation, date_modif, #lesujet, #lemembre);
+tblog (+idblog, letitre, content, date_creation, date_modif, #lemembre);
+tarticle (+idmes, description, #leblog);
+tmessageprive (+idmes, letitre, content, date_creation, date_modif, lu, #ledesti, #lemembre);
+\end{verbatim}
+
+\par Pour parvenir à ce schéma, nous n'avons pas réalisé de schéma 
+Entité-Association, nous 
+nous sommes directement appuyés sur le diagramme de classe que vous trouverez 
+dans la partie suivante.
+
+\par Afin de respecter certaines contraintes, comme le fait qu'un sujet peut ne pas avoir 
+d'auteur, que l'annonce ne peut pas exister sans auteur, et étant donné que ces
+données sont centralisés dans \og tmessage\_titrable \fg, il a fallu recourir aux Triggers, 
+afin de passer certains champs à null sous certaines conditions.
+
+\section{Conception Orientée Objet}
+Dans cette partie nous allons aborder la partie conception des classes \og 
+Métiers \fg. Au début, nous avions effectué une conception trop générale du 
+site, en essayant de représenter toutes les classes, dont certaines qui ne 
+seraient peut-être même pas codées.\\
+\par Suite à la première réunion, nous avons revu notre conception et produit 
+seulement une conception synthétique de la partie forum avec quelques éléments. 
+Donc nous avons produit le diagramme de classe suivant pour modéliser les 
+relations que nous aimerions avoir :  
+\par
+\begin{tikzpicture}
+\matrix [column sep=7mm, row sep=5mm] {
+  & & \node (ca0) [draw, shape=rectangle] {prog:Categorie}; \\
+ &  \node (ca1) [draw, shape=rectangle] {cpp:Categorie}; & 
+  \node (ca2) [draw, shape=rectangle] {java:Categorie}; \\
+   \node (me1) [draw, shape=rectangle] {cyril:Membre}; &
+   \node (su1) [draw, shape=rectangle] {ihm:Sujet}; & 
+  \node (su2) [draw, shape=rectangle] {abstractClass:Sujet}; & 
+  \node (me2) [draw, shape=rectangle] {bryan:Membre}; \\
+  \node (re1) [draw, shape=rectangle] {ok:Reponse}; & 
+  \node (re2) [draw, shape=rectangle] {aide:Reponse}; &
+   \node (me3) [draw, shape=rectangle] {sylvain:Membre}; \\
+};
+\draw[-, thick] (ca0) -- (ca1);
+\draw[-, thick] (ca0) -- (ca2);
+\draw[-, thick] (me1) -- (su1);
+\draw[-, thick] (me2) -- (su2);
+\draw[-, thick] (ca1) -- (su1);
+\draw[-, thick] (ca1) -- (su2);
+\draw[-, thick] (re1) -- (su1);
+\draw[-, thick] (re2) -- (su1);
+\draw[-, thick] (re1) -- (me1);
+\draw[-, thick] (re2) -- (me3);
+\end{tikzpicture}
+
+ \par Ainsi, nous voyons qu'il serait souhaitable de modéliser qu'une catégorie 
+peut avoir une catégorie parente. Egalement, nous voyons qu'un membre peut 
+envoyer des sujets et des réponses, qu'une réponse doit être liée à un sujet, 
+qu'un sujet doit appartenir à une catégorie, et que les catégorie et les sujets 
+peuvent être vides (ex : java, abstractClass). Nous avons donc produit le 
+diagramme de classe suivant :
+ 
+\par
+\begin{center}
+\begin{tikzpicture}
+\umlemptyclass[]{Categorie}
+\umlemptyclass[x=7]{Sujet}
+\umlemptyclass[y=-4]{Membres}
+\umlemptyclass[x=7, y=-4]{Reponse}
+\umlcompo[arg1=-groupement, mult1=1, pos1=0.2, arg2=-topic, mult2=*, 
+pos2=0.9]{Categorie}{Sujet}
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.9]{Sujet}{Membres}
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.9]{Reponse}{Membres}
+\umlcompo[arg1=-topic, mult1=1, pos1=0.1, arg2=-commentaires, mult2=*, 
+pos2=0.9]{Sujet}{Reponse}
+\umlunicompo[arg1=, mult1=*, pos1=0.1, arg2=-parent, mult2=1, pos2=0.9, 
+angle1=-90, angle2=-140, loopsize=3cm]{Categorie}{Categorie}
+\end{tikzpicture}
+\end{center}
+
+\par Toutefois, cette conception posait problème : il était difficile d'exprimer 
+sur un diagramme qu'une catégorie parente ne devait pas avoir de description, 
+etc. C'est pour cela que nous avons rajouté la classe Forum, ainsi sur le 
+diagramme d'objet précédent, on remplace la catégorie reliée aux deux autres par 
+un objet de type forum : 
+\par
+\begin{center}
+\begin{tikzpicture}
+\umlemptyclass[]{Forum}
+\umlemptyclass[x=6]{Categorie}
+\umlemptyclass[x=12]{Sujet}
+\umlemptyclass[x=7, y=-4]{Membres}
+\umlemptyclass[x=15, y=-4]{Reponse}
+\umlcompo[arg1=-groupement, mult1=1, pos1=0.2, arg2=-topic, mult2=*, 
+pos2=0.9]{Categorie}{Sujet}
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.9]{Sujet}{Membres}
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.9]{Reponse}{Membres}
+\umlcompo[arg1=-topic, mult1=1, pos1=0.1, arg2=-commentaires, mult2=*, 
+pos2=0.9]{Sujet}{Reponse}
+\umlcompo[arg1=-parent, mult1=1, pos1=0.2, arg2=-section, mult2=*, 
+pos2=0.8]{Forum}{Categorie}
+\end{tikzpicture}
+\end{center}
+\par Cette conception était satisfaisante pour la première itération, puis nous 
+sommes ensuite posé la question, lors de la deuxième itération, 
+d'implanter le système de blog et d'annonce. Nous avions d'abord pensé à 
+réaliser quelque chose comme cela pour les annonces :
+
+\par
+\begin{tikzpicture}
+\matrix [column sep=7mm, row sep=5mm] {
+   \node (me1) [draw, shape=rectangle] {cyril:Membre}; &
+   \node (a1) [draw, shape=rectangle] {vtt:Annonce}; & 
+   \node (a2) [draw, shape=rectangle] {anniversaire:Annonce};&
+  \node (me2) [draw, shape=rectangle] {bryan:Membre};\\
+  \node (re1) [draw, shape=rectangle] {ok:Reponse}; & 
+  \node (re2) [draw, shape=rectangle] {aide:Reponse}; &
+   \node (me3) [draw, shape=rectangle] {sylvain:Membre};\\
+};
+\draw[-, thick] (re1) -- (me1);
+\draw[-, thick] (a1) -- (me1);
+\draw[-, thick] (a2) -- (me2);
+\draw[-, thick] (a1) -- (re1);
+\draw[-, thick] (a1) -- (re2);
+\draw[-, thick] (me3) -- (re2);
+\end{tikzpicture}
+\par
+Ensuite pour les blogs :
+\par
+\begin{tikzpicture}
+\matrix [column sep=7mm, row sep=5mm] {
+  & \node (me1) [draw, shape=rectangle] {bryan:Membre}; &
+  \node (bl1) [draw, shape=rectangle] {unblog:Blog}; \\
+   \node (me2) [draw, shape=rectangle] {sylvain:Membre}; &
+   \node (re1) [draw, shape=rectangle] {comment:Reponse}; &
+    \node (n1) [draw, shape=rectangle] {maVie:News}; \\
+};
+\draw[-, thick] (re1) -- (me2);
+\draw[-, thick] (re1) -- (n1);
+\draw[-, thick] (me1) -- (bl1);
+\draw[-, thick] (n1) -- (bl1);
+\draw[-, thick] (n1) -- (me1);
+\end{tikzpicture}
+\par
+Enfin pour les messages privés : 
+\par
+\begin{tikzpicture}
+\matrix [column sep=7mm, row sep=5mm] {
+   \node (me1) [draw, shape=rectangle] {cyril:Membre}; &
+   \node (mp1) [draw, shape=rectangle] {coucou:MessagePrive}; & 
+    \node (me2) [draw, shape=rectangle] {sylvain:Membre}; \\
+};
+\draw[-, thick] (mp1) -- (me1);
+\draw[-, thick] (mp1) -- (me2);
+\end{tikzpicture}
+\par
+
+\par Du côté diagramme de classe, on peut traduire cela de la manière suivante : 
+un message est relié à deux membres, un blog appartient à un membre qui peut 
+poster des articles dessus, auxquels les autres membres peuvent répondre. 
+Concernant les annonces, on voit qu'un membre peut en poster une et les autres 
+peuvent commenter. Par la suite, étant donné que nous avons principalement 
+utilisé l'héritage et que cela ne modifie pas les liaisons entre les classes, nous 
+n'avons pas refait de diagramme de classes.
+
+\par
+\begin{landscape}
+\begin{center}
+\begin{tikzpicture}
+\umlemptyclass[]{Forum}
+\umlemptyclass[y=-4]{Categorie}
+\umlemptyclass[x=20, y=-12]{Annonce}
+\umlemptyclass[x=5, y=-9]{Blog}
+\umlemptyclass[x=20]{MessagePrive}
+\umlemptyclass[x=10, y=-9]{News}
+\umlemptyclass[y=-12]{Sujet}
+\umlemptyclass[x=12]{Membres}
+\umlemptyclass[x=14, y=-12]{Reponse}
+
+\umlcompo[arg1=-groupement, mult1=1, pos1=0.1, arg2=-topic, mult2=*, 
+pos2=0.9]{Categorie}{Sujet}
+\umlcompo[arg1=-groupe, mult1=1, pos1=0.2, arg2=-discussion, mult2=*, 
+pos2=0.7]{Blog}{News}
+\umlcompo[arg1=-parent, mult1=1, pos1=0.2, arg2=-section, mult2=*, 
+pos2=0.9]{Forum}{Categorie}
+
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.7]{Sujet}{Membres}
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.7]{News}{Membres}
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.7]{Blog}{Membres}
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.7]{Annonce}{Membres}
+\umluniassoc[arg1=, mult1=*, pos1=0.2, arg2=-auteur, mult2=1, 
+pos2=0.7]{Reponse}{Membres}
+\umluniassoc[anchor1=155, anchor2=30, arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.8]{MessagePrive}{Membres}
+
+\umluniaggreg[anchor1=-155, anchor2=-30, arg1=, mult1=*, pos1=0.1, arg2=-destinataire, mult2=0..1, 
+pos2=0.8]{MessagePrive}{Membres}
+
+\umlcompo[arg1=-topic, mult1=1, pos1=0.1, arg2=-commentaires, mult2=*, 
+pos2=0.9]{Sujet}{Reponse}
+\umlcompo[arg1=-actu, mult1=1, pos1=0.2, arg2=-reaction, mult2=*, 
+pos2=0.8]{Annonce}{Reponse}
+\umlcompo[arg1=-article, mult1=1, pos1=0.1, arg2=-reaction, mult2=*, 
+pos2=0.8]{News}{Reponse}
+
+\end{tikzpicture}
+\end{center}
+
+\par Cependant, vu le nombre trop important de liens, nous avons longtemps 
+hésité, puis nous avons regroupé les éléments ayant un titre et pouvant 
+recevoir des réponses ensemble (Sujet, News, Annonce), sous la classe Article, il a fallu également 
+regrouper les messages ensemble car ils ont des propriétés communes, nous avons 
+donc décidé de faire la classe Message, dont hérite Article, Réponse et Message 
+Privé.
+\end{landscape}
+
+\par
+\begin{landscape}
+\begin{center}
+\begin{tikzpicture}
+\umlemptyclass[]{Membres}
+\umlemptyclass[y=-4]{Blog}
+\umlemptyclass[y=-8]{News}
+
+\umlemptyclass[x=5, y=-4]{MessagePrive}
+
+\umlemptyclass[type=abstract,  x=10]{Message}
+\umlemptyclass[type=abstract, x=10, y=-4]{Article}
+\umlemptyclass[x=10, y=-8]{Annonce}
+
+\umlemptyclass[x=17, y=-4]{Reponse}
+\umlemptyclass[x=15, y=-8]{Sujet}
+
+\umlemptyclass[x=21, y=-4]{Forum}
+\umlemptyclass[x=21, y=-8]{Categorie}
+
+\umlcompo[arg1=-groupement, mult1=1, pos1=0.3, arg2=-topic, mult2=*, 
+pos2=0.8]{Categorie}{Sujet}
+\umlcompo[arg1=-groupe, mult1=1, pos1=0.1, arg2=-discussion, mult2=*, 
+pos2=0.9]{Blog}{News}
+\umlcompo[arg1=-parent, mult1=1, pos1=0.2, arg2=-section, mult2=*, 
+pos2=0.9]{Forum}{Categorie}
+
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.9]{Message}{Membres}
+
+\umluniaggreg[anchor1=155, anchor2=-30, arg1=, mult1=*, pos1=0.1, arg2=-destinataire, mult2=0..1, 
+pos2=0.8]{MessagePrive}{Membres}
+
+\umlcompo[arg1=-topic, mult1=1, pos1=0.2, arg2=-reaction, mult2=*, 
+pos2=0.8]{Article}{Reponse}
+
+\umlinherit[]{Annonce}{Article}
+\umlinherit[]{News}{Article}
+\umlinherit[]{Sujet}{Article}
+\umlinherit[]{Reponse}{Message}
+\umlinherit[]{MessagePrive}{Message}
+
+\end{tikzpicture}
+\end{center}
+
+\par Ainsi la conception était facilement compréhensible. Toutefois, nous nous 
+sommes heurtés à un problème avec le titrage des éléments. En effet, Blog, 
+Titre, Categorie, Messsage Prive, News et Article possèdent un titre. Hors, nous 
+n'avons pas regroupé ces champs, ce qui a donné lieu à des redondances inutiles. 
+Mais suite à la deuxième réunion avec M. Barrios, nous avons eu des 
+explications sur comment bien modéliser un cas de type : il faut utiliser la 
+réalisation, l'association et l'héritage. Ce qui donne lieu au modèle suivant : 
+
+\end{landscape}
+
+\begin{landscape}
+\begin{center}
+\begin{tikzpicture}
+\umlemptyclass[]{Membres}
+\umlemptyclass[y=-4]{Blog}
+
+\umlemptyclass[x=5, y=-4]{MessagePrive}
+\umlemptyclass[x=5, y=-8]{News}
+\umlemptyclass[x=5, y=-15]{AvecTitre}
+
+\umlemptyclass[type=abstract, x=10]{Message}
+\umlemptyclass[type=abstract, x=10, y=-4]{Article}
+\umlemptyclass[x=10, y=-8]{Annonce}
+
+\umlemptyclass[x=17, y=-4]{Reponse}
+\umlemptyclass[x=15, y=-8]{Sujet}
+\umlemptyclass[type=interface, x=15, y=-15]{Titrable}
+
+\umlemptyclass[x=21, y=-4]{Forum}
+\umlemptyclass[x=21, y=-8]{Categorie}
+
+\umlcompo[arg1=-groupement, mult1=1, pos1=0.3, arg2=-topic, mult2=*, 
+pos2=0.8]{Categorie}{Sujet}
+\umlcompo[arg1=-groupe, mult1=1, pos1=0.1, arg2=-discussion, mult2=*, 
+pos2=0.9]{Blog}{News}
+\umlcompo[arg1=-parent, mult1=1, pos1=0.2, arg2=-section, mult2=*, 
+pos2=0.9]{Forum}{Categorie}
+
+\umluniassoc[arg1=, mult1=*, pos1=0.1, arg2=-auteur, mult2=1, 
+pos2=0.9]{Message}{Membres}
+
+\umluniaggreg[anchor1=155, anchor2=-30, arg1=, mult1=*, pos1=0.1, arg2=-destinataire, mult2=0..1, 
+pos2=0.8]{MessagePrive}{Membres}
+
+\umlcompo[arg1=-topic, mult1=1, pos1=0.2, arg2=-reaction, mult2=*, 
+pos2=0.8]{Article}{Reponse}
+
+\umlreal[]{AvecTitre}{Titrable}
+
+\umlinherit[]{Annonce}{Article}
+\umlinherit[]{News}{Article}
+\umlinherit[]{Sujet}{Article}
+\umlinherit[]{Reponse}{Message}
+\umlinherit[]{MessagePrive}{Message}
+
+\umlinherit[]{Blog}{AvecTitre}
+\umlinherit[]{Categorie}{AvecTitre}
+\umlinherit[]{Forum}{AvecTitre}
+
+\end{tikzpicture}
+\end{center}
+\end{landscape}
+
+\par Ici, on a regroupé avec l'héritage les classes qui se définissent quasiment 
+qu'avec un titre et donc n'ont pas de propriétés compliquées. Toutefois, il reste 
+encore à définir les classes comme Article et MessagePrive qui ont le titre 
+comme champ, mais qui ne peuvent pas être une sous classe de titre car elles ont 
+des champs communs entre elles et intègrent des associations. Il faut donc 
+modéliser cette association. \\
+\par Au début, nous pensions relier directement la 
+classe AvecTitre avec Article, puis lors des tests nous nous sommes aperçus de 
+gros inconvénients dans le Mapping actuel de persistance pour garder cette 
+association. Il a donc fallu faire une sous classe de AvecTitre qui sera \og 
+embarquée \fg dans les associations. Également, vu que la méthode \og supprimer \fg 
+était présente dans la plupart des classes, nous en avons profité pour réaliser 
+une interface réalisée par Message, Membre, Blog, Forum et Categorie, nous avons
+profité pour séparer les constructeurs de la persistance, ce qui donne lieu à une 
+méthode insert parfois redéfinie quand des conditions supplémentaires sont 
+nécessaires . \\
+\par Ainsi, on obtient une version stable du diagramme de classe suivant, qui 
+offre une flexibilité suffisante pour l'implantation de nouveaux composants lors 
+de phases de développement suivantes (maintenance, souhait du client, etc).
+
+\newpage
+\addtocounter{page}{1}
+
+\section{IHM}
+L'IHM n'est pas un des points les plus importants de notre site, car il ne sera 
+pas visible sur Internet, mais ne doit toutefois pas être négligé.\\
+\par Au début, nous pensions réaliser un site sur des tons plutôt verts/bleus et 
+avec un menu de chaque côté : à gauche pour la navigation sur le forum, à droite 
+pour les informations sur le membre. Toutefois, suite à la réunion avec M. 
+Belières, il a été convenu de garder uniquement le menu de navigation situé à 
+gauche, et de placer les informations du membre dans un espace déroulant de la 
+barre de menu. Également, il nous a été conseillé de s'appuyer sur la charte 
+graphique de l'IUT pour ce qui concerne notre jeu de couleur. Ainsi, après cela, 
+nous avons choisi un jeu de couleur gris/rouge.
+\subsection{Charte graphique}
+// TODO commenter la charte graphique
+\includepdf{chartegraphique.pdf}
+\subsection{Étude de l'existant}
+Afin de réaliser la navigation de notre site ainsi que la présentation des pages, nous avons
+regardé la composition d'autres forums présents sur Internet, nous en avons selectionné trois (capture d'écran page suivante) :
+\begin{itemize}
+  \item \href{https://www.phpbb.com/community/}{phpBB3}
+  \item \href{http://forum.alsacreations.com/forum.php}{Alsacreations}
+  \item \href{http://forum.hardware.fr/}{Hardware.fr}\\
+\end{itemize}
+
+
+Nous remarquons plusieurs point communs sur ces différents écrans. Nous allons ici les dénombrer :
+\begin{itemize}
+\item La description et le titre sont placés en gauche
+ \item Le titre de la catégorie est toujours placé au-dessus de la description
+ \item Présence d'un compteur de messages et/ou sujets publiés, vers le centre
+ \item Affichage à droite du dernier message publié dans la catégorie
+ \item Affichage d'une icone pour chaque catégorie\\
+\end{itemize}
+
+
+Maintenant, concernant les différences, on peut compter celles-ci : 
+\begin{itemize}
+\item phpBB fait la distinction entre les différents niveaux de catégories et de forums 
+en séparant physiquement les blocs
+ \item Hardware.fr place les sous-catégories sous la description d'une catégorie
+ parente, idem pour phpBB
+ \item AlsaCréation n'a pas de sous catégories
+ \item Affichage à droite du dernier message publié dans la catégorie
+ \item Hardware.fr affiche le nom des modérateurs de chaque section, peut-être à cause de la 
+ spécialisation de ceux-ci en fonction des catégories\\\\
+\end{itemize}
+
+\par Nous pouvons dire que globalement un index de forum est divisé en quatre parties ou cinq parties
+selon si on a des forums, des catégories ou des sous catégories. \\
+\par En premier, nous devrions placer le nom de la catégorie à gauche et en dessous la description de celle-ci.
+Ensuite, au milieu il faudrait placer le nombre de sujets disponibles pour cette catégorie. Enfin, à droite nous 
+pourrions placer le titre du dernier sujet actif avec un lien pour y accéder.\\
+\par Concernant les différents niveaux de navigations, il faudrait idéalement regrouper les catégories par forum,
+et éventuellement séparer ceux-ci visuellement, afin que les catégories d'un même forum forment un tout.
+\begin{figure}[h!]
+   \begin{minipage}[b]{\linewidth}
+\includegraphics[width=\textwidth]{phpbb.png}
+ \caption{phpBB3}
+   \end{minipage}\hfill
+
+   \begin{minipage}[b]{\linewidth}
+ \includegraphics[width=\textwidth]{alsacreation.png}
+ \caption{Alsacreations}
+   \end{minipage}\hfill
+
+   \begin{minipage}[b]{\linewidth}
+ \includegraphics[width=\textwidth]{hardware.png}
+ \caption{Hardware.fr}
+    \end{minipage}\hfill
+\end{figure}
+
+
+\clearpage
+\subsection{Choix}
+// TODO commenter les choix effectués
+
+
+\chapter{Code}
+Dans cette partie seront présentés les codes sources de nos différents
+composants. On commencera par les classes utilitaires, puis en allant des
+classes les moins dépendantes aux plus dépendantes, en présentant à chaque fois
+la classe puis la classe de test associée.
+Enfin, nous terminerons par le code de l'IHM et des servlets associées à celui-ci.
+// Todo Mettre les fichiers + présenter l'arborescence
+%Utils
+\includepdf[pages=-, landscape]{source/Entries_java.pdf}
+\includepdf[pages=-, landscape]{source/test/EntriesTests_java.pdf}
+%Interfaces
+\includepdf[pages=-, landscape]{source/Titrable_java.pdf}
+\includepdf[pages=-, landscape]{source/Manipulable_java.pdf}
+% Converter
+\includepdf[pages=-, landscape]{source/BooleanConvert_java.pdf}
+\includepdf[pages=-, landscape]{source/test/BooleanConvertTest_java.pdf}
+
+%Classes normales
+% Titre
+\includepdf[pages=-, landscape]{source/AvecTitre_java.pdf}
+\includepdf[pages=-, landscape]{source/Titre_java.pdf}
+\includepdf[pages=-, landscape]{source/test/TitreTests_java.pdf}
+
+%Membres
+\includepdf[pages=-, landscape]{source/Membres_java.pdf}
+\includepdf[pages=-, landscape]{source/test/MembresTest_java.pdf}
+
+%Messages basiques
+\includepdf[pages=-, landscape]{source/Message_java.pdf}
+\includepdf[pages=-, landscape]{source/MessagePrive_java.pdf}
+\includepdf[pages=-, landscape]{source/test/MessagePriveTest_java.pdf}
+\includepdf[pages=-, landscape]{source/Reponse_java.pdf}
+\includepdf[pages=-, landscape]{source/test/ReponseTest_java.pdf}
+
+% articles
+\includepdf[pages=-, landscape]{source/Article_java.pdf}
+\includepdf[pages=-, landscape]{source/Annonce_java.pdf}
+\includepdf[pages=-, landscape]{source/test/AnnonceTest_java.pdf}
+
+%Forum
+\includepdf[pages=-, landscape]{source/Forum_java.pdf}
+\includepdf[pages=-, landscape]{source/test/ForumTest_java.pdf}
+\includepdf[pages=-, landscape]{source/Categorie_java.pdf}
+\includepdf[pages=-, landscape]{source/test/CategorieTest_java.pdf}
+\includepdf[pages=-, landscape]{source/Sujet_java.pdf}
+\includepdf[pages=-, landscape]{source/test/SujetTest_java.pdf}
+
+% Blog
+\includepdf[pages=-, landscape]{source/Blog_java.pdf}
+\includepdf[pages=-, landscape]{source/test/BlogTest_java.pdf}
+\includepdf[pages=-, landscape]{source/News_java.pdf}
+\includepdf[pages=-, landscape]{source/test/NewsTests_java.pdf}
+
+% XML
+\includepdf[pages=-, landscape]{source/persistence.pdf}
+\includepdf[pages=-, landscape]{source/orm.pdf}
+
+%SQL
+\includepdf[pages=-, landscape]{source/projetJEE.pdf}
+ 
+\chapter{Tests}
+Nous allons ici présenter les tests d'intégration, qui nous ont permis de
+valider ou non le fonctionnement global de l'application. Pour cela, Cyril a
+réalisé un fichier de test en JAVA qui insère dans la base un nombre assez
+important de valeurs et de cas afin de vérifier le fonctionnement.\\
+\par Nous avons dû ensuite tester chaque composant intégré avec plusieurs
+valeurs afin de s'assurer que nous n'avons pas oublié d'éléments (comme par
+exemple de mettre à jour la base ou d'insérer l'élément).
+Nous donnerons par la suite le fichier de tests utilisé.
+
+\par Lors de ces tests, nous avons constatés plusieurs problèmes d'interaction entre l'IHM et les classes métiers.
+Pour les citer, nous avons :
+\begin{itemize}
+ \item 
+\end{itemize}
+
+\includepdf[pages=-, landscape]{source/JeuDeTest_java.pdf}
+
+
+
+\chapter{Conclusion}
+Ce projet, le premier \og vrai \fg projet que nous avons réalisé nous a paru 
+satisfaisant, même si des choses auraient pu être améliorées. 
+Commençons déjà par les points positifs. Ce projet a permis de réunir toutes nos 
+compétences en informatique afin d'y arriver, que ce soit en Java, en 
+modélisation, en SQL, en IHM, en Javascript/jQuery ou en langage Web (HTML/CSS). 
+Également, il nous a donné une première expérience de ce qu'est le travail en 
+\og équipe \fg. En ce qui concerne le résultat en lui-même, mais si certaines 
+choses n'ont pas été réalisées (grade, pages personnelles), le projet a été 
+globalement bien réussi, et tout ce qui a été développé fonctionne bien. L'IHM, 
+même si ce n'était pas le point le plus important, a été correctement réalisée 
+et est agréable à utiliser. \\
+\par Cette expérience nous a surtout permis d'acquérir de nouvelles compétences 
+en gestion de projet avec des rôles comme chef de projet, gestionnaire de 
+configuration et secrétaire de projet. Ces rôles ont été assez bien respectés, 
+sauf pour celui de gestionnaire de configuration où le travail n'a pas été 
+suffisant pour permettre à tout le monde de travailler dans de bonnes 
+conditions. En effet, c'est le chef de projet qui s'occupait de garder toujours 
+la dernière version stable du projet car les gestionnaires de configuration 
+n'ont pas réussi à implanter un logiciel de gestion de  version comme GIT ou 
+SVN.\\
+\par Toujours sur la gestion de projet, ce projet nous a donné un aperçu de la 
+difficulté de tenir un délai, avec des retards de livraison dès la première 
+itération. En raison de cela, il a fallu corriger plusieurs fois changer la 
+planification l'attribution des rôles, et même parfois donner le travail à un 
+autre membre qui avait fini le sien. Nous avons dû également nous occuper 
+d'organiser des réunions à intervalle régulier, tous les deux/trois jours, pour 
+faire un point sur l'avancement du projet entre nous, ce que nous n'avions pas 
+fait lors du projet du semestre précédent. Malgré cela, il y a eu des problèmes 
+de communication avec du travail effectué en double, ou non rendu, ainsi que des 
+soucis avec des personnes qui travaillaient beaucoup plus que d'autres, et donc 
+qui terminaient leurs tâches bien avant le reste du groupe.\\
+\par D'un point de vue technique, nous avons appris les bases de la 
+communication entre Java et une base de données, à travers JPA pour notre groupe 
+qui permet de manipuler les données très simplement grâce au gestionnaire 
+d'entité (EntityManager). Il a pour cela fallu écrire des  requêtes en JPQL 
+(Java Persistence Query Language) afin de récupérer des n-uplets dans la base de 
+données.\\
+\par Enfin, nous avons appris à maîtriser l'architecture d'un projet Web simple 
+avec Java Enterprise Edition, d'une part à travers l'utilisation du serveur 
+GlassFish, mais aussi grâce à la réalisation de servlets, les scripts Java côté 
+serveur, et de JSP qui sont les pages côté client et qui s'occupent de 
+l'affichage. Afin de simplifier les choses et de sécuriser les données, nous 
+nous sommes servi du JSTL pour récupérer les données à afficher, ce qui nous a 
+permis d'apprendre une nouvelle technique de mise en page Web, en n'écrivant pas 
+les données en brut mais plutôt en utilisant des boucles pour générer des 
+tableaux ou des listes.\\
+\par Pour conclure, nous pouvons dire que le projet a été globalement bien 
+réussi malgré les problèmes de gestion de projet et d'apprentissage d'une 
+nouvelle technologie.
+\begin{table}[!htb]
+\caption{Récapitulatif des compétences acquises par chacun} 
+\centering
+\begin{tabular}{| c | c | c | c | c |}
+	\hline
+  DEMERY Cyril & BARRE Sylvain & RIBAS Nathan & GAUVRIT Bryan & RIBEIRO DA SILVA Baptiste\\\hline
+\begin{minipage}{3cm}
+\medskip \par
+\begin{itemize}
+\item JPA
+\item JPQL
+\item Trigger SQL
+\end{itemize}
+\medskip
+\end{minipage}
+&
+\begin{minipage}{3cm}
+\medskip \par
+\begin{itemize}
+\item JSP/JSTL
+\item Servlet
+\end{itemize}
+\medskip
+\end{minipage}
+&
+\begin{minipage}{3cm}
+\medskip \par
+\begin{itemize}
+\item JSP/JSTL
+\item Servlet
+\end{itemize}
+\medskip
+\end{minipage}
+&
+\begin{minipage}{3cm}
+\medskip \par
+\begin{itemize}
+\item JSP
+\end{itemize}
+\medskip
+\end{minipage}
+&
+\begin{minipage}{3cm}
+\medskip \par
+\begin{itemize}
+\item JSP/JSTL
+\item Servlet
+\item JPA
+\end{itemize}
+\medskip
+\end{minipage}
+\\\hline
+\end{tabular}
+\end{table}
+
+\end{document}

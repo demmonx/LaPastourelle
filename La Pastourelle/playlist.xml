@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<songs>
+  <song>
+    <name>01-Tournedjaire-Pasudo</name>
+    <band>Pastourelle</band>
+    <file>musics/01 - Touredjaire - Pasudo.mp3</file>
+  </song>
+  <song>
+    <name>02-Valses</name>
+    <band>Pastourelle</band>
+    <file>musics/02 - Valses.mp3</file>
+  </song>
+  <song>
+    <name>03-Pot pourri de bourrees</name>
+    <band></band>
+    <file>musics/03 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>04-Pot pourri de branlous</name>
+    <band></band>
+    <file>musics/04 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>05-Regret de Lisou</name>
+    <band></band>
+    <file>musics/05 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>06- La Pradinoise</name>
+    <band></band>
+    <file>musics/06 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>07-Vieilles marches</name>
+    <band></band>
+    <file>musics/07 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>08-Le pont de Mirabel</name>
+    <band></band>
+    <file>musics/08 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>09-Aben un gal - La roda</name>
+    <band></band>
+    <file>musics/09 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>10-Los esclops</name>
+    <band></band>
+    <file>musics/10 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>11-Pot pourri de marches</name>
+    <band></band>
+    <file>musics/11 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>12-Bourree des genets-Bourree del pastre</name>
+    <band></band>
+    <file>musics/12 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>13-Pot pourri de scottischs</name>
+    <band></band>
+    <file>musics/13 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>14-Nadal del Rouergue (regrets)</name>
+    <band></band>
+    <file>musics/14 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>15-Cantalese-Pourtatz Chaupina (bourree)</name>
+    <band></band>
+    <file>musics/15 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>16-Polkas</name>
+    <band></band>
+    <file>musics/16 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>17-Lo bel fraire (conte)</name>
+    <band></band>
+    <file>musics/17 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>18-Los ventres negres- Belle bergere (valses)</name>
+    <band></band>
+    <file>musics/18 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+  <song>
+    <name>19-La crozado</name>
+    <band></band>
+    <file>musics/19 - Artiste inconnu - Titre inconnu.mp3</file>
+  </song>
+</songs>
