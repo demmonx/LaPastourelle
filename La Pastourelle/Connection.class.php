@@ -36,10 +36,14 @@
 
 class Connection extends PDO  
 {     
-    private $db = 'pastourebd1';         // base de donnÃ©es 
-    private $host = 'mysql5-8.bdb';     // adresse de la base 
-    private $user = 'pastourebd1';         // nom 
-    private $pwd = 'ltIUED83';                 // mot de passe 
+//    private $db = 'pastourebd1';         // base de donnÃ©es 
+  //  private $host = 'mysql5-8.bdb';     // adresse de la base 
+   // private $user = 'pastourebd1';         // nom 
+  //  private $pwd = 'ltIUED83';                 // mot de passe 
+	private $db = 'pastourebd1';         // base de donnÃ©es
+	private $host = 'localhost';     // adresse de la base
+	private $user = 'root';         // nom
+	private $pwd = 'nhc64mp81//';                 // mot de passe
     private $con;                    //  
     private $select;                 // requette de sÃ©lÃ©ction 
     private $execute;                 // requette d'execution 
@@ -54,6 +58,7 @@ class Connection extends PDO
             // pour mysql on active le cache de requÃªte 
             if($this->getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') 
                 $this->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true); 
+            $this->exec('SET NAMES utf8');
             return $this->con; 
         } 
         catch(PDOException $e) { 

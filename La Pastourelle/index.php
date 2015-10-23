@@ -27,7 +27,7 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 <head>
 <title>Groupe Folklorique La Pastourelle de Rodez | Association de
 	danses dans l'aveyron</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="css/grid.css" type="text/css" />

@@ -6,12 +6,12 @@
  function connect_BD()
  {
 	/** Connexion à la base de donées*/
-	$host = "mysql5-8.bdb";
-	//$host="localhost";
+	//$host = "mysql5-8.bdb";
+	$host="localhost";
 	//$user="root";
 	//$pwd="";
-	$user = "pastourebd1";
-	$pwd = "ltIUED83";
+	$user = "root";
+	$pwd = "nhc64mp81//";
 	$connet = mysql_connect ($host, $user, $pwd) or die ("Connexion impossible");
 	/** selection de la base de données */
 	mysql_select_db("pastourebd1");
@@ -19,7 +19,12 @@
  function connect_BD_PDO()
  {
     try {
-		$bdd = new PDO('mysql:host=mysql5-8.bdb;dbname=pastourebd1', 'pastourebd1', 'ltIUED83');
+    	$host="localhost";
+    	//$user="root";
+    	//$pwd="";
+    	$user = "root";
+    	$pwd = "nhc64mp81//";
+		$bdd = new PDO('mysql:host='.$host.';dbname=pastourebd1', $user, $pwd);
 	} catch (Exception $e) {
 		die('Erreur : ' . $e->getMessage());
 	}
