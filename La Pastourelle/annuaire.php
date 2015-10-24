@@ -1,57 +1,80 @@
+<?php
+// impossible de supprimer sinon 
+@session_start();?>
 <script src="js/sorttable.js" type="text/javascript"></script>
 
 <?php
-if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
+require_once ("traitement.inc.php");
+if (! isset ( $_SESSION ['pseudo'] ) || ! isset ( $_SESSION ['pass'] ) || ! verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
+	header ( "Content-Type: text/html; charset=utf-8" );
 	echo "<center>
-			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
+			Vous ne pouvez pas accèder à ces pages sans être connecté en tant que membre<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
 		  </CENTER>";
-	redirect("index.php?page=accueil", 3);
-	exit(0);
+	exit ( 0 );
 } else {
-	if (isset($_GET['pseudo'])) {
-		//$bdd = connect_BD_PDO();
-		$req_del = $bdd->select("DELETE FROM annuaire WHERE pseudo='".$_GET['pseudo']."'");
-		//$req_del->execute(array($_GET['pseudo']));
+	$adminOk = false;
+	if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
+		$adminOk = true;
+	}
+	// Si on est admin et que l'id est correct
+	if ($adminOk && isset ( $_GET ['id'] ) && is_numeric ( $_GET ['id'] )) {
+		header ( "Content-Type: text/html; charset=utf-8" );
+		$bdd = connect_BD_PDO ();
+		$req_del = $bdd->prepare ( "UPDATE user SET etat_annuaire = 0 WHERE id_membre=?" );
+		$req_del->bindValue ( 1, $_GET ['id'], PDO::PARAM_INT );
+		$req_del->execute ();
 		
-		//Affichage
-		echo '<center>Suppression effectuée</center>';
+		// Affichage
+		echo '<center>Retrait effectuée</center>';
 		echo "<center><a class='btn btn-link' href='index.php?page=annuaire'>Retour à la page précédente</a></center>";
-		exit();
+		exit ();
 	}
 	
-	//récupération des liens dans la BD et traitement
-	if (isset($_POST['aRechercher'])) {
-		$tab_membre = recup_annuaire($_POST['aRechercher'],$_POST['typeRecherche'],0);
-	} else if (isset($_POST['aTrier']) ) {
-		$tab_membre = recup_annuaire($_POST['aTrier'],"",1);
+	// récupération des liens dans la BD et traitement
+	if (isset ( $_POST ['aRechercher'] )) {
+		$tab_membre = recup_annuaire ( $_POST ['aRechercher'], $_POST ['typeRecherche'], 0 );
+	} else if (isset ( $_POST ['aTrier'] )) {
+		$tab_membre = recup_annuaire ( $_POST ['aTrier'], "", 1 );
 	} else {
-		$tab_membre = recup_annuaire("","",2);
+		$tab_membre = recup_annuaire ( "", "", 2 );
 	}
 	$cpt = 0;
-	$taille_tab = count($tab_membre);?>
-	<DIV id="liens"><CENTER><H2>ANNUAIRE</H2></center>
-	
-	
-	<form class="form-inline" action="index.php?page=annuaire" method="POST">
+	$taille_tab = count ( $tab_membre );
+	?>
+<DIV id="liens">
+	<CENTER>
+		<H2>ANNUAIRE</H2>
+	</center>
+
+
+	<form class="form-inline" action="index.php?page=annuaire"
+		method="POST">
 		<input class="span2" type="text" name="aRechercher" />
 		<!-- Ajout d'une liste déroulante pour optimiser la recherche -->
-			<div class="input-append">
-				<SELECT class="span2" name="typeRecherche">
-					<option>Nom
-					<option>Prenom
-					<option>Pseudo
-					<option>E-mail
-					<option>Telephone
-					<option>Adresse
-				</SELECT>
-				<input type="submit" value="Rechercher" class="btn" />
-			</div>
+		<div class="input-append">
+			<SELECT class="span2" name="typeRecherche">
+				<option>Nom
+				
+				<option>Prenom
+				
+				<option>Pseudo
+				
+				<option>E-mail
+				
+				<option>Telephone
+				
+				<option>Adresse
+			
+			</SELECT> <input type="submit" value="Rechercher" class="btn" />
+		</div>
 	</form><?php
-	if (isset($_POST['aRechercher'])) {
+	if (isset ( $_POST ['aRechercher'] )) {
 		echo "<a class='btn btn-link' href='index.php?page=annuaire'><img src='image/maison.png' alt='Voir la liste complète' width='20' height='20' style='margin-top: 10px;'></a>";
-	}?>
-	<p>Cliquez sur le titre de la colonne choisie (ex : Nom) pour ordonner la liste</p>
+	}
+	?>
+	<p>Cliquez sur le titre de la colonne choisie (ex : Nom) pour ordonner
+		la liste</p>
 	<?php
 	echo "<TABLE class='sortable table table-bordered table-striped' CELLPADDING=5px WIDTH=860px style='font-size:13px'>
 			<TR>
@@ -61,44 +84,23 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLo($_SESSI
 					<TH>Pseudo</TH>
 					<TH>E-mail</TH>
 					<TH>Téléphone</TH>
-					<TH>Adresse</TH>"; 
-	if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-		  echo "<TH><center>Action</center></TH>";
+					<TH>Adresse</TH>";
+	if ($adminOk) {
+		echo "<TH><center>Action</center></TH>";
 	}
-	echo	  "</H3></TR><br/></center>";
-	$adminOk = false;
-	if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-		$adminOk = true;
-	}
-	while ($cpt < $taille_tab )
-	{
-		$le_pseudo = $tab_membre[$cpt];
-		$cpt++;
-		$l_email = $tab_membre[$cpt];
-		$cpt++;
-		$le_telephone = $tab_membre[$cpt];
-		$cpt++;
-		$le_nom = $tab_membre[$cpt];
-		$cpt++;
-		$le_prenom = $tab_membre[$cpt];
-		$cpt++;
-		$l_adresse = $tab_membre[$cpt];
-		$cpt++;
-		$l_etat_annuaire = $tab_membre[$cpt];
-		$cpt++;
-		if ($l_etat_annuaire==1){
-			echo "<TR>
-					<TD><B>".$le_nom."</B></TD>";
-			echo "	<TD><B>".$le_prenom."</B></TD>";
-			echo "	<TD>".$le_pseudo."</TD>";
-			echo "	<TD>".$l_email."</TD>";
-			echo "	<TD>".$le_telephone."</TD>";
-			echo "	<TD>".$l_adresse."</TD>";
-			if ($adminOk) {
-				echo "<TD><A class='btn btn-link' HREF='annuaire.php?pseudo=".$le_pseudo."'>Supprimer</A></TD>";
-			}
-			echo "</TR>";
+	echo "</H3></TR><br/></center>";
+	foreach ( $tab_membre as $row ) {
+		echo "<TR>
+					<TD><B>" . $row['nom'] . "</B></TD>";
+		echo "	<TD><B>" . $row['prenom'] . "</B></TD>";
+		echo "	<TD>" . $row['pseudo'] . "</TD>";
+		echo "	<TD>" . $row['mail'] . "</TD>";
+		echo "	<TD>" . $row['tel'] . "</TD>";
+		echo "	<TD>" . $row['adresse'] . "</TD>";
+		if ($adminOk) {
+			echo "<TD><A class='btn btn-link' HREF='annuaire.php?id=" . $row['id'] . "'>Retirer</A></TD>";
 		}
+		echo "</TR>";
 	}
 	
 	echo "</TABLE></DIV>";

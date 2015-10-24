@@ -12,19 +12,21 @@
 //	exit(0);
 //} else {
 include ("Connection.class.php");
-	$bdd = new Connection();
 	include ("traitement.inc.php");
+	$bdd = connect_BD_PDO();
 	//récupération du membre a supprimer
-	$pseudo = $_GET["pseudo"];
+	$id = $_GET["id"];
+	if (!is_numeric($id)) {
+
+		exit("Identifiant invalide");
+	}
 	
 	//suppression des membres dans la BD et dans l'annuaire
-	$rqt_del1 = "DELETE FROM user WHERE pseudo=\"".$pseudo."\"";
-	//mysql_query($rqt_del1);
-	$rep_del1 = $bdd->select($rqt_del1);
-	$rqt_del2 =  "DELETE FROM annuaire WHERE pseudo=\"".$pseudo."\"";
-	//mysql_query($rqt_del2);
-	$rep_del2 = $bdd->select($rqt_del2);
-	//redirect("page_administrateur", 3);
+	$sql = "DELETE FROM user WHERE id_membre=?";
+	$stmt = $bdd->prepare($sql);
+	$stmt->bindValue(1, $id, PDO::PARAM_INT);
+	$stmt->execute();
+	echo "Suppression du membre réussie";
 	echo'
 			<script language="javascript" type="text/javascript">
 				setTimeout("window.location=\'index.php?page=accueil\'", 3000);

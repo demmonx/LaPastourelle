@@ -11,24 +11,30 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 			</script>';
 	exit(0);
 } else {
-	//$bdd = connect_BD_PDO();
+	$bdd = connect_BD_PDO();
 	// Acceptation ou refus d'un message du livre d'or ou d'un membre*/
-	if (isset($_GET['id']) AND isset($_GET['confirm'])) {
+	if (isset($_GET['id']) && isset($_GET['confirm']) && is_numeric($_GET['id'])) {
 		//Refus d'un message ou d'un membre
 		if ($_GET['confirm'] == 0) {
 			if (isset($_GET['mb']) AND $_GET['mb'] == 1) { //Membre
-				$delMess = $bdd->select("DELETE FROM user WHERE pseudo = '" . $_GET['id'] . "'");
+				$sql = "DELETE FROM user WHERE id_membre = ?";
 			} else { //Message
-				$delMess = $bdd->select("DELETE FROM livreOR WHERE id = '" . $_GET['id'] . "'");
+				$sql = "DELETE FROM livreOR WHERE id = ?";
 			}
+			$stmt = $bdd->prepare($sql);
+			$stmt->bindValue(1, $_GET['id'],  PDO::PARAM_INT);
+			$stmt->execute();			
+			
 			//$delMess->execute(array($_GET['id']));
 		//Acceptation d'un message ou d'un membre
 		} else if ($_GET['confirm'] == 1) {
 			if (isset($_GET['mb']) AND $_GET['mb'] == 1) { //Membre
-				$modMess = $bdd->select("UPDATE user SET etat_validation = '1', niveau = 'membre' WHERE pseudo = '" . $_GET['id'] . "'");
+				$modMess = $bdd->prepare("UPDATE user SET etat_validation = 1 WHERE id_membre = :id");
 			} else { //Message
-				$modMess = $bdd->select("UPDATE livreor SET confirm = '1' WHERE id = '" . $_GET['id'] . "'");
+				$modMess = $bdd->prepare("UPDATE livreor SET confirm = 1 WHERE id = :id");
 			}
+			$modMess->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+			$modMess->execute();
 			//$modMess->execute(array($_GET['id']));
 		}
 	}
@@ -37,8 +43,9 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 	<center>
 		<h2>Messages du livre d'or en attente de validation</h2>";
 	//$req_messNoValid = $bdd->query('SELECT * FROM livreor WHERE confirm = 0 ORDER BY date');
-	$req_messNoValid = $bdd->select('SELECT * FROM livreor WHERE confirm = "0" ORDER BY date');
-	$NBmessNoValid = count($req_messNoValid);
+	$req_messNoValid = $bdd->prepare('SELECT * FROM livreor WHERE confirm = 0 ORDER BY date');
+	$req_messNoValid->execute();
+	$NBmessNoValid = $req_messNoValid->rowcount();
 	if ($NBmessNoValid == 0) {
 		echo "Il n'y a aucun message en attente
 	</center>";
@@ -83,11 +90,12 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 	<center>
 		<h2>Membres en attente de validation</h2>";
 	//$req_membNoValid = $bdd->query('SELECT pseudo, email, telephone, nom, prenom, adresse FROM user WHERE etat_validation=0 ORDER BY nom');
-	$req_membNoValid = $bdd->selectTableau('SELECT pseudo, email, telephone, nom, prenom, adresse
+	$req_membNoValid = $bdd->prepare('SELECT id_membre, pseudo, email, telephone, nom, prenom, adresse
 											FROM user
-											WHERE etat_validation="0"
+											WHERE etat_validation=0
 											ORDER BY nom');
-	$NBmembNoValid = count($req_membNoValid); //->rowCount();
+		$req_membNoValid->execute();
+	$NBmembNoValid = $req_membNoValid->rowcount();
 	if ($NBmembNoValid == 0) {
 		echo "Il n'y a aucun membre en attente
 	</center>";
@@ -120,11 +128,11 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 				<td>".$row['adresse']."</td>";
 			echo "
 				<td>
-					<a class='btn btn-link' href='index.php?page=page_administrateur&id=".$row['pseudo']."&confirm=1&mb=1'>Accepter</a>
+					<a class='btn btn-link' href='index.php?page=page_administrateur&id=".$row['id_membre']."&confirm=1&mb=1'>Accepter</a>
 				</td>";
 			echo "
 				<td>
-					<a class='btn btn-link' href='index.php?page=page_administrateur&id=".$row['pseudo']."&confirm=0&mb=1'>Refuser</a>
+					<a class='btn btn-link' href='index.php?page=page_administrateur&id=".$row['id_membre']."&confirm=0&mb=1'>Refuser</a>
 				</td>";
 			echo "
 			</tr>";
@@ -134,50 +142,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 	</div>
 </center>";
 	}
-	/** membre à valider 
-	echo "<DIV id=\"page_tab\"><CENTER> <H2> Membres en demande d'inscription </H2>  ";
 
-	$tab_membre_aValider = recup_membre_valider();
-	$cpt = 0;
-	$taille_tab = count($tab_membre_aValider);
-	
-	echo "<DIV id=\"liens\"><TABLE WIDTH=860px>
-		  <TR><H3><TH>Nom</TH><TH> </TH><TH>Prénom</TH><TH> </TH><TH>Pseudo</TH>
-		  <TH> </TH><TH>E-mail</TH><TH> </TH><TH>Téléphone</TH>
-		  <TH> </TH><TH>Adresse</TH></H3><TH> </TH><TH>+</TH></TR>";
-	
-	while ($cpt < $taille_tab )
-	{
-		$le_pseudo = $tab_membre_aValider[$cpt];
-		$cpt++;
-		$l_email = $tab_membre_aValider[$cpt];
-		$cpt++;
-		$le_telephone = $tab_membre_aValider[$cpt];
-		$cpt++;
-		$le_nom = $tab_membre_aValider[$cpt];
-		$cpt++;
-		$le_prenom = $tab_membre_aValider[$cpt];
-		$cpt++;
-		$l_adresse = $tab_membre_aValider[$cpt];
-		$cpt++;
-		echo "<TR><TD><B>".$le_nom."</B></TD>";
-		echo "<TD>&nbsp; &nbsp;</TD>";
-		echo "<TD><B>".$le_prenom."</B></TD>";
-		echo "<TD>&nbsp; &nbsp;</TD>";
-		echo "<TD>".$le_pseudo."</TD>";
-		echo "<TD>&nbsp; &nbsp;</TD>";
-		echo "<TD>".$l_email."</TD>";
-		echo "<TD>&nbsp; &nbsp;</TD>";
-		echo "<TD>".$le_telephone."</TD>";
-		echo "<TD>&nbsp; &nbsp;</TD>";
-		echo "<TD>".$l_adresse."</TD>";
-		echo "<TD>&nbsp; &nbsp</TD>";
-		echo "<TD><A HREF=\"supprMembre.php?pseudo=".$le_pseudo."\">Refuser</A></TD>";
-		echo "<TD>&nbsp; &nbsp;</TD>";
-		echo "<TD><A HREF=\"ajoutMembre.php?pseudo=".$le_pseudo."\">Valider</A></TD>";
-		echo "</TR><TR></TR>";
-	}
-	echo "</TABLE></DIV>";*/
 	
 	/** membre deja valider */
 	echo "
@@ -202,41 +167,18 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 				</H3>
 			</TR>";
 	
-	while ($cpt < $taille_tab )
-	{
-		$le_pseudo = $tab_membre[$cpt];
-		$cpt++;
-		$l_email = $tab_membre[$cpt];
-		$cpt++;
-		$le_telephone = $tab_membre[$cpt];
-		$cpt++;
-		$le_nom = $tab_membre[$cpt];
-		$cpt++;
-		$le_prenom = $tab_membre[$cpt];
-		$cpt++;
-		$l_adresse = $tab_membre[$cpt];
-		$cpt++;
-		echo "
-			<TR>
-				<TD><B>".$le_nom."</B></TD>";
-		echo "
-				<TD><B>".$le_prenom."</B></TD>";
-		echo "
-				<TD>".$le_pseudo."</TD>";
-		echo "
-				<TD>".$l_email."</TD>";
-		echo "
-				<TD>".$le_telephone."</TD>";
-		echo "
-				<TD>".$l_adresse."</TD>";
-		echo "
-				<TD>
-					<A class='btn btn-link' HREF=\"supprMembre.php?pseudo=".$le_pseudo."\">Supprimer</A>
-				</TD>";
-		echo"
-			</TR>
-			<TR></TR>";
+	foreach ( $tab_membre as $row ) {
+		echo "<TR>
+					<TD><B>" . $row['nom'] . "</B></TD>";
+		echo "	<TD><B>" . $row['prenom'] . "</B></TD>";
+		echo "	<TD>" . $row['pseudo'] . "</TD>";
+		echo "	<TD>" . $row['mail'] . "</TD>";
+		echo "	<TD>" . $row['tel'] . "</TD>";
+		echo "	<TD>" . $row['adresse'] . "</TD>";
+		echo "<TD><A class='btn btn-link' HREF='supprMembre.php?id=" . $row['id'] . "'>Supprimer</A></TD>";
+		echo "</TR>";
 	}
+
 	echo "
 		</TABLE>
 	</DIV>";

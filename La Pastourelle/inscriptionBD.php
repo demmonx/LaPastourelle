@@ -2,9 +2,9 @@
 
 //inclusion des fichiers de fonction
 include ("traitement.inc.php");
-	
+header("Content-Type: text/html; charset=utf-8");	
 function inscriptionBDD() {	
-	$bdd = new Connection();
+	$bdd = connect_BD_PDO();
 	//connexion à la base de donnée
 	//connect_BD();
 						
@@ -17,25 +17,38 @@ function inscriptionBDD() {
 	$nom = strtoupper($_POST["nom"]);
 	$prenom = ucfirst($_POST["prenom"]);
 	$adresse = $_POST["adresse"];
-	if(isset($_POST["etat_annuaire"])){
+	$etat_annuaire = 0;
+	if(isset($_POST["etat_annuaire"]) && $_POST["etat_annuaire"] == "true"){
 		$etat_annuaire=1;
-	}else{
-		$etat_annuaire=0;
 	}
 	
 	//regarde si l'user existe deja
-	$rqt_user = "SELECT pseudo FROM user WHERE pseudo='".$pseudo."'";
-	$les_user = $bdd->select($rqt_user);
-	//echo count($les_user);
-	if (($nb_row = count($les_user)) == 1){
+	$rqt_user = "SELECT pseudo FROM user WHERE pseudo=?";
+	$les_user = $bdd->prepare($rqt_user);
+	$les_user->bindValue(1, $pseudo, PDO::PARAM_STR);
+	$les_user->execute();
+	
+	if ($les_user->rowCount() == 0){
 		//insertion dans la base de données du nouvel user
-		$rqt_insert = "INSERT INTO user (pseudo, motdepasse, email, etat_validation, telephone, nom, prenom, adresse, etat_annuaire)
-						VALUES ('".$pseudo."', '".$mdp."', '".$email."', 0, '".$tel."', '".$nom."', '".$prenom."', '".$adresse."', '".$etat_annuaire."' )";
-		$req = $bdd->select($rqt_insert);
+		//$rqt_insert = "INSERT INTO user (pseudo, motdepasse, email, etat_validation, telephone, nom, prenom, adresse, etat_annuaire)
+		//				VALUES ('".$pseudo."', '".$mdp."', '".$email."', 0, '".$tel."', '".$nom."', '".$prenom."', '".$adresse."', '".$etat_annuaire."' )";
+	  //$req = $bdd->select($rqt_insert);
+	  $sql = "INSERT INTO user (pseudo, motdepasse, email, etat_validation, niveau, telephone, nom, prenom, adresse, etat_annuaire)
+						VALUES (:pseudo, :pass, :mail, 0, 'membre', :tel, :nom, :prenom, :adresse, :annuaire)";
+	  $stmt = $bdd->prepare($sql);
+	  $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+	  $stmt->bindValue(':pass', $mdp, PDO::PARAM_STR);
+	  $stmt->bindValue(':mail', $email, PDO::PARAM_STR);
+	  $stmt->bindValue(':tel', $tel, PDO::PARAM_INT);
+	  $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
+	  $stmt->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+	  $stmt->bindValue(':adresse', $adresse, PDO::PARAM_STR);
+	  $stmt->bindValue(':annuaire', $etat_annuaire, PDO::PARAM_INT);
+	  $stmt->execute();
 		
 		//message de confirmation d'inscription et retour à l'accueil
-		echo "<BR><BR><BR><BR><BR><BR><CENTER>Votre inscription a été prise en compte<BR>
-				Vous allez être redirigé<CENTER>";
+		echo "<p>Votre inscription a été prise en compte<br />
+				Vous allez être redirigé</p>";
 		echo'
 			<script language="javascript" type="text/javascript">
 				setTimeout("window.location=\'index.php?page=accueil\'", 3000);
@@ -43,12 +56,13 @@ function inscriptionBDD() {
 
 	}else{
 		//message de NON confirmation d'inscription et retour à l'accueil
-		echo "<BR><BR><BR><BR><BR><BR><CENTER>Le membre existe dejà<BR>
-				Vous allez être redirigé<CENTER><CENTER>";
+		echo "<p>Le membre existe déjà<br />
+				Vous allez être redirigé</p>";
 		echo'
 			<script language="javascript" type="text/javascript">
 				setTimeout("window.location=\'index.php?page=inscription\'", 3000);
 			</script>';
 	}
+	$les_user->closeCursor();
 }
 ?>
