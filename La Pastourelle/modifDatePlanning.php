@@ -8,6 +8,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 } else {?>
 <SCRIPT LANGUAGE="JavaScript">
 /* On crée une fonction de verification */
+ // TODO vérifier le formulaire
 function verifForm(formulaire)
 {
 temps = formulaire.date.value;
@@ -24,30 +25,18 @@ else
 </SCRIPT>
 
 <?php
-	//récupération du membre a supprimer
-	$date = $_GET["date"];
-	$lieu = $_GET["lieu"];
-	
-	//traitement de la date pour l'inserer de la forme aaaa/mm/jj pour pouvoir les classer par date
-	$morceau_date = explode ("/", $date);
-	$jour = $morceau_date[0];
-	$mois = $morceau_date[1];
-	$annee = $morceau_date[2];
-	$date2 = $annee."/".$mois."/".$jour;
-	
-	$info_date = recup_datePlanning($date2, $lieu);
-	
+
+	$info_date = recup_datePlanning($_GET["id"]);	
 	
 	echo "<DIV id=\"accueil\"><CENTER><H2>ADMINISTRATION DU PLANNING</H2>";
 	echo "<BR><BR>";
 	echo "<FORM METHOD=POST ACTION=\"index.php?page=modifDatePlanningBD\">
 			<TABLE WIDTH=840px>
-				<TR><TD>Jour</TD><TD><INPUT type=text name=\"jour\" size=15px value=\"".$info_date[0]."\"></TD><TD> </TD>
-				<TD>Date (jj/mm/aaaa)</TD><TD><INPUT type=text name=\"date\" size=15px value=\"".$date."\"></TD><TD> </TD>
-				<TD>Lieu</TD><TD><INPUT type=text name=\"lieu\" size=15px value=\"".$lieu."\"></TD><TD> </TD>
-				<TD>Musiciens</TD><TD><INPUT type=text name=\"musiciens\" size=15px value=\"".$info_date[3]."\"></TD><TD> </TD></TR></TABLE>
-				<INPUT type=hidden name=\"date_A\" size=15px value=\"".$date."\">
-				<INPUT type=hidden name=\"lieu_A\" size=15px value=\"".$lieu."\">
+				<TR><TD>Jour</TD><TD><INPUT type=text name=\"jour\" size=15px value=\"".$info_date['jour']."\"></TD></tr>
+			<tr><TD>Date (jj/mm/aaaa)</TD><TD><INPUT type=text name=\"date\" size=15px value=\"".$info_date['date']."\"></TD></tr>
+			<tr><TD>Lieu</TD><TD><INPUT type=text name=\"lieu\" size=15px value=\"".$info_date['lieu']."\"></tr>
+			<tr><TD>Musiciens</TD><TD><textarea name='musiciens'>".$info_date['joueur']."</textarea></TD></TR></TABLE>
+				<INPUT type=hidden name=\"id\" size=15px value=\"".$info_date['id']."\">
 				<BR><BUTTON NAME=\"btn_val\" type=\"button\" value=\"\" onClick=\"verifForm(this.form)\">Modifier</BUTTON><BR><BR>
 		  </FORM></DIV>";
 		  

@@ -540,17 +540,15 @@ function recup_planning() {
 	/**
 	 * recupération des revues de presse
 	 */
-	$rqt_planning = "SELECT pl_jour, pl_date, pl_lieu, pl_musiciens FROM planning";
+	$rqt_planning = "SELECT id_planning, pl_jour, pl_date, pl_lieu, pl_musiciens FROM planning";
 	$result = $bdd->select ( $rqt_planning );
 	
 	foreach ( $result as $row ) {
-		$tab_planning [$cpt] = $row ['pl_jour'];
-		$cpt ++;
-		$tab_planning [$cpt] = $row ['pl_date'];
-		$cpt ++;
-		$tab_planning [$cpt] = $row ['pl_lieu'];
-		$cpt ++;
-		$tab_planning [$cpt] = $row ['pl_musiciens'];
+		$tab_planning [$cpt]['jour'] = $row ['pl_jour'];
+		$tab_planning [$cpt]['date'] = $row ['pl_date'];
+		$tab_planning [$cpt]['lieu'] = $row ['pl_lieu'];
+		$tab_planning [$cpt]['joueur'] = $row ['pl_musiciens'];
+		$tab_planning [$cpt]['id'] = $row ['id_planning'];
 		$cpt ++;
 	}
 	
@@ -576,29 +574,26 @@ function recup_planning() {
  * Récupération des info d'une date du planning *
  * **********************************************
  */
-function recup_datePlanning($date, $lieu) {
-	$bdd = new Connection ();
+function recup_datePlanning($id) {
+	$bdd = connect_BD_PDO();
 	
-	$tab_date = array (); // tableau contenant les informations du planning
-	$cpt = 0;
+	$tab_planning = array (); // tableau contenant les informations du planning
 	
 	/**
 	 * recupération des revues de presse
 	 */
-	$rqt_date = "SELECT pl_jour, pl_date, pl_lieu, pl_musiciens FROM planning WHERE pl_date=\"" . $date . "\" AND pl_lieu=\"" . $lieu . "\"";
-	$result = $bdd->select ( $rqt_date );
+	$rqt_planning = "SELECT * FROM planning WHERE id_planning = ?";
+	$result = $bdd->prepare ( $rqt_planning );
+	$result->bindValue(1, $id);
+	$result->execute();
 	
-	foreach ( $result as $row ) {
-		$tab_date [$cpt] = $row ['pl_jour'];
-		$cpt ++;
-		$tab_date [$cpt] = $row ['pl_date'];
-		$cpt ++;
-		$tab_date [$cpt] = $row ['pl_lieu'];
-		$cpt ++;
-		$tab_date [$cpt] = $row ['pl_musiciens'];
-		$cpt ++;
+	if($row  = $result->fetch()) {
+		$tab_planning ['jour'] = $row ['pl_jour'];
+		$tab_planning ['date'] = $row ['pl_date'];
+		$tab_planning ['lieu'] = $row ['pl_lieu'];
+		$tab_planning ['joueur'] = $row ['pl_musiciens'];
+		$tab_planning ['id'] = $row ['id_planning'];
 	}
-	
 	// $les_dates = mysql_query($rqt_date);
 	
 	// $une_date = mysql_fetch_object($les_dates);
@@ -611,7 +606,7 @@ function recup_datePlanning($date, $lieu) {
 	// $tab_date[$cpt]= $une_date->pl_musiciens;
 	// $cpt++;
 	
-	return $tab_date;
+	return $tab_planning;
 }
 
 /**
@@ -881,7 +876,7 @@ function recup_compteRendu() {
 /*
  * Fonction verifLo Langage : PHP
  *
- * Fonction de vérification de l'existance d'un membre avec un pseudo $login et un mot de passe $pass donné
+ * Fonction de vérification de l'existance d'un membre actif avec un pseudo $login et un mot de passe $pass donné
  *
  * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
  * @param $login Login à vérifié
@@ -893,7 +888,7 @@ function recup_compteRendu() {
 function verifLo($login, $pass) {
 	// Vérification de l'existance d'un membre avec le pseudo $login et le mot de passe $pass
 	$bdd = connect_BD_PDO ();
-	$req_connect = $bdd->prepare ( 'SELECT pseudo, etat_validation FROM user WHERE pseudo = ? AND motdepasse = ?' );
+	$req_connect = $bdd->prepare ( 'SELECT pseudo FROM user WHERE etat_validation = 1 AND pseudo = ? AND motdepasse = ?' );
 	$req_connect->execute ( array (
 			$login,
 			$pass 
