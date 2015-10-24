@@ -47,21 +47,10 @@ function inscriptionBDD() {
 	  $stmt->execute();
 		
 		//message de confirmation d'inscription et retour à l'accueil
-		echo "<p>Votre inscription a été prise en compte<br />
-				Vous allez être redirigé</p>";
-		echo'
-			<script language="javascript" type="text/javascript">
-				setTimeout("window.location=\'index.php?page=accueil\'", 3000);
-			</script>';
-
+		echo "Votre inscription a été prise en compte";
 	}else{
 		//message de NON confirmation d'inscription et retour à l'accueil
-		echo "<p>Le membre existe déjà<br />
-				Vous allez être redirigé</p>";
-		echo'
-			<script language="javascript" type="text/javascript">
-				setTimeout("window.location=\'index.php?page=inscription\'", 3000);
-			</script>';
+		echo "Le membre existe déjà";
 	}
 	$les_user->closeCursor();
 }
