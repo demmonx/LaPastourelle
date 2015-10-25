@@ -1,4 +1,5 @@
 <?php
+// TODO recoder cette page
 if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
 	echo "	<center>
 				Vous ne pouvez pas accéder à ces pages sans être connecté en tant qu'administrateur<br />				Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
@@ -14,14 +15,15 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 			echo "<center>Vous ne pouvez pas supprimer la langue française du site<br />";
 			echo "<a class='btn btn-link' href='index.php?page=adminTrad'>Revenir à la page précédente</a></center>";
 			exit();
+		} else {
+			//Suppression SQL de la langue
+			supprLang($_POST['page_lang']);
+			//Suppression du drapeau dans les fichiers
+			unlink("image/lang/".$_POST['page_lang'].".png");
+			echo "<center>Suppression effectuée<br />";
+			echo "<a class='btn btn-link' href='index.php?page=adminTrad'>Revenir à la page précédente</a></center>";
+			exit();
 		}
-		//Suppression SQL de la langue
-		supprLang($_POST['page_lang']);
-		//Suppression du drapeau dans les fichiers
-		unlink("image/lang/".$_POST['page_lang'].".png");
-		echo "<center>Suppression effectuée<br />";
-		echo "<a class='btn btn-link' href='index.php?page=adminTrad'>Revenir à la page précédente</a></center>";
-		exit();
 	
 	//Ajout d'une langue
 	} else if ( isset($_FILES['fichier'])and isset($_POST["repertoire"]) and isset($_POST["nom"])) {

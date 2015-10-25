@@ -540,31 +540,18 @@ function recup_planning() {
 	/**
 	 * recupération des revues de presse
 	 */
-	$rqt_planning = "SELECT id_planning, pl_jour, pl_date, pl_lieu, pl_musiciens FROM planning";
+	$rqt_planning = "SELECT id_planning, pl_jour, pl_date, pl_lieu, pl_musiciens FROM planning ORDER BY pl_date DESC";
 	$result = $bdd->select ( $rqt_planning );
 	
 	foreach ( $result as $row ) {
 		$tab_planning [$cpt]['jour'] = $row ['pl_jour'];
-		$tab_planning [$cpt]['date'] = $row ['pl_date'];
+		$tab_planning [$cpt]['date'] = str_replace("-", "/", $row ['pl_date']);
 		$tab_planning [$cpt]['lieu'] = $row ['pl_lieu'];
 		$tab_planning [$cpt]['joueur'] = $row ['pl_musiciens'];
 		$tab_planning [$cpt]['id'] = $row ['id_planning'];
 		$cpt ++;
 	}
 	
-	// $les_info_planning = mysql_query($rqt_planning);
-	
-	// while ($une_info = mysql_fetch_object($les_info_planning))
-	// {
-	// $tab_planning[$cpt]= $une_info->pl_jour;
-	// $cpt++;
-	// $tab_planning[$cpt]= $une_info->pl_date;
-	// $cpt++;
-	// $tab_planning[$cpt]= $une_info->pl_lieu;
-	// $cpt++;
-	// $tab_planning[$cpt]= $une_info->pl_musiciens;
-	// $cpt++;
-	// }
 	
 	return $tab_planning;
 }
@@ -589,22 +576,11 @@ function recup_datePlanning($id) {
 	
 	if($row  = $result->fetch()) {
 		$tab_planning ['jour'] = $row ['pl_jour'];
-		$tab_planning ['date'] = $row ['pl_date'];
+		$tab_planning ['date'] = str_replace("-", "/", $row ['pl_date']);
 		$tab_planning ['lieu'] = $row ['pl_lieu'];
 		$tab_planning ['joueur'] = $row ['pl_musiciens'];
 		$tab_planning ['id'] = $row ['id_planning'];
 	}
-	// $les_dates = mysql_query($rqt_date);
-	
-	// $une_date = mysql_fetch_object($les_dates);
-	// $tab_date[$cpt]= $une_date->pl_jour;
-	// $cpt++;
-	// $tab_date[$cpt]= $une_date->pl_date;
-	// $cpt++;
-	// $tab_date[$cpt]= $une_date->pl_lieu;
-	// $cpt++;
-	// $tab_date[$cpt]= $une_date->pl_musiciens;
-	// $cpt++;
 	
 	return $tab_planning;
 }

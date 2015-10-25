@@ -12,88 +12,94 @@ if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! veri
 	exit ( 0 );
 }
 require_once 'traitement.inc.php';
-	$bdd = connect_BD_PDO();
-	if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
+$bdd = connect_BD_PDO ();
+if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
 	// Suppression dans la base de données
-	if (isset ( $_GET ['id'] ) && is_numeric($_GET ['id'])) {
+	if (isset ( $_GET ['id'] ) && is_numeric ( $_GET ['id'] )) {
 		// récupération de l'evt à delete
 		$id = $_GET ["id"];
-				// Suppression dans la BD
-		$req_suppr = $bdd->prepare ( "DELETE FROM planning WHERE id_planning =? ");
-		$req_suppr->bindValue(1, $id);
-		 $req_suppr->execute();
+		// Suppression dans la BD
+		$req_suppr = $bdd->prepare ( "DELETE FROM planning WHERE id_planning =? " );
+		$req_suppr->bindValue ( 1, $id );
+		$req_suppr->execute ();
 		
 		// Ajout dans la base de données
-	} else if (!empty( $_POST ['date'] ) && ( $_POST ['lieu'] ) && ( $_POST ['jour'] ) && ( $_POST ['musiciens'] )) {
-		$nom_jour = $_POST ["jour"];
-		$date = $_POST ["date"];
-		$lieu = $_POST ["lieu"];
-		$musiciens = $_POST ["musiciens"];
-		
-		// traitement de la date pour l'inserer de la forme aaaa/mm/jj pour pouvoir les classer par date
-		$morceau_date = explode ( "/", $date );
-		$jour = $morceau_date [0];
-		$mois = $morceau_date [1];
-		$annee = $morceau_date [2];
-		$date = $annee . "/" . $mois . "/" . $jour;
-		
-		// TODO recoder le insert
-		$req_ajout = $bdd->select ( "INSERT INTO planning VALUES ('" . $nom_jour . "','" . $date . "','" . $lieu . "','" . $musiciens . "')" );
-		// $req_ajout->execute(array($nom_jour, $date, $lieu, $musiciens));
-		echo "<BR><BR><CENTER>Date ajoutée au planning<br /><br />";
-		echo "<a class='btn btn-link' href='index.php?page=planning'>Revenir à la page précédente</a></CENTER>";
-		exit ( 0 );
 	}
 	?>
-<SCRIPT LANGUAGE="JavaScript">
-		/* On crée une fonction de verification */
-		function verifForm(formulaire)
-		{
-		temps = formulaire.date.value;
-		var place = temps.indexOf("/",1);
-		var point = temps.indexOf("/",place+1);
-		if(formulaire.date.value == "" || formulaire.lieu.value == "" || formulaire.musiciens.value == "") /* on detecte si saisie33 est vide */
-			alert('Remplissez correctement tous les champs'); /* dans ce cas on lance un message d'alerte */
-		else
-			if ((place == 2)&&(temps.length == 10)&&(point == 5))
-				formulaire.submit(); /* sinon on envoi le formulaire */
-			else
-				alert('Entrez une date valide!!');
-		}
-		</SCRIPT><?php
+	<script language="javascript">
+$(document).ready(function () {
+	
+	/* Vérification de la date */
+	function checkDate(date) {
+		return ( (new Date(date) !== "Invalid Date" && !isNaN(new Date(date)) ));
+	}
+	
+    /** * Formulaire de connexion ** */
+    $('#ajout').on('submit', function (e) {
+        e.preventDefault(); // Empeche de soumettre le formulaire
+        var form = $(this); // L'objet jQuery du formulaire
+
+        // Récupération des valeurs
+        var jour = $('#jour').val();  
+        var date = $('#date').val();  
+        var lieu = $('#lieu').val();  
+        var joueur = $('#joueur').val();   
+
+        $('#msgReturn').empty();
+        // Vérifie pour éviter de lancer une requête fausse
+        if (jour === '' || date === '' || lieu === '' || joueur === '') {
+            $('#msgReturn').append('Les champs doivent êtres remplis');
+        } else if (!checkDate(date) || date.length != 10) {
+            	$('#msgReturn').append("La date doit être valide");         
+        } else {
+            // Envoi de la requête HTTP en mode asynchrone
+            $.ajax({
+                url: form.attr('action'), // cible (formulaire)
+                type: form.attr('method'), // méthode (formulaire)
+                data: form.serialize(), // Envoie de toutes les données
+                success: function (html) { // Récupération de la réponse
+                    $('#msgReturn').append(html);  // affichage du résultat
+                }
+            });
+        }
+    });
+});
+</SCRIPT>
+	<?php
 	/* Titre admin */
 	echo "<DIV id=\"accueil\"><CENTER><H2>ADMINISTRATION DU PLANNING</H2>";
 	echo "<BR><BR>";
 	/* Formulaire d'ajout d'un évenement */
 	echo "
 		<div class='identification'>
-			<FORM class='form-horizontal' METHOD=POST ACTION=\"index.php?page=planning\">
+			<FORM class='form-horizontal' id='ajout' METHOD='POST' ACTION='planning_ajout.php'>
 				<div class='control-group'>
 					<label class='control-label'>Jour</label>
 					<div class='controls'>
-						<INPUT type=text name=\"jour\">
+						<INPUT type=text id='jour' name='jour' required />
 					</div>
 				</div>
 				<div class='control-group'>
 					<label class='control-label'>Date (jj/mm/aaaa)</label>
 					<div class='controls'>
-						<INPUT type=text name='date'>
+						<INPUT type=text id='date' name='date' required />
 					</div>
 				</div>
 				<div class='control-group'>
 					<label class='control-label'>Lieu</label>
 					<div class='controls'>
-						<INPUT type=text name='lieu'>
+						<INPUT type=text id='lieu' name='lieu' required />
 					</div>
 				</div>
 				<div class='control-group'>
 					<label class='control-label'>Musiciens</label>
 					<div class='controls'>
-						<INPUT type=text name='musiciens'>
+						<INPUT type=text id='musiciens' name='musiciens' required />
 					</div>
 				</div>
-				<BUTTON class='btn' NAME='btn_val' type='button' value='' onClick='verifForm(this.form)'>Ajouter</BUTTON><BR><BR>
+				<input type='submit' value='Ajouter'/>
 			</FORM>
+ 		<div id='msgReturn'></div><br>
 		</div>";
 } else {
 	/* Titre membre */
@@ -122,12 +128,12 @@ $adminOK = false;
 if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
 	$adminOK = true;
 }
-foreach ($tab_planning as $row) {
-	$un_jour = $row["jour"];
-	$une_date = $row["date"];
-	$un_lieu = $row["lieu"];
-	$un_musiciens = $row["joueur"];
-	$unId = $row["id"];
+foreach ( $tab_planning as $row ) {
+	$un_jour = $row ["jour"];
+	$une_date = $row ["date"];
+	$un_lieu = $row ["lieu"];
+	$un_musiciens = $row ["joueur"];
+	$unId = $row ["id"];
 	
 	// traitement de la date pour l'afficher de la forme jj/mm/aaaa
 	$morceau_date = explode ( "/", $une_date );
