@@ -1,0 +1,31 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {A}Plan de Management de Projet}{3}{chapter.1}
+\contentsline {section}{\numberline {A.I)}Introduction}{3}{section.1.1}
+\contentsline {section}{\numberline {A.II)}Pr\IeC {\'e}sentation}{3}{section.1.2}
+\contentsline {subsection}{\numberline {A.II.1)}Les acteurs}{3}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {A.II.2)}Enjeux et b\IeC {\'e}n\IeC {\'e}fices}{3}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {A.II.3)}Cahier des charges}{4}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {A.II.4)}Charte du projet}{5}{subsection.1.2.4}
+\contentsline {section}{\numberline {A.III)}Organisation}{5}{section.1.3}
+\contentsline {subsection}{\numberline {A.III.1)}Grandes \IeC {\'e}tapes}{5}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {A.III.2)}R\IeC {\^o}les}{6}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {A.III.3)}M\IeC {\'e}thodes de suivi de projet}{6}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {A.III.4)}Plan de communication}{6}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {A.III.5)}Mod\IeC {\`e}les de documents}{8}{subsection.1.3.5}
+\contentsline {subsection}{\numberline {A.III.6)}Comit\IeC {\'e} de pilotage}{10}{subsection.1.3.6}
+\contentsline {subsection}{\numberline {A.III.7)}Gestion de la configuration}{10}{subsection.1.3.7}
+\contentsline {section}{\numberline {A.IV)}Pilotage}{10}{section.1.4}
+\contentsline {subsection}{\numberline {A.IV.1)}Pr\IeC {\'e}vision initiale}{10}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {A.IV.2)}Evolution de la plannification}{13}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {A.IV.3)}Avancement final}{15}{subsection.1.4.3}
+\contentsline {section}{\numberline {A.V)}Recettes}{15}{section.1.5}
+\contentsline {chapter}{\numberline {B}Les caract\IeC {\'e}ristiques techniques}{16}{chapter.2}
+\contentsline {section}{\numberline {B.I)}Charte graphique}{16}{section.2.1}
+\contentsline {section}{\numberline {B.II)}D\IeC {\'e}veloppement}{16}{section.2.2}
+\contentsline {subsection}{\numberline {B.II.1)}El\IeC {\'e}ments de s\IeC {\'e}curisation du site}{16}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {B.II.2)}Codes source}{16}{subsection.2.2.2}
+\contentsline {section}{\numberline {B.III)}Base de donn\IeC {\'e}es}{16}{section.2.3}
+\contentsline {chapter}{\numberline {C}Le d\IeC {\'e}ploiement de l'application Web}{17}{chapter.3}
+\contentsline {section}{\numberline {C.I)}Sc\IeC {\'e}nario de recettes}{17}{section.3.1}
+\contentsline {section}{\numberline {C.II)}Manuel utilisateur}{17}{section.3.2}
+\contentsline {section}{\numberline {C.III)}Manuel administrateur}{17}{section.3.3}
