@@ -137,7 +137,8 @@ Elles sont obligatoires et sont la cause de la rénovation du site, elles doiven
 
 Correction des erreurs graves liées à l'administration :
 \begin{itemize}
-\item Membre qui ne bascule pas dans l'annuaire
+\item Membre qui ne bascule pas dans l'annuaire après sa validation par un
+administrateur
 \item Problème de masque de saisie qui empêche de voir l'intégralité du contenu
 à modifier 
 \item Problème de saisie de la phrase du jour qui ne fonctionne pas en saisie
@@ -212,9 +213,13 @@ informations en cas de soucis, et des choix d'outils de travail.
 au projet à jour, ainsi que de rédiger les comptes rendus de réunion\\
 \end{itemize}
 
-\par Concernant les différents livrables à fournir, nous devons rendre le site 
-hébergé, testé et fonctionnel, un manuel d'utilisateur pour l'assocation, ainsi 
-qu'un dossier projet et un plan projet.
+\par Concernant les différents livrables à fournir, nous devons rendre : 
+	\begin{itemize}
+	  \item le site hébergé, testé et fonctionnel
+	  \item un manuel d'utilisateur pour l'assocation
+	  \item un dossier projet
+	  \item un plan projet
+	\end{itemize}
 
 
 \section{Organisation}
@@ -316,41 +321,106 @@ les logiciels suivants : \\
  d'autres Windows. 
 
 \section{Pilotage}
-\subsection{Diagramme des cas d'utilisation}
 \subsection{Prévision initiale}
+Initialement, nous avions prévus de suivre cette plannification, avec la
+première partie jusqu'au jalon définie avec un peu de précision, puis la suite
+beaucoup moins car nous devions faire le point avec le client pour voir si le
+résultat de la première partie lui convenait.
+\par
+\begin{tabular}{ | c | p{4cm} | c | c | c | c | c | c | c |  }
+\hline 
+Id & Tâche & Statut & Priorité & Estimée (h) & Début & Fin & Réalisé &
+Préd. \\ \hline
+24 & Recoder l'administration du multilangue & A réaliser & Moyenne & 3 &
+	21/10/15 & 18/11/15 & 0 & \\ \hline
+23 & Correction erreurs diverses (planning)
+	& A réaliser & Moyenne & 1 & 21/10/15 & 11/11/15 & 0 & \\ \hline
+22 & Correction encodage & A réaliser & Urgente & 5 & 21/10/15 & 11/11/15 & 0
+	 & \\ \hline
+21 & Correction de l'inscription & Terminé & Haute & 3 & 21/10/15 &
+	11/11/15 & 0 & \\ \hline
+20 & Inclure un captcha & A réaliser & Basse & ? & 13/11/15 &
+	09/12/15 & 0 & 5 \\ \hline
+19 & Revoir l'ergonomie et la présentation & A réaliser & Basse & ? & 13/11/15
+	& 09/12/15 & 0 & 5 \\ \hline
+18 & Changer les photos de la boutique & A réaliser & Basse & ? & 13/11/15 &
+	09/12/15 & 0 & 5 \\ \hline
+17 & Repenser le bon de commande & A réaliser & Basse & ? & 13/11/15 & 09/12/15
+	& 0 & 5 \\ \hline
+16 & Inclure un responsive design & A réaliser & Basse & ? &
+	13/11/15 & 09/12/15 & 0 & 5 \\ \hline
+15 & Changer la couleur de fond & A réaliser & Basse & ? & 13/11/15 & 09/12/15
+	& 0 & 5  \\ \hline
+14 & Correction de l'ajout des pièces de théâtre & A réaliser & Haute & 2 &
+	13/11/15 & 09/12/15 & 0 & 5 \\ \hline
+13 & Changement du formulaire de la page d'actualité & A réaliser & Haute & 3 &
+	21/10/15 & 11/11/15 & 0 & \\ \hline
+12 & Revoir la carte du monde & A réaliser & Haute & 3 & 21/10/15 & 11/11/15 & 0
+	& \\ \hline
+11 & Changer l'ordre d'affichage des revues & A réaliser & Haute & 1 & 21/10/15
+	& 11/11/15 & 0 & \\ \hline
+10 & Dimensionnement automatique des photos & A réaliser & Haute & 1 & 21/10/15
+	& 03/11/15 & 0 & \\ \hline
+9 & Ajout de vidéos & A réaliser & Haute & 1 & 21/10/15 & 03/11/15 & 0 & \\
+\hline
+8 & Changer les icones & A réaliser & Basse & ? & 21/10/15 & 09/12/15 & 0 & \\
+\hline
+7 & Version multilingue & A réaliser & Haute & 20 & 21/10/15 & 03/11/15 & 0 & \\
+\hline
+6 & Erreur de validation & A réaliser & Haute & 3 & 21/10/15 & 03/11/15 & 0 & \\
+\hline
+5 & Fin de correction des réalisation urgentes et importantes & Jalon & Basse &
+	/ & 12/12/15 & 12/11/15 & 0 & \\ \hline
+4 & Caractères indésirables dans le planning & Terminé & Urgente & 5 & 21/10/15
+	& 03/11/15 & 0 & \\ \hline
+3 & Saisie de la phrase du jour & A réaliser & Urgente & 2 & 21/10/15 & 03/11/15
+	& 0 & \\ \hline
+2 & Correction du masque de saisie & A réaliser & Urgente & 3 & 21/10/15 &
+	03/11/15 & 0 & \\ \hline
+ \end{tabular}
+\includepdf[scale=0.80]{include/gantt22-10.pdf}
+
 \subsection{Evolution de la plannification}
+Par la suite, la plannification a évolué, ainsi au 3 novembre 2015, soit juste
+après les vacances, il se trouve que nous en étions à ce niveau (voire page
+suivante). Ici, nous constatons que la plupart des tâches qui étaient à
+effectuer pour le retour des vacances n'ont pas été effectuées et, par
+conséquent, nous sommes très en retard sur le planning car nous avions prévus
+initialement d'effectuer la démonstration avec le client à la mi-novembre.
+\par Toutefois, ce retard s'explique par la grande majorité du groupe débute sur
+php et n'est pas capable de développer rapidement, ou de s'intégrer sur une
+solution déjà développée comme c'est le cas ici. Toutefois, le but de ce projet
+est avant tout que tout le monde participe à son développement, donc nous devons
+faire avec et les développeurs les plus habiles doivent aider ceux qui sont en
+difficultés. 
+\par Par conséquent, il est fortement envisageable que nous nous mettions à
+travailler en binôme afin de rattraper le temps perdu.
+\begin{landscape}
+\begin{figure}[t]
+    \caption{Avancement du projet au 3 novembre 2015}
+   \includegraphics[scale=0.5]{include/gantt3-11.png}
+\end{figure}
+\end{landscape}
+
 \subsection{Avancement final}
 
 \section{Recettes}
 
-\chapter{L'analyse}
-\section{Analyse du besoin}
-\section{Etude de l'existant}
-\subsection{Existant sur le projet}
-\subsection{Elément similaires sur le Web}
-\subsection{Technologies et outils}
-\section{Cas d'utilisation}
-\section{Diagramme des classes}
-
 \chapter{Les caractéristiques techniques}
-\section{Choix techniques}
 \section{Charte graphique}
+// TODO nouvelle charte graphique
 \section{Développement}
-\subsection{Arborescence du site}
-\subsection{Architecture générale}
-\subsection{Normes et règles suivies, convention de nommage}
-\subsection{Manuel du développeur}
 \subsection{Eléments de sécurisation du site}
-\subsection{Code source}
+Afin d'éviter l'injection SQL, nous avons utilisé PDO, ainsi qu'un contrôle des
+formulaires en amont via PHP et Javascript pour limiter au maximum les soucis.
+Egalement, nous avons mis à jour le système de protection anti-robot, avec un
+système plus facile à utiliser.
+\subsection{Codes source}
 \section{Base de données}
+// TODO mettre le schéma SQL
 
 \chapter{Le déploiement de l'application Web}
 \section{Scénario de recettes}
 \section{Manuel utilisateur}
 \section{Manuel administrateur}
-\section{Hébergement et compte}
-
-
-
-
 \end{document}
