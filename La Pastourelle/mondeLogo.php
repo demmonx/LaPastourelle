@@ -38,7 +38,6 @@
 			</div><?php
 	//UN CONTINENT A ETE SELECTIONNE
 	} else {
-		//$bdd = connect_BD_PDO();
 
 		//Partie Administration (gestion de l'emplacement des drapeaux
 		if (   isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass']) 

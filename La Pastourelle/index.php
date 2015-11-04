@@ -2,8 +2,8 @@
 // connexion
 session_start ();
 // inclusion des fichiers de fonction
-include ("traitement.inc.php");
-include ("Connection.class.php");
+require_once ("traitement.inc.php");
+require_once ("Connection.class.php");
 
 // Définition de la redirection si la page n'existe pas
 // define("PAGE_DIR","/");
@@ -55,9 +55,7 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 <body>
 		<?php
 		// connexion à la base de donnée
-		// connect_BD();
-		// $bdd=connect_BD_PDO();
-		$bdd = new Connection ();
+		 	$bdd = new Connection();
 		?>
 	
 		<div id="bg-top"></div>
@@ -266,12 +264,12 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 			if (isset ( $_GET ['page'] )) {
 				if (! strstr ( $_GET ['page'], 'http://' ) && ! strstr ( $_GET ['page'], 'www.' ) && ! strstr ( $_GET ['page'], '/' )) {
 					// && file_exists($_GET['page'])) {
-					include ($_GET ['page'] . ".php");
+					require_once ($_GET ['page'] . ".php");
 				} else {
-					include ("accueil.php");
+					require_once ("accueil.php");
 				}
 			} else {
-				include ("accueil.php");
+				require_once ("accueil.php");
 			}
 			?>
 			

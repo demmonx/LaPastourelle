@@ -7,7 +7,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLoAdmin($_S
 	redirect("index.php?page=accueil", 3);
 	exit(0);
 } else {
-	include ("upload.php");
+	require_once ("upload.php");
 	if ( isset($_FILES['fichier_choisi'])and isset($_POST["repertoire"]) and isset($_POST["nom"]) and isset($_POST["page_lang"])) {
 		transfert();
 		$_POST["photo"] = "";

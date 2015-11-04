@@ -24,7 +24,7 @@ $annee = $morceau_date [2];
 $date = $annee . "/" . $mois . "/" . $jour;
 
 // Exécution de la l'insertion
-$bdd = connect_BD_PDO();
+	$bdd = new Connection();
 $stmt = $bdd->prepare ( "INSERT INTO planning (pl_jour, pl_date, pl_lieu, pl_musiciens) VALUES (:jour, :date, :lieu, :music)" );
 $stmt->bindValue(':jour', $nom_jour);
 $stmt->bindValue(':date', $date);

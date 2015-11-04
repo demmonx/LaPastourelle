@@ -38,7 +38,6 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 	//Modification de l'actualité <étape 3>
 	} else if (isset($_POST['lieu_theatre']) AND isset($_POST['date_theatre']) AND isset($_POST['heure_theatre']) AND isset($_POST['act_theatre'])
 			 AND (isset($_POST['lieu_danse']) AND isset($_POST['date_danse']) AND isset($_POST['heure_danse']) AND isset($_POST['act_danse'])) ) {
-		//$bdd = connect_BD_PDO();
 		$req_modifT = $bdd->prepare('UPDATE actualite SET act_lieu=?, act_date=?, act_heure=?, act_txt=?
 									 WHERE act_type="theatre" AND lang = ?');
 		$req_modifT->execute(array($_POST['lieu_theatre'], $_POST['date_theatre'], $_POST['heure_theatre'], $_POST['act_theatre'], $_POST['page_lang']));

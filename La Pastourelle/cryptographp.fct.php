@@ -26,7 +26,7 @@
 
  function chk_crypt($code) {
  // Vérifie si le code est correct
- include ($_SESSION['configfile']);
+ require_once ($_SESSION['configfile']);
  $code = addslashes ($code);
  $code = str_replace(' ','',$code);  // supprime les espaces saisis par erreur.
  $code = ($difuplow?$code:strtoupper($code));

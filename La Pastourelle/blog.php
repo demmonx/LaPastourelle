@@ -25,10 +25,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 	else if (isset($_POST['numero_photo']) AND verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
 		$numero = $_POST['numero_photo'];
 		//Recuperation du nom de la photo et suppression du fichier
-		//$bdd = connect_BD_PDO();
 		$req_recupNom = $bdd->prepare("SELECT adr_photo FROM photo WHERE id_photo = '".array($numero)."'");
-		//$req_recupNom->execute(array($numero));
-		//$recupNom = $req_recupNom->fetchAll();
 		unlink($recupNom[0]["adr_photo"]);
 		
 		// suppression de  la photo dans la bases de données
@@ -85,7 +82,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 		echo "<br><DIV id=\"menu\" style='margin-left:auto;margin-right:auto'><CENTER><B>Pour ajouter une nouvelle photo</B></CENTER></DIV><br>"; 
 		
 		if ( isset($_FILES['fichier_choisi'])){
-		include("blog_upload.php");
+		require_once("blog_upload.php");
 		$chemin = new_lien();
 
 		$insertion_photo ="INSERT INTO photo VALUES ('','".$chemin."',NOW(),'".$_POST['description']."')";

@@ -31,7 +31,6 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 		//$index_num=$val_num[0]+1;
 		
 		//Récupération de toutes les langues disponibles
-		//$bdd=connect_BD_PDO();
 		$req_allLang = $bdd->select("SELECT DISTINCT lang FROM texte");
 		$allLang = $req_allLang->fetchAll();
 		
@@ -54,7 +53,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 		
 		
 		if ( !empty($_FILES['fichier_choisi']['name'])){
-		    include("upload.php");
+		    require_once("upload.php");
 		    $chemin = new_produit();
 			if ($chemin != "-1"){
 			    $maj_img = "INSERT INTO image VALUES ('".$index."','boutique','".$chemin."')"; 

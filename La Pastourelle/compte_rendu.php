@@ -9,7 +9,6 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 } else {
 	if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
 		if (isset($_POST['compteRendu'])) {
-			//$bdd = connect_BD_PDO();
 			//$req_up = $bdd->prepare('UPDATE texte SET texte= ? WHERE txt_page="compte_rendu"');
 			$req_up = $bdd->select("UPDATE texte SET texte='" . $_POST['compteRendu'] . "' WHERE txt_page='compte_rendu'");
 			//$req_up->execute(array($_POST['compteRendu']));

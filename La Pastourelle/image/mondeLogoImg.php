@@ -20,7 +20,7 @@
 	imagecolortransparent($source, $transparence);  
 
 	include("../traitement.inc.php");
-	$bdd = connect_BD_PDO();
+	$bdd = new Connection();
 	$req_coord = $bdd->prepare('SELECT x, y
 							  FROM logoCarte
 							  WHERE continent = ?');

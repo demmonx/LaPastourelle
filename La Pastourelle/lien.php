@@ -1,7 +1,6 @@
 <?php
 if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass']) 
 		AND isset($_GET['up']) AND isset($_GET['lien'])) {
-	//$bdd = connect_BD_PDO();
 	//Récupération de toutes les langues disponibles
 		$req_allLang = $bdd->select("SELECT DISTINCT lang FROM texte");
 		$allLang = $req_allLang->fetchAll();

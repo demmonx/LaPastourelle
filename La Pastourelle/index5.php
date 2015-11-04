@@ -4,7 +4,7 @@
 	session_start();
 
 	//inclusion des fichiers de fonction
-	include ("traitement.inc.php");
+	require_once ("traitement.inc.php");
 
 	//Definition de la langue
 	if (!isset($_SESSION['lang'])) {
@@ -14,8 +14,7 @@
 		$_SESSION['lang'] = $_GET['lang'];
 	}
 	//connexion Ã  la base de donnÃ©e
-	connect_BD();
-	$bdd=connect_BD_PDO();
+		$bdd = new Connection();
 ?>
 <html>
 
@@ -233,11 +232,11 @@
 
 				if (!strstr($_GET['page'], 'http://') && !strstr($_GET['page'], 'www.') && !strstr($_GET['page'], '/')) {
 
-					include($_GET['page'].".php");
+					require_once($_GET['page'].".php");
 
 				} else {
 
-					include("accueil.php");
+					require_once("accueil.php");
 
 				}
 
@@ -247,7 +246,7 @@
 
 			{
 
-				include("accueil.php");
+				require_once("accueil.php");
 
 			}
 
@@ -259,12 +258,12 @@
 	<?php 
 /*		if (isset($_GET['page'])){
 		    if (!strstr($_GET['page'], 'http://') && !strstr($_GET['page'], 'www.') && !strstr($_GET['page'], '/')) {
-			    include($_GET['page'].".php");
+			    require_once($_GET['page'].".php");
 		    } else {
-		        include("index5.php");
+		        require_once("index5.php");
 		    }
 		} else 	{
-			include("index5.php");
+			require_once("index5.php");
 		} */
 	?>
     <footer class="container_12">

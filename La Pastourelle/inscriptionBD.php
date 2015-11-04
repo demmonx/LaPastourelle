@@ -1,13 +1,12 @@
 <?php
 
 //inclusion des fichiers de fonction
-include ("traitement.inc.php");
+require_once ("traitement.inc.php");
 header("Content-Type: text/html; charset=utf-8");	
 function inscriptionBDD() {	
-	$bdd = connect_BD_PDO();
+		$bdd = new Connection();
 	//connexion à la base de donnée
-	//connect_BD();
-						
+					
 
 	//récupération des données du formulaire
 	$pseudo = $_POST["pseudo"];

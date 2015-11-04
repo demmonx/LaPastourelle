@@ -30,7 +30,7 @@ session_start();
 if (is_file($_GET['cfg']) and dirname($_GET['cfg'])=='.' ) $_SESSION['configfile']=$_GET['cfg']; 
    else  $_SESSION['configfile']="cryptographp.cfg.php";
 
-include($_SESSION['configfile']);  
+require_once($_SESSION['configfile']);  
 
 
 // Vérifie si l'utilisateur a le droit de (re)générer un cryptogramme

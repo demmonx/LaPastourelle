@@ -43,7 +43,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 				$res_txt = $bdd->select($maj_txt);
 				
 				if ( !empty($_FILES['fichier_choisi']['name'])){
-					include("upload.php");
+					require_once("upload.php");
 					$chemin = new_produit();
 					if ($chemin != "-1"){
 						$maj_img = "UPDATE image SET img_adr='".$chemin."' WHERE img_num ='".$_POST['num_img']."' AND img_page = 'boutique'"; 

@@ -28,7 +28,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 	}
 	</script>
 
-	<?php include ("upload.php");
+	<?php require_once ("upload.php");
 	if ( isset($_FILES['fichier_choisi'])and isset($_POST["repertoire"]) and isset($_POST["nom"])) {
 		transfert();
 		$_POST["page_photo"] = "";

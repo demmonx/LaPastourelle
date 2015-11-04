@@ -12,7 +12,7 @@ if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! veri
 	exit ( 0 );
 }
 require_once 'traitement.inc.php';
-$bdd = connect_BD_PDO ();
+		$bdd = new Connection ();
 if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
 	// Suppression dans la base de données
 	if (isset ( $_GET ['id'] ) && is_numeric ( $_GET ['id'] )) {
