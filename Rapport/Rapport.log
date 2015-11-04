@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.10.16)  3 NOV 2015 22:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.10.16)  4 NOV 2015 19:20
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1240,7 +1240,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `iwonabold'
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
- (./Rapport.aux)
+ (./Rapport.aux
+(./include/Liste_tache_21-10.aux) (./include/Liste_tache_3-11.aux))
 \openout1 = `Rapport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
@@ -1429,6 +1430,8 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
 Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 (./Rapport.toc [1
 Non-PDF special ignored!
@@ -1437,6 +1440,9 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 
 
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
@@ -1532,6 +1538,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [2
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
@@ -1807,46 +1816,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 297--299
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 334--334
-[]|[]\T1/iwonal/m/n/10.95 Recoder l'ad-mi-nis-tra-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-[]|[]\T1/iwonal/m/n/10.95 Correction er-reurs di-
- []
-
-
-Underfull \hbox (badness 1430) in paragraph at lines 352--352
-[]|[]\T1/iwonal/m/n/10.95 Changer la cou-leur de
- []
-
-
-Underfull \hbox (badness 2828) in paragraph at lines 356--356
-[]|[]\T1/iwonal/m/n/10.95 Changement du for-mu-
- []
-
-
-Underfull \hbox (badness 7308) in paragraph at lines 360--360
-[]|[]\T1/iwonal/m/n/10.95 Changer l'ordre d'af-fi-
- []
-
-
-Underfull \hbox (badness 5119) in paragraph at lines 362--362
-[]|[]\T1/iwonal/m/n/10.95 Dimensionnement au-to-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 374--374
-[]|[]\T1/iwonal/m/n/10.95 Caractères in-dé-si-rables
- []
-
-
-Overfull \hbox (9.57356pt too wide) in paragraph at lines 330--381
-[][][] 
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
@@ -1869,6 +1838,38 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!]
+\openout2 = `include/Liste_tache_21-10.aux'.
+
+ (./include/Liste_tache_21-10.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+[]|[]\T1/iwonal/m/n/10.95 Caractères in-dé-si-rables
+ []
+
+
+Underfull \hbox (badness 2828) in paragraph at lines 18--18
+[]|[]\T1/iwonal/m/n/10.95 Changement du for-mu-
+ []
+
+
+Underfull \hbox (badness 7308) in paragraph at lines 22--22
+[]|[]\T1/iwonal/m/n/10.95 Changer l'ordre d'af-fi-
+ []
+
+
+Underfull \hbox (badness 5119) in paragraph at lines 24--24
+[]|[]\T1/iwonal/m/n/10.95 Dimensionnement au-to-
+ []
+
+
+Underfull \hbox (badness 1430) in paragraph at lines 48--48
+[]|[]\T1/iwonal/m/n/10.95 Changer la cou-leur de
+ []
+
+)
+Overfull \hbox (3.80292pt too wide) in paragraph at lines 2--330
+[][][] 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1879,47 +1880,50 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
-Non-PDF special ignored!]
+Non-PDF special ignored!
+
+]
 <include/gantt22-10.pdf, id=100, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf>
-Package pdftex.def Info: include/gantt22-10.pdf used on input line 382.
+Package pdftex.def Info: include/gantt22-10.pdf used on input line 332.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
  <use include/gantt22-10.pdf>
-Package pdftex.def Info: include/gantt22-10.pdf used on input line 382.
+Package pdftex.def Info: include/gantt22-10.pdf used on input line 332.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 
 <include/gantt22-10.pdf, id=103, page=1, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 382.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 332.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
  <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 382.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 332.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 382.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 332.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
  <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 382.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 332.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 382.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 332.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
  [12
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
+
 
  <./include/gantt22-10.pdf>]
 
@@ -1939,12 +1943,47 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!]
-<include/gantt3-11.png, id=133, 1205.50375pt x 856.19875pt>
-File: include/gantt3-11.png Graphic file (type png)
+\openout2 = `include/Liste_tache_3-11.aux'.
 
-<use include/gantt3-11.png>
-Package pdftex.def Info: include/gantt3-11.png used on input line 404.
-(pdftex.def)             Requested size: 602.75041pt x 428.09833pt.
+ (./include/Liste_tache_3-11.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
+[]|[]\T1/iwonal/m/n/10.95 Caractères in-dé-si-rables
+ []
+
+
+Underfull \hbox (badness 2828) in paragraph at lines 22--22
+[]|[]\T1/iwonal/m/n/10.95 Changement du for-mu-
+ []
+
+
+Underfull \hbox (badness 7308) in paragraph at lines 26--26
+[]|[]\T1/iwonal/m/n/10.95 Changer l'ordre d'af-fi-
+ []
+
+
+Underfull \hbox (badness 5119) in paragraph at lines 28--28
+[]|[]\T1/iwonal/m/n/10.95 Dimensionnement au-to-
+ []
+
+
+Underfull \hbox (badness 2376) in paragraph at lines 40--40
+[]|[]\T1/iwonal/m/n/10.95 Recoder l'ad-mi-nis-tra-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+[]|[]\T1/iwonal/m/n/10.95 Correction er-reurs di-
+ []
+
+
+Underfull \hbox (badness 1430) in paragraph at lines 56--56
+[]|[]\T1/iwonal/m/n/10.95 Changer la cou-leur de
+ []
+
+)
+Overfull \hbox (9.57356pt too wide) in paragraph at lines 1--351
+[][][] 
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1957,9 +1996,15 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored! <./include/gantt3-11.png>]
+
+]
+<include/gantt3-11.png, id=136, 1205.50375pt x 856.19875pt>
+File: include/gantt3-11.png Graphic file (type png)
+
+<use include/gantt3-11.png>
+Package pdftex.def Info: include/gantt3-11.png used on input line 355.
+(pdftex.def)             Requested size: 602.75041pt x 428.09833pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1971,9 +2016,49 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored! <./include/gantt3-11.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 364--369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 369--376
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--381
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--388
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
 
 
 
+
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
@@ -1981,7 +2066,7 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!]
 Chapitre B.
-[16
+[17
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
@@ -2011,8 +2096,8 @@ Chapitre C.
 Package caption Warning: Unused \captionsetup[table] on input line 40.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 429.
-[17
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 412.
+[18
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
@@ -2031,19 +2116,20 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 429.
- (./Rapport.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 429.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 429.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 412.
+ (./Rapport.aux (./include/Liste_tache_21-10.aux)
+(./include/Liste_tache_3-11.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 412.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 412.
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 55A00591137B7BB3DE37483D9F60BFEE;2051.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 429.
+(rerunfilecheck)             Checksum: BEF37DAF2CED3CFB43DD650731FCDACC;2225.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 412.
  ) 
 Here is how much of TeX's memory you used:
- 23194 strings out of 493305
- 427520 string characters out of 6139896
- 643546 words of memory out of 5000000
- 26186 multiletter control sequences out of 15000+600000
+ 23212 strings out of 493305
+ 427993 string characters out of 6139896
+ 644007 words of memory out of 5000000
+ 26190 multiletter control sequences out of 15000+600000
  57611 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,92p,968b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2051,10 +2137,10 @@ Here is how much of TeX's memory you used:
 are/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr/share/texlive/t
 exmf-dist/fonts/type1/nowacki/iwona/iwonal.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/nowacki/iwona/iwonam.pfb>
-Output written on Rapport.pdf (18 pages, 613479 bytes).
+Output written on Rapport.pdf (19 pages, 619278 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
+ 162 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  179 words of extra memory for PDF output out of 10000 (max. 10000000)
 
