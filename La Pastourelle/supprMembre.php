@@ -11,9 +11,9 @@
 //			</script>';
 //	exit(0);
 //} else {
-include ("Connection.class.php");
-	include ("traitement.inc.php");
-	$bdd = connect_BD_PDO();
+require_once ("Connection.class.php");
+	require_once ("traitement.inc.php");
+		$bdd = new Connection();
 	//récupération du membre a supprimer
 	$id = $_GET["id"];
 	if (!is_numeric($id)) {

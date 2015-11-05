@@ -1,7 +1,5 @@
  <?php
-	//connect_BD();
 
-	//$bdd=connect_BD_PDO();
 	//////////////////////////////////////// RECUPERATION DONNEES //////////////////////////////////////
 	
 	//récupération du titre de la page

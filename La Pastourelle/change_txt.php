@@ -14,7 +14,6 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 	
 	//Modification d'un texte
 	if (isset($_POST["texte0"]) AND isset($_POST["page"]) AND isset($_POST["page_lang"])) {
-		//$bdd = connect_BD_PDO();
 		if (isset($_POST["texte1"])) {
 			$req_modifTxt = $bdd->select("UPDATE texte SET texte = '" . $_POST["texte0"] . "' 
 										  WHERE txt_num = '0' AND txt_page = '" . $_POST["page"] . "' AND lang = '" . $_POST["page_lang"] ."'");

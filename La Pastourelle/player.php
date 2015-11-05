@@ -1,10 +1,10 @@
 <?php
-
+define("PLAYLIST", "ressources/playlist.xml");
 /*	Fonction pour recuperer un tableau de la playlist courante */
 function recup_actuel_playlist() {
 	$allAttributs;
 	$doc = new DOMDocument();
-	$doc->load( 'playlist.xml' );
+	$doc->load(PLAYLIST);
 	  
 	$songs = $doc->getElementsByTagName( "song" );
 	foreach( $songs as $song )
@@ -74,7 +74,7 @@ if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_S
 				  
 				$r->appendChild( $b );
 			}
-			$doc->save("playlist.xml");
+			$doc->save(PLAYLIST);
 			//AFFICHAGE
 			echo '<center>Ajout effectué</center>';
 			echo "<center><a class='btn btn-link' href='index.php?page=player'>Retour à la page précédente</a></center>";
@@ -90,7 +90,7 @@ if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_S
 		unlink($_GET['del']);
 		//Suppression XML
 		$doc = new DOMDocument();
-		$doc->load( 'playlist.xml' );
+		$doc->load(PLAYLIST);
 		$songs = $doc->getElementsByTagName( "song" );
 		foreach( $songs as $song ) {
 			$files = $song->getElementsByTagName( "file" );
@@ -129,7 +129,7 @@ if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_S
 						  
 						$r->appendChild( $b );
 					}
-					$doc->save("playlist.xml");
+					$doc->save(PLAYLIST);
 			}
 		}
 		echo '<center>Suppression effectuée<br />';
@@ -146,7 +146,7 @@ if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_S
 
 <p style="text-align:right;">
 	<center><?php echo $recupPlayer[0]['valeurTrad']; ?> :
-    <a class="btn btn-link" href="#" onClick="javascript:window.open('player.html','popup','width=182,height=102')"><?php echo $recupPlayer[1]['valeurTrad']; ?></a></center>
+    <a class="btn btn-link" href="#" onClick="javascript:window.open('ressources/player.html','popup','width=182,height=102')"><?php echo $recupPlayer[1]['valeurTrad']; ?></a></center>
 </p>
 
 <center><br />
@@ -165,7 +165,7 @@ if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_S
 			<param name="salign" value="" />
 			<param name="allowScriptAccess" value="sameDomain" />
 			<!--[if !IE]>-->
-			<object type="application/x-shockwave-flash" data="player.swf" width="182" height="102">
+			<object type="application/x-shockwave-flash" data="ressources/player.swf" width="182" height="102">
 				<param name="movie" value="player.swf" />
 				<param name="quality" value="best" />
 				<param name="bgcolor" value="#ffffff" />

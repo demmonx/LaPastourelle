@@ -1,7 +1,7 @@
 <?php 
 $cryptinstall="./cryptographp.fct.php";
-include $cryptinstall; 
-include("inscriptionBD.php");
+require_once $cryptinstall; 
+require_once("inscriptionBD.php");
 
 /* on vérifie le captcha */
 if (!(isset($_POST['code']) || !chk_crypt($_POST['code']))) {
@@ -42,6 +42,6 @@ if (!$prenom || !$nom || !$pseudo || !$mdp || !$adresse || !$tel || !$mail) {
 			exit($erreur[$i][1]);
 }
 
-inscriptionBDD();
+inscriptionBDD($_POST);
 
 ?>

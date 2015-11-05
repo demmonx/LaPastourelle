@@ -3,9 +3,9 @@
 function new_lien ()
 {
 	//nom du fichier choisi:
-	$nomFichier    = $_FILES["fichier_choisi"]["name"] ;
+	$nomFichier    = str_replace(' ', '', $_FILES["fichier_choisi"]["name"]) ;
 	//nom temporaire sur le serveur:
-	$nomTemporaire = $_FILES["fichier_choisi"]["tmp_name"] ;
+	$nomTemporaire = str_replace(' ', '', $_FILES["fichier_choisi"]["tmp_name"]) ;
 	//type du fichier choisi:
 	$typeFichier   = $_FILES["fichier_choisi"]["type"] ;
 	//poids en octets du fichier choisit:
@@ -24,7 +24,7 @@ function new_lien ()
 	else
 	{
 	   echo("<br>Probleme avec l'image") ;
-	   return(-1);
+	   return null;
     }
 }	
 

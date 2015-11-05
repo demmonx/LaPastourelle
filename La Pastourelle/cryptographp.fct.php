@@ -19,14 +19,14 @@
  function dsp_crypt($cfg=0,$reload=1) {
  // Affiche le cryptogramme
  echo "<table><tr><td><img class='ssBordure' id='cryptogram' src='".$_SESSION['cryptdir']."/cryptographp.php?cfg=".$cfg."&".SID."'></td>";
- if ($reload) echo "<td><a title='".($reload==1?'':$reload)."' style=\"cursor:pointer\" onclick=\"javascript:document.images.cryptogram.src='".$_SESSION['cryptdir']."/cryptographp.php?cfg=".$cfg."&".SID."&'+Math.round(Math.random(0)*1000)+1\"><img class='ssBordure' src=\"".$_SESSION['cryptdir']."/images/reload.png\"></a></td>";
+ if ($reload) echo "<td><a title='".($reload==1?'':$reload)."' style=\"cursor:pointer\" onclick=\"javascript:document.images.cryptogram.src='".$_SESSION['cryptdir']."/cryptographp.php?cfg=".$cfg."&".SID."&'+Math.round(Math.random(0)*1000)+1\"><img class='ssBordure' src='ressources/images/reload.png'></a></td>";
  echo "</tr></table>";
  }
 
 
  function chk_crypt($code) {
  // Vérifie si le code est correct
- include ($_SESSION['configfile']);
+ require_once ($_SESSION['configfile']);
  $code = addslashes ($code);
  $code = str_replace(' ','',$code);  // supprime les espaces saisis par erreur.
  $code = ($difuplow?$code:strtoupper($code));

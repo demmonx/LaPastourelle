@@ -21,11 +21,10 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 			//mysql_query($maj_txt);
 			
 			if ( isset($_FILES['fichier_choisi']) and !empty($_FILES['fichier_choisi']['name'])){
-				include("upload.php");
+				require_once("upload.php");
 				$chemin = new_revue();
 				if ($chemin != "-1"){
 					//Récupération du nom
-					//$bdd = connect_BD_PDO();
 					$req_addrimg = $bdd->select("SELECT img_adr FROM image WHERE img_num ='" . $val['presse_img']. "' AND img_page = 'revue_presse'");
 					//$req_addrimg->execute(array($val->presse_img));
 					$addrimg = $req_addrimg->fetchAll();

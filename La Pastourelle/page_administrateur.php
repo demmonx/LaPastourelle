@@ -30,16 +30,16 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLoAdmin($_S
 		if (!strstr($_GET['page_spe'], 'http://') && !strstr($_GET['page_spe'], 'www.') && !strstr($_GET['page_spe'], '/'))
 		{
 			$pageInclure = $_GET['page_spe'];
-			include("$pageInclure.php");
+			require_once("$pageInclure.php");
 		}
 		else
 		{
-			include("demandeMembre.php");
+			require_once("demandeMembre.php");
 		}
 	}
 	else
 	{
-		include("demandeMembre.php");
+		require_once("demandeMembre.php");
 	}
 }
 

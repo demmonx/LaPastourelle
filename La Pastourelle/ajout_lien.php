@@ -7,7 +7,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 	redirect("index.php?page=accueil", 3);
 	exit(0);
 } else { 
-	$bdd = connect_BD_PDO();
+    $bdd = new Connection();
     if (isset($_POST["adresse"]) and isset($_POST["nom"]) and isset($_POST["texte"]) AND isset($_FILES['fichier_choisi'])){
 		//Modification d'un lien -> On le supprimer puis on le réajoute
 		if (isset($_POST["modif"]) AND $_POST["modif"] == 1 AND $_POST["lien"]) {
@@ -28,12 +28,11 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 		//Ajout d'un nouveau lien (ou re ajout si supprimé dans le if au dessus)
 		$chemin = "0";
 		if (!empty($_FILES['fichier_choisi']['name'])) { //On rajoute l'image si supprimé au dessus
-			include("upload.php");
+			require_once("upload.php");
 			$chemin = new_lien();
 		}
 		if ($chemin != "-1"){
 			//Récupération de toutes les langues disponibles
-			$bdd=connect_BD_PDO();
 			$req_allLang = $bdd->query("SELECT DISTINCT lang FROM texte");
 			$allLang = $req_allLang->fetchAll();
 			//Recherche du maximum de lien_img

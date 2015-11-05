@@ -1,38 +1,5 @@
 <?php
-
-/*********************************
- * Connexion à la base de donnée *
- *********************************/
-function connect_BD() {
-	/**
-	 * Connexion à la base de donées
-	 */
-	// $host = "mysql5-8.bdb";
-	$host = "localhost";
-	// $user="root";
-	// $pwd="";
-	$user = "root";
-	$pwd = "nhc64mp81//";
-	$connet = mysql_connect ( $host, $user, $pwd ) or die ( "Connexion impossible" );
-	/**
-	 * selection de la base de données
-	 */
-	mysql_select_db ( "pastourebd1" );
-}
-function connect_BD_PDO() {
-	try {
-		$host = "localhost";
-		// $user="root";
-		// $pwd="";
-		$user = "root";
-		$pwd = "nhc64mp81//";
-		$bdd = new PDO ( 'mysql:host=' . $host . ';dbname=pastourebd1', $user, $pwd );
-	} catch ( Exception $e ) {
-		die ( 'Erreur : ' . $e->getMessage () );
-	}
-	$bdd->exec ( 'SET NAMES utf8' );
-	return $bdd;
-}
+require_once ("Connection.class.php");
 /**
  * ************************************
  * Récupération d'un texte dans la BD *
@@ -48,34 +15,6 @@ function recup_texte($txt_num, $txt_page) {
 		return $row ['texte'] . '<br>';
 	}
 	return " ";
-	// ------------------- FIN TEST CONNECTION PDO ------------------------ //
-
-/**
- * récupération du texte demandé
- */
-	// $rqt_txt = "SELECT texte FROM texte WHERE txt_num=\"".$txt_num."\" AND txt_page=\"".$txt_page."\" AND lang='".$_SESSION['lang']."'";
-	// $les_txt = mysql_query($rqt_txt);
-	
-	// if (($nb_row = mysql_num_rows($les_txt)) != null){
-	// $le_txt = mysql_fetch_object($les_txt) ;
-	// return nl2br(htmlentities($le_txt->texte));
-	// }
-	// return " ";
-	/*
-	 * PDO
-	 * $requete = $bdd->prepare("SELECT texte FROM texte WHERE txt_num=\"".$txt_num."\" AND txt_page=\"".$txt_page."\" AND lang='".$_SESSION['lang']."'");
-	 *
-	 * while($row = $requete->fetch(PDO::FETCH_ASSOC)) {
-	 * print_r($row);
-	 * //}
-	 *
-	 * exemple :
-	 *
-	 * $req_menuTrad = $bdd->prepare("SELECT valeurTrad FROM tradannexe WHERE nomTrad LIKE 'menu%' AND lang= ? ORDER BY nomTrad");
-	 *
-	 * $req_menuTrad->execute(array($_SESSION['lang']));
-	 *
-	 */
 }
 
 /**
@@ -109,20 +48,6 @@ function recup_titre($txt_page) {
 	foreach ( $result as $row ) {
 		return $row ['texte'] . '<br>';
 	}
-	// return " ";
-	// ------------------- FIN TEST CONNECTION PDO ------------------------ //
-
-/**
- * récupération du texte demandé
- */
-	// $rqt_txt = "SELECT texte FROM texte WHERE txt_num=0 AND txt_page=\"".$txt_page."\" AND lang='".$_SESSION['lang']."'";
-	// $les_txt = mysql_query($rqt_txt);
-	
-	// if (($nb_row = mysql_num_rows($les_txt)) != null){
-	// $le_txt = mysql_fetch_object($les_txt) ;
-	// return nl2br(htmlentities($le_txt->texte));
-	// }
-	// return " ";
 }
 
 /**
@@ -146,14 +71,7 @@ function recup_img($img_num, $img_page) {
 		}
 	}
 	return " ";
-	
-	// $les_img = mysql_query($rqt_img);
-	
-	// if (($nb_row = mysql_num_rows($les_img)) != null){
-	// $l_img = mysql_fetch_object($les_img);
-	// return $l_img->img_adr;
-	// }
-	// return " ";
+
 }
 
 /**
@@ -165,7 +83,7 @@ function recup_img($img_num, $img_page) {
 function recup_image() {
 	$allAttributs;
 	$doc = new DOMDocument ();
-	$doc->load ( 'slider.xml' );
+	$doc->load ( 'ressources/slider.xml' );
 	
 	$diaporama = $doc->getElementsByTagName ( "img" );
 	foreach ( $diaporama as $img ) {
@@ -186,7 +104,7 @@ function recup_lienExt() {
 	$bdd = new Connection ();
 	
 	$tab_lien = array (); // tableau contenant les informations des liens
-	                     // sous la forme : lien | descriptif | image | lien_nom
+	                      // sous la forme : lien | descriptif | image | lien_nom
 	$cpt = 0;
 	
 	/**
@@ -209,24 +127,6 @@ function recup_lienExt() {
 	
 	return $tab_lien;
 	
-	// $les_liens = mysql_query($rqt_lien);
-
-/**
- * boucle de récupération des données
- */
-	// while ($un_lien = mysql_fetch_object($les_liens))
-	// {
-	// $tab_lien[$cpt]= nl2br(htmlentities($un_lien->lien));
-	// $cpt++;
-	// $tab_lien[$cpt]= $un_lien->lien_txt;
-	// $cpt++;
-	// $tab_lien[$cpt]= $un_lien->lien_img;
-	// $cpt++;
-	// $tab_lien[$cpt]= nl2br(htmlentities($un_lien->lien_nom));
-	// $cpt++;
-	// }
-	
-	// return $tab_lien;
 }
 
 /**
@@ -238,7 +138,7 @@ function recup_infoPd() {
 	$bdd = new Connection ();
 	
 	$tab_infoPd = array (); // tableau contenant les informations des liens
-	                       // sous la forme : image | nom | desc | prix
+	                        // sous la forme : image | nom | desc | prix
 	$cpt = 0;
 	
 	/**
@@ -262,26 +162,7 @@ function recup_infoPd() {
 	}
 	
 	return $tab_infoPd;
-	
-	// $les_infoPd = mysql_query($rqt_infoPd);
 
-/**
- * boucle de récupération des données
- */
-	// while ($une_infoPd = mysql_fetch_object($les_infoPd))
-	// {
-	// $tab_infoPd[$cpt]= $une_infoPd->pd_img;
-	// $cpt++;
-	// $tab_infoPd[$cpt]= nl2br(htmlentities($une_infoPd->pd_nom));
-	// $cpt++;
-	// $tab_infoPd[$cpt]= $une_infoPd->pd_txt;
-	// $cpt++;
-	// $tab_infoPd[$cpt]= $une_infoPd->pd_prix;
-	// $cpt++;
-	// $tab_infoPd[$cpt]= $une_infoPd->pd_num;
-	// $cpt++;
-	// }
-	// return $tab_infoPd;
 }
 
 /**
@@ -314,24 +195,6 @@ function recup_infoCoord() {
 	
 	return $tab_coord;
 	
-	// $les_coord = mysql_query($rqt_coord);
-
-/**
- * boucle de récupération des données
- */
-	// while ($une_coord = mysql_fetch_object($les_coord))
-	// {
-	// $tab_coord[$cpt]= nl2br(htmlentities($une_coord->coord_adr));
-	// $cpt++;
-	// $tab_coord[$cpt]= nl2br(htmlentities($une_coord->coord_tel));
-	// $cpt++;
-	// $tab_coord[$cpt]= nl2br(htmlentities($une_coord->coord_mail));
-	// $cpt++;
-	// $tab_coord[$cpt]= nl2br(htmlentities($une_coord->coord_img));
-	// $cpt++;
-	// }
-	
-	// return $tab_coord;
 }
 
 /**
@@ -343,7 +206,7 @@ function recup_revuePresse() {
 	$bdd = new Connection ();
 	
 	$tab_revue = array (); // tableau contenant les informations des revues de presse
-	                      // sous la forme : image | descriptif
+	                       // sous la forme : image | descriptif
 	$cpt = 0;
 	
 	/**
@@ -364,22 +227,6 @@ function recup_revuePresse() {
 	
 	return $tab_revue;
 	
-	// $les_revues = mysql_query($rqt_revue);
-
-/**
- * boucle de récupération des données
- */
-	// while ($une_revue = mysql_fetch_object($les_revues))
-	// {
-	// $tab_revue[$cpt]= $une_revue->presse_img;
-	// $cpt++;
-	// $tab_revue[$cpt]= nl2br(htmlentities($une_revue->presse_txt));
-	// $cpt++;
-	// $tab_revue[$cpt]= nl2br(htmlentities($une_revue->num_presse));
-	// $cpt++;
-	// }
-	
-	// return $tab_revue;
 }
 
 /**
@@ -388,10 +235,10 @@ function recup_revuePresse() {
  * **************************************
  */
 function recup_annuaire($recherche, $typeRecherche, $role) {
-	$bdd = connect_BD_PDO();
+		$bdd = new Connection();
 	// $tab_annuaire = array();
 	$tab_membre = array (); // tableau contenant les informations des revues de presse
-	                       // sous la forme : id | pseudo | email | telephone | nom | prenom |adresse
+	                        // sous la forme : id | pseudo | email | telephone | nom | prenom |adresse
 	/*
 	 * RECUPERATION DES DONNEES OPTIMISEE
 	 * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
@@ -414,42 +261,43 @@ function recup_annuaire($recherche, $typeRecherche, $role) {
 	 * }
 	 */
 	
-	/* Modification DEMERY 2015 - Suppresion de la table annuaire => Plus de redondance inutile
-	 * Passage en requêtes préparées pouré viter l'injection SQL */
+	/*
+	 * Modification DEMERY 2015 - Suppresion de la table annuaire => Plus de redondance inutile
+	 * Passage en requêtes préparées pouré viter l'injection SQL
+	 */
 	$rqt_membre = "SELECT id_membre, pseudo, email, telephone, nom, prenom, adresse, etat_annuaire FROM user 
 			WHERE etat_validation=1 AND etat_annuaire = 1 ";
 	if ($role == 0 && ! empty ( $recherche )) {
-		$rqt_membre.= "AND :typeRecherche LIKE :recherche ORDER BY :recherche";
+		$rqt_membre .= "AND :typeRecherche LIKE :recherche ORDER BY :recherche";
 	} else if ($role == 1) {
-			$rqt_membre.= "ORDER BY :recherche";
+		$rqt_membre .= "ORDER BY :recherche";
 	} else {
-		$rqt_membre.= "ORDER BY nom";
+		$rqt_membre .= "ORDER BY nom";
 	}
 	
 	/* Exécution de la bonne requête */
-	$stmt = $bdd->prepare($rqt_membre);
+	$stmt = $bdd->prepare ( $rqt_membre );
 	if ($role == 0 && ! empty ( $recherche )) {
-		$stmt->bindValue(':typeRecherche', $typeRecherche, PDO::PARAM_STR);
+		$stmt->bindValue ( ':typeRecherche', $typeRecherche, PDO::PARAM_STR );
 	} else if ($role == 1 || ($role == 0 && ! empty ( $recherche ))) {
-		$stmt->bindValue(':recherche', $recherche, PDO::PARAM_STR);
-	}	
+		$stmt->bindValue ( ':recherche', $recherche, PDO::PARAM_STR );
+	}
 	
 	$result = $stmt->execute ();
 	$i = 0;
-	while($row = $stmt->fetch()) {
-		$tab_membre [$i]['id'] = $row['id_membre'];
-		$tab_membre [$i]['pseudo'] = $row['pseudo'];
-		$tab_membre [$i]['mail'] = $row ['email'];
-		$tab_membre [$i]['tel'] = $row ['telephone'];
-		$tab_membre [$i]['nom'] = $row ['nom'];
-		$tab_membre [$i]['prenom'] = $row ['prenom'];
-		$tab_membre [$i]['adresse'] = nl2br ($row ['adresse'] );
-		$tab_membre [$i]['etat_annuaire'] = $row ['etat_annuaire'];
+	while ( $row = $stmt->fetch () ) {
+		$tab_membre [$i] ['id'] = $row ['id_membre'];
+		$tab_membre [$i] ['pseudo'] = $row ['pseudo'];
+		$tab_membre [$i] ['mail'] = $row ['email'];
+		$tab_membre [$i] ['tel'] = $row ['telephone'];
+		$tab_membre [$i] ['nom'] = $row ['nom'];
+		$tab_membre [$i] ['prenom'] = $row ['prenom'];
+		$tab_membre [$i] ['adresse'] = nl2br ( $row ['adresse'] );
+		$tab_membre [$i] ['etat_annuaire'] = $row ['etat_annuaire'];
 		$i ++;
 	}
 	
 	return $tab_membre;
-	
 }
 
 /**
@@ -458,24 +306,23 @@ function recup_annuaire($recherche, $typeRecherche, $role) {
  * *******************************************************
  */
 function recup_non_annuaire() {
-	$bdd = connect_BD_PDO();
-	$tab_membre =  array();
+		$bdd = new Connection();
+	$tab_membre = array ();
 	
-	$stmt = $bdd->prepare("SELECT * FROM user WHERE etat_validation = 1 AND etat_annuraire = 0 ORDER BY nom");
+	$stmt = $bdd->prepare ( "SELECT * FROM user WHERE etat_validation = 1 AND etat_annuraire = 0 ORDER BY nom" );
 	$result = $stmt->execute ();
 	$i = 0;
-	while($row = $stmt->fetch()) {
-		$tab_membre [$i]['id'] = $row['id_membre'];
-		$tab_membre [$i]['pseudo'] = $row['pseudo'];
-		$tab_membre [$i]['mail'] = $row ['email'];
-		$tab_membre [$i]['tel'] = $row ['telephone'];
-		$tab_membre [$i]['nom'] = $row ['nom'];
-		$tab_membre [$i]['prenom'] = $row ['prenom'];
-		$tab_membre [$i]['adresse'] = nl2br ($row ['adresse'] );
-		$tab_membre [$i]['etat_annuaire'] = $row ['etat_annuaire'];
+	while ( $row = $stmt->fetch () ) {
+		$tab_membre [$i] ['id'] = $row ['id_membre'];
+		$tab_membre [$i] ['pseudo'] = $row ['pseudo'];
+		$tab_membre [$i] ['mail'] = $row ['email'];
+		$tab_membre [$i] ['tel'] = $row ['telephone'];
+		$tab_membre [$i] ['nom'] = $row ['nom'];
+		$tab_membre [$i] ['prenom'] = $row ['prenom'];
+		$tab_membre [$i] ['adresse'] = nl2br ( $row ['adresse'] );
+		$tab_membre [$i] ['etat_annuaire'] = $row ['etat_annuaire'];
 		$i ++;
 	}
-
 	
 	return $tab_result;
 }
@@ -489,7 +336,7 @@ function recup_presentation($page_presentation) {
 	$bdd = new Connection ();
 	
 	$tab_info = array (); // tableau contenant les informations du theatre
-	                     // sous la forme : texte | image du haut | image du bas
+	                      // sous la forme : texte | image du haut | image du bas
 	$cpt = 0;
 	
 	/**
@@ -502,12 +349,7 @@ function recup_presentation($page_presentation) {
 		$tab_info [$cpt] = nl2br ( htmlentities ( $row ['texte'] ) );
 		$cpt ++;
 	}
-	
-	// $les_txt = mysql_query($rqt_txt_info);
-	// $le_txt = mysql_fetch_object($les_txt);
-	// $tab_info[$cpt]= nl2br(htmlentities($le_txt->texte));
-	// $cpt++;
-	
+		
 	$rqt_img_info = "SELECT img_adr FROM image WHERE img_page=\"" . $page_presentation . "\"";
 	$result = $bdd->select ( $rqt_img_info );
 	
@@ -516,12 +358,6 @@ function recup_presentation($page_presentation) {
 		$cpt ++;
 	}
 	
-	// $les_img = mysql_query($rqt_img_info);
-	// while ($une_img = mysql_fetch_object($les_img))
-	// {
-	// $tab_info[$cpt]= $une_img->img_adr;
-	// $cpt++;
-	// }
 	
 	return $tab_info;
 }
@@ -544,14 +380,13 @@ function recup_planning() {
 	$result = $bdd->select ( $rqt_planning );
 	
 	foreach ( $result as $row ) {
-		$tab_planning [$cpt]['jour'] = $row ['pl_jour'];
-		$tab_planning [$cpt]['date'] = str_replace("-", "/", $row ['pl_date']);
-		$tab_planning [$cpt]['lieu'] = $row ['pl_lieu'];
-		$tab_planning [$cpt]['joueur'] = $row ['pl_musiciens'];
-		$tab_planning [$cpt]['id'] = $row ['id_planning'];
+		$tab_planning [$cpt] ['jour'] = $row ['pl_jour'];
+		$tab_planning [$cpt] ['date'] = str_replace ( "-", "/", $row ['pl_date'] );
+		$tab_planning [$cpt] ['lieu'] = $row ['pl_lieu'];
+		$tab_planning [$cpt] ['joueur'] = $row ['pl_musiciens'];
+		$tab_planning [$cpt] ['id'] = $row ['id_planning'];
 		$cpt ++;
 	}
-	
 	
 	return $tab_planning;
 }
@@ -562,7 +397,7 @@ function recup_planning() {
  * **********************************************
  */
 function recup_datePlanning($id) {
-	$bdd = connect_BD_PDO();
+		$bdd = new Connection();
 	
 	$tab_planning = array (); // tableau contenant les informations du planning
 	
@@ -571,12 +406,12 @@ function recup_datePlanning($id) {
 	 */
 	$rqt_planning = "SELECT * FROM planning WHERE id_planning = ?";
 	$result = $bdd->prepare ( $rqt_planning );
-	$result->bindValue(1, $id);
-	$result->execute();
+	$result->bindValue ( 1, $id );
+	$result->execute ();
 	
-	if($row  = $result->fetch()) {
+	if ($row = $result->fetch ()) {
 		$tab_planning ['jour'] = $row ['pl_jour'];
-		$tab_planning ['date'] = str_replace("-", "/", $row ['pl_date']);
+		$tab_planning ['date'] = str_replace ( "-", "/", $row ['pl_date'] );
 		$tab_planning ['lieu'] = $row ['pl_lieu'];
 		$tab_planning ['joueur'] = $row ['pl_musiciens'];
 		$tab_planning ['id'] = $row ['id_planning'];
@@ -617,25 +452,7 @@ function recup_membre_valider() {
 		$tab_aValider [$cpt] = nl2br ( htmlentities ( $row ['adresse'] ) );
 		$cpt ++;
 	}
-	
-	// $les_aValider = mysql_query($rqt_aValider);
-	
-	// while ($une_aValider = mysql_fetch_object($les_aValider))
-	// {
-	// $tab_aValider[$cpt]= nl2br(htmlentities($une_aValider->pseudo));
-	// $cpt++;
-	// $tab_aValider[$cpt]= nl2br(htmlentities($une_aValider->email));
-	// $cpt++;
-	// $tab_aValider[$cpt]= nl2br(htmlentities($une_aValider->telephone));
-	// $cpt++;
-	// $tab_aValider[$cpt]= nl2br(htmlentities($une_aValider->nom));
-	// $cpt++;
-	// $tab_aValider[$cpt]= nl2br(htmlentities($une_aValider->prenom));
-	// $cpt++;
-	// $tab_aValider[$cpt]= nl2br(htmlentities($une_aValider->adresse));
-	// $cpt++;
-	// }
-	
+		
 	return $tab_aValider;
 }
 
@@ -645,64 +462,22 @@ function recup_membre_valider() {
  * ************************
  */
 function recup_membre() {
-	/*$bdd = new Connection ();*/
-	
 	$tab_membre = array (); // tableau contenant les informations des membres a recuperer
-	/*$cpt = 0;*/
 	
-	/**
-	 * recupération des membre
-	 */
-	/*$rqt_membre = "SELECT pseudo, email, telephone, nom, prenom, adresse
-						FROM user WHERE etat_validation=1 AND niveau=\"membre\" ORDER BY nom";
-	$result = $bdd->select ( $rqt_membre );
-	foreach ( $result as $row ) {
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['pseudo'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['email'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['telephone'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['nom'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['prenom'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['adresse'] ) );
-		$cpt ++;
-	}*/
+	$bdd = new Connection ();
 	
-	// $les_membre = mysql_query($rqt_membre);
-	
-	// while ($un_membre = mysql_fetch_object($les_membre))
-	// {
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->pseudo));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->email));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->telephone));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->nom));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->prenom));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->adresse));
-	// $cpt++;
-	// }
-	
-	$bdd = connect_BD_PDO();
-	
-	$stmt = $bdd->prepare("SELECT * FROM user WHERE etat_validation = 1 AND niveau='membre' ORDER BY nom");
+	$stmt = $bdd->prepare ( "SELECT * FROM user WHERE etat_validation = 1 AND niveau='membre' ORDER BY nom" );
 	$result = $stmt->execute ();
 	$i = 0;
-	while($row = $stmt->fetch()) {
-		$tab_membre [$i]['id'] = $row['id_membre'];
-		$tab_membre [$i]['pseudo'] = $row['pseudo'];
-		$tab_membre [$i]['mail'] = $row ['email'];
-		$tab_membre [$i]['tel'] = $row ['telephone'];
-		$tab_membre [$i]['nom'] = $row ['nom'];
-		$tab_membre [$i]['prenom'] = $row ['prenom'];
-		$tab_membre [$i]['adresse'] = nl2br ($row ['adresse'] );
-		$tab_membre [$i]['etat_annuaire'] = $row ['etat_annuaire'];
+	while ( $row = $stmt->fetch () ) {
+		$tab_membre [$i] ['id'] = $row ['id_membre'];
+		$tab_membre [$i] ['pseudo'] = $row ['pseudo'];
+		$tab_membre [$i] ['mail'] = $row ['email'];
+		$tab_membre [$i] ['tel'] = $row ['telephone'];
+		$tab_membre [$i] ['nom'] = $row ['nom'];
+		$tab_membre [$i] ['prenom'] = $row ['prenom'];
+		$tab_membre [$i] ['adresse'] = nl2br ( $row ['adresse'] );
+		$tab_membre [$i] ['etat_annuaire'] = $row ['etat_annuaire'];
 		$i ++;
 	}
 	
@@ -718,50 +493,30 @@ function recup_un_membre($pseudo) {
 	$bdd = new Connection ();
 	
 	$tab_membre = array (); // tableau contenant les informations des membres a recuperer
-	$cpt = 0;
 	
 	/**
 	 * recupération des membre
 	 */
 	$rqt_membre = "SELECT pseudo, email, telephone, nom, prenom, adresse, etat_annuaire
-						FROM user WHERE etat_validation=1 AND pseudo=\"" . $pseudo . "\" ORDER BY pseudo";
-	$result = $bdd->select ( $rqt_membre );
+						FROM user WHERE etat_validation=1 AND pseudo=? ORDER BY pseudo";
+	$result = $bdd->prepare ( $rqt_membre );
+	$result->bindValue(1, $pseudo);
+	$result->execute();
 	
-	foreach ( $result as $row ) {
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['pseudo'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['email'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['telephone'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['nom'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['prenom'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['adresse'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['etat_annuaire'] ) );
-		$cpt ++;
+	if ($result->rowCount() <=0 ) {
+		return null;
 	}
 	
-	// $les_membre = mysql_query($rqt_membre);
-	// while ($un_membre = mysql_fetch_object($les_membre))
-	// {
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->pseudo));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->email));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->telephone));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->nom));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->prenom));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->adresse));
-	// $cpt++;
-	// $tab_membre[$cpt]= nl2br(htmlentities($un_membre->etat_annuaire));
-	// $cpt++;
-	// }
+	while($row = $result->fetch()) {
+		$tab_membre ['pseudo'] = $row ['pseudo'];
+		$tab_membre ["email"] = $row ['email'];
+		$tab_membre ["telephone"] = $row ['telephone'];
+		$tab_membre ["nom"] = $row ['nom'];
+		$tab_membre ["prenom"] = $row ['prenom'];
+		$tab_membre ["adresse"] = $row ['adresse'];
+		$tab_membre ["etat_annuaire"] = $row ['etat_annuaire'];
+	}
+
 	
 	return $tab_membre;
 }
@@ -798,24 +553,6 @@ function recup_act($type) {
 	}
 	
 	return $tab_act;
-	
-	// $les_act = mysql_query($rqt_act);
-	
-	// while ($l_act = mysql_fetch_object($les_act))
-	// {
-	// $tab_act[$cpt]= nl2br(htmlentities($l_act->act_lieu));
-	// $cpt++;
-	// $tab_act[$cpt]= nl2br(htmlentities($l_act->act_date));
-	// $cpt++;
-	// $tab_act[$cpt]= nl2br(htmlentities($l_act->act_heure));
-	// $cpt++;
-	// $tab_act[$cpt]= nl2br(htmlentities($l_act->act_txt));
-	// $cpt++;
-	// $tab_act[$cpt]= nl2br(htmlentities($l_act->act_img));
-	// $cpt++;
-	// }
-	
-	// return $tab_act;
 }
 
 /**
@@ -839,14 +576,7 @@ function recup_compteRendu() {
 	}
 	
 	return false;
-	
-	// $les_compteRendu = mysql_query($rqt_compteRendu);
-	
-	// if (($nb_row = mysql_num_rows($les_compteRendu)) != null){
-	// $le_compteRendu = mysql_fetch_object($les_compteRendu);
-	// return nl2br(htmlentities($le_compteRendu->texte));
-	// }
-	// return false;
+
 }
 
 /*
@@ -863,7 +593,7 @@ function recup_compteRendu() {
  */
 function verifLo($login, $pass) {
 	// Vérification de l'existance d'un membre avec le pseudo $login et le mot de passe $pass
-	$bdd = connect_BD_PDO ();
+		$bdd = new Connection ();
 	$req_connect = $bdd->prepare ( 'SELECT pseudo FROM user WHERE etat_validation = 1 AND pseudo = ? AND motdepasse = ?' );
 	$req_connect->execute ( array (
 			$login,
@@ -891,7 +621,7 @@ function verifLo($login, $pass) {
  */
 function verifLoAdmin($login, $pass) {
 	// Vérification de l'existance d'un membre avec le pseudo $login et le mot de passe $pass
-	$bdd = connect_BD_PDO ();
+		$bdd = new Connection ();
 	$req_connect = $bdd->prepare ( 'SELECT pseudo FROM user WHERE pseudo = ? AND motdepasse = ? AND niveau = "administrateur"' );
 	$req_connect->execute ( array (
 			$login,
@@ -928,7 +658,7 @@ function redirect($lien, $sec) {
  *
  */
 function ajoutLang($ini) {
-	$bdd = connect_BD_PDO ();
+		$bdd = new Connection ();
 	// Ajout des textes
 	$req_add = $bdd->prepare ( "INSERT INTO texte  VALUES
 							(0, 'accueil', ?, 'Traduction non faite\r\n'),
@@ -1084,22 +814,14 @@ function supprLang($ini) {
 	// Suppressiion des traductions annexes
 	$requete = "DELETE FROM tradannexe WHERE lang = " . $ini;
 	$result = $bdd->select ( $requete );
-	
-	// $bdd = connect_BD_PDO();
-	// Suppression des textes de la langue
-	// $req_del = $bdd->prepare("DELETE FROM texte WHERE lang = ?");
-	// $req_del->execute(array($ini));
-	// Suppression de la boutique de la langue
-	// $req_del2 = $bdd->prepare("DELETE FROM boutique WHERE lang = ?");
-	// $req_del2->execute(array($ini));
-	// Suppression des liens de la langue
-	// $req_del3 = $bdd->prepare("DELETE FROM lien_ext WHERE lang = ?");
-	// $req_del3->execute(array($ini));
-	// Suppression de l'actualité de la langue
-	// $req_del4 = $bdd->prepare("DELETE FROM actualite WHERE lang = ?");
-	// $req_del4->execute(array($ini));
-	// Suppressiion des traductions annexes
-	// $req_del5 = $bdd->prepare("DELETE FROM tradannexe WHERE lang = ?");
-	// $req_del5->execute(array($ini));
+}
+
+/** Renvoie l'identifiant d'un membre en fonction de son pseudo */
+function getId($pseudo) {
+	$bdd = new Connection();
+	$stmt = $bdd->prepare("SELECT * FROM user WHERE pseudo=?");
+	$stmt->bindValue(1, $pseudo);
+	$stmt->execute();
+	return $stmt->rowCount() == 1 ? $stmt->fetch()["id_membre"] : -1;
 }
 ?>

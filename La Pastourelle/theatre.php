@@ -1,7 +1,4 @@
 <?php
-	//connect_BD();
-
-	//$bdd=connect_BD_PDO();
 
 	//récupération du titre de la page
 	$titre = recup_titre("theatre");

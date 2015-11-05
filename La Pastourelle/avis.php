@@ -1,7 +1,4 @@
 <?php
-//connect_BD();
-
-//$bdd=connect_BD_PDO();
 //Récupération des textes annexes de traduction pour cette zone
 	$req_recupAvis = $bdd->select("SELECT valeurTrad FROM tradannexe WHERE lang ='".$_SESSION['lang']."' AND nomTrad LIKE 'avis%' ");
 	//$req_recupAvis->execute(array($_SESSION['lang']));

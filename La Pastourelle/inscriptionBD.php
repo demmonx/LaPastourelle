@@ -1,24 +1,23 @@
 <?php
 
 //inclusion des fichiers de fonction
-include ("traitement.inc.php");
+require_once ("traitement.inc.php");
 header("Content-Type: text/html; charset=utf-8");	
-function inscriptionBDD() {	
-	$bdd = connect_BD_PDO();
+function inscriptionBDD($var) {	
+		$bdd = new Connection();
 	//connexion à la base de donnée
-	//connect_BD();
-						
+					
 
 	//récupération des données du formulaire
-	$pseudo = $_POST["pseudo"];
-	$mdp = sha1($_POST["mdp"]);
-	$email = $_POST["email"];
-	$tel = $_POST["tel"];
-	$nom = strtoupper($_POST["nom"]);
-	$prenom = ucfirst($_POST["prenom"]);
-	$adresse = $_POST["adresse"];
+	$pseudo = $var["pseudo"];
+	$mdp = sha1($var["mdp"]);
+	$email = $var["email"];
+	$tel = $var["tel"];
+	$nom = strtoupper($var["nom"]);
+	$prenom = ucfirst($var["prenom"]);
+	$adresse = $var["adresse"];
 	$etat_annuaire = 0;
-	if(isset($_POST["etat_annuaire"]) && $_POST["etat_annuaire"] == "true"){
+	if(isset($var["etat_annuaire"]) && $var["etat_annuaire"] == "true"){
 		$etat_annuaire=1;
 	}
 	
@@ -30,9 +29,6 @@ function inscriptionBDD() {
 	
 	if ($les_user->rowCount() == 0){
 		//insertion dans la base de données du nouvel user
-		//$rqt_insert = "INSERT INTO user (pseudo, motdepasse, email, etat_validation, telephone, nom, prenom, adresse, etat_annuaire)
-		//				VALUES ('".$pseudo."', '".$mdp."', '".$email."', 0, '".$tel."', '".$nom."', '".$prenom."', '".$adresse."', '".$etat_annuaire."' )";
-	  //$req = $bdd->select($rqt_insert);
 	  $sql = "INSERT INTO user (pseudo, motdepasse, email, etat_validation, niveau, telephone, nom, prenom, adresse, etat_annuaire)
 						VALUES (:pseudo, :pass, :mail, 0, 'membre', :tel, :nom, :prenom, :adresse, :annuaire)";
 	  $stmt = $bdd->prepare($sql);

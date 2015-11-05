@@ -1,14 +1,12 @@
 <?php
 if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
 	echo "<center>
-			Vous ne pouvez pas accÃ¨der Ã  ces pages sans Ãªtre connectÃ© en tant qu'administrateur<br />
+			Vous ne pouvez pas accéder Ã  ces pages sans être connecté en tant qu'administrateur<br />
 			Revenir Ã  la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
 		  </center>";
-	redirect("index.php?page=accueil", 3);
 	exit(0);
 } else {
 	// Formulaire qui changera la phrase du jour
-	//RÃ©cupÃ©ration de la phrase du jour
 		$phrase = recup_phrasejour();
 		
 		echo "Phrase actuelle : ".$phrase."</br>";
@@ -22,11 +20,13 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 	Retourner sur la page d'accueil pour constater le changement.
 	<?php
 	//Changement de la phrase du jour
-		if(isset($_POST['phrase'])) {
-			$modif_phrasejour = $bdd->select("UPDATE tradannexe SET valeurTrad = '" . $_POST['phrase'] . "' 
-											  WHERE lang = \"fr\" 
-												AND nomTrad = \"phrasejour\"");
-			//$modif_phrasejour->execute(array($_POST['phrase'],"fr","phrasejour"));
-			//redirect("index.php?page=page_administrateur",3);
+	$phrase = filter_input(INPUT_POST, 'phrase', FILTER_SANITIZE_SPECIAL_CHARS);
+		if(isset($phrase) && $phrase) {
+			$modif_phrasejour = $bdd->prepare("UPDATE tradannexe SET valeurTrad = :val 
+											  WHERE lang = 'fr' 
+												AND nomTrad = 'phrasejour'");
+			$modif_phrasejour->bindValue(":val", $phrase);
+			$modif_phrasejour->execute();
+			echo "Phrase mise à jour<br>";
 		}
 }?>

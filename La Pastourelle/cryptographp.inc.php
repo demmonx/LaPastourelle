@@ -30,7 +30,7 @@ session_start();
 if (is_file($_GET['cfg']) and dirname($_GET['cfg'])=='.' ) $_SESSION['configfile']=$_GET['cfg']; 
    else  $_SESSION['configfile']="cryptographp.cfg.php";
 
-include($_SESSION['configfile']);  
+require_once($_SESSION['configfile']);  
 
 
 // Vérifie si l'utilisateur a le droit de (re)générer un cryptogramme
@@ -76,7 +76,7 @@ for ($i=1;$i<= $charnb;$i++) {
      $tword[$i]['y'] = ($charup?($cryptheight/2)+rand(0,($cryptheight/5)):($cryptheight/1.5));
      $word .=$tword[$i]['element'];
      
-     $lafont="fonts/".$tword[$i]['font'];
+     $lafont=$tword[$i]['font'];
      imagettftext($imgtmp,$tword[$i]['size'],$tword[$i]['angle'],$x,$tword[$i]['y'],$black,$lafont,$tword[$i]['element']);
 
      $x +=$charspace;
@@ -163,9 +163,8 @@ for ($i=1;$i<=$charnb;$i++) {
           
       if (function_exists ('imagecolorallocatealpha')) $rndink = imagecolorallocatealpha($img,$rndR,$rndG,$rndB,$charclear);
           else $rndink = imagecolorallocate ($img,$rndR,$rndG,$rndB);          
-         }  
-         
-    $lafont="fonts/".$tword[$i]['font'];
+         }     
+    $lafont=$tword[$i]['font'];
     imagettftext($img,$tword[$i]['size'],$tword[$i]['angle'],$x,$tword[$i]['y'],$charcolorrnd?$rndink:$ink,$lafont,$tword[$i]['element']);
 
     $x +=$charspace;

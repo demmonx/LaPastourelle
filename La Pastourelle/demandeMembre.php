@@ -11,7 +11,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 			</script>';
 	exit(0);
 } else {
-	$bdd = connect_BD_PDO();
+		$bdd = new Connection();
 	// Acceptation ou refus d'un message du livre d'or ou d'un membre*/
 	if (isset($_GET['id']) && isset($_GET['confirm']) && is_numeric($_GET['id'])) {
 		//Refus d'un message ou d'un membre

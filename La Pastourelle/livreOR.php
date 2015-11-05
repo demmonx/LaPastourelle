@@ -1,5 +1,4 @@
-<?php $cryptinstall="./cryptographp.fct.php";include $cryptinstall; ?><?php 
-	//$bdd = connect_BD_PDO();
+<?php $cryptinstall="./cryptographp.fct.php";require_once $cryptinstall; ?><?php 
 	//Récupération des textes annexes de traduction pour cette zone
 	$req_recupLivre = $bdd->select("SELECT valeurTrad FROM tradannexe WHERE lang ='" . $_SESSION['lang'] . "' AND nomTrad LIKE 'livre%' ");
 	//$req_recupLivre->execute(array($_SESSION['lang']));

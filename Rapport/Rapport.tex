@@ -61,7 +61,7 @@
 
 \title{Projet Externe\\La Pastourelle}
 \author{DEMERY Cyril\\COSTA Mickael\\MEJANE Thibault\\ZEGHMATI Clément}
-\date{2014 - 2015}
+\date{2015-2016}
 
 \pdfinfo{%
   /Title    (Projet Web - La Pastourelle)
@@ -327,57 +327,7 @@ première partie jusqu'au jalon définie avec un peu de précision, puis la suit
 beaucoup moins car nous devions faire le point avec le client pour voir si le
 résultat de la première partie lui convenait.
 \par
-\begin{tabular}{ | c | p{4cm} | c | c | c | c | c | c | c |  }
-\hline 
-Id & Tâche & Statut & Priorité & Estimée (h) & Début & Fin & Réalisé &
-Préd. \\ \hline
-24 & Recoder l'administration du multilangue & A réaliser & Moyenne & 3 &
-	21/10/15 & 18/11/15 & 0 & \\ \hline
-23 & Correction erreurs diverses (planning)
-	& A réaliser & Moyenne & 1 & 21/10/15 & 11/11/15 & 0 & \\ \hline
-22 & Correction encodage & A réaliser & Urgente & 5 & 21/10/15 & 11/11/15 & 0
-	 & \\ \hline
-21 & Correction de l'inscription & Terminé & Haute & 3 & 21/10/15 &
-	11/11/15 & 0 & \\ \hline
-20 & Inclure un captcha & A réaliser & Basse & ? & 13/11/15 &
-	09/12/15 & 0 & 5 \\ \hline
-19 & Revoir l'ergonomie et la présentation & A réaliser & Basse & ? & 13/11/15
-	& 09/12/15 & 0 & 5 \\ \hline
-18 & Changer les photos de la boutique & A réaliser & Basse & ? & 13/11/15 &
-	09/12/15 & 0 & 5 \\ \hline
-17 & Repenser le bon de commande & A réaliser & Basse & ? & 13/11/15 & 09/12/15
-	& 0 & 5 \\ \hline
-16 & Inclure un responsive design & A réaliser & Basse & ? &
-	13/11/15 & 09/12/15 & 0 & 5 \\ \hline
-15 & Changer la couleur de fond & A réaliser & Basse & ? & 13/11/15 & 09/12/15
-	& 0 & 5  \\ \hline
-14 & Correction de l'ajout des pièces de théâtre & A réaliser & Haute & 2 &
-	13/11/15 & 09/12/15 & 0 & 5 \\ \hline
-13 & Changement du formulaire de la page d'actualité & A réaliser & Haute & 3 &
-	21/10/15 & 11/11/15 & 0 & \\ \hline
-12 & Revoir la carte du monde & A réaliser & Haute & 3 & 21/10/15 & 11/11/15 & 0
-	& \\ \hline
-11 & Changer l'ordre d'affichage des revues & A réaliser & Haute & 1 & 21/10/15
-	& 11/11/15 & 0 & \\ \hline
-10 & Dimensionnement automatique des photos & A réaliser & Haute & 1 & 21/10/15
-	& 03/11/15 & 0 & \\ \hline
-9 & Ajout de vidéos & A réaliser & Haute & 1 & 21/10/15 & 03/11/15 & 0 & \\
-\hline
-8 & Changer les icones & A réaliser & Basse & ? & 21/10/15 & 09/12/15 & 0 & \\
-\hline
-7 & Version multilingue & A réaliser & Haute & 20 & 21/10/15 & 03/11/15 & 0 & \\
-\hline
-6 & Erreur de validation & A réaliser & Haute & 3 & 21/10/15 & 03/11/15 & 0 & \\
-\hline
-5 & Fin de correction des réalisation urgentes et importantes & Jalon & Basse &
-	/ & 12/12/15 & 12/11/15 & 0 & \\ \hline
-4 & Caractères indésirables dans le planning & Terminé & Urgente & 5 & 21/10/15
-	& 03/11/15 & 0 & \\ \hline
-3 & Saisie de la phrase du jour & A réaliser & Urgente & 2 & 21/10/15 & 03/11/15
-	& 0 & \\ \hline
-2 & Correction du masque de saisie & A réaliser & Urgente & 3 & 21/10/15 &
-	03/11/15 & 0 & \\ \hline
- \end{tabular}
+\include{include/Liste_tache_21-10}
  \begin{landscape}
    \includepdf{include/gantt22-10.pdf}
 \end{landscape}
@@ -398,6 +348,7 @@ faire avec et les développeurs les plus habiles doivent aider ceux qui sont en
 difficultés. 
 \par Par conséquent, il est fortement envisageable que nous nous mettions à
 travailler en binôme afin de rattraper le temps perdu.
+\include{include/Liste_tache_3-11}
 \begin{landscape}
 \begin{figure}[t]
     \caption{Avancement du projet au 3 novembre 2015}
@@ -408,6 +359,38 @@ travailler en binôme afin de rattraper le temps perdu.
 \subsection{Avancement final}
 
 \section{Recettes}
+\section{Compte rendu de réunion}
+\subsection{Réunion initiale avec le client (21/10/2015)}
+Lors de la réunion initiale avec le client, nous lui avons fait part de nos 
+interrogations sur les tâches à réaliser. Ainsi, Mr Pagès nous a indiqué que les
+plus gros problèmes étaient situés sur les outils de back-office, en raison de 
+l'âge du site mais aussi des équipes de développeurs qui se sont succédées pour
+le réaliser. \\
+\par En ce qui concerne la partie multilangue, il faut conserver les photos
+indépendamment de la langue d'utilisation de façon à ne pas devoir les ajouter
+n-fois. Pour ce qui est de l'occitan, la traduction des textes sera fournie.
+Le masque de saisie est également un gros soucis, car il empêche
+l'administrateur de voir le texte saisit, on ne voit que l'équivalent d'un
+champ texte, il faut donc agrandir la zone afin d'éviter de devoir faire des
+copier/coller depuis Word. \\
+\par Pour la boutique, il faut intégrer les nouvelles photos qui seront
+fournies, et refaire la présentation du bon de commande sur Word ou un outil
+équivalent. Pour la saisie de la phrase du jour, il y a un problème de saisie
+directe qui fait que les modifications ne sont pas toujours prises en compte,
+sauf si l'on copie/colle depuis un traitement de texte. \\
+\par Il faut également revoir la carte du monde qui a des soucis de
+duplications, et qui n'est pas pratique du tout à utiliser. Mr Pagès nous a proposé
+d'éventuellement changer sa forme ou ne plus utiliser une carte, mais plutôt
+des listes ou des tableaux. Pour le planning, il y a un soucis au niveau de la
+modification et de la suppression d'un événement contenant des caractères
+douteux dans le titre qui empêchent la modification et la suppression, il faut
+donc vérifier le filtrage des caractères pour résoudre le problème. \\
+\par Si nous avons le temps, le responsable souhaite que nous améliorons le code
+CAPTCHA car le site a subit des attaques de robot dans le passé.
+La saisie d'actualité doit également être modifiée, il faudrait passer de 5/6
+zones textes à une seule en retirant celles qui sont inutiles.
+Enfin, il y a un problème avec les picèes de théâtre qui passent à "Pièce
+jouée" dès que l'on saisit une valeur, il faudrait donc réparer ce module.
 
 \chapter{Les caractéristiques techniques}
 \section{Charte graphique}

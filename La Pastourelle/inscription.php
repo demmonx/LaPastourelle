@@ -1,6 +1,6 @@
 <?php
 $cryptinstall = "./cryptographp.fct.php";
-include $cryptinstall;
+require_once $cryptinstall;
 ?>
 <script language="javascript">
 $(document).ready(function () {

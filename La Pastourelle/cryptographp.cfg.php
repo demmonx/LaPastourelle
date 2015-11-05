@@ -63,13 +63,7 @@ $charclear = 10;   // Intensité de la transparence des caractères (0->127)
 
 // Polices de caractères
 
-//$tfont[] = 'Alanden_.ttf';       // Les polices seront aléatoirement utilisées.
-//$tfont[] = 'bsurp___.ttf';       // Vous devez copier les fichiers correspondants
-//$tfont[] = 'ELECHA__.TTF';       // sur le serveur.
-$tfont[] = 'luggerbu.ttf';         // Ajoutez autant de lignes que vous voulez   
-//$tfont[] = 'RASCAL__.TTF';       // Respectez la casse ! 
-//$tfont[] = 'SCRAWL.TTF';  
-//$tfont[] = 'WAVY.TTF';   
+$tfont[] = 'ressources/fonts/luggerbu.ttf';         // Ajoutez autant de lignes que vous voulez   
 
 
 // Caracteres autorisés

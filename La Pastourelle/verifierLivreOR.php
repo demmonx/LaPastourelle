@@ -1,8 +1,8 @@
 <?php 
 $cryptinstall="./cryptographp.fct.php";
-include $cryptinstall; 
-include("Connection.class.php");
-include("traitement.inc.php");
+require_once $cryptinstall; 
+require_once("Connection.class.php");
+require_once("traitement.inc.php");
 $bdd = new Connection();
 /* si tous les champs sont remplis */
 if (($_POST["nom"] <> "") && ($_POST["message"] <> "")) {

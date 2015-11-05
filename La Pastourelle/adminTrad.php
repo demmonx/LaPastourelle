@@ -7,7 +7,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 	redirect("index.php?page=accueil", 3);
 	exit(0);
 } else {
-	//Récupération de toutes les langues disponibles	//$bdd=connect_BD_PDO();
+	//Récupération de toutes les langues disponibles
 	$req_allLang = $bdd->select("SELECT DISTINCT lang FROM texte");	$allLang = $req_allLang->fetchAll();
 	//Suppression d'une langue
 	if (isset($_POST['page_lang']) AND isset($_POST['choix']) AND $_POST['choix'] == "1") {

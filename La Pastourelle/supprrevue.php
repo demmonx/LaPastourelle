@@ -19,7 +19,6 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 	foreach($result as $ligne) {
 	
 		//Recupération du nom et Suppression du fichier
-		//$bdd = connect_BD_PDO();
 		$req_recupNom = $bdd->select("SELECT img_adr FROM image WHERE img_num ='" .$ligne['presse_img'] ."' AND img_page = 'revue_presse'");
 		//$req_recupNom->execute(array($ligne->presse_img));
 		$recupNom = $req_recupNom->fetchAll();

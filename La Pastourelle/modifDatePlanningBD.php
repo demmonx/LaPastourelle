@@ -6,7 +6,7 @@ if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! veri
 	exit ( 0 );
 }
 // connexion à la base de donnée
-$bdd = connect_BD_PDO ();
+		$bdd = new Connection ();
 
 // récupération du membre a supprimer
 $date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_SPECIAL_CHARS);
