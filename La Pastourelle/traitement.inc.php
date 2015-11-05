@@ -83,7 +83,7 @@ function recup_img($img_num, $img_page) {
 function recup_image() {
 	$allAttributs;
 	$doc = new DOMDocument ();
-	$doc->load ( 'slider.xml' );
+	$doc->load ( 'ressources/slider.xml' );
 	
 	$diaporama = $doc->getElementsByTagName ( "img" );
 	foreach ( $diaporama as $img ) {

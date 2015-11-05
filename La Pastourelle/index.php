@@ -1,18 +1,8 @@
 <?php
-// connexion
 session_start ();
 // inclusion des fichiers de fonction
 require_once ("traitement.inc.php");
 require_once ("Connection.class.php");
-
-// Définition de la redirection si la page n'existe pas
-// define("PAGE_DIR","/");
-
-// $page = "index.php";
-// if(file_exists($_GET['page'])) {
-// $page = $_GET['page'];
-// }
-// include($page);
 
 // Definition de la langue
 if (! isset ( $_SESSION ['lang'] )) {
@@ -36,7 +26,7 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 <link rel="stylesheet" href="css/nav.css" type="text/css" />
 <link rel="stylesheet" media="screen" type="text/css"
 	href="js/ui.totop.css" />
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="icon" type="image/png" href="image/faviconlogo.png" />
 
 <!-- polices -->
@@ -49,13 +39,14 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 <script src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.diaporama.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>
 
 <body>
 		<?php
 		// connexion à la base de donnée
-		 	$bdd = new Connection();
+		$bdd = new Connection ();
 		?>
 	
 		<div id="bg-top"></div>
@@ -81,13 +72,9 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 						$tab = recup_image ();
 						$i = 1;
 						foreach ( $tab as $diapo ) {
-							echo "<li><img width=335 height=225 src='" . $diapo . "' alt='Image " . $i . "' /></li>";
+							echo "<li><img width=335 height=225 src='/diaporama/" . $diapo . "' alt='Image " . $i . "' /></li>";
 							$i ++;
 						}
-						// for ($i=0; $i<count($tab) ; $i++) {
-						// echo "<li><img width=335 height=225 src='".$tab[$i]."' alt='Image ".$i."' /></li>";
-						// $i++;
-						// }
 						?>
 					</ul>
 			</div>
@@ -101,17 +88,17 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 			<!-- Modules MP3 -->
 			<div id="mp3">
 				<a href="index.php?page=player" title="Nos musiques"><img
-					src="image/casque.png"></a>
+					src="/ressources/images/casque.png"></a>
 			</div>
 			<div id="mp3_texte">Nos musiques</div>
 			<div id="livre">
 				<a href="index.php?page=livreOR" title="Le livre d'or"><img
-					src="image/book.png"></a>
+					src="/ressources/images/book.png"></a>
 			</div>
 			<div id="livre_texte">Le livre d'or</div>
 			<div id="mondeL">
 				<a href="index.php?page=mondeLogo" title="Nos Voyages"><img
-					src="image/monde.jpg"></a>
+					src="/ressources/images/monde.jpg"></a>
 			</div>
 			<div id="mondeL_texte">Nos voyages</div>
 			<!-- Module Langue -->
@@ -274,6 +261,8 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 			?>
 			
 		
+		
+		
 		</div>
 	</div>
 	<!-- FOOTER -->
@@ -285,8 +274,7 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 				05.65.75.95.28<br /> Association reconnue d'intérêt général et
 				habilitée à ce titre à recevoir des dons - <span class="comment"><a
 					class="btn btn-link" href="mailto:pastourelle.rodez@yahoo.fr">pastourelle.rodez@yahoo.fr</a></span>
-				<br />
-				<br />
+				<br /> <br />
 					<?php
 					
 					if (isset ( $_SESSION ['pseudo'] ) and isset ( $_SESSION ['pass'] ) and verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
@@ -312,8 +300,8 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 					?>
 						
 						<a href="index.php?page=inscription" id="boutonsConnexion"><i
-					class="icon-user icon-large"></i> S'inscrire</a> <br />
-				<br /> <a href="index.php?page=identification" id="boutonsConnexion"><i
+					class="icon-user icon-large"></i> S'inscrire</a> <br /> <br /> <a
+					href="index.php?page=identification" id="boutonsConnexion"><i
 					class="icon-key icon-large"></i> Se connecter</a>
 			</div>
 		</div>
