@@ -493,30 +493,28 @@ function recup_un_membre($pseudo) {
 	$bdd = new Connection ();
 	
 	$tab_membre = array (); // tableau contenant les informations des membres a recuperer
-	$cpt = 0;
 	
 	/**
 	 * recupération des membre
 	 */
 	$rqt_membre = "SELECT pseudo, email, telephone, nom, prenom, adresse, etat_annuaire
-						FROM user WHERE etat_validation=1 AND pseudo=\"" . $pseudo . "\" ORDER BY pseudo";
-	$result = $bdd->select ( $rqt_membre );
+						FROM user WHERE etat_validation=1 AND pseudo=? ORDER BY pseudo";
+	$result = $bdd->prepare ( $rqt_membre );
+	$result->bindValue(1, $pseudo);
+	$result->execute();
 	
-	foreach ( $result as $row ) {
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['pseudo'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['email'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['telephone'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['nom'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['prenom'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['adresse'] ) );
-		$cpt ++;
-		$tab_membre [$cpt] = nl2br ( htmlentities ( $row ['etat_annuaire'] ) );
-		$cpt ++;
+	if ($result->rowCount() <=0 ) {
+		return null;
+	}
+	
+	while($row = $result->fetch()) {
+		$tab_membre ['pseudo'] = $row ['pseudo'];
+		$tab_membre ["email"] = $row ['email'];
+		$tab_membre ["telephone"] = $row ['telephone'];
+		$tab_membre ["nom"] = $row ['nom'];
+		$tab_membre ["prenom"] = $row ['prenom'];
+		$tab_membre ["adresse"] = $row ['adresse'];
+		$tab_membre ["etat_annuaire"] = $row ['etat_annuaire'];
 	}
 
 	
@@ -816,5 +814,14 @@ function supprLang($ini) {
 	// Suppressiion des traductions annexes
 	$requete = "DELETE FROM tradannexe WHERE lang = " . $ini;
 	$result = $bdd->select ( $requete );
+}
+
+/** Renvoie l'identifiant d'un membre en fonction de son pseudo */
+function getId($pseudo) {
+	$bdd = new Connection();
+	$stmt = $bdd->prepare("SELECT * FROM user WHERE pseudo=?");
+	$stmt->bindValue(1, $pseudo);
+	$stmt->execute();
+	return $stmt->rowCount() == 1 ? $stmt->fetch()["id_membre"] : -1;
 }
 ?>

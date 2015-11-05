@@ -59,6 +59,7 @@ class Connection extends PDO
             if($this->getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') 
                 $this->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true); 
             $this->exec('SET NAMES utf8');
+           $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $this->con; 
         } 
         catch(PDOException $e) { 
@@ -87,8 +88,7 @@ class Connection extends PDO
             //On indique par email que la requÃªte n'a pas fonctionnÃ©. 
             error_log(date('D/m/y').' Ã  '.date("H:i:s").' : '.$e->getMessage(), 1, 'artotal@gmail.com'); 
             $this->con =parent::rollBack(); 
-            $message= new Message(); 
-            $message->outPut('Erreur dans la requÃªtte', 'Votre requÃªte a Ã©tÃ© abandonnÃ©'); 
+            die('Erreur dans la requête, votre requête a été abandonné'); 
         } 
     } 
      

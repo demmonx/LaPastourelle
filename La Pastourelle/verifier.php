@@ -42,6 +42,6 @@ if (!$prenom || !$nom || !$pseudo || !$mdp || !$adresse || !$tel || !$mail) {
 			exit($erreur[$i][1]);
 }
 
-inscriptionBDD();
+inscriptionBDD($_POST);
 
 ?>
