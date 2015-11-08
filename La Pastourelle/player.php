@@ -1,218 +1,86 @@
 <?php
-define("PLAYLIST", "ressources/playlist.xml");
-/*	Fonction pour recuperer un tableau de la playlist courante */
-function recup_actuel_playlist() {
-	$allAttributs;
-	$doc = new DOMDocument();
-	$doc->load(PLAYLIST);
-	  
-	$songs = $doc->getElementsByTagName( "song" );
-	foreach( $songs as $song )
-	{
-		$names = $song->getElementsByTagName( "name" );
-		$name = $names->item(0)->nodeValue;
-	  
-		$bands= $song->getElementsByTagName( "band" );
-		$band= $bands->item(0)->nodeValue;
-	  
-		$files = $song->getElementsByTagName( "file" );
-		$file = $files->item(0)->nodeValue;
-		
-		$allAttributs[] = $name;
-		$allAttributs[] = $band;
-		$allAttributs[] = $file;
-	}
-if (empty($allAttributs)) {
-	return $allAttributs = "Aucune Chanson";
-}
-return $allAttributs;
+require 'player.inc.php';
+getPlayer();
+
+$adminOK = false;
+if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &&
+         verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+    $adminOK = true;
 }
 
-//Exécution de la fonction de récupération de la playlist courante
-$tab = recup_actuel_playlist();
-if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) { 
-	//SI UN FICHIER DOIT ETRE AJOUTE
-	if(isset($_FILES['fichier'])) { 
-		$dossier = 'musics/';
-		$fichier = basename($_FILES['fichier']['name']);
-		
-		if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier . $fichier )){
-			//AJOUT DANS XML
-			  $songs = array();
-			  for($i=0; count($tab) > 1 AND $i < count($tab); $i+=3) {
-				  $songs [] = array(
-				  'name' => $tab[$i],
-				  'band' => $tab[$i+1],
-				  'file' => $tab[$i+2]
-				  );
-			  }
-			$songs [] = array(
-				  'name' => $_POST['nom'],
-				  'band' => $_POST['band'],
-				  'file' => "musics/".$_FILES['fichier']['name']
-			);
-			  
-			$doc = new DOMDocument();
-			$doc->formatOutput = true;
-			  
-			$r = $doc->createElement( "songs" );
-			$doc->appendChild( $r );
-			  
-			foreach( $songs as $song ) {
-				$b = $doc->createElement( "song" );
-				$name = $doc->createElement( "name" );
-				$name->appendChild($doc->createTextNode( $song['name'] ));
-				$b->appendChild( $name );
-				  
-				$band = $doc->createElement( "band" );
-				$band->appendChild($doc->createTextNode( $song['band'] ));
-				$b->appendChild( $band );
-				  
-				$file = $doc->createElement( "file" );
-				$file->appendChild($doc->createTextNode( $song['file'] ));
-				$b->appendChild( $file );
-				  
-				$r->appendChild( $b );
-			}
-			$doc->save(PLAYLIST);
-			//AFFICHAGE
-			echo '<center>Ajout effectué</center>';
-			echo "<center><a class='btn btn-link' href='index.php?page=player'>Retour à la page précédente</a></center>";
-			exit();
-		} else {
-			echo '<center>Ajout non effectué</center>';
-		}
+if ($adminOK) {
+    $tab = recup_all_music();
+    if (count($tab) != 0) {
+        // Génération de la liste pour l'admin
+        echo "<h1>Listes des fichiers audio : </h1>";
+        echo "<table id='liste-player-full'>";
+        require_once 'list_music.php';
+        echo '</table>';
+    }
+    
+    ?>
+<!--Formulaire d'ajout d'une musique-->
+<h1>Ajout d'une chanson :</h1>
+
+</center>
+<form action="player_traitement.php" method="post"
+	enctype="multipart/form-data" class="formS" style="margin-left: 200px;">
+	<label for="fichier">Musique à ajouter : </label><input type="file"
+		name="fichier" id="uploadFile"><br /> <label for="nom">Titre : </label><input
+		type="text" name="nom" id="titre"><br /> <label for="band">Chanteur/Groupe
+		: </label><input type="text" name="band" id="groupe"><br />
+	<center>
+		<input type="submit" value="Ajouter">
+		<div id="msgReturn"></div>
+
+</form>
+<script type="text/javascript">
+$(document).ready(function () {
+
+	// Rafraichit la liste des music mais pas le player
+	function refresh() {
+		$("#liste-player-full").load("list_music.php");
 	}
 
-	//SI UN FICHIER DOIT ETRE SUPPRIME
-	if(isset($_GET['del'])) {
-		//Suppression du fichier
-		unlink($_GET['del']);
-		//Suppression XML
-		$doc = new DOMDocument();
-		$doc->load(PLAYLIST);
-		$songs = $doc->getElementsByTagName( "song" );
-		foreach( $songs as $song ) {
-			$files = $song->getElementsByTagName( "file" );
-			$file = $files->item(0)->nodeValue;
-			if ($file == $_GET['del']) {
-						$songs = array();
-					for($i=0; $i < count($tab); $i+=3) {
-						if ($tab[$i+2] != $_GET['del']) {
-						  $songs [] = array(
-						  'name' => $tab[$i],
-						  'band' => $tab[$i+1],
-						  'file' => $tab[$i+2]
-						  );
-						}
-					}
-					  
-					$doc = new DOMDocument();
-					$doc->formatOutput = true;
-					  
-					$r = $doc->createElement( "songs" );
-					$doc->appendChild( $r );
-					  
-					foreach( $songs as $song ) {
-						$b = $doc->createElement( "song" );
-						$name = $doc->createElement( "name" );
-						$name->appendChild($doc->createTextNode( $song['name'] ));
-						$b->appendChild( $name );
-						  
-						$band = $doc->createElement( "band" );
-						$band->appendChild($doc->createTextNode( $song['band'] ));
-						$b->appendChild( $band );
-						  
-						$file = $doc->createElement( "file" );
-						$file->appendChild($doc->createTextNode( $song['file'] ));
-						$b->appendChild( $file );
-						  
-						$r->appendChild( $b );
-					}
-					$doc->save(PLAYLIST);
-			}
-		}
-		echo '<center>Suppression effectuée<br />';
-		echo "<a class='btn btn-link' href='index.php?page=player'>Retour à la page précédente</a></center>";
-		exit();
-	}
+	// Ajout d'une nouvelle musique
+    $('.formS').on('submit', function (e) {
+        e.preventDefault(); // Empeche de soumettre le formulaire
+        var form = $(this); // L'objet jQuery du formulaire
+        var formdata = (window.FormData) ? new FormData(form[0]) : null;
+        var data = (formdata !== null) ? formdata : form.serialize();
 
-}
-//Récupération des textes annexes de traduction pour cette zone
-	$req_recupPlayer = $bdd->prepare("SELECT valeurTrad FROM tradannexe WHERE lang = ? AND nomTrad LIKE 'player%' ");
-	$req_recupPlayer->execute(array($_SESSION['lang']));
-	$recupPlayer = $req_recupPlayer->fetchAll();
-?>
+        var fichier = $('#uploadFile').val();  // fichier
+        var titre = $('#titre').val(); 
+        var groupe = $('#groupe').val(); 
+        $('#msgReturn').empty();
 
-<p style="text-align:right;">
-	<center><?php echo $recupPlayer[0]['valeurTrad']; ?> :
-    <a class="btn btn-link" href="#" onClick="javascript:window.open('ressources/player.html','popup','width=182,height=102')"><?php echo $recupPlayer[1]['valeurTrad']; ?></a></center>
-</p>
-
-<center><br />
-	<!--Affichage du player-->
-	<div id="flashContent" style="text-align:center;background-color:black;">
-		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="182" height="102" id="player" align="middle">
-			<param name="movie" value="player.swf" />
-			<param name="quality" value="best" />
-			<param name="bgcolor" value="#ffffff" />
-			<param name="play" value="true" />
-			<param name="loop" value="true" />
-			<param name="wmode" value="transparent" />
-			<param name="scale" value="showall" />
-			<param name="menu" value="true" />
-			<param name="devicefont" value="false" />
-			<param name="salign" value="" />
-			<param name="allowScriptAccess" value="sameDomain" />
-			<!--[if !IE]>-->
-			<object type="application/x-shockwave-flash" data="ressources/player.swf" width="182" height="102">
-				<param name="movie" value="player.swf" />
-				<param name="quality" value="best" />
-				<param name="bgcolor" value="#ffffff" />
-				<param name="play" value="true" />
-				<param name="loop" value="true" />
-				<param name="wmode" value="transparent" />
-				<param name="scale" value="showall" />
-				<param name="menu" value="true" />
-				<param name="devicefont" value="false" />
-				<param name="salign" value="" />
-				<param name="allowScriptAccess" value="sameDomain" />
-			<!--<![endif]-->
-				<a href="http://www.adobe.com/go/getflash">
-					<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtenir Adobe Flash Player" />
-				</a>
-			<!--[if !IE]>-->
-			</object>
-			<!--<![endif]-->
-		</object>
-	</div><?php
-
-	//LISTE DES CHANSONS PRESENTES DANS LE XML
-	$adminOK = false;
-	if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-		$adminOK = true;
-	}
-	echo "<h1>".$recupPlayer[2]['valeurTrad']." : </h1>";
-	if ($tab != "Aucune Chanson") {
-		for ($i=0;$i<count($tab);$i+=3) {
-			echo utf8_decode($tab[$i])." - ".utf8_decode($tab[$i+1]);
-			if ($adminOK) { 
-				echo "&nbsp&nbsp&nbsp<a class='btn btn-link' href='index.php?page=player&del=".$tab[$i+2]."'>Supprimer</a>"; 
-			}
-			echo "<br/>";
-		}
-	} else {
-		echo $recupPlayer[3]['valeurTrad'];
-	}
-	
-if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) { ?>
-	<!--Formulaire d'ajout d'une musique-->
-	<h1>Ajout d'une chanson : </h1></center>
-	<form action="index.php?page=player" method="post" enctype="multipart/form-data" class="formS" style="margin-left: 200px;">    
-          <label for="fichier">Musique à ajouter : </label><input type="file" name="fichier"><br />
-		  <label for="nom">Titre : </label><input type="text" name="nom"><br />
-		  <label for="band">Chanteur/Groupe : </label><input type="text" name="band"><br />
-          <center><input type="submit" value="Ajouter">
-	</form><?php
+        // Vérifie pour éviter de lancer une requête fausse
+        if (fichier === '') {
+            $('#msgReturn').append('Le fichier doit être renseigné');
+        } else {
+            // Envoi de la requête HTTP en mode asynchrone
+            $.ajax({
+                url: form.attr('action'), // cible (formulaire)
+                type: form.attr('method'), // méthode (formulaire)
+                enctype: 'multipart/form-data',
+                contentType: false, // obligatoire pour de l'upload
+                processData: false, // obligatoire pour de l'upload
+                data: data, // Envoie de toutes les données
+                success: function (html) { // Récupération de la réponse
+                    $('#msgReturn').append(html);  // affichage du résultat
+                    // On efface si ok
+                    if (html === "Ajout effectué avec succès") {
+                        $('#uploadFile').val('');
+                        $('#titre').val('');
+                        $("#groupe").val('');;
+                        refresh();
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
+<?php
 }
 ?>

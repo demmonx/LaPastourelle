@@ -1,16 +1,26 @@
 <?php
-session_start ();
+session_start();
 // inclusion des fichiers de fonction
 require_once ("traitement.inc.php");
 require_once ("Connection.class.php");
+$supported_lang = getSupportedLanguages();
 
 // Definition de la langue
-if (! isset ( $_SESSION ['lang'] )) {
-	$_SESSION ['lang'] = substr ( $_SERVER ["HTTP_ACCEPT_LANGUAGE"], 0, 2 );
+if (! isset($_SESSION['lang'])) {
+    $_SESSION['lang'] = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
 }
-if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
-	$_SESSION ['lang'] = $_GET ['lang'];
+if (isset($_GET['lang']) and ! empty($_GET['lang'])) {
+    $_SESSION['lang'] = $_GET['lang'];
 }
+
+if ($supported_lang[array_search($_SERVER["HTTP_ACCEPT_LANGUAGE"], 
+        $supported_lang)] != $_SERVER["HTTP_ACCEPT_LANGUAGE"]) {
+    $_SESSION['lang'] = 'fr';
+}
+
+// Récupère l'id à partir du code
+$_SESSION['lang'] = reverseLanguage($_SESSION['lang']);
+$_SESSION['lang'] = $_SESSION['lang'] < 0 ? 1 : $_SESSION['lang'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,6 +48,7 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 <!-- Diaporama -->
 <script src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.diaporama.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
@@ -45,9 +56,9 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 
 <body>
 		<?php
-		// connexion à la base de donnée
-		$bdd = new Connection ();
-		?>
+// connexion à la base de donnée
+$bdd = new Connection();
+?>
 	
 		<div id="bg-top"></div>
 
@@ -69,13 +80,14 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 			<div class="grid_5">
 				<ul class="diaporama">
 						<?php
-						$tab = recup_image ();
-						$i = 1;
-						foreach ( $tab as $diapo ) {
-							echo "<li><img width=335 height=225 src='/diaporama/" . $diapo . "' alt='Image " . $i . "' /></li>";
-							$i ++;
-						}
-						?>
+    $tab = recup_actuel_diapos();
+    $i = 1;
+    foreach ($tab as $diapo) {
+        echo "<li><img width=335 height=225 src='" . $diapo["lien"] .
+                 "' alt='Image " . $i . "' /></li>";
+        $i ++;
+    }
+    ?>
 					</ul>
 			</div>
 
@@ -105,44 +117,60 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 
 			<div id="lang">
 				<p><?php
-				// Récupération de toutes les langues disponibles
-				$req_allLang = $bdd->select ( "SELECT DISTINCT lang FROM texte" );
-				$allLang = $req_allLang->fetchAll ();
-				// Affichage du drapeau correspondant
-				for($i = 0; $i < count ( $allLang ); $i ++) {
-					if ($allLang [$i] ['lang'] == $_SESSION ['lang']) {
-						if (! file_exists ( 'image/lang/' . $allLang [$i] ['lang'] . '.png' )) {
-							if (isset ( $_GET ['page'] )) {
-								echo "<a href='index.php?page=" . $_GET ['page'] . "&lang=" . $allLang [$i] ['lang'] . "'><img src='image/lang/inc.png' style='border :1px solid green;' width='19' height='12' /></a>";
-							} else {
-								echo "<a href='index.php?lang=" . $allLang [$i] ['lang'] . "'><img src='image/lang/inc.png' style='border :1px solid green;' width='19' height='12' /></a>";
-							}
-						} else {
-							if (isset ( $_GET ['page'] )) {
-								echo "<a href='index.php?page=" . $_GET ['page'] . "&lang=" . $allLang [$i] ['lang'] . "'><img src='image/lang/" . $allLang [$i] ['lang'] . ".png' style='border :1px solid green;' width='19' height='12' /></a>";
-							} else {
-								echo "<a href='index.php?lang=" . $allLang [$i] ['lang'] . "'><img src='image/lang/" . $allLang [$i] ['lang'] . ".png' style='border :1px solid green;' width='19' height='12' /></a>";
-							}
-						}
-					} else {
-						if (! file_exists ( 'image/lang/' . $allLang [$i] ['lang'] . '.png' )) {
-							if (isset ( $_GET ['page'] )) {
-								echo "<a href='index.php?page=" . $_GET ['page'] . "&lang=" . $allLang [$i] ['lang'] . "'><img src='image/lang/inc.png' width='19' height='12' /></a>";
-							} else {
-								echo "<a href='index.php?lang=" . $allLang [$i] ['lang'] . "'><img src='image/lang/inc.png' width='19' height='12' /></a>";
-							}
-						} else {
-							if (isset ( $_GET ['page'] )) {
-								echo "<a href='index.php?page=" . $_GET ['page'] . "&lang=" . $allLang [$i] ['lang'] . "'><img src='image/lang/" . $allLang [$i] ['lang'] . ".png' width='19' height='12' /></a>";
-							} else {
-								
-								echo "<a href='index.php?lang=" . $allLang [$i] ['lang'] . "'><img src='image/lang/" . $allLang [$i] ['lang'] . ".png' width='19' height='12' /></a>";
-							}
-						}
-					}
-					echo "&nbsp&nbsp";
-				}
-				?>
+    // Récupération de toutes les langues disponibles
+    $req_allLang = $bdd->select("SELECT DISTINCT lang FROM texte");
+    $allLang = $req_allLang->fetchAll();
+    // Affichage du drapeau correspondant
+    for ($i = 0; $i < count($allLang); $i ++) {
+        if ($allLang[$i]['lang'] == $_SESSION['lang']) {
+            if (! file_exists('image/lang/' . $allLang[$i]['lang'] . '.png')) {
+                if (isset($_GET['page'])) {
+                    echo "<a href='index.php?page=" . $_GET['page'] . "&lang=" .
+                             $allLang[$i]['lang'] .
+                             "'><img src='image/lang/inc.png' style='border :1px solid green;' width='19' height='12' /></a>";
+                } else {
+                    echo "<a href='index.php?lang=" . $allLang[$i]['lang'] .
+                             "'><img src='image/lang/inc.png' style='border :1px solid green;' width='19' height='12' /></a>";
+                }
+            } else {
+                if (isset($_GET['page'])) {
+                    echo "<a href='index.php?page=" . $_GET['page'] . "&lang=" .
+                             $allLang[$i]['lang'] . "'><img src='image/lang/" .
+                             $allLang[$i]['lang'] .
+                             ".png' style='border :1px solid green;' width='19' height='12' /></a>";
+                } else {
+                    echo "<a href='index.php?lang=" . $allLang[$i]['lang'] .
+                             "'><img src='image/lang/" . $allLang[$i]['lang'] .
+                             ".png' style='border :1px solid green;' width='19' height='12' /></a>";
+                }
+            }
+        } else {
+            if (! file_exists('image/lang/' . $allLang[$i]['lang'] . '.png')) {
+                if (isset($_GET['page'])) {
+                    echo "<a href='index.php?page=" . $_GET['page'] . "&lang=" .
+                             $allLang[$i]['lang'] .
+                             "'><img src='image/lang/inc.png' width='19' height='12' /></a>";
+                } else {
+                    echo "<a href='index.php?lang=" . $allLang[$i]['lang'] .
+                             "'><img src='image/lang/inc.png' width='19' height='12' /></a>";
+                }
+            } else {
+                if (isset($_GET['page'])) {
+                    echo "<a href='index.php?page=" . $_GET['page'] . "&lang=" .
+                             $allLang[$i]['lang'] . "'><img src='image/lang/" .
+                             $allLang[$i]['lang'] .
+                             ".png' width='19' height='12' /></a>";
+                } else {
+                    
+                    echo "<a href='index.php?lang=" . $allLang[$i]['lang'] .
+                             "'><img src='image/lang/" . $allLang[$i]['lang'] .
+                             ".png' width='19' height='12' /></a>";
+                }
+            }
+        }
+        echo "&nbsp&nbsp";
+    }
+    ?>
 					</p>
 			</div>
 		</div>
@@ -152,10 +180,11 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 			<center>
 				<!-- Menu -->
 				<?php
-				if (isset ( $_SESSION ['pseudo'] ) and isset ( $_SESSION ['pass'] ) and verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-					// menu admin
-					if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-						?>
+    if (isset($_SESSION['pseudo']) and isset($_SESSION['pass']) and
+             verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
+        // menu admin
+        if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+            ?>
 					<div class="clear"></div>
 				<nav class="grid_12">
 					<ul class="navigM">
@@ -172,9 +201,9 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 				<div class="clear"></div>
 					
 						<?php
-						// membre non admin
-					} else {
-						?>
+            // membre non admin
+        } else {
+            ?>
 							
 					<div class="clear"></div>
 				<nav class="grid_12">
@@ -190,8 +219,8 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 				<div class="clear"></div>
 							
 						<?php
-					} // menu commun
-					?>
+        } // menu commun
+        ?>
 			
 					<div class="clear"></div>
 				<nav class="grid_12">
@@ -217,10 +246,10 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 				<div class="clear"></div>	
 					
 				<?php
-				} else { // menu visiteur
-					?>
-				
-					<div class="clear"></div>
+    } else { // menu visiteur
+        ?>
+		
+		<div class="clear"></div>
 				<nav class="grid_12">
 					<ul class="navigV">
 						<li><a href="index.php">Accueil</a></li>
@@ -244,22 +273,63 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 				<div class="clear"></div>	
 					
 				<?php
-				}
-				?>	
+    }
+    ?>	
 			<br /><?php
+
+if (isset($_GET['page'])) {
+    if (! strstr($_GET['page'], 'http://') && ! strstr($_GET['page'], 'www.') &&
+     ! strstr($_GET['page'], '/')) {
+// && file_exists($_GET['page'])) {
+require_once ($_GET['page'] . ".php");
+} else {
+require_once ("accueil.php");
+}
+} else {
+require_once ("accueil.php");
+}
+?>
 			
-			if (isset ( $_GET ['page'] )) {
-				if (! strstr ( $_GET ['page'], 'http://' ) && ! strstr ( $_GET ['page'], 'www.' ) && ! strstr ( $_GET ['page'], '/' )) {
-					// && file_exists($_GET['page'])) {
-					require_once ($_GET ['page'] . ".php");
-				} else {
-					require_once ("accueil.php");
-				}
-			} else {
-				require_once ("accueil.php");
-			}
-			?>
-			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+						
+						
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -276,28 +346,34 @@ if (isset ( $_GET ['lang'] ) and ! empty ( $_GET ['lang'] )) {
 					class="btn btn-link" href="mailto:pastourelle.rodez@yahoo.fr">pastourelle.rodez@yahoo.fr</a></span>
 				<br /> <br />
 					<?php
-					
-					if (isset ( $_SESSION ['pseudo'] ) and isset ( $_SESSION ['pass'] ) and verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-						if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-							echo '<b>Vous êtes Administrateur : ' . $_SESSION ['pseudo'] . ' ';
-						} else {
-							echo '<b>Vous êtes Membre : ' . $_SESSION ['pseudo'];
-						}
-						echo '<br/> <a href="index.php?page=infoPersonnelle">Mon compte</a> || <a href="index.php?page=deconnexion">Se Déconnecter</a> </b> <br>';
-					} else {
-						// echo '<a href="index.php?page=identification">'.$recupHead[7]['valeurTrad'].'</a> || <a href="index.php?page=inscription">'.$recupHead[8]['valeurTrad'].'</a></b> </p>';
-					}
-					
-					?>
+    
+    if (isset($_SESSION['pseudo']) and isset($_SESSION['pass']) and
+             verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
+        if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+            echo '<b>Vous êtes Administrateur : ' . $_SESSION['pseudo'] . ' ';
+        } else {
+            echo '<b>Vous êtes Membre : ' . $_SESSION['pseudo'];
+        }
+        echo '<br/> <a href="index.php?page=infoPersonnelle">Mon compte</a> || <a href="index.php?page=deconnexion">Se Déconnecter</a> </b> <br>';
+    } else {
+        // echo '<a
+        // href="index.php?page=identification">'.$recupHead[7]['valeurTrad'].'</a>
+        // || <a
+        // href="index.php?page=inscription">'.$recupHead[8]['valeurTrad'].'</a></b>
+        // </p>';
+    }
+    
+    ?>
 				</p>
 		</div>
 		<div class="footer_icon grid_3">
 			<div>
 					<?php
-					if (isset ( $_SESSION ['pseudo'] ) and isset ( $_SESSION ['pass'] ) and verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-						echo "<br/>";
-					}
-					?>
+    if (isset($_SESSION['pseudo']) and isset($_SESSION['pass']) and
+             verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
+        echo "<br/>";
+    }
+    ?>
 						
 						<a href="index.php?page=inscription" id="boutonsConnexion"><i
 					class="icon-user icon-large"></i> S'inscrire</a> <br /> <br /> <a
