@@ -1,24 +1,33 @@
 <?php
+echo "<div id='player-content'>";
 require 'player.inc.php';
-getPlayer();
+echo "</div>";
+
+$trad = getTrad ($_SESSION['lang'], 'player');
+
+// Lien du lecteur sur autre page
+echo "<p>" . (isset($trad[0]) ? $trad[0] : "Non traduit") . " :
+    <a class='btn btn-link' href='#'
+		onClick=\"javascript:window.open('player_tab.php','popup')\">" . (isset($trad[1]) ? $trad[1] : "Non traduit") . "</a></p>";
 
 $adminOK = false;
-if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &&
-         verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    $adminOK = true;
+if (isset ( $_SESSION ['pseudo'] ) && isset ( $_SESSION ['pass'] ) && verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
+	$adminOK = true;
 }
 
 if ($adminOK) {
-    $tab = recup_all_music();
-    if (count($tab) != 0) {
-        // Génération de la liste pour l'admin
-        echo "<h1>Listes des fichiers audio : </h1>";
-        echo "<table id='liste-player-full'>";
-        require_once 'list_music.php';
-        echo '</table>';
-    }
-    
-    ?>
+	$tab = recup_all_music ();
+	// Génération de la liste pour l'admin
+	echo "<h1>Listes des fichiers audio : </h1>";
+	echo "<table id='liste-player-full'>";
+	if (count ( $tab ) != 0) {
+		require_once 'list_music.php';
+	} else {
+		echo "<tr><td>Aucun fichier disponible</td></tr>";
+	}
+	echo '</table>';
+	
+	?>
 <!--Formulaire d'ajout d'une musique-->
 <h1>Ajout d'une chanson :</h1>
 
@@ -40,6 +49,7 @@ $(document).ready(function () {
 	// Rafraichit la liste des music mais pas le player
 	function refresh() {
 		$("#liste-player-full").load("list_music.php");
+		$("#player-content").load("player.inc.php");
 	}
 
 	// Ajout d'une nouvelle musique

@@ -1,3 +1,10 @@
+V2 : 
+Changement de structure de la Bd
+Recodage des méthodes
+Intégration du multilangue
+
+--------------------------------------------------------------------------------------------------
+V1 :
 Remplacement de tous les modules flash par du Jquery
 Recodage du diaporama + du player audio (style à refaire)
 Unification des champs pour le formulaire d'actualité (coder le formulaire de mise à jour)

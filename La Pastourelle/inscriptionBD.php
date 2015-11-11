@@ -22,7 +22,7 @@ function inscriptionBDD($var) {
 	}
 	
 	//regarde si l'user existe deja
-	$rqt_user = "SELECT pseudo FROM user WHERE pseudo=?";
+	$rqt_user = "SELECT pseudo FROM tuser WHERE pseudo=?";
 	$les_user = $bdd->prepare($rqt_user);
 	$les_user->bindValue(1, $pseudo, PDO::PARAM_STR);
 	$les_user->execute();

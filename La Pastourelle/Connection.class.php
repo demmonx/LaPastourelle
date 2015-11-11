@@ -40,15 +40,18 @@ class Connection extends PDO
     // private $host = 'mysql5-8.bdb'; // adresse de la base
     // private $user = 'pastourebd1'; // nom
     // private $pwd = 'ltIUED83'; // mot de passe
-    private $db = 'pastourebd1';
+    private $db = 'pastourebd2';
     // base de donnÃ©es
     private $host = 'localhost';
     // adresse de la base
-    private $user = 'root';
+    private $user = 'pastourebd2';
     // nom
-    private $pwd = 'root';
+    private $pwd = 'ik4FgR12zEgD';
     // mot de passe
     private $con;
+    
+    // Pour se connecter au bon SGBD
+    private $driver = 'pgsql';
     //
     private $select;
     // requette de sÃ©lÃ©ction
@@ -74,9 +77,7 @@ class Connection extends PDO
             error_log(
                     date('D/m/y') . ' Ã  ' . date("H:i:s") . ' : ' .
                              $e->getMessage(), 1, $this->email);
-            $message = new Message();
-            $message->outPut('Erreur 500', 
-                    'Serveur de BDD indisponible, nous nous excusons de la gÃªne occasionnÃ©e');
+            die('Serveur de BDD indisponible, nous nous excusons de la gêne occasionnée');
         }
     }
 
@@ -93,11 +94,12 @@ class Connection extends PDO
             return $result;
         } catch (Exception $e) {
             // On indique par email que la requÃªte n'a pas fonctionnÃ©.
-            error_log(
-                    date('D/m/y') . ' Ã  ' . date("H:i:s") . ' : ' .
-                             $e->getMessage(), 1, 'artotal@gmail.com');
+           // error_log(
+             //       date('D/m/y') . ' Ã  ' . date("H:i:s") . ' : ' .
+               //              $e->getMessage(), 1, 'artotal@gmail.com');
             $this->con = parent::rollBack();
-            die('Erreur dans la requête, votre requête a été abandonné');
+           // die('Erreur dans la requête, votre requête a été abandonné');
+           die( $e->getMessage());
         }
     }
     
@@ -117,6 +119,6 @@ class Connection extends PDO
     // on change le type de base ici
     public function getDns ()
     {
-        return 'mysql:dbname=' . $this->db . ';host=' . $this->host;
+        return $this->driver.':dbname=' . $this->db . ';host=' . $this->host;
     }
 }

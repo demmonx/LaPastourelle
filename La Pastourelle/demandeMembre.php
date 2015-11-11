@@ -11,42 +11,33 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 			</script>';
 	exit(0);
 } else {
-		$bdd = new Connection();
 	// Acceptation ou refus d'un message du livre d'or ou d'un membre*/
 	if (isset($_GET['id']) && isset($_GET['confirm']) && is_numeric($_GET['id'])) {
 		//Refus d'un message ou d'un membre
 		if ($_GET['confirm'] == 0) {
 			if (isset($_GET['mb']) AND $_GET['mb'] == 1) { //Membre
-				$sql = "DELETE FROM user WHERE id_membre = ?";
+				deleteMembre($_GET['id']);
 			} else { //Message
-				$sql = "DELETE FROM livreOR WHERE id = ?";
-			}
-			$stmt = $bdd->prepare($sql);
-			$stmt->bindValue(1, $_GET['id'],  PDO::PARAM_INT);
-			$stmt->execute();			
+				deleteMessageLivre($_GET['id']);
+			}			
 			
-			//$delMess->execute(array($_GET['id']));
 		//Acceptation d'un message ou d'un membre
 		} else if ($_GET['confirm'] == 1) {
 			if (isset($_GET['mb']) AND $_GET['mb'] == 1) { //Membre
-				$modMess = $bdd->prepare("UPDATE user SET etat_validation = 1 WHERE id_membre = :id");
+				$modMess = $bdd->prepare("UPDATE tuser SET etat_validation = 1 WHERE id_membre = :id");
 			} else { //Message
-				$modMess = $bdd->prepare("UPDATE livreor SET confirm = 1 WHERE id = :id");
+				$modMess = $bdd->prepare("UPDATE livreor SET validation = 1 WHERE id = :id");
 			}
 			$modMess->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
 			$modMess->execute();
-			//$modMess->execute(array($_GET['id']));
 		}
 	}
 	// Message en attente de validation du livre d'or
 	echo "
 	<center>
 		<h2>Messages du livre d'or en attente de validation</h2>";
-	//$req_messNoValid = $bdd->query('SELECT * FROM livreor WHERE confirm = 0 ORDER BY date');
-	$req_messNoValid = $bdd->prepare('SELECT * FROM livreor WHERE confirm = 0 ORDER BY date');
-	$req_messNoValid->execute();
-	$NBmessNoValid = $req_messNoValid->rowcount();
-	if ($NBmessNoValid == 0) {
+	$messNoValid = getMessageValidationLivre();
+	if (count($messNoValid) == 0) {
 		echo "Il n'y a aucun message en attente
 	</center>";
 	} else {
@@ -63,7 +54,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 				<th>-</th>";
 		echo "
 			</tr>";
-		foreach ($req_messNoValid as $row) { //$messNoValid = $req_messNoValid->fetch()) {
+		foreach ($messNoValid as $row) { //$messNoValid = $req_messNoValid->fetch()) {
 			echo "
 			<tr>";
 			echo"
@@ -89,14 +80,8 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 	echo "
 	<center>
 		<h2>Membres en attente de validation</h2>";
-	//$req_membNoValid = $bdd->query('SELECT pseudo, email, telephone, nom, prenom, adresse FROM user WHERE etat_validation=0 ORDER BY nom');
-	$req_membNoValid = $bdd->prepare('SELECT id_membre, pseudo, email, telephone, nom, prenom, adresse
-											FROM user
-											WHERE etat_validation=0
-											ORDER BY nom');
-		$req_membNoValid->execute();
-	$NBmembNoValid = $req_membNoValid->rowcount();
-	if ($NBmembNoValid == 0) {
+	$aValider = recup_membre_valider();
+	if (count($aValider) == 0) {
 		echo "Il n'y a aucun membre en attente
 	</center>";
 	} else {
@@ -116,7 +101,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 				<th>-</th>";
 				echo "
 			</tr>";
-		foreach ($req_membNoValid as $row) { //$membNoValid = $req_membNoValid->fetch()) {
+		foreach ($aValider as $row) { //$membNoValid = $req_membNoValid->fetch()) {
 			echo "
 			<tr>";
 			echo"
@@ -128,11 +113,11 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 				<td>".$row['adresse']."</td>";
 			echo "
 				<td>
-					<a class='btn btn-link' href='index.php?page=page_administrateur&id=".$row['id_membre']."&confirm=1&mb=1'>Accepter</a>
+					<a class='btn btn-link' href='index.php?page=page_administrateur&id=".$row['id']."&confirm=1&mb=1'>Accepter</a>
 				</td>";
 			echo "
 				<td>
-					<a class='btn btn-link' href='index.php?page=page_administrateur&id=".$row['id_membre']."&confirm=0&mb=1'>Refuser</a>
+					<a class='btn btn-link' href='index.php?page=page_administrateur&id=".$row['id']."&confirm=0&mb=1'>Refuser</a>
 				</td>";
 			echo "
 			</tr>";
@@ -172,8 +157,8 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 					<TD><B>" . $row['nom'] . "</B></TD>";
 		echo "	<TD><B>" . $row['prenom'] . "</B></TD>";
 		echo "	<TD>" . $row['pseudo'] . "</TD>";
-		echo "	<TD>" . $row['mail'] . "</TD>";
-		echo "	<TD>" . $row['tel'] . "</TD>";
+		echo "	<TD>" . $row['email'] . "</TD>";
+		echo "	<TD>" . $row['telephone'] . "</TD>";
 		echo "	<TD>" . $row['adresse'] . "</TD>";
 		echo "<TD><A class='btn btn-link' HREF='supprMembre.php?id=" . $row['id'] . "'>Supprimer</A></TD>";
 		echo "</TR>";
