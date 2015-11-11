@@ -30,13 +30,13 @@ function recup_phrasejour($lang) {
 	$bdd = new Connection ();
 	
 	// ------------------- TEST CONNECTION PDO ------------------------ //
-	$sql = "SELECT valeurTrad FROM tradannexe WHERE nomTrad ='phrasejour' AND lang=? ORDER BY nomTrad";
+	$sql = "SELECT valeurtrad FROM tradannexe WHERE nomTrad ='phrasejour' AND lang=? ORDER BY nomTrad";
 	$result = $bdd->prepare ( $sql );
 	$result->bindValue ( 1, $lang );
 	$result->execute ();
 	
 	// Requête sur clé primaire, un seul élément possible
-	return $result->fetch ();
+	return $result->fetch ()['valeurtrad'];
 }
 
 /**
@@ -239,9 +239,9 @@ function recup_planning() {
 	 */
 	$rqt_planning = "SELECT id_planning, pl_jour, pl_date, pl_lieu, pl_musiciens FROM planning ORDER BY pl_date DESC";
 	$result = $bdd->prepare ( $rqt_planning );
-	$result->execute();
+	$result->execute ();
 	
-		while ($row = $result->fetch ()) {
+	while ( $row = $result->fetch () ) {
 		$tab_planning [$cpt] ['jour'] = $row ['pl_jour'];
 		$tab_planning [$cpt] ['date'] = str_replace ( "-", "/", $row ['pl_date'] );
 		$tab_planning [$cpt] ['lieu'] = $row ['pl_lieu'];
@@ -356,6 +356,10 @@ function recup_un_membre($pseudo) {
 	
 	return $tab_membre;
 }
+
+/**
+ * Extrait les infos d'un membre depuis un champ de BD
+ */
 function extractMembreFromARow($row) {
 	$retour = array ();
 	$retour ['id'] = $row ['id_membre'];
@@ -364,7 +368,7 @@ function extractMembreFromARow($row) {
 	$retour ["telephone"] = $row ['telephone'];
 	$retour ["nom"] = $row ['nom'];
 	$retour ["prenom"] = $row ['prenom'];
-	$retour ["adresse"] = $row ['adresse'];
+	$retour ["adresse"] = nl2br ( $row ['adresse'] );
 	$retour ["etat_annuaire"] = $row ['etat_annuaire'];
 	return $retour;
 }
@@ -387,7 +391,7 @@ function getActu($lang, $type = null) {
 	$cpt = 0;
 	
 	/**
-	 * recupération de l'actualite
+	 * recupération de toute l'actualite
 	 */
 	$rqt_act = 'SELECT * FROM actu_content RIGHT OUTER JOIN actualite ON act_id = actu ';
 	if ($type != null) {
@@ -407,10 +411,14 @@ function getActu($lang, $type = null) {
 	}
 	
 	while ( $row = $result->fetch () ) {
-		if (isset ( $row ["lang"] ) && $row ['lang'] != $lang) {
-			continue;
+		$tab_act[$cpt]['id'] = $row ["act_id"];
+		$tab_act[$cpt]['type'] = $row ["act_type"];
+		$tab_act[$cpt]['name'] = $row ["act_nom"];
+		$tab_act[$cpt]['img'] = isset ( $row ["act_img"] ) ? $row ["act_img"] : "";
+		if (isset ( $row ["lang"] ) && $row ['lang'] == $lang) {
+			$tab_act[$cpt]['txt'] = isset ( $row ["content"] ) ? stripnl2br ( $row ["content"] ) : "";
 		}
-		$tab_act [$cpt ++] = extractActuFromARow ( $row );
+		$cpt++;
 	}
 	
 	return $tab_act;
@@ -471,25 +479,47 @@ function stripnl2br2($string) {
 
 /**
  * ***********************************************
- * Récupération du texte de la page compte rendu *
+ * Récupération du texte d'une page donnée *
  * ***********************************************
  */
-function recup_compteRendu() {
+function getTexte($page) {
 	$bdd = new Connection ();
 	
 	$retour = array ();
 	/**
 	 * recupération du texte
 	 */
-	$sql = "SELECT texte FROM texte WHERE txt_page='compte_rendu' ";
+	$sql = "SELECT texte FROM texte WHERE txt_page=? ";
 	$stmt = $bdd->prepare ( $sql );
+	$stmt->bindValue(1, $page);
 	$stmt->execute ();
 	while ( $row = $stmt->fetch () ) {
-		$retour [] = $row ["texte"];
+		$retour [] = nl2br($row ["texte"]);
 	}
 	
 	return $retour;
 }
+
+/**
+ * Met à jour le texte d'une page donné
+ * @param string $page La page à mettre à jour
+ * @param string $content Le nouveau texte
+ */
+function setTexte($page, $content) {
+	$bdd = new Connection ();
+
+	$retour = array ();
+	/**
+	 * recupération du texte
+	*/
+	$sql = "UPDATE texte SET texte = ? WHERE txt_page=? ";
+	$stmt = $bdd->prepare ( $sql );
+	$stmt->bindValue(1, $content);
+	$stmt->bindValue(2, $page);
+	$stmt->execute ();
+}
+ 
+/**  Récupération des coordonnées */
 function recup_infoCoord() {
 	$bdd = new Connection ();
 	$tab_coord = array ();
@@ -1205,4 +1235,216 @@ function extractLivreFromARow($row) {
 	$retour ['validation'] = $row ['validation'];
 	return $retour;
 }
+
+/**
+ * Valide un membre et autorise sa connexion
+ * 
+ * @param int $id
+ *        	L'id du membre à activer
+ */
+function activerMembre($id) {
+	$bdd = new Connection ();
+	$stmt = $bdd->prepare ( "UPDATE tuser SET etat_validation = 1 WHERE id_membre = :id" );
+	$stmt->bindValue ( 1, $id );
+	$stmt->execute ();
+}
+
+/**
+ * Valide un message du livre d'or et autorise son affichage
+ * 
+ * @param int $id
+ *        	L'id de l'article à valider
+ */
+function validerArticle($id) {
+	$bdd = new Connection ();
+	$stmt = $bdd->prepare ( "UPDATE livreor SET validation = 1 WHERE id = :id" );
+	$stmt->bindValue ( 1, $id );
+	$stmt->execute ();
+}
+
+/**
+ * Ajoute un commentaire sur le blog
+ * @param string $msg Le message à ajouter
+ * @param int $auteur L'id de l'auteur du message
+ * @param int $auteur L'id de la photo commentée
+ */
+function addBlogComment($msg, $auteur, $photo) {
+	$bdd = new Connection();
+	$sql = "INSERT INTO commentaire (texte, num_photo, auteur) VALUES (:txt, :photo,:auteur)";
+	
+	$insert = $bdd->prepare ( $sql );
+	$insert->bindValue ( ":txt", $msg );
+	$insert->bindValue ( ":auteur", $auteur );
+	$insert->bindValue ( ":photo", $photo );
+	$insert->execute ();
+}
+
+/**
+ * Récupère les commentaires du blog
+ * @param int $photo L'id de l'auteur du message
+ */
+function getBlogComment($photo) {
+	$retour = array();
+	$sql = "SELECT C.*, U.pseudo FROM commentaire C 
+			JOIN  tuser U
+			ON C.auteur = U.id_membre
+			WHERE num_photo = ?";
+	$bdd = new Connection();
+	$i = 0;
+	$stmt = $bdd->prepare($sql);
+	$stmt->bindValue(1, $photo);
+	$stmt->execute();
+	
+	while($row = $stmt->fetch()) {
+		$retour[$i]['id'] = $row['id_commentaire'];
+		$retour[$i]['txt'] = $row['texte'];
+		$retour[$i]['photo'] = $row['num_photo'];
+		$retour[$i]['auteur'] = $row['auteur'];
+		$retour[$i]['pseudo'] = $row['pseudo'];
+		$i++;
+	}
+	return $retour;
+}
+
+/**
+ * Suppression d'un commentaire de blog
+ * @param int $id L'id du commentaire à supprimer
+ */
+function deleteBlogComment($id) {
+	$bdd = new Connection();
+	$stmt = $bdd->prepare("DELETE FROM commentaire WHERE id_commentaire = ?");
+	$stmt->bindValue(1, $id);
+	$stmt->execute();
+}
+
+
+/**
+ * Supprime la photo avec l'id indiqué de la base de donnée et du disque
+ * @param integer $id L'id de la photo a supprimer
+ */
+function deleteBlogPic($id) {
+	$bdd = new Connection();
+	$stmt1 = $bdd->prepare("SELECT adr_photo FROM photo WHERE id_photo = ?");
+	$stmt1->bindValue(1, $id);
+	$stmt1->execute();
+	if ($stmt1->rowCount() == 1) {
+		$stmt2 = $bdd->prepare("DELETE FROM photo WHERE id_photo = ?");
+		$stmt2->bindValue(1, $id);
+		$stmt2->execute();
+		unlink($stmt1->fetch()['adr_photo']);
+		return true;
+	}
+	return false;
+}
+
+/** 
+ * Retourne le nombre de photos disponibles sur le blog
+ */
+function getNbPic() {
+	$bdd = new Connection();
+	$stmt = $bdd->prepare("SELECT COUNT(*) AS total FROM photo");
+	$stmt->execute();
+	return $stmt->fetch()['total'];
+}
+
+/** 
+ * Retourne nb photos à partir de la première
+ * @param integer $begin La photo initiale
+ * @param integer $end Le nombre de photos
+ */
+function getPicByRange($first, $nb) {
+	$retour = array();
+	$sql = "SELECT * FROM photo ORDER BY date_photo DESC OFFSET ? LIMIT ?";
+	$bdd = new Connection();
+	$i = 0;
+	$stmt = $bdd->prepare($sql);
+	$stmt->bindValue(1, $first);
+	$stmt->bindValue(2, $nb);
+	$stmt->execute();
+	
+	while($row = $stmt->fetch()) {
+		$retour[$i]['id'] = $row['id_photo'];
+		$retour[$i]['txt'] = $row['description'];
+		$retour[$i]['adr'] = $row['adr_photo'];
+		$retour[$i]['date'] = $row['date_photo'];
+		$i++;
+	}
+	return $retour;
+}
+
+/**
+ * Ajoute une photo sur le blog avec sa description
+ * @param string $path Le chemin de la photo
+ * @param string $description Sa description
+ */
+function addBlogPic($path, $description = null) {
+	$bdd = new Connection();
+	$insertion_photo = "INSERT INTO photo (adr_photo, date_photo, description) VALUES (:path,NOW(),:desc)";
+		
+	$insert = $bdd->prepare ( $insertion_photo );
+	$insert->bindValue ( ":path", $path );
+	$insert->bindValue ( ":desc", $description );
+	$insert->execute ();
+	return true;
+}
+
+/** 
+ * MEt à jour la phrase de la semaine pour une langue donnée
+ * @param string $content La nouvelle phrase
+ * @param integer $lang La langue
+ */
+function updatePhraseJour($content, $lang) {
+	$bdd = new Connection ();
+	
+	// On regarde si la valeur existe déjà
+	$stmt1 = $bdd->prepare ( "SELECT * FROM tradannexe
+			WHERE nomTrad = 'phrasejour'
+			AND lang = :lang" );
+	$stmt1->bindValue ( ":lang", $lang);
+	$stmt1->execute ();
+	
+	// Si pas d'objet on insère à condition que le contenu ne soit pas vide, sinon inutile
+	if ($stmt1->rowCount () == 0 && ! empty ( trim ( $content ) )) {
+		$stmt2 = $bdd->prepare ( "INSERT INTO tradannexe
+			(valeurtrad, lang, nomtrad) VALUES (:valeur, :lang, 'phrasejour')" );
+		$stmt2->bindValue ( ":valeur", $content );
+		$stmt2->bindValue ( ":lang", $lang );
+		$stmt2->execute ();
+		return true;
+	} else if ($stmt1->rowCount () > 1) { // Plusieurs items avec même clé = table corrompue
+		throw new InvalidArgumentException ( "Au moins une donnée est corrompue" );
+	} // sinon on update
+	
+	$modif_phrasejour = $bdd->prepare("UPDATE tradannexe SET valeurTrad = ?
+											  WHERE lang = ?
+												AND nomTrad = 'phrasejour'");
+	$modif_phrasejour->bindValue(1, $content);
+	$modif_phrasejour->bindValue(2, $lang);
+	$modif_phrasejour->execute();
+	return true;
+}
+
+/**
+ * Créé un nouveau type d'actualité
+ * @param string $nom Le nom du nouveau type
+ */
+function addActuType($nom) {
+	// Type en minuscule, sans accent et sans espace qui sera utilisé dans les requêtes
+	$type = preg_replace("#[^!_a-z]+#", '', $nom); 
+	$bdd = new Connection();
+	
+	// On regarde si le type existe déjà
+	$stmt = $bdd->prepare("SELECT * FROM actualite WHERE act_type = ?");
+	$stmt->bindValue(1, $type);
+	$stmt-> execute();	
+	if ($stmt->rowCount() > 0) {
+		throw new Exception("Un type identique existe déjà");		
+	} // else on ajoute
+	$stmt->closeCursor();
+	
+	$stmt = $bdd->prepare("INSERT INTO actualite (act_type, act_nom) VALUES(?,?)");
+	$stmt->bindValue(1, $type);
+	$stmt->bindValue(2, $nom);
+	$stmt-> execute();
+}	
 ?>

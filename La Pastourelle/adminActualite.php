@@ -1,84 +1,58 @@
 <?php
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "<center>
+if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
+	echo "<center>
 			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
 		  </center>";
-    redirect("index.php?page=accueil", 3);
-    exit(0);
+	redirect ( "index.php?page=accueil", 3 );
+	exit ( 0 );
 } // else
-$type = getActuType();
-$langage = getLanguages();
 ?>
-<center>
-	<h1>Administration de l'actualité</h1>
+<h1>Administration de l'actualité</h1>
+<div id='accueil'>
+	<h4>Création d'un type d'actualité</h4>
+	<form method="post" id="newType" action="actu_type_maj.php">
+		<input type="text" name="nom" id='nomType' placeholder="Nom" required /><br />
+		<input type="submit" value="Créer" />
+	</form>
+	<div id='ajout-result'></div>
 
+	<h4>Modifier les images</h4>
 
-	<DIV id=accueil>
+	<h4>Modifier le contenu</h4>
 
-		<p style='text-align: center'>
-			Tous les champs sont optionnels.<br />Vous pouvez donc n'avoir qu'une
-			seule actualité (uniquement théatre par exemple)
-		</p>
+	<div id='actu-container'>
+		<?php require 'list_actu.php'; ?>
+	</div>
+</div>
 
-
-		<FORM METHOD='POST' id = 'actuMaj' ACTION='actu_maj.php'>
-			<br /> <br />Modification de l'actualité : <BR> <BR>
-			<table>
-				<tr>
-					<th>Langue</th>
-					<?php
-    foreach ($type as $field) {
-        echo "<th>" . $field["name"] . "</th>";
-    }
-    ?>
-				</tr>
-				<?php
- 
-    // Récupération de toutes les langues
-    foreach ($langage as $lang) {
-        echo "<tr><td>" . $lang["name"] . "</td>";
-        
-        // Récupération de tous les types pour toutes les langues
-        foreach ($type as $field) {
-            // Récupération du contenu
-            $content = getActu($lang["id"], $field["id"]);
-            $content = count($content) == 1 ? $content[0]["txt"] : "";
-            echo "<td><textarea name='" . $field["type"] . "[" . $lang["id"] .
-                     "]'>";
-            echo stripnl2br2 ($content);
-            echo "</textarea></td>";
-        }
-        echo "</tr>";
-    }
-    ?>
-			</table>
-			<input type='submit' value='Modifier' />
-			<div id='msgReturn'></div>
-		</FORM>
-
-	</DIV>
-	<A class='btn btn-link' HREF=index.php?page=change_img_act>Modifier les
-		images</A>
-</CENTER>
+<A class='btn btn-link' HREF=index.php?page=change_img_act>Modifier les
+	images</A>
 
 <script language="javascript">
 $(document).ready(function () {
-    /** * Formulaire de connexion ** */
-    $('#actuMaj').on('submit', function (e) {
+
+    /** Création de type */
+    $('#newType').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
         var form = $(this); // L'objet jQuery du formulaire
-
+        var name =$("#nomType").val();
+        $('#ajout-result').empty();  // affichage du résultat
+        if (name === "") {
+        	 $('#ajout-result').append("Les champs doivent être remplis");
+        } else {
             // Envoi de la requête HTTP en mode asynchrone
             $.ajax({
                 url: form.attr('action'), // cible (formulaire)
                 type: form.attr('method'), // méthode (formulaire)
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
-                    $('#msgReturn').append(html);  // affichage du résultat
+                    $('#ajout-result').append(html);  // affichage du résultat
+                    $('#actu-container').load("list_actu.php");
+                    $("#nomType").val('');
                 }
             });
+        }
     });
 });
 

@@ -7,6 +7,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 	redirect("index.php?page=accueil", 3);
 	exit(0);
 } else {
+	$compte_rendu =  getTexte('compte_rendu');
 	if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
 		if (isset($_POST['compteRendu'])) {
 			//$req_up = $bdd->prepare('UPDATE texte SET texte= ? WHERE txt_page="compte_rendu"');
@@ -21,25 +22,23 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 		echo '<center><H2>ADMINISTRATION DU COMPTE RENDU</H2><BR><BR></center>';
 
 		//recupération de l'actualite
-		$compte_rendu =  recup_compteRendu(); 
 		
 		//nouvelle actualité
 		
 		echo "
 				  <FORM METHOD=POST ACTION='index.php?page=compte_rendu' >
 					Modifier le compte rendu : <BR>
-					<textarea class='form-compteRendu' name='compteRendu' rows='15' cols='20'>".strip_tags(nl2br($compte_rendu))."</textarea><br />
+					<textarea class='form-compteRendu' name='compteRendu' rows='15' cols='20'>".stripnl2br2((isset($compte_rendu[0]) ? $compte_rendu[0] : ""))."</textarea><br />
 					<INPUT class='btn' type=\"submit\" value=\"Modifier\">
 				  </FORM>";
 	} else {
-		echo '<DIV id="accueil">';
-		echo '<center><H2>COMPTE RENDU DE REUNION, D\'ASSEMBLEE GENERALE, ...</H2></center>
-			  </div>';
+		echo '<DIV >';
+		echo "<center><H2>COMPTE RENDU DE REUNION, D'ASSEMBLEE GENERALE, ...</H2></center>
+			  </div>";
 
 		//recupération des comptes rendu
-		$texte_compteRendu =  recup_compteRendu();
-		if ( $texte_compteRendu != false){
-			echo $texte_compteRendu;
+		if ( isset($compte_rendu) != false){
+			echo $compte_rendu[0];
 		}
 		
 	}
