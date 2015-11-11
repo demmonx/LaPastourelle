@@ -53,8 +53,6 @@ try {
     } else {
         exit("Erreur lors de l'ajout");
     }
-} catch (InvalidArgumentException $e) {
-    exit($e->getMessage());
 } catch (Exception $e) {
     exit($e->getMessage());
 }

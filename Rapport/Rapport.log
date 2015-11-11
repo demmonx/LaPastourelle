@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.10.16)  4 NOV 2015 19:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.16)  11 NOV 2015 17:21
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -251,7 +251,7 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is not detected.
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
@@ -305,26 +305,12 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-
-! Package pdftex.def Error: PDF mode expected, but DVI mode detected!
-(pdftex.def)                If you are using `latex', then call `pdflatex'.
-(pdftex.def)                Otherwise check and correct the driver options.
-(pdftex.def)                Error recovery by switching to PDF mode.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.433   }\@ehc
-              
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
 \Gread@gobject=\count94
 ))
 \Gin@req@height=\dimen111
 \Gin@req@width=\dimen112
-) (/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
+)
+(/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-common.tex
@@ -933,7 +919,7 @@ Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
+Package pdftexcmds Info: \pdfdraftmode found.
 Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
 Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
 )
@@ -1004,20 +990,12 @@ LaTeX Info: Redefining \pageref on input line 6369.
 \c@Hfootnote=\count185
 )
 
-Package hyperref Message: Driver (default): hdvips.
+Package hyperref Message: Driver (autodetected): hpdftex.
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hdvips.def
-File: hdvips.def 2012/11/06 v6.83m Hyperref driver for dvips
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pdfmark.def
-File: pdfmark.def 2012/11/06 v6.83m Hyperref definitions for pdfmark specials
-\pdf@docset=\toks33
-\pdf@box=\box100
-\pdf@toks=\toks34
-\pdf@defaulttoks=\toks35
-\HyField@AnnotCount=\count186
-\Fld@listcount=\count187
-\c@bookmark@seq@number=\count188
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count186
+\c@bookmark@seq@number=\count187
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -1025,29 +1003,30 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip74
-))
+)
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
-\c@tracingmulticols=\count189
-\mult@box=\box101
+\c@tracingmulticols=\count188
+\mult@box=\box100
 \multicol@leftmargin=\dimen181
-\c@unbalance=\count190
-\c@collectmore=\count191
-\doublecol@number=\count192
-\multicoltolerance=\count193
-\multicolpretolerance=\count194
+\c@unbalance=\count189
+\c@collectmore=\count190
+\doublecol@number=\count191
+\multicoltolerance=\count192
+\multicolpretolerance=\count193
 \full@width=\dimen182
 \page@free=\dimen183
 \premulticols=\dimen184
 \postmulticols=\dimen185
 \multicolsep=\skip75
 \multicolbaselineskip=\skip76
-\partial@page=\box102
-\last@line=\box103
-\mult@rightbox=\box104
-\mult@grightbox=\box105
-\mult@gfirstbox=\box106
-\mult@firstbox=\box107
+\partial@page=\box101
+\last@line=\box102
+\mult@rightbox=\box103
+\mult@grightbox=\box104
+\mult@gfirstbox=\box105
+\mult@firstbox=\box106
+\@tempa=\box107
 \@tempa=\box108
 \@tempa=\box109
 \@tempa=\box110
@@ -1064,15 +1043,14 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \@tempa=\box121
 \@tempa=\box122
 \@tempa=\box123
-\@tempa=\box124
-\c@columnbadness=\count195
-\c@finalcolumnbadness=\count196
+\c@columnbadness=\count194
+\c@finalcolumnbadness=\count195
 \last@try=\dimen186
 \multicolovershoot=\dimen187
 \multicolundershoot=\dimen188
-\mult@nat@firstbox=\box125
-\colbreak@box=\box126
-\multicol@sort@counter=\count197
+\mult@nat@firstbox=\box124
+\colbreak@box=\box125
+\multicol@sort@counter=\count196
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip77
@@ -1090,15 +1068,15 @@ Package: csquotes 2011/10/22 v5.1d context-sensitive quotations
 
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
-\etb@tempcnta=\count198
+\etb@tempcnta=\count197
 )
-\csq@reset=\count199
-\csq@gtype=\count200
-\csq@glevel=\count201
-\csq@qlevel=\count202
-\csq@maxlvl=\count203
-\csq@tshold=\count204
-\csq@ltx@everypar=\toks36
+\csq@reset=\count198
+\csq@gtype=\count199
+\csq@glevel=\count200
+\csq@qlevel=\count201
+\csq@maxlvl=\count202
+\csq@tshold=\count203
+\csq@ltx@everypar=\toks33
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2011/10/22 v5.1d csquotes generic definitions
@@ -1150,7 +1128,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 )
 (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
-\everycr=\toks37
+\everycr=\toks34
 \minrowclearance=\skip86
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
@@ -1162,19 +1140,19 @@ Package: eso-pic 2013/10/06 v2.0d eso-pic (RN)
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2013/08/25 v0.4v Pdfpages driver for pdfTeX (AM)
 )
-\AM@pagebox=\box127
-\AM@toc@title=\toks38
-\c@AM@survey=\count205
-\AM@templatesizebox=\box128
+\AM@pagebox=\box126
+\AM@toc@title=\toks35
+\c@AM@survey=\count204
+\AM@templatesizebox=\box127
 )
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
-\ttl@box=\box129
+\ttl@box=\box128
 \beforetitleunit=\skip87
 \aftertitleunit=\skip88
 \ttl@plus=\dimen189
 \ttl@minus=\dimen190
-\ttl@toksa=\toks39
+\ttl@toksa=\toks36
 \titlewidth=\dimen191
 \titlewidthlast=\dimen192
 \titlewidthfirst=\dimen193
@@ -1196,7 +1174,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \caption@parindent=\dimen200
 \caption@hangindent=\dimen201
 )
-\c@ContinuedFloat=\count206
+\c@ContinuedFloat=\count205
 Package caption Info: hyperref package is loaded.
 Package caption Info: sidecap package is loaded.
 Package caption Info: wrapfig package is loaded.
@@ -1206,8 +1184,8 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/iwona.sty
 Package: iwona 2005/10/03 v.1.2 Iwona package (MW)
-\c@mv@iwona=\count207
-\c@mv@iwonabold=\count208
+\c@mv@iwona=\count206
+\c@mv@iwonabold=\count207
 LaTeX Font Info:    Overwriting symbol font `operators' in version `iwona'
 (Font)                  OT1/cmr/m/n --> OT1/iwonalm/m/n on input line 58.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `iwona'
@@ -1265,9 +1243,9 @@ LaTeX Font Info:    Try loading font information for T1+iwonal on input line 75
 File: t1iwonal.fd 2008/07/22 v0.995 font definition file for T1/iwonal (MW)
 )
 *geometry* driver: auto-detecting
-*geometry* detected driver: dvips
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: dvips
+* driver: pdftex
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -1300,18 +1278,33 @@ File: t1iwonal.fd 2008/07/22 v0.995 font definition file for T1/iwonal (MW)
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count209
+\scratchcounter=\count208
 \scratchdimen=\dimen202
-\scratchbox=\box130
-\nofMPsegments=\count210
-\nofMParguments=\count211
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count212
+\scratchbox=\box129
+\nofMPsegments=\count209
+\nofMParguments=\count210
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count211
 \MPscratchDim=\dimen203
-\MPnumerator=\count213
-\makeMPintoPDFobject=\count214
-\everyMPtoPDFconversion=\toks41
-) ABD: EveryShipout initializing macros
+\MPnumerator=\count212
+\makeMPintoPDFobject=\count213
+\everyMPtoPDFconversion=\toks38
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
 
@@ -1339,7 +1332,7 @@ LaTeX Info: Redefining \selectfont on input line 126.
 LaTeX Info: Redefining \degres on input line 75.
 LaTeX Info: Redefining \dots on input line 75.
 LaTeX Info: Redefining \up on input line 75.
-\AtBeginShipoutBox=\box131
+\AtBeginShipoutBox=\box130
 Package hyperref Info: Link coloring OFF on input line 75.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1348,7 +1341,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count215
+\c@section@level=\count214
 )
 LaTeX Info: Redefining \ref on input line 75.
 LaTeX Info: Redefining \pageref on input line 75.
@@ -1384,149 +1377,16 @@ LaTeX Font Info:    Try loading font information for OMX+iwonal on input line 7
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/omxiwonal.fd
 File: omxiwonal.fd 2008/07/22 v0.995 font definition file for OMX/iwonal (MW)
 ) [1
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Rapport.tocpdfTeX warni
+ng (ext4): destination with the same identifier (name{page.1}) has been already
+ used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.30 ...ement de l'application Web}{18}{chapter.3}
+                                                   [1
 
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./Rapport.toc [1
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-
-
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!])
+])
 \tf@toc=\write6
 \openout6 = `Rapport.toc'.
 
@@ -1537,23 +1397,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
+[2]
 Chapitre A.
 
 Underfull \hbox (badness 10000) in paragraph at lines 81--88
@@ -1576,27 +1420,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--123
  []
 
 [3
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
 
-
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
+]
 Underfull \hbox (badness 10000) in paragraph at lines 124--129
 
  []
@@ -1607,14 +1432,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 185--189
 
  []
@@ -1645,25 +1463,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
-<include/cycle_v.pdf, id=42, 650.45126pt x 330.52052pt>
+<include/cycle_v.pdf, id=211, 650.45126pt x 330.52052pt>
 File: include/cycle_v.pdf Graphic file (type pdf)
 
 <use include/cycle_v.pdf>
@@ -1680,35 +1485,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored! <./include/cycle_v.pdf>]
+[6 <./include/cycle_v.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
-<include/copil_template.pdf, id=66, 597.23125pt x 845.1575pt>
+[7] <include/copil_template.pdf, id=238, 597.23125pt x 845.1575pt>
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf>
@@ -1719,7 +1503,7 @@ File: include/copil_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/copil_template.pdf used on input line 284.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<include/copil_template.pdf, id=69, page=1, 597.23125pt x 845.1575pt>
+<include/copil_template.pdf, id=241, page=1, 597.23125pt x 845.1575pt>
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf, page 1>
@@ -1750,18 +1534,8 @@ File: include/copil_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/copil_template.pdf, page1 used on input line 2
 87.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
- [8
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored! <./include/copil_template.pdf>]
-<include/recette_template.pdf, id=80, 597.23125pt x 845.1575pt>
+ [8 <./include/copil_template.pdf>]
+<include/recette_template.pdf, id=254, 597.23125pt x 845.1575pt>
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf>
@@ -1772,7 +1546,7 @@ File: include/recette_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/recette_template.pdf used on input line 289.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<include/recette_template.pdf, id=83, page=1, 597.23125pt x 845.1575pt>
+<include/recette_template.pdf, id=257, page=1, 597.23125pt x 845.1575pt>
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf, page 1>
@@ -1803,14 +1577,7 @@ File: include/recette_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/recette_template.pdf, page1 used on input line
  292.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
- [9
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored! <./include/recette_template.pdf>]
+ [9 <./include/recette_template.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 297--299
 
  []
@@ -1821,23 +1588,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
+[10]
 \openout2 = `include/Liste_tache_21-10.aux'.
 
  (./include/Liste_tache_21-10.tex
@@ -1877,13 +1628,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
 
-]
-<include/gantt22-10.pdf, id=100, 845.0471pt x 597.51233pt>
+] <include/gantt22-10.pdf, id=278, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf>
@@ -1894,7 +1640,7 @@ File: include/gantt22-10.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/gantt22-10.pdf used on input line 332.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 
-<include/gantt22-10.pdf, id=103, page=1, 845.0471pt x 597.51233pt>
+<include/gantt22-10.pdf, id=281, page=1, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
@@ -1919,10 +1665,6 @@ File: include/gantt22-10.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 332.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
  [12
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
 
 
  <./include/gantt22-10.pdf>]
@@ -1933,16 +1675,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
 
 
-
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
+]
 \openout2 = `include/Liste_tache_3-11.aux'.
 
  (./include/Liste_tache_3-11.tex
@@ -1992,13 +1727,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
 
-]
-<include/gantt3-11.png, id=136, 1205.50375pt x 856.19875pt>
+] <include/gantt3-11.png, id=317, 1205.50375pt x 856.19875pt>
 File: include/gantt3-11.png Graphic file (type png)
 
 <use include/gantt3-11.png>
@@ -2011,14 +1741,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored! <./include/gantt3-11.png>]
+[15 <./include/gantt3-11.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 364--369
 
  []
@@ -2045,52 +1768,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
 
 
 
-
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
+]
 Chapitre B.
 [17
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
 
-
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
+]
 Chapitre C.
 
 Package caption Warning: Unused \captionsetup[table] on input line 40.
@@ -2098,38 +1783,22 @@ See the caption package documentation for explanation.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 412.
 [18
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
 
-
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!]
+]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 412.
  (./Rapport.aux (./include/Liste_tache_21-10.aux)
 (./include/Liste_tache_3-11.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 412.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 412.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 412.
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
 (rerunfilecheck)             Checksum: BEF37DAF2CED3CFB43DD650731FCDACC;2225.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 412.
  ) 
 Here is how much of TeX's memory you used:
- 23212 strings out of 493305
- 427993 string characters out of 6139896
- 644007 words of memory out of 5000000
- 26190 multiletter control sequences out of 15000+600000
+ 23337 strings out of 493304
+ 430175 string characters out of 6139870
+ 638851 words of memory out of 5000000
+ 26252 multiletter control sequences out of 15000+600000
  57611 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,92p,968b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2137,10 +1806,10 @@ Here is how much of TeX's memory you used:
 are/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr/share/texlive/t
 exmf-dist/fonts/type1/nowacki/iwona/iwonal.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/nowacki/iwona/iwonam.pfb>
-Output written on Rapport.pdf (19 pages, 619278 bytes).
+Output written on Rapport.pdf (19 pages, 624226 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 364 PDF objects out of 1000 (max. 8388607)
+ 291 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 435 words of extra memory for PDF output out of 10000 (max. 10000000)
 

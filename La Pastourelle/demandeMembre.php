@@ -24,12 +24,10 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSIO
 		//Acceptation d'un message ou d'un membre
 		} else if ($_GET['confirm'] == 1) {
 			if (isset($_GET['mb']) AND $_GET['mb'] == 1) { //Membre
-				$modMess = $bdd->prepare("UPDATE tuser SET etat_validation = 1 WHERE id_membre = :id");
+				activerMembre($_GET['id']);
 			} else { //Message
-				$modMess = $bdd->prepare("UPDATE livreor SET validation = 1 WHERE id = :id");
+				validerArticle($_GET['id']);
 			}
-			$modMess->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
-			$modMess->execute();
 		}
 	}
 	// Message en attente de validation du livre d'or

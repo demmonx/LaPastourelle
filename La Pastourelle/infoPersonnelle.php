@@ -109,7 +109,7 @@ $(document).ready(function () {
 					</TR>
 					<TR>
 						<TD>Adresse</TD>
-						<TD><TEXTAREA rows='4' id='adresse' name='adresse'>".$l_adresse."</TEXTAREA></TD>
+						<TD><TEXTAREA rows='4' id='adresse' name='adresse'>".stripnl2br2($l_adresse)."</TEXTAREA></TD>
 					</TR>
 					<TR>
 						<TD>Téléphone</TD>
