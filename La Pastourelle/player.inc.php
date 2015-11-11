@@ -33,14 +33,10 @@ function getPlayer ()
         echo "</ul>";
         echo "<script type='text/javascript' src='js/player.js'></script>";
         
-        // Lien du lecteur sur autre page
-        echo "<p>" . getPlayerTrad()[0]['valeurTrad'] .
-                 " :
-    <a class='btn btn-link' href='#'
-		onClick=\"javascript:window.open('ressources/player.html','popup','width=182,height=102')\">" .
-                 getPlayerTrad()[1]['valeurTrad'] . "</a></p>";
     } else {
         echo "Pas de chansons disponibles";
     }
 }
+
+getPlayer();
 

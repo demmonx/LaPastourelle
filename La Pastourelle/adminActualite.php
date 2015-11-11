@@ -9,6 +9,7 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
     exit(0);
 } // else
 $type = getActuType();
+$langage = getLanguages();
 ?>
 <center>
 	<h1>Administration de l'actualité</h1>
@@ -22,7 +23,7 @@ $type = getActuType();
 		</p>
 
 
-		<FORM METHOD='POST' ACTION='actu_traitement.php'>
+		<FORM METHOD='POST' id = 'actuMaj' ACTION='actu_maj.php'>
 			<br /> <br />Modification de l'actualité : <BR> <BR>
 			<table>
 				<tr>
@@ -34,7 +35,7 @@ $type = getActuType();
     ?>
 				</tr>
 				<?php
-    $langage = getLanguages();
+ 
     // Récupération de toutes les langues
     foreach ($langage as $lang) {
         echo "<tr><td>" . $lang["name"] . "</td>";
@@ -45,17 +46,40 @@ $type = getActuType();
             $content = getActu($lang["id"], $field["id"]);
             $content = count($content) == 1 ? $content[0]["txt"] : "";
             echo "<td><textarea name='" . $field["type"] . "[" . $lang["id"] .
-                     "]'>" . $content . "</textarea></td>";
+                     "]'>";
+            echo stripnl2br2 ($content);
+            echo "</textarea></td>";
         }
         echo "</tr>";
     }
     ?>
 			</table>
 			<input type='submit' value='Modifier' />
-
+			<div id='msgReturn'></div>
 		</FORM>
 
 	</DIV>
 	<A class='btn btn-link' HREF=index.php?page=change_img_act>Modifier les
 		images</A>
 </CENTER>
+
+<script language="javascript">
+$(document).ready(function () {
+    /** * Formulaire de connexion ** */
+    $('#actuMaj').on('submit', function (e) {
+        e.preventDefault(); // Empeche de soumettre le formulaire
+        var form = $(this); // L'objet jQuery du formulaire
+
+            // Envoi de la requête HTTP en mode asynchrone
+            $.ajax({
+                url: form.attr('action'), // cible (formulaire)
+                type: form.attr('method'), // méthode (formulaire)
+                data: form.serialize(), // Envoie de toutes les données
+                success: function (html) { // Récupération de la réponse
+                    $('#msgReturn').append(html);  // affichage du résultat
+                }
+            });
+    });
+});
+
+</script>

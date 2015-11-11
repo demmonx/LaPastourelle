@@ -85,8 +85,13 @@ else if (isset ( $_POST ['numero_photo'] ) and verifLoAdmin ( $_SESSION ['pseudo
 		echo "<br><DIV id=\"menu\" style='margin-left:auto;margin-right:auto'><CENTER><B>Pour ajouter une nouvelle photo</B></CENTER></DIV><br>";
 		
 		if (isset ( $_FILES ['fichier_choisi'] )) {
-			require_once ("blog_upload.php");
-			$chemin = new_lien ();
+			$chemin = upload_file("image/blog/", array(
+                    "image/png",
+                    "image/x-png",
+                    "image/jpeg",
+                    "image/pjpeg",
+                    "image/gif"
+            ), $_FILES ['fichier_choisi'], rand(5, 50000));
 			if ($chemin) {
 				$insertion_photo = "INSERT INTO photo (adr_photo, date_photo, description) VALUES (:path,NOW(),:desc)";
 				

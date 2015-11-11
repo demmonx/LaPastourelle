@@ -45,6 +45,7 @@ $(document).ready(function () {
 	// Rafraichit la liste des music mais pas le player
 	function refresh() {
 		$("#liste-player-full").load("list_music.php");
+		$("#player-content").load("player.inc.php");
 	}
 
 	$('.delete').on('click', function (e) {

@@ -18,12 +18,12 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLo($_SESSI
 
 	
 	//regarde si l'user existe deja
-	$rqt_user = "SELECT pseudo FROM user WHERE pseudo=\"".$psd."\"";
+	$rqt_user = "SELECT pseudo FROM tuser WHERE pseudo=\"".$psd."\"";
 	//$les_user = mysql_query($rqt_user);
 	$les_user = $bdd->select($rqt_user);
 
 	 
-	$rqt_insert ="INSERT INTO user 
+	$rqt_insert ="INSERT INTO tuser 
                             VALUES ('".$psd."','".$mdp."','administrateur','".$email."',1,'".$tel."','".$nom."','".$prenom."','".$adresse."',0)";
 	//mysql_query($rqt_insert);
 	$rep_insert = $bdd->select($rqt_insert);

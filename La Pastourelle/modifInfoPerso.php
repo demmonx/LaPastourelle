@@ -53,11 +53,11 @@ if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! veri
 	$stmt = null;
 	if ($mdp) {
 		$mdp = sha1 ( $mdp );
-		$sql = "UPDATE user SET motdepasse=:pass, email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, adresse=:adresse, etat_annuaire=:annuaire WHERE id_membre=:id";
+		$sql = "UPDATE tuser SET motdepasse=:pass, email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, adresse=:adresse, etat_annuaire=:annuaire WHERE id_membre=:id";
 		$stmt = $bdd->prepare ( $sql );
 		$stmt->bindValue ( ':pass', $mdp, PDO::PARAM_STR );
 	} else {
-		$sql = "UPDATE user SET email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, adresse=:adresse, etat_annuaire=:annuaire WHERE id_membre=:id";
+		$sql = "UPDATE tuser SET email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, adresse=:adresse, etat_annuaire=:annuaire WHERE id_membre=:id";
 		$stmt = $bdd->prepare ( $sql );
 	}
 	

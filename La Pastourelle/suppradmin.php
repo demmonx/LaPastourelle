@@ -14,7 +14,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 	$psd = $_GET["psd"];
 	
 	//suppression des membres dans la BD et dans l'annuaire
-	$rqt_user = "DELETE FROM user WHERE pseudo=\"".$psd."\"";
+	$rqt_user = "DELETE FROM tuser WHERE pseudo=\"".$psd."\"";
 	//mysql_query($rqt_user);
 	$rep_user = $bdd->select($rqt_user);
 	

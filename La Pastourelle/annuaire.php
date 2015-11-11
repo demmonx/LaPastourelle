@@ -21,7 +21,7 @@ if (! isset ( $_SESSION ['pseudo'] ) || ! isset ( $_SESSION ['pass'] ) || ! veri
 	if ($adminOk && isset ( $_GET ['id'] ) && is_numeric ( $_GET ['id'] )) {
 		header ( "Content-Type: text/html; charset=utf-8" );
 		$bdd = new Connection ();
-		$req_del = $bdd->prepare ( "UPDATE user SET etat_annuaire = 0 WHERE id_membre=?" );
+		$req_del = $bdd->prepare ( "UPDATE tuser SET etat_annuaire = 0 WHERE id_membre=?" );
 		$req_del->bindValue ( 1, $_GET ['id'], PDO::PARAM_INT );
 		$req_del->execute ();
 		

@@ -13,7 +13,7 @@ if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLoAdmin($_
 		<H2> Administrateurs</H2>
 	</CENTER> ";
 	
-	$rqt = "SELECT * FROM user WHERE niveau=\"administrateur\" ORDER BY pseudo";
+	$rqt = "SELECT * FROM tuser WHERE niveau=\"administrateur\" ORDER BY pseudo";
 	$rep = $bdd->select($rqt);
 	echo "
 	<DIV id=\"liens\">

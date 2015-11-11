@@ -18,13 +18,13 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 	<?php
     echo "<h1>Liste des images : </h1>";
     $tab = recup_all_diapos();
-    if (count($tab) > 0) {
         echo "<table class='table table-bordered' id='list-photos-full'>";
-        require_once 'list_photos.php';
+        if (count($tab) > 0) {
+       		require_once 'list_photos.php';
+        } else {
+        	echo "<tr><td>Aucune image n'a été trouvée</td></tr>";
+        }
         echo "</table>";
-    } else {
-        echo "Aucune image n'a été trouvée";
-    }
     
     echo "<h1>Ajouter une nouvelle image : </h1>";
     ?>
