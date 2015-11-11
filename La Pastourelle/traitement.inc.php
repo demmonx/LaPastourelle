@@ -877,6 +877,10 @@ function upload_file($basedir, $format, $file, $prefix = "") {
 	// code de l'erreur si jamais il y en a une:
 	$codeErreur = $file ["error"];
 	
+	// On préfixe comme il faut
+	if (!empty($prefixe))
+		$prefix = $prefix ."_";
+	
 	// Supression des caractères accentués
 	$nom_fichier = strtr ( trim ( $nomFichier ), 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy' );
 	
