@@ -17,7 +17,10 @@ if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! veri
 	</form>
 	<div id='ajout-result'></div>
 
-	<h4>Modifier les images</h4>
+	<h4>Modifier les types d'actualité</h4>
+	<div id='modif-type'>
+		<?php require 'list_actu_type.php'; ?>
+	</div>
 
 	<h4>Modifier le contenu</h4>
 
@@ -49,6 +52,7 @@ $(document).ready(function () {
                 success: function (html) { // Récupération de la réponse
                     $('#ajout-result').append(html);  // affichage du résultat
                     $('#actu-container').load("list_actu.php");
+                    $('#modif-type').load("list_actu_type.php");
                     $("#nomType").val('');
                 }
             });

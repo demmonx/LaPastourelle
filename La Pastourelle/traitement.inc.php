@@ -209,18 +209,10 @@ function recup_non_annuaire() {
 	$result = $stmt->execute ();
 	$i = 0;
 	while ( $row = $stmt->fetch () ) {
-		$tab_membre [$i] ['id'] = $row ['id_membre'];
-		$tab_membre [$i] ['pseudo'] = $row ['pseudo'];
-		$tab_membre [$i] ['mail'] = $row ['email'];
-		$tab_membre [$i] ['tel'] = $row ['telephone'];
-		$tab_membre [$i] ['nom'] = $row ['nom'];
-		$tab_membre [$i] ['prenom'] = $row ['prenom'];
-		$tab_membre [$i] ['adresse'] = nl2br ( $row ['adresse'] );
-		$tab_membre [$i] ['etat_annuaire'] = $row ['etat_annuaire'];
-		$i ++;
+		$tab_membre [$i++] = extractMembreFromARow($row);
 	}
 	
-	return $tab_result;
+	return $tab_membre;
 }
 
 /**
@@ -411,14 +403,14 @@ function getActu($lang, $type = null) {
 	}
 	
 	while ( $row = $result->fetch () ) {
-		$tab_act[$cpt]['id'] = $row ["act_id"];
-		$tab_act[$cpt]['type'] = $row ["act_type"];
-		$tab_act[$cpt]['name'] = $row ["act_nom"];
-		$tab_act[$cpt]['img'] = isset ( $row ["act_img"] ) ? $row ["act_img"] : "";
+		$tab_act [$cpt] ['id'] = $row ["act_id"];
+		$tab_act [$cpt] ['type'] = $row ["act_type"];
+		$tab_act [$cpt] ['name'] = $row ["act_nom"];
+		$tab_act [$cpt] ['img'] = isset ( $row ["act_img"] ) ? $row ["act_img"] : "";
 		if (isset ( $row ["lang"] ) && $row ['lang'] == $lang) {
-			$tab_act[$cpt]['txt'] = isset ( $row ["content"] ) ? stripnl2br ( $row ["content"] ) : "";
+			$tab_act [$cpt] ['txt'] = isset ( $row ["content"] ) ? stripnl2br ( $row ["content"] ) : "";
 		}
-		$cpt++;
+		$cpt ++;
 	}
 	
 	return $tab_act;
@@ -491,10 +483,10 @@ function getTexte($page) {
 	 */
 	$sql = "SELECT texte FROM texte WHERE txt_page=? ";
 	$stmt = $bdd->prepare ( $sql );
-	$stmt->bindValue(1, $page);
+	$stmt->bindValue ( 1, $page );
 	$stmt->execute ();
 	while ( $row = $stmt->fetch () ) {
-		$retour [] = nl2br($row ["texte"]);
+		$retour [] = nl2br ( $row ["texte"] );
 	}
 	
 	return $retour;
@@ -502,24 +494,29 @@ function getTexte($page) {
 
 /**
  * Met à jour le texte d'une page donné
- * @param string $page La page à mettre à jour
- * @param string $content Le nouveau texte
+ * 
+ * @param string $page
+ *        	La page à mettre à jour
+ * @param string $content
+ *        	Le nouveau texte
  */
 function setTexte($page, $content) {
 	$bdd = new Connection ();
-
+	
 	$retour = array ();
 	/**
 	 * recupération du texte
-	*/
+	 */
 	$sql = "UPDATE texte SET texte = ? WHERE txt_page=? ";
 	$stmt = $bdd->prepare ( $sql );
-	$stmt->bindValue(1, $content);
-	$stmt->bindValue(2, $page);
+	$stmt->bindValue ( 1, $content );
+	$stmt->bindValue ( 2, $page );
 	$stmt->execute ();
 }
- 
-/**  Récupération des coordonnées */
+
+/**
+ * Récupération des coordonnées
+ */
 function recup_infoCoord() {
 	$bdd = new Connection ();
 	$tab_coord = array ();
@@ -878,10 +875,10 @@ function upload_file($basedir, $format, $file, $prefix = "") {
 	$codeErreur = $file ["error"];
 	
 	// On préfixe comme il faut
-	if (!empty($prefixe))
-		$prefix = $prefix ."_";
-	
-	// Supression des caractères accentués
+	if (! empty ( $prefixe ))
+		$prefix = $prefix . "_";
+		
+		// Supression des caractères accentués
 	$nom_fichier = strtr ( trim ( $nomFichier ), 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy' );
 	
 	$emplacement = $basedir . $prefix . $nom_fichier;
@@ -1242,7 +1239,7 @@ function extractLivreFromARow($row) {
 
 /**
  * Valide un membre et autorise sa connexion
- * 
+ *
  * @param int $id
  *        	L'id du membre à activer
  */
@@ -1255,7 +1252,7 @@ function activerMembre($id) {
 
 /**
  * Valide un message du livre d'or et autorise son affichage
- * 
+ *
  * @param int $id
  *        	L'id de l'article à valider
  */
@@ -1268,12 +1265,16 @@ function validerArticle($id) {
 
 /**
  * Ajoute un commentaire sur le blog
- * @param string $msg Le message à ajouter
- * @param int $auteur L'id de l'auteur du message
- * @param int $auteur L'id de la photo commentée
+ * 
+ * @param string $msg
+ *        	Le message à ajouter
+ * @param int $auteur
+ *        	L'id de l'auteur du message
+ * @param int $auteur
+ *        	L'id de la photo commentée
  */
 function addBlogComment($msg, $auteur, $photo) {
-	$bdd = new Connection();
+	$bdd = new Connection ();
 	$sql = "INSERT INTO commentaire (texte, num_photo, auteur) VALUES (:txt, :photo,:auteur)";
 	
 	$insert = $bdd->prepare ( $sql );
@@ -1285,106 +1286,117 @@ function addBlogComment($msg, $auteur, $photo) {
 
 /**
  * Récupère les commentaires du blog
- * @param int $photo L'id de l'auteur du message
+ * 
+ * @param int $photo
+ *        	L'id de l'auteur du message
  */
 function getBlogComment($photo) {
-	$retour = array();
+	$retour = array ();
 	$sql = "SELECT C.*, U.pseudo FROM commentaire C 
 			JOIN  tuser U
 			ON C.auteur = U.id_membre
 			WHERE num_photo = ?";
-	$bdd = new Connection();
+	$bdd = new Connection ();
 	$i = 0;
-	$stmt = $bdd->prepare($sql);
-	$stmt->bindValue(1, $photo);
-	$stmt->execute();
+	$stmt = $bdd->prepare ( $sql );
+	$stmt->bindValue ( 1, $photo );
+	$stmt->execute ();
 	
-	while($row = $stmt->fetch()) {
-		$retour[$i]['id'] = $row['id_commentaire'];
-		$retour[$i]['txt'] = $row['texte'];
-		$retour[$i]['photo'] = $row['num_photo'];
-		$retour[$i]['auteur'] = $row['auteur'];
-		$retour[$i]['pseudo'] = $row['pseudo'];
-		$i++;
+	while ( $row = $stmt->fetch () ) {
+		$retour [$i] ['id'] = $row ['id_commentaire'];
+		$retour [$i] ['txt'] = $row ['texte'];
+		$retour [$i] ['photo'] = $row ['num_photo'];
+		$retour [$i] ['auteur'] = $row ['auteur'];
+		$retour [$i] ['pseudo'] = $row ['pseudo'];
+		$i ++;
 	}
 	return $retour;
 }
 
 /**
  * Suppression d'un commentaire de blog
- * @param int $id L'id du commentaire à supprimer
+ * 
+ * @param int $id
+ *        	L'id du commentaire à supprimer
  */
 function deleteBlogComment($id) {
-	$bdd = new Connection();
-	$stmt = $bdd->prepare("DELETE FROM commentaire WHERE id_commentaire = ?");
-	$stmt->bindValue(1, $id);
-	$stmt->execute();
+	$bdd = new Connection ();
+	$stmt = $bdd->prepare ( "DELETE FROM commentaire WHERE id_commentaire = ?" );
+	$stmt->bindValue ( 1, $id );
+	$stmt->execute ();
 }
-
 
 /**
  * Supprime la photo avec l'id indiqué de la base de donnée et du disque
- * @param integer $id L'id de la photo a supprimer
+ * 
+ * @param integer $id
+ *        	L'id de la photo a supprimer
  */
 function deleteBlogPic($id) {
-	$bdd = new Connection();
-	$stmt1 = $bdd->prepare("SELECT adr_photo FROM photo WHERE id_photo = ?");
-	$stmt1->bindValue(1, $id);
-	$stmt1->execute();
-	if ($stmt1->rowCount() == 1) {
-		$stmt2 = $bdd->prepare("DELETE FROM photo WHERE id_photo = ?");
-		$stmt2->bindValue(1, $id);
-		$stmt2->execute();
-		unlink($stmt1->fetch()['adr_photo']);
+	$bdd = new Connection ();
+	$stmt1 = $bdd->prepare ( "SELECT adr_photo FROM photo WHERE id_photo = ?" );
+	$stmt1->bindValue ( 1, $id );
+	$stmt1->execute ();
+	if ($stmt1->rowCount () == 1) {
+		$stmt2 = $bdd->prepare ( "DELETE FROM photo WHERE id_photo = ?" );
+		$stmt2->bindValue ( 1, $id );
+		$stmt2->execute ();
+		unlink ( $stmt1->fetch ()['adr_photo'] );
 		return true;
 	}
 	return false;
 }
 
-/** 
+/**
  * Retourne le nombre de photos disponibles sur le blog
  */
 function getNbPic() {
-	$bdd = new Connection();
-	$stmt = $bdd->prepare("SELECT COUNT(*) AS total FROM photo");
-	$stmt->execute();
-	return $stmt->fetch()['total'];
+	$bdd = new Connection ();
+	$stmt = $bdd->prepare ( "SELECT COUNT(*) AS total FROM photo" );
+	$stmt->execute ();
+	return $stmt->fetch ()['total'];
 }
 
-/** 
+/**
  * Retourne nb photos à partir de la première
- * @param integer $begin La photo initiale
- * @param integer $end Le nombre de photos
+ * 
+ * @param integer $begin
+ *        	La photo initiale
+ * @param integer $end
+ *        	Le nombre de photos
  */
 function getPicByRange($first, $nb) {
-	$retour = array();
+	$retour = array ();
 	$sql = "SELECT * FROM photo ORDER BY date_photo DESC OFFSET ? LIMIT ?";
-	$bdd = new Connection();
+	$bdd = new Connection ();
 	$i = 0;
-	$stmt = $bdd->prepare($sql);
-	$stmt->bindValue(1, $first);
-	$stmt->bindValue(2, $nb);
-	$stmt->execute();
+	$stmt = $bdd->prepare ( $sql );
+	$stmt->bindValue ( 1, $first );
+	$stmt->bindValue ( 2, $nb );
+	$stmt->execute ();
 	
-	while($row = $stmt->fetch()) {
-		$retour[$i]['id'] = $row['id_photo'];
-		$retour[$i]['txt'] = $row['description'];
-		$retour[$i]['adr'] = $row['adr_photo'];
-		$retour[$i]['date'] = $row['date_photo'];
-		$i++;
+	while ( $row = $stmt->fetch () ) {
+		$retour [$i] ['id'] = $row ['id_photo'];
+		$retour [$i] ['txt'] = $row ['description'];
+		$retour [$i] ['adr'] = $row ['adr_photo'];
+		$retour [$i] ['date'] = $row ['date_photo'];
+		$i ++;
 	}
 	return $retour;
 }
 
 /**
  * Ajoute une photo sur le blog avec sa description
- * @param string $path Le chemin de la photo
- * @param string $description Sa description
+ * 
+ * @param string $path
+ *        	Le chemin de la photo
+ * @param string $description
+ *        	Sa description
  */
 function addBlogPic($path, $description = null) {
-	$bdd = new Connection();
+	$bdd = new Connection ();
 	$insertion_photo = "INSERT INTO photo (adr_photo, date_photo, description) VALUES (:path,NOW(),:desc)";
-		
+	
 	$insert = $bdd->prepare ( $insertion_photo );
 	$insert->bindValue ( ":path", $path );
 	$insert->bindValue ( ":desc", $description );
@@ -1392,10 +1404,13 @@ function addBlogPic($path, $description = null) {
 	return true;
 }
 
-/** 
+/**
  * MEt à jour la phrase de la semaine pour une langue donnée
- * @param string $content La nouvelle phrase
- * @param integer $lang La langue
+ * 
+ * @param string $content
+ *        	La nouvelle phrase
+ * @param integer $lang
+ *        	La langue
  */
 function updatePhraseJour($content, $lang) {
 	$bdd = new Connection ();
@@ -1404,7 +1419,7 @@ function updatePhraseJour($content, $lang) {
 	$stmt1 = $bdd->prepare ( "SELECT * FROM tradannexe
 			WHERE nomTrad = 'phrasejour'
 			AND lang = :lang" );
-	$stmt1->bindValue ( ":lang", $lang);
+	$stmt1->bindValue ( ":lang", $lang );
 	$stmt1->execute ();
 	
 	// Si pas d'objet on insère à condition que le contenu ne soit pas vide, sinon inutile
@@ -1419,36 +1434,128 @@ function updatePhraseJour($content, $lang) {
 		throw new InvalidArgumentException ( "Au moins une donnée est corrompue" );
 	} // sinon on update
 	
-	$modif_phrasejour = $bdd->prepare("UPDATE tradannexe SET valeurTrad = ?
+	$modif_phrasejour = $bdd->prepare ( "UPDATE tradannexe SET valeurTrad = ?
 											  WHERE lang = ?
-												AND nomTrad = 'phrasejour'");
-	$modif_phrasejour->bindValue(1, $content);
-	$modif_phrasejour->bindValue(2, $lang);
-	$modif_phrasejour->execute();
+												AND nomTrad = 'phrasejour'" );
+	$modif_phrasejour->bindValue ( 1, $content );
+	$modif_phrasejour->bindValue ( 2, $lang );
+	$modif_phrasejour->execute ();
 	return true;
 }
 
 /**
  * Créé un nouveau type d'actualité
- * @param string $nom Le nom du nouveau type
+ * 
+ * @param string $nom
+ *        	Le nom du nouveau type
  */
 function addActuType($nom) {
 	// Type en minuscule, sans accent et sans espace qui sera utilisé dans les requêtes
-	$type = preg_replace("#[^!_a-z]+#", '', $nom); 
-	$bdd = new Connection();
+	$type = preg_replace ( "#[^!_a-z]+#", '', $nom );
+	$bdd = new Connection ();
 	
 	// On regarde si le type existe déjà
-	$stmt = $bdd->prepare("SELECT * FROM actualite WHERE act_type = ?");
-	$stmt->bindValue(1, $type);
-	$stmt-> execute();	
-	if ($stmt->rowCount() > 0) {
-		throw new Exception("Un type identique existe déjà");		
+	$stmt = $bdd->prepare ( "SELECT * FROM actualite WHERE act_type = ?" );
+	$stmt->bindValue ( 1, $type );
+	$stmt->execute ();
+	if ($stmt->rowCount () > 0) {
+		throw new Exception ( "Un type identique existe déjà" );
 	} // else on ajoute
-	$stmt->closeCursor();
+	$stmt->closeCursor ();
 	
-	$stmt = $bdd->prepare("INSERT INTO actualite (act_type, act_nom) VALUES(?,?)");
-	$stmt->bindValue(1, $type);
-	$stmt->bindValue(2, $nom);
-	$stmt-> execute();
-}	
+	$stmt = $bdd->prepare ( "INSERT INTO actualite (act_type, act_nom) VALUES(?,?)" );
+	$stmt->bindValue ( 1, $type );
+	$stmt->bindValue ( 2, $nom );
+	$stmt->execute ();
+}
+
+/**
+ * Supprime l'image relative à un type d'actualité de la BD et du disque
+ * 
+ * @param intger $id
+ *        	L'id du type concerné
+ */
+function deleteImageActu($id) {
+	$bdd = new Connection ();
+	$stmt1 = $bdd->prepare ( "SELECT * FROM actualite WHERE act_id = ?" );
+	$stmt1->bindValue ( 1, $id );
+	$stmt1->execute ();
+	// Vérifie si le champ existe
+	if ($stmt1->rowCount () == 1) {
+		$row = $stmt1->fetch ();
+		// Vérifie si l'image existe
+		if (isset ( $row ['act_img'] )) {
+			$stmt2 = $bdd->prepare ( "UPDATE actualite SET act_img = null WHERE act_id = ?" );
+			$stmt2->bindValue ( 1, $id );
+			$stmt2->execute ();
+			unlink ( $row ['act_img'] );
+		}
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Supprime le type d'actu de la base de donnée, supprime l'éventuelle image associé du disque
+ * 
+ * @param integer $id
+ *        	L'id du type concerné
+ */
+function deleteTypeActu($id) {
+	$bdd = new Connection ();
+	if (deleteImageActu ( $id )) {
+		$stmt2 = $bdd->prepare ( "DELETE FROM actualite WHERE act_id = ?" );
+		$stmt2->bindValue ( 1, $id );
+		$stmt2->execute ();
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Change l'image relative à un type d'actualité, supprime l'ancienne du disque si elle existe
+ *
+ * @param string Le chemin de la nouvelle image
+ * @param intger $id
+ *        	L'id du type concerné
+ */
+function insertImageActu ( $image, $id ) {
+	$bdd = new Connection ();
+	deleteImageActu($id);
+	$stmt2 = $bdd->prepare ( "UPDATE actualite SET act_img = ? WHERE act_id = ?" );
+	$stmt2->bindValue ( 1, $image );
+	$stmt2->bindValue ( 2, $id );
+	$stmt2->execute ();
+	return true;
+}
+
+/** 
+ * Retourne tous les administrateurs du site 
+ */
+function getAdmin() {
+	$bdd = new Connection ();
+	$tab_membre = array ();
+	
+	$stmt = $bdd->prepare ( "SELECT * FROM tuser WHERE niveau='administrateur' ORDER BY nom" );
+	$result = $stmt->execute ();
+	$i = 0;
+	while ( $row = $stmt->fetch () ) {
+		$tab_membre [$i++] = extractMembreFromARow($row);
+	}
+	
+	return $tab_membre;
+}
+
+/**
+ * Passe le statut d'un membre inscrit à niveau, quelque soit son niveau précédent 
+ * @param integer $id L'id du membre à modifier
+ */
+function setNiveauMembre($id, $niveau) {
+	$bdd = new Connection();
+	$sql = "UPDATE tuser SET niveau = ? WHERE id_membre = ?";
+	$stmt = $bdd->prepare ( $sql );
+	$stmt->bindValue ( 1, $niveau );
+	$stmt->bindValue ( 2, $id );
+	$stmt->execute ();
+}
 ?>
