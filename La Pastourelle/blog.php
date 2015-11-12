@@ -15,7 +15,7 @@ $total = getNbPic (); // Nombre de photos dispo
 // compte le nombre de pages.
 $nombreDePages = floor ( $total / PHOTO_PER_PAGE );
 
-if (isset ( $_GET['lapage'] ) && is_numeric($_GET['lapage'])) {
+if (isset ( $_GET ['lapage'] ) && is_numeric ( $_GET ['lapage'] )) {
 	$pageActuelle = intval ( $_GET ['lapage'] );
 	
 	if ($pageActuelle > $nombreDePages) {

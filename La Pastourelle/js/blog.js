@@ -51,7 +51,7 @@ $(document).ready(function () {
         var form = $(this); // L'objet jQuery du formulaire
 
         // Récupération des valeurs
-        var content = $("textarea[name=content]").val();
+        var content = $("textarea[name=content]", form).val();
 
         // Vérifie pour éviter de lancer une requête fausse
         if (content === '') {
