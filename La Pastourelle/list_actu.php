@@ -3,44 +3,45 @@
 @header('Content-Type: text/html; charset=utf-8');
 require_once 'traitement.inc.php';
 if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-		! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-			exit("Vous n'avez pas les droits requis");
-		} // else
+         ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+    exit("Vous n'avez pas les droits requis");
+} // else
 /*
  * Teste si on a reçu tous les champs, même vide
  * Pour cela, besoin de lister les champs à recevoir
  */
-$type = getActuType ();
-$langage = getLanguages ();
+$type = getActuType();
+$langage = getLanguages();
 ?>
 <FORM METHOD='POST' id='actuMaj' ACTION='actu_maj.php'>
 	<table>
 		<tr>
 			<th>Langue</th>
 					<?php
-					foreach ( $type as $field ) {
-						echo "<th>" . $field ["name"] . "</th>";
-					}
-					?>
+    foreach ($type as $field) {
+        echo "<th>" . $field["name"] . "</th>";
+    }
+    ?>
 				</tr>
 				<?php
-				
-				// Récupération de toutes les langues
-				foreach ( $langage as $lang ) {
-					echo "<tr><td>" . $lang ["name"] . "</td>";
-					
-					// Récupération de tous les types pour toutes les langues
-					foreach ( $type as $field ) {
-						// Récupération du contenu
-						$content = getActu ( $lang ["id"], $field ["id"] );
-						$content = isset ( $content [0] ["txt"] ) ? $content [0] ["txt"] : "";
-						echo "<td><textarea name='" . $field ["type"] . "[" . $lang ["id"] . "]'>";
-						echo stripnl2br2 ( $content );
-						echo "</textarea></td>";
-					}
-					echo "</tr>";
-				}
-				?>
+    
+    // Récupération de toutes les langues
+    foreach ($langage as $lang) {
+        echo "<tr><td>" . $lang["name"] . "</td>";
+        
+        // Récupération de tous les types pour toutes les langues
+        foreach ($type as $field) {
+            // Récupération du contenu
+            $content = getActu($lang["id"], $field["id"]);
+            $content = isset($content[0]["txt"]) ? $content[0]["txt"] : "";
+            echo "<td><textarea name='" . $field["type"] . "[" . $lang["id"] .
+                     "]'>";
+            echo stripnl2br2($content);
+            echo "</textarea></td>";
+        }
+        echo "</tr>";
+    }
+    ?>
 			</table>
 	<input type='submit' value='Modifier' />
 	<div id='msgReturn'></div>

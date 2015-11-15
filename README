@@ -1,9 +1,15 @@
+V4:
+Correction des pages de contenu, des revues de presse et des comptes rendus
+Création des pages de gestion associée
+Formulaire d'ajout de fichier sur le site
+Moteur REGEX pour permettre à l'utilisateur de faire une mise en page basique
+-------------------------------------------------------------------------------
 V3 : 
 Page de modification d'actualité fonctionnelle
 Idem pour la page de gestion des admins
 Suppression des fichiers inutiles
 Recoder la page de gestion des textes en multilangue
---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 V2 : 
 Changement de structure de la Bd
 Recodage des méthodes
@@ -12,7 +18,7 @@ Modification phrase du jour
 Correction blog, phrase du jour, compte rendu, livre d'or, validation des membres
 Formulaire de création de type d'actu
 
---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 V1 :
 Remplacement de tous les modules flash par du Jquery
 Recodage du diaporama + du player audio (style à refaire)

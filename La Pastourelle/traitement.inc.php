@@ -63,24 +63,31 @@ function recup_titre ($lecontent, $lang)
 
 /**
  * ************************************
- * Récupération d'une image dans la BD *
+ * Récupération des fichiers dans la base de données
  * ************************************
  */
-function recup_img ($num, $page)
+function getFile ()
 {
     $bdd = new Connection();
-    /**
-     * récupération de l'image demandée
-     */
-    $rqt_img = "SELECT img_adr FROM image WHERE img_num=? AND img_page=?";
     
-    $result = $bdd->prepare($rqt_img);
-    $result->bindValue(1, $num);
-    $result->bindValue(2, $page);
+    $retour = array();
+    $cpt = 0;
+    
+    /**
+     * recupération des revues de presse
+     */
+    $rqt_revue = "SELECT * FROM uploaded_file ORDER BY file_adr";
+    
+    $result = $bdd->prepare($rqt_revue);
     $result->execute();
     
-    // Requête sur clé primaire, un seul élément possible
-    return $result->fecth();
+    while ($row = $result->fetch()) {
+        $retour[$cpt]['id'] = $row['file_num'];
+        $retour[$cpt]['adr'] = $row['file_adr'];
+        $cpt ++;
+    }
+    
+    return $retour;
 }
 
 /**
@@ -136,7 +143,7 @@ function recup_revuePresse ()
     /**
      * recupération des revues de presse
      */
-    $rqt_revue = "SELECT presse_img, presse_txt, num_presse FROM revue_presse";
+    $rqt_revue = "SELECT * FROM revue_presse ORDER BY presse_num DESC";
     
     $result = $bdd->prepare($rqt_revue);
     $result->execute();
@@ -280,7 +287,7 @@ function recup_datePlanning ($id)
     
     if ($row = $result->fetch()) {
         $tab_planning['jour'] = $row['pl_jour'];
-        $tab_planning['date'] = str_replace("-", "/", $row['pl_date']);
+        $tab_planning['date'] = date("j/m/Y", strtotime($row['pl_date']));
         $tab_planning['lieu'] = $row['pl_lieu'];
         $tab_planning['joueur'] = $row['pl_musiciens'];
         $tab_planning['id'] = $row['id_planning'];
@@ -496,53 +503,6 @@ function stripnl2br2 ($string)
 }
 
 /**
- * ***********************************************
- * Récupération du texte d'une page donnée *
- * ***********************************************
- */
-function getTexte ($page)
-{
-    $bdd = new Connection();
-    
-    $retour = array();
-    /**
-     * recupération du texte
-     */
-    $sql = "SELECT texte FROM texte WHERE txt_page=? ";
-    $stmt = $bdd->prepare($sql);
-    $stmt->bindValue(1, $page);
-    $stmt->execute();
-    while ($row = $stmt->fetch()) {
-        $retour[] = nl2br($row["texte"]);
-    }
-    
-    return $retour;
-}
-
-/**
- * Met à jour le texte d'une page donné
- *
- * @param string $page
- *            La page à mettre à jour
- * @param string $content
- *            Le nouveau texte
- */
-function setTexte ($page, $content)
-{
-    $bdd = new Connection();
-    
-    $retour = array();
-    /**
-     * recupération du texte
-     */
-    $sql = "UPDATE texte SET texte = ? WHERE txt_page=? ";
-    $stmt = $bdd->prepare($sql);
-    $stmt->bindValue(1, $content);
-    $stmt->bindValue(2, $page);
-    $stmt->execute();
-}
-
-/**
  * Récupération des coordonnées
  */
 function recup_infoCoord ()
@@ -640,194 +600,6 @@ function redirect ($lien, $sec)
 {
     // Fait planter si suivit par un exit
     // header('Refresh:'.$sec.'; URL='.$lien);
-}
-
-/*
- * Fonction ajoutLang Langage : PHP
- *
- * Fonction d'ajout de langue dans la base de données
- *
- * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
- * @param ini Initiales de la nouvelle langue
- *
- */
-function ajoutLang ($ini)
-{
-    $bdd = new Connection();
-    // Ajout des textes
-    $req_add = $bdd->prepare(
-            "INSERT INTO texte  VALUES
-							(0, 'accueil', ?, 'Traduction non faite\r\n'),
-							(0, 'avis', ?, 'Traduction non faite'),
-							(0, 'boutique', ?, 'Traduction non faite'),
-							(0, 'coordonnees', ?, 'Traduction nnon faite'),
-							(0, 'danse', ?, 'Traduction non faite'),
-							(0, 'ecole', ?, 'Traduction non faite'),
-							(0, 'historique', ?, 'Traduction non faite'),
-							(0, 'lien', ?, 'Traduction non faite'),
-							(0, 'revue_presse', ?, 'Traduction non faite'),
-							(0, 'theatre', ?, 'Traduction non faite'),
-							(1, 'danse', ?, 'Traduction non faite\r\n'),
-							(1, 'ecole', ?, 'Traduction non faite\r\n\r\n'),
-							(1, 'historique', ?, 'Traduction non faite\r\n\r\n\r\n'),
-							(1, 'theatre', ?, 'Traduction non faite\r\n\r\n\r\n')");
-    $req_add->execute(
-            array(
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini,
-                    $ini
-            ));
-    // Ajout de la boutique
-    // Récupération des informations sur les articles
-    $req_nbB = $bdd->query('SELECT * FROM boutique WHERE lang = "fr"');
-    $nbB = $req_nbB->fetchAll();
-    // Ajout du bon nombre de description d'articles pour la langue
-    for ($i = 1; $i <= count($nbB); $i ++) {
-        $req_addB = $bdd->prepare(
-                "INSERT INTO texte  VALUES(?, 'boutique', ?, 'Traduction non faite\r\n')");
-        $req_addB->execute(
-                array(
-                        $i,
-                        $ini
-                ));
-    }
-    // Ajout du bon nombre de details des articles en boutique
-    for ($i = 0; $i < count($nbB); $i ++) {
-        $req_addD = $bdd->prepare(
-                "INSERT INTO boutique VALUES(?, ?, ?, ?, ?, 'Traduction non faite\r\n')");
-        $req_addD->execute(
-                array(
-                        $nbB[$i]['pd_num'],
-                        $ini,
-                        $nbB[$i]['pd_prix'],
-                        $nbB[$i]['pd_img'],
-                        $nbB[$i]['pd_txt']
-                ));
-    }
-    // Ajout des liens
-    // Récupération des informations sur les liens
-    $req_nbL = $bdd->query('SELECT * FROM lien_ext WHERE lang = "fr"');
-    $nbL = $req_nbL->fetchAll();
-    // Ajout du bon nombre de description de liens pour la langue
-    for ($i = 1; $i <= count($nbL) + 1; $i ++) {
-        $req_addL = $bdd->prepare(
-                "INSERT INTO texte  VALUES(?, 'lien', ?, 'Traduction non faite\r\n')");
-        $req_addL->execute(
-                array(
-                        $i,
-                        $ini
-                ));
-    }
-    // Ajout du bon nombre de details des liens
-    for ($i = 0; $i < count($nbL); $i ++) {
-        $req_addDL = $bdd->prepare(
-                "INSERT INTO lien_ext VALUES(?, ?, ?, ?, ?, 'Traduction non faite\r\n')");
-        $req_addDL->execute(
-                array(
-                        $nbL[$i]['id'],
-                        $ini,
-                        $nbL[$i]['lien'],
-                        $nbL[$i]['lien_img'],
-                        $nbL[$i]['lien_txt']
-                ));
-    }
-    // Ajout des revues de presse
-    // Récupération des informations sur les revues de presse
-    $req_nbR = $bdd->query('SELECT * FROM revue_presse');
-    $nbR = $req_nbR->fetchAll();
-    // Ajout du bon nombre de description de liens pour la langue
-    for ($i = 1; $i <= count($nbR); $i ++) {
-        $req_addL = $bdd->prepare(
-                "INSERT INTO texte  VALUES(?, 'revue_presse', ?, 'Traduction non faite\r\n')");
-        $req_addL->execute(
-                array(
-                        $i,
-                        $ini
-                ));
-    }
-    // Pas d'ajout de details (car pas de texte a traduire)
-    // Ajout de l'actualité
-    // Récupération des informations sur les actualités
-    $req_nbA = $bdd->query('SELECT * FROM actualite WHERE lang = "fr"');
-    $nbA = $req_nbA->fetchAll();
-    
-    // Ajout des informations sur les actualités
-    $req_addA = $bdd->prepare(
-            "INSERT INTO actualite  VALUES 
-								  ('danse', ?, ?, ?, ?, 'Traduction pas faite', ?),
-								  ('theatre', ?, ?, ?, ?, 'Traduction pas faite', ?)");
-    $req_addA->execute(
-            array(
-                    $ini,
-                    $nbA[0]['act_lieu'],
-                    $nbA[0]['act_date'],
-                    $nbA[0]['act_heure'],
-                    $nbA[0]['act_img'],
-                    $ini,
-                    $nbA[1]['act_lieu'],
-                    $nbA[1]['act_date'],
-                    $nbA[1]['act_heure'],
-                    $nbA[1]['act_img']
-            ));
-    // Ajout des expressions pour parfaire la traduction
-    // Récupération des informations sur les traductions annexes
-    $req_nbT = $bdd->query('SELECT * FROM tradannexe WHERE lang = "fr"');
-    $nbT = $req_nbT->fetchAll();
-    // Ajout des traductions annexes
-    for ($i = 0; $i < count($nbT); $i ++) {
-        $req_addT = $bdd->prepare(
-                "INSERT INTO tradannexe  VALUES(?, ?, 'A traduire')");
-        $req_addT->execute(
-                array(
-                        $ini,
-                        $nbT[$i]['nomTrad']
-                ));
-    }
-}
-
-/*
- * TODO a recoder
- * Fonction supprLang Langage : PHP
- *
- * Fonction de suppression de langue dans la base de données
- *
- * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
- * @param ini Initiales de la nouvelle langue
- *
- */
-function supprLang ($ini)
-{
-    $bdd = new Connection();
-    // Suppression des textes de la langue
-    $requete = "DELETE FROM texte WHERE lang = " . $ini;
-    $result = $bdd->select($requete);
-    
-    // Suppression de la boutique de la langue
-    $requete = "DELETE FROM boutique WHERE lang = " . $ini;
-    $result = $bdd->select($requete);
-    
-    // Suppression des liens de la langue
-    $requete = "DELETE FROM lien_ext WHERE lang =" . $ini;
-    $result = $bdd->select($requete);
-    
-    // Suppression de l'actualité de la langue
-    $requete = "DELETE FROM actualite WHERE lang = " . $ini;
-    $result = $bdd->select($requete);
-    
-    // Suppressiion des traductions annexes
-    $requete = "DELETE FROM tradannexe WHERE lang = " . $ini;
-    $result = $bdd->select($requete);
 }
 
 /**
@@ -934,6 +706,11 @@ function upload_file ($basedir, $format, $file, $prefix = "")
     // code de l'erreur si jamais il y en a une:
     $codeErreur = $file["error"];
     
+    // Créé le dossier s'il n'existe pas
+    if (! file_exists($basedir)) {
+        mkdir($basedir, 0777, true);
+    }
+    
     // On préfixe comme il faut
     if (! empty($prefixe))
         $prefix = $prefix . "_";
@@ -1008,7 +785,7 @@ function deleteMusic ($id)
         $stmt2 = $bdd->prepare("DELETE FROM playlist WHERE music_id=:id");
         $stmt2->bindValue(":id", $id);
         $stmt2->execute();
-        unlink($row["music_lien"]);
+        @unlink($row["music_lien"]);
         return true;
     } else {
         return false;
@@ -1126,7 +903,7 @@ function deleteDiapo ($id)
         $stmt2 = $bdd->prepare("DELETE FROM diaporama WHERE diapo_id=:id");
         $stmt2->bindValue(":id", $id);
         $stmt2->execute();
-        unlink($row["diapo_lien"]);
+        @unlink($row["diapo_lien"]);
         return true;
     } else {
         return false;
@@ -1440,7 +1217,7 @@ function deleteBlogPic ($id)
         $stmt2 = $bdd->prepare("DELETE FROM photo WHERE id_photo = ?");
         $stmt2->bindValue(1, $id);
         $stmt2->execute();
-        unlink($stmt1->fetch()['adr_photo']);
+        @unlink($stmt1->fetch()['adr_photo']);
         return true;
     }
     return false;
@@ -1603,7 +1380,7 @@ function deleteImageActu ($id)
                     "UPDATE actualite SET act_img = null WHERE act_id = ?");
             $stmt2->bindValue(1, $id);
             $stmt2->execute();
-            unlink($row['act_img']);
+            @unlink($row['act_img']);
         }
         return true;
     }
@@ -1683,5 +1460,426 @@ function setNiveauMembre ($id, $niveau)
     $stmt->bindValue(1, $niveau);
     $stmt->bindValue(2, $id);
     $stmt->execute();
+}
+
+/**
+ * Récupère la liste des comptes rendus
+ */
+function getCompteRendu ()
+{
+    $bdd = new Connection();
+    $return = array();
+    
+    $stmt = $bdd->prepare("SELECT * FROM compte_rendu ORDER BY cr_date DESC");
+    $result = $stmt->execute();
+    $i = 0;
+    while ($row = $stmt->fetch()) {
+        $return[$i]["txt"] = decodeREGEX($row["cr_text"]);
+        $return[$i]["date"] = $row["cr_date"];
+        $return[$i]["id"] = $row["cr_num"];
+        $i ++;
+    }
+    
+    return $return;
+}
+
+/**
+ * Récupère le contenu de la page
+ *
+ * @param
+ *            integer page L'id de la page concernée
+ * @param
+ *            intger lang La langue d'affichage
+ */
+function getContent ($page, $lang)
+{
+    $bdd = new Connection();
+    $retour = array();
+    
+    $stmt = $bdd->prepare("SELECT * FROM texte WHERE lang=? AND txt_page =  ?");
+    $stmt->bindValue(1, $lang);
+    $stmt->bindValue(2, $page);
+    $result = $stmt->execute();
+    if ($row = $stmt->fetch()) {
+        $retour['txt'] = $row['texte'];
+        $retour['page'] = $row['txt_page'];
+        $retour['id'] = $row['txt_num'];
+        $retour['lang'] = $row['lang'];
+    }
+    
+    return $retour;
+}
+
+/**
+ * Retourne la liste des pages
+ */
+function getPage ()
+{
+    $bdd = new Connection();
+    $retour = array();
+    
+    $stmt = $bdd->prepare("SELECT * FROM page ORDER BY page_nom");
+    $result = $stmt->execute();
+    $i = 0;
+    while ($row = $stmt->fetch()) {
+        $retour[$i]['id'] = $row['page_id'];
+        $retour[$i]['code'] = $row['page_code'];
+        $retour[$i]['nom'] = $row['page_nom'];
+        $i ++;
+    }
+    
+    return $retour;
+}
+
+/**
+ * Créé une nouvelle page
+ *
+ * @param string $nom
+ *            Le nom public de la nouvelle page
+ */
+function addPage ($nom)
+{
+    // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
+    // requêtes
+    $code = preg_replace("#[^!_a-z]+#", '', $nom);
+    $bdd = new Connection();
+    
+    // On regarde si le type existe déjà
+    $stmt = $bdd->prepare("SELECT * FROM page WHERE page_code = ?");
+    $stmt->bindValue(1, $code);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        throw new Exception("Une page identique existe déjà");
+    } // else on ajoute
+    $stmt->closeCursor();
+    
+    $stmt = $bdd->prepare("INSERT INTO page (page_code, page_nom) VALUES(?,?)");
+    $stmt->bindValue(1, $code);
+    $stmt->bindValue(2, $nom);
+    $stmt->execute();
+    return true;
+}
+
+/**
+ * Supprime la page avec l'id mentionné
+ *
+ * @param integer $id
+ *            L'identifiant de la page à supprimer
+ */
+function deletePage ($id)
+{
+    $bdd = new Connection();
+    $stmt = $bdd->prepare("DELETE FROM page WHERE page_id = ?");
+    $stmt->bindValue(1, $id);
+    $stmt->execute();
+    return true;
+}
+
+/**
+ * Décode tous les tags insérables dans une chaine et les convertit en balise
+ * html
+ *
+ * @param string $str
+ *            La chaine à convertir
+ * @return string La chaine convertie
+ */
+function decodeREGEX ($str)
+{
+    $str = preg_replace('`\{image}(.+)\{/image\}`iUs', 
+            '<img src="$1" alt="Image" /> ', $str);
+    $str = preg_replace('`\{b}(.+)\{/b\}`iUs', '<b>$1</b>', $str);
+    $str = preg_replace('`\{i}(.+)\{/i\}`iUs', '<i>$1</i>', $str);
+    $str = preg_replace('`\{titre1}(.+)\{/titre1\}`iUs', '<h1>$1</h1>', $str);
+    $str = preg_replace('`\{titre2}(.+)\{/titre2\}`iUs', '<h2>$1</h2>', $str);
+    $str = preg_replace('`\{video}(.+)\{/video\}`iUs', 
+            "<video controls src='$1'></video>", $str);
+    
+    return $str;
+}
+
+/**
+ * Met à jour le contenu d'une page
+ *
+ * @param
+ *            integer page L'id de la page concernée
+ * @param
+ *            intger lang La langue d'affichage
+ * @param string $content
+ *            Le nouveau contenu de la page
+ */
+function setContent ($page, $lang, $content)
+{
+    $bdd = new Connection();
+    
+    // On regarde si la valeur existe déjà
+    $stmt1 = $bdd->prepare(
+            "SELECT * FROM texte
+			JOIN page
+			ON txt_page = page_id
+			WHERE page_id = :page
+			AND lang = :lang");
+    $stmt1->bindValue(":lang", $lang);
+    $stmt1->bindValue(":page", $page);
+    $stmt1->execute();
+    
+    // Si pas d'objet on insère à condition que le contenu ne soit pas vide,
+    // sinon inutile
+    if ($stmt1->rowCount() == 0 && ! empty(trim($content))) {
+        $stmt2 = $bdd->prepare(
+                "INSERT INTO texte
+			(txt_page, lang, texte) VALUES (:page, :lang, :content)");
+        $stmt2->bindValue(":page", $page);
+        $stmt2->bindValue(":lang", $lang);
+        $stmt2->bindValue(":content", $content);
+        $stmt2->execute();
+        return true;
+    } else 
+        if ($stmt1->rowCount() > 1) { // Plusieurs items avec même clé =
+                                      // table corrompue
+            throw new InvalidArgumentException(
+                    "Au moins une donnée est corrompue");
+        } // sinon on update
+    
+    $stmt2 = $bdd->prepare(
+            "UPDATE texte
+			SET texte = :valeur
+			WHERE txt_num = :id");
+    $stmt2->bindValue(":valeur", $content);
+    $stmt2->bindValue(":id", $stmt1->fetch()["txt_num"]);
+    $stmt2->execute();
+    return true;
+}
+
+/**
+ * Met à jour le contenu d'une page
+ *
+ * @param
+ *            integer page L'id du compte rendu concerné
+ * @param string $content
+ *            Le nouveau contenu du compte rendu
+ */
+function setCompteRendu ($id, $content)
+{
+    $bdd = new Connection();
+    $stmt = $bdd->prepare(
+            "UPDATE compte_rendu
+			SET cr_text = :valeur
+			WHERE cr_num = :id");
+    $stmt->bindValue(":valeur", $content);
+    $stmt->bindValue(":id", $id);
+    $stmt->execute();
+    return true;
+}
+
+/**
+ * Inscrit un nouveau membre dans la base de données
+ *
+ * @param array $var
+ *            Les informations du membre à inscrire
+ */
+function inscriptionBDD ($var)
+{
+    $bdd = new Connection();
+    
+    // récupération des données du formulaire
+    $pseudo = $var["pseudo"];
+    $mdp = sha1($var["mdp"]);
+    $email = $var["email"];
+    $tel = $var["tel"];
+    $nom = strtoupper($var["nom"]);
+    $prenom = ucfirst($var["prenom"]);
+    $adresse = $var["adresse"];
+    $etat_annuaire = 0;
+    if (isset($var["etat_annuaire"]) && $var["etat_annuaire"] == "true") {
+        $etat_annuaire = 1;
+    }
+    
+    // regarde si l'user existe deja
+    $rqt_user = "SELECT pseudo FROM tuser WHERE pseudo=?";
+    $les_user = $bdd->prepare($rqt_user);
+    $les_user->bindValue(1, $pseudo, PDO::PARAM_STR);
+    $les_user->execute();
+    
+    // Regarde si le membre existe déjà
+    if ($les_user->rowCount() != 0) {
+        return false;
+    }
+    // insertion dans la base de données du nouvel user
+    $sql = "INSERT INTO tuser (pseudo, motdepasse, email, etat_validation, niveau, telephone, nom, prenom, adresse, etat_annuaire)
+						VALUES (:pseudo, :pass, :mail, 0, 'membre', :tel, :nom, :prenom, :adresse, :annuaire)";
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+    $stmt->bindValue(':pass', $mdp, PDO::PARAM_STR);
+    $stmt->bindValue(':mail', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':tel', $tel, PDO::PARAM_INT);
+    $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
+    $stmt->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+    $stmt->bindValue(':adresse', $adresse, PDO::PARAM_STR);
+    $stmt->bindValue(':annuaire', $etat_annuaire, PDO::PARAM_INT);
+    $stmt->execute();
+    
+    // message de confirmation d'inscription et retour à l'accueil
+    return true;
+}
+
+/**
+ * Ajoute un nouveau compte rendu dans la base de données
+ *
+ * @param string $content
+ *            Le contenu du compte rendu
+ * @param string $date
+ *            La date de la réunion du compte rendu
+ * @return boolean true si ajout effectué, false si la date est invalide
+ */
+function addCompteRendu ($content, $date)
+{
+    // Date invalide
+    try {
+        new DateTime($date);
+    } catch (Exception $e) {
+        return false;
+    }
+    
+    $bdd = new Connection();
+    $stmt = $bdd->prepare(
+            "INSERT INTO compte_rendu (cr_text, cr_date) VALUES (:content, :date)");
+    $stmt->bindValue(":content", $content);
+    $stmt->bindValue(":date", $date);
+    $stmt->execute();
+    return true;
+}
+
+/**
+ * Supprime un compte rendu de la base de données
+ *
+ * @param integer $id
+ *            L'identifiant du compte rendu à supprimer
+ */
+function deleteCompteRendu ($id)
+{
+    $bdd = new Connection();
+    $stmt = $bdd->prepare("DELETE FROM compte_rendu WHERE cr_num=?");
+    $stmt->bindValue(1, $id);
+    $stmt->execute();
+}
+
+/**
+ * Modifie les informations d'un évènement du planning
+ *
+ * @param string $jour
+ *            Le jour de la semaine
+ * @param string $musiciens
+ *            Les musiciens qui vont jouer
+ * @param string $date
+ *            La date de l'évènement
+ * @param string $lieu
+ *            Le lieu de l'évènement
+ * @param integer $id
+ *            L'identifiant de l'évènement
+ * @return boolean true si la modification a pu se faire, false sinon
+ */
+function setDatePlanning ($jour, $musiciens, $date, $lieu, $id)
+{
+    // Date invalide
+    try {
+        new DateTime($date);
+    } catch (Exception $e) {
+        return false;
+    }
+    $bdd = new Connection();
+    // MAJ de la BD
+    $sql = "UPDATE planning SET pl_jour=:jour, pl_musiciens=:music, pl_date=:date, pl_lieu=:lieu
+				 WHERE id_planning = :id";
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindValue(":jour", $jour);
+    $stmt->bindValue(":music", $musiciens);
+    $stmt->bindValue(":date", $date);
+    $stmt->bindValue(":lieu", $lieu);
+    $stmt->bindValue(":id", $id);
+    $stmt->execute();
+    return true;
+}
+
+/**
+ * Ajoute un fichier sur le site
+ *
+ * @param string $path
+ *            Le chemin de l'image à ajouter
+ */
+function addFile ($path)
+{
+    $bdd = new Connection();
+    $sql = "INSERT INTO uploaded_file (file_adr) VALUES (:path)";
+    
+    $insert = $bdd->prepare($sql);
+    $insert->bindValue(":path", $path);
+    $insert->execute();
+    return true;
+}
+
+/**
+ * Supprime le fichier avec l'id indiqué de la BD et du disque
+ *
+ * @param integer $id
+ *            L'id de la photo a supprimer
+ */
+function deleteFile ($id)
+{
+    $bdd = new Connection();
+    $stmt1 = $bdd->prepare(
+            "SELECT file_adr FROM uploaded_file WHERE file_num = ?");
+    $stmt1->bindValue(1, $id);
+    $stmt1->execute();
+    if ($stmt1->rowCount() == 1) {
+        $stmt2 = $bdd->prepare("DELETE FROM uploaded_file WHERE file_num = ?");
+        $stmt2->bindValue(1, $id);
+        $stmt2->execute();
+        @unlink($stmt1->fetch()['file_adr']);
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Ajoute une nouvelle revue
+ *
+ * @param string $titre
+ *            Son titre
+ * @param string $img
+ *            Son image
+ */
+function addRevue ($titre, $img)
+{
+    $bdd = new Connection();
+    $sql = "INSERT INTO revue_presse (presse_titre, presse_img) VALUES (:titre, :path)";
+    
+    $insert = $bdd->prepare($sql);
+    $insert->bindValue(":titre", $titre);
+    $insert->bindValue(":path", $img);
+    $insert->execute();
+    return true;
+}
+
+/**
+ * Supprime la revue avec l'id indiqué de la BD et du disque
+ *
+ * @param integer $id
+ *            L'id de la revue a supprimer
+ */
+function deleteRevue ($id)
+{
+    $bdd = new Connection();
+    $stmt1 = $bdd->prepare(
+            "SELECT presse_img FROM revue_presse WHERE presse_num = ?");
+    $stmt1->bindValue(1, $id);
+    $stmt1->execute();
+    if ($stmt1->rowCount() == 1) {
+        $stmt2 = $bdd->prepare("DELETE FROM revue_presse WHERE presse_num = ?");
+        $stmt2->bindValue(1, $id);
+        $stmt2->execute();
+        @unlink($stmt1->fetch()['presse_img']);
+        return true;
+    }
+    return false;
 }
 ?>

@@ -2,63 +2,46 @@
 if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
          ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
     echo "<center>
-			Vous ne pouvez pas accéder à ces pages sans être connecté en tant qu'administrateur<br />
+			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
 		  </center>";
+    redirect("index.php?page=accueil", 3);
     exit(0);
-} else {
-    ?>
-<center>
-	<div id="slideshow">
-	<?php
-    
-    require "slider.inc.php";
-    ?>
-	</div>
-	<?php
-    echo "<h1>Liste des images : </h1>";
-    $tab = recup_all_diapos();
-    echo "<table class='table table-bordered' id='list-photos-full'>";
-    if (count($tab) > 0) {
-        require_once 'list_photos.php';
-    } else {
-        echo "<tr><td>Aucune image n'a été trouvée</td></tr>";
-    }
-    echo "</table>";
-    
-    echo "<h1>Ajouter une nouvelle image : </h1>";
-    ?>
-	<form action="slider_traitement.php" method="post"
-		enctype="multipart/form-data" id="formS">
-		<label for="fichier">Photo : <input type="file" id="uploadFile"
-			name="fichier"></label> <input class="btn btn-info" type="submit"
-			value="Ajouter">
-		<div id="msgReturn"></div>
-	</form>
-</center>
+} // else
+?>
+<h1>Administration des revues</h1>
+<h4>Ajout d'une revue</h4>
+<form method="post" id="newRevue" action="gestion_revue_traitement.php"
+	enctype="multipart/form-data">
+	<label for="fichier">Photo : <input type="file" id="uploadFile"
+		name="fichier"></label> <input type="text" name="titre" id='titre'
+		placeholder="Titre" required /><br /> <input type="submit"
+		value="Ajouter" />
+</form>
+<div id='ajout-result'></div>
 
-<script type="text/javascript">
+<h4>Gérer les revues</h4>
+<div id='modif-revue'>
+		<?php require 'list_revue.php'; ?>
+	</div>
+
+
+<script language="javascript">
 $(document).ready(function () {
 
-	// Rafraichit la liste des music mais pas le player
-	function refresh() {
-		$("#list-photos-full").load("list_photos.php");
-		$("#slideshow").load("slider.inc.php");
-	}
-
-	// Ajout d'une nouvelle musique
-    $('#formS').on('submit', function (e) {
+	// Ajout d'une nouvelle photo
+    $('#newRevue').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
         var form = $(this); // L'objet jQuery du formulaire
         var formdata = (window.FormData) ? new FormData(form[0]) : null;
         var data = (formdata !== null) ? formdata : form.serialize();
 
         var fichier = $('#uploadFile').val();  // fichier
-        $('#msgReturn').empty();
-
+        var titre = $('#titre').val();  // fichier
+        $('#ajout-result').empty();
         // Vérifie pour éviter de lancer une requête fausse
-        if (fichier === '') {
-            $('#msgReturn').append('Le fichier doit être renseigné');
+        if (titre ==='' || fichier === '') {
+        	$('#ajout-result').append('Les champs doivent être remplis');
         } else {
             // Envoi de la requête HTTP en mode asynchrone
             $.ajax({
@@ -69,18 +52,17 @@ $(document).ready(function () {
                 processData: false, // obligatoire pour de l'upload
                 data: data, // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
-                    $('#msgReturn').append(html);  // affichage du résultat
+                	$('#ajout-result').append(html);  // affichage du résultat
                     // On efface si ok
                     if (html === "Ajout effectué avec succès") {
                         $('#uploadFile').val('');
-                        refresh();
+                        $('#titre').val('');
+                        $("#modif-revue").load("list_revue.php");
                     }
                 }
             });
         }
     });
 });
+
 </script>
-<?php
-}
-?>

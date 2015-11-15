@@ -1,49 +1,34 @@
 <?php
+@session_start();
+@header('Content-Type: text/html; charset=utf-8');
+require_once 'traitement.inc.php';
 if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
          ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "<center>
-			Vous ne pouvez pas accéder à ces pages sans être connecté en tant qu'administrateur<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  </center>";
-    exit(0);
-} else {
-    ?>
-<center>
-	<div id="slideshow">
-	<?php
-    
-    require "slider.inc.php";
-    ?>
-	</div>
-	<?php
-    echo "<h1>Liste des images : </h1>";
-    $tab = recup_all_diapos();
-    echo "<table class='table table-bordered' id='list-photos-full'>";
-    if (count($tab) > 0) {
-        require_once 'list_photos.php';
-    } else {
-        echo "<tr><td>Aucune image n'a été trouvée</td></tr>";
-    }
-    echo "</table>";
-    
-    echo "<h1>Ajouter une nouvelle image : </h1>";
-    ?>
-	<form action="slider_traitement.php" method="post"
-		enctype="multipart/form-data" id="formS">
-		<label for="fichier">Photo : <input type="file" id="uploadFile"
-			name="fichier"></label> <input class="btn btn-info" type="submit"
-			value="Ajouter">
-		<div id="msgReturn"></div>
-	</form>
-</center>
+    exit("Vous n'avez pas les droits requis");
+} // else
 
+?>
+<!--  Formulaire d'ajout de contenu -->
+<h2>Ajouter un contenu</h2>
+<form method='post' id='formS' action='gest_content_traitement.php'
+	enctype="multipart/form-data">
+	<input type="radio" name="type" value='img' checked> Image <input
+		type="radio" name="type" value='video'> Vidéo<br> <label for="fichier">Photo
+		: <input type="file" id="uploadFile" name="fichier">
+	</label><input class="btn btn-info" type="submit" value="Ajouter">
+	<div id='msgReturn'></div>
+
+</form>
+
+<div id='list-ressources'>
+<?php require 'list_file.php'?>
+</div>
 <script type="text/javascript">
 $(document).ready(function () {
 
 	// Rafraichit la liste des music mais pas le player
 	function refresh() {
-		$("#list-photos-full").load("list_photos.php");
-		$("#slideshow").load("slider.inc.php");
+		$("#list-ressources").load("list_file.php");
 	}
 
 	// Ajout d'une nouvelle musique
@@ -81,6 +66,3 @@ $(document).ready(function () {
     });
 });
 </script>
-<?php
-}
-?>

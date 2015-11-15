@@ -1,29 +1,30 @@
 <?php
-session_start ();
+session_start();
 // inclusion des fichiers de fonction
 require_once ("traitement.inc.php");
 require_once ("Connection.class.php");
-$supported_lang = getSupportedLanguages ();
+$supported_lang = getSupportedLanguages();
 
 // Definition de la langue
-if (! isset ( $_SESSION ['lang'] )) {
-	$_SESSION ['lang'] = substr ( $_SERVER ["HTTP_ACCEPT_LANGUAGE"], 0, 2 );
+if (! isset($_SESSION['lang'])) {
+    $_SESSION['lang'] = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
 }
 
-if (isset ( $_GET ['lang'] ) && ! empty ( $_GET ['lang'] )) {
-	$_SESSION ['lang'] = strtolower ( $_GET ['lang'] );
+if (isset($_GET['lang']) && ! empty($_GET['lang'])) {
+    $_SESSION['lang'] = strtolower($_GET['lang']);
 }
 
 // Récupère l'id à partir du code
-$_SESSION ['lang'] = $_SESSION ['lang'] < 0 ? 1 : $_SESSION ['lang'];
+$_SESSION['lang'] = $_SESSION['lang'] < 0 ? 1 : $_SESSION['lang'];
 
-if ($supported_lang [array_search ( $_SESSION ['lang'], $supported_lang )] != $_SESSION ['lang']) {
-	$_SESSION ['lang'] = reverseLanguage ( 'fr' );
+if ($supported_lang[array_search($_SESSION['lang'], $supported_lang)] !=
+         $_SESSION['lang']) {
+    $_SESSION['lang'] = reverseLanguage('fr');
 }
 
 require 'header.php';
 // connexion à la base de donnée
-$bdd = new Connection ();
+$bdd = new Connection();
 ?>
 
 <div id="bg-top"></div>
@@ -46,13 +47,14 @@ $bdd = new Connection ();
 		<div class="grid_5">
 			<ul class="diaporama">
 						<?php
-						$tab = recup_actuel_diapos ();
-						$i = 1;
-						foreach ( $tab as $diapo ) {
-							echo "<li><img width=335 height=225 src='" . $diapo ["lien"] . "' alt='Image " . $i . "' /></li>";
-							$i ++;
-						}
-						?>
+    $tab = recup_actuel_diapos();
+    $i = 1;
+    foreach ($tab as $diapo) {
+        echo "<li><img width=335 height=225 src='" . $diapo["lien"] .
+                 "' alt='Image " . $i . "' /></li>";
+        $i ++;
+    }
+    ?>
 					</ul>
 		</div>
 
@@ -82,30 +84,33 @@ $bdd = new Connection ();
 
 		<div id="lang">
 			<p><?php
-			// Récupération de toutes les langues disponibles
-			// Affichage du drapeau correspondant
-			$languages = getLanguages ();
-			foreach ( $languages as $lang ) {
-				
-				// Le logo de la langue n'existe pas
-				if (! file_exists ( 'image/lang/' . $lang ['code'] . '.png' )) {
-					$img = "image/lang/inc.png";
-				} else {
-					$img = "image/lang/" . $lang ['code'] . ".png";
-				}
-				
-				// On a récupéré une page
-				if (isset ( $_GET ['page'] )) {
-					$lien = "index.php?page=" . $_GET ['page'] . "&lang=" . $lang ['id'];
-				} else {
-					$lien = "index.php?lang=" . $lang ['id'];
-				}
-				
-				// Affichage des selecteurs
-				echo "<a href='" . $lien . "'><img src='" . $img . "' width='19' height='12' style='border :1px solid green;' /></a>";
-				
-			}
-			?>
+// Récupération de toutes les langues disponibles
+// Affichage du drapeau correspondant
+$languages = getLanguages();
+foreach ($languages as $lang) {
+    $lien = "index.php?lang=" . $lang['id'];
+    
+    // Le logo de la langue n'existe pas
+    if (! file_exists('image/lang/' . $lang['code'] . '.png')) {
+        $img = "image/lang/inc.png";
+    } else {
+        $img = "image/lang/" . $lang['code'] . ".png";
+    }
+    
+    // On a récupéré une page
+    if (isset($_GET['page'])) {
+        $lien .= "&page=" . $_GET['page'];
+    }
+    
+    if (isset($_GET['id'])) {
+        $lien .= "&id=" . $_GET['id'];
+    }
+    
+    // Affichage des selecteurs
+    echo "<a href='" . $lien . "'><img src='" . $img .
+             "' width='19' height='12' style='border :1px solid green;' /></a>";
+}
+?>
 					</p>
 		</div>
 	</div>
@@ -115,25 +120,24 @@ $bdd = new Connection ();
 		<center>
 			<!-- Menu -->
 				<?php
-				if (isset ( $_SESSION ['pseudo'] ) and isset ( $_SESSION ['pass'] ) and verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-					// menu admin
-						?>
+    if (isset($_SESSION['pseudo']) and isset($_SESSION['pass']) and
+             verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
+        // menu admin
+        ?>
 					<div class="clear"></div>
 			<nav class="grid_12">
 				<ul class="navigM">
 					<li><a href="index.php?page=deconnexion">Se déconnecter</a></li>
-					<?php 
-					if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-						
-					echo "<li><a href='index.php?page=page_administrateur'>Administration</a>";
-					}
-					?>
+					<?php
+        if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+            
+            echo "<li><a href='index.php?page=page_administrateur'>Administration</a>";
+        }
+        ?>
 
 
 
 						<li><a href="index.php?page=blog">Blog</a>
-					
-					
 					
 					<li><a href="index.php?page=planning">Planning</a></li>
 					<li><a href="index.php?page=annuaire">Annuaire</a></li>
@@ -149,11 +153,14 @@ $bdd = new Connection ();
 					<li><a href="index.php">Accueil</a></li>
 					<li><a href="#">Présentation</a>
 						<ul>
-							<li><a href="index.php?page=danse">Les danses</a></li>
-							<li><a href="index.php?page=theatre">Le théâtre</a></li>
-							<li><a href="index.php?page=ecole">Les écoles de danse</a></li>
+						<?php
+    $pageDispo = getPage();
+    foreach ($pageDispo as $unePage) {
+        echo "<li><a href='index.php?page=generic&id=" . $unePage['id'] . "'>" .
+                 $unePage['nom'] . "</a></li>";
+    }
+    ?>
 						</ul></li>
-					<li><a href="index.php?page=historique">Historique</a></li>
 					<li><a href="index.php?page=boutique">Boutique</a></li>
 					<li><a href="index.php?page=revuedepresse">Revue de presse</a></li>
 					<li><a href="index.php?page=lien">Liens</a></li>
@@ -164,24 +171,30 @@ $bdd = new Connection ();
 						</ul></li>
 				</ul>
 			</nav>
-			<div class="clear"></div>	
+			<div class="clear"></div>
 			<br /><?php
-			
-			if (isset ( $_GET ['page'] )) {
-				if (! strstr ( $_GET ['page'], 'http://' ) && ! strstr ( $_GET ['page'], 'www.' ) && ! strstr ( $_GET ['page'], '/' )) {
-					// && file_exists($_GET['page'])) {
-					require_once ($_GET ['page'] . ".php");
-				} else {
-					require_once ("accueil.php");
-				}
-			} else {
-				require_once ("accueil.php");
-			}
-			?>
+
+if (isset($_GET['page'])) {
+    if ($_GET['page'] == 'generic' && isset($_GET['id']) &&
+             is_numeric($_GET['id'])) {
+        $page = $_GET["id"];
+        require_once ("generic.php");
+    } else 
+        if (! strstr($_GET['page'], 'http://') && ! strstr($_GET['page'], 
+                'www.') && ! strstr($_GET['page'], '/')) {
+            // && file_exists($_GET['page'])) {
+            require_once ($_GET['page'] . ".php");
+        } else {
+            require_once ("accueil.php");
+        }
+} else {
+    require_once ("accueil.php");
+}
+?>
 	
 	
-					
-					</div>
+	
+	</div>
 </div>
 <!-- FOOTER -->
 <footer class="container_12" id="basDePage">
@@ -194,39 +207,36 @@ $bdd = new Connection ();
 				class="btn btn-link" href="mailto:pastourelle.rodez@yahoo.fr">pastourelle.rodez@yahoo.fr</a></span>
 			<br /> <br />
 					<?php
-					
-					if (isset ( $_SESSION ['pseudo'] ) and isset ( $_SESSION ['pass'] ) and verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-						if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-							echo '<b>Vous êtes Administrateur : ' . $_SESSION ['pseudo'] . ' ';
-						} else {
-							echo '<b>Vous êtes Membre : ' . $_SESSION ['pseudo'];
-						}
-						echo '<br/> <a href="index.php?page=infoPersonnelle">Mon compte</a> || <a href="index.php?page=deconnexion">Se Déconnecter</a> </b> <br>';
-					} else {
-						// echo '<a
-						// href="index.php?page=identification">'.$recupHead[7]['valeurTrad'].'</a>
-						// || <a
-						// href="index.php?page=inscription">'.$recupHead[8]['valeurTrad'].'</a></b>
-						// </p>';
-					}
-					
-					?>
+    
+    ?>
 				</p>
 	</div>
-	<div class="footer_icon grid_3">
-		<div>
+	<div>
 					<?php
-					if (isset ( $_SESSION ['pseudo'] ) and isset ( $_SESSION ['pass'] ) and verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-						echo "<br/>";
-					}
-					?>
+    if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &&
+             verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
+        if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+            echo '<b>Vous êtes Administrateur : ' . $_SESSION['pseudo'] . ' ';
+        } else {
+            echo '<b>Vous êtes Membre : ' . $_SESSION['pseudo'];
+        }
+        ?>
+       <br /> <a href="index.php?page=infoPersonnelle"><i
+			class="icon-user icon-large"></i> Mon compte</a><br /> <a
+			href="index.php?page=deconnexion"><i class="icon-lock icon-large"></i>
+			Se Déconnecter</a>
+                 
+                 
+                 <?php
+    } else {
+        ?>
 						
-						<a href="index.php?page=inscription" id="boutonsConnexion"><i
-				class="icon-user icon-large"></i> S'inscrire</a> <br /> <br /> <a
-				href="index.php?page=identification" id="boutonsConnexion"><i
-				class="icon-key icon-large"></i> Se connecter</a>
+						<a href="index.php?page=inscription"><i
+			class="icon-user icon-large"></i> S'inscrire</a> <br /> <br /> <a
+			href="index.php?page=identification"><i class="icon-key icon-large"></i>
+			Se connecter</a>
+				<?php }?>
 		</div>
-	</div>
 	<div class="clear"></div>
 </footer>
 
