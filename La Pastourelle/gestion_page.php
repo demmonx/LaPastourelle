@@ -9,36 +9,27 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
     exit(0);
 } // else
 ?>
-<h1>Administration de l'actualité</h1>
-<div id='accueil'>
-	<h4>Création d'un type d'actualité</h4>
-	<form method="post" id="newType" action="actu_type_maj.php">
-		<input type="text" name="nom" id='nomType' placeholder="Nom" required /><br />
-		<input type="submit" value="Créer" />
-	</form>
-	<div id='ajout-result'></div>
+<h1>Administration des pages</h1>
+<h4>Création d'une page</h4>
+<form method="post" id="newPage" action="gestion_page_traitement.php">
+	<input type="text" name="nom" id='nomPage' placeholder="Nom" required /><br />
+	<input type="submit" value="Créer" />
+</form>
+<div id='ajout-result'></div>
 
-	<h4>Modifier les types d'actualité</h4>
-	<div id='modif-type'>
-		<?php require 'list_actu_type.php'; ?>
+<h4>Gérer les pages</h4>
+<div id='modif-page'>
+		<?php require 'list_page.php'; ?>
 	</div>
-
-	<h4>Modifier le contenu</h4>
-
-	<div id='actu-container'>
-		<?php require 'list_actu.php'; ?>
-	</div>
-</div>
-
 
 <script language="javascript">
 $(document).ready(function () {
 
     /** Création de type */
-    $('#newType').on('submit', function (e) {
+    $('#newPage').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
         var form = $(this); // L'objet jQuery du formulaire
-        var name =$("#nomType").val();
+        var name =$("#nomPage").val();
         $('#ajout-result').empty();  // affichage du résultat
         if (name === "") {
         	 $('#ajout-result').append("Les champs doivent être remplis");
@@ -50,9 +41,9 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     $('#ajout-result').append(html);  // affichage du résultat
-                    $('#actu-container').load("list_actu.php");
-                    $('#modif-type').load("list_actu_type.php");
-                    $("#nomType").val('');
+ 
+                    $('#modif-page').load("list_page.php");
+                    $("#nomPage").val('');
                 }
             });
         }

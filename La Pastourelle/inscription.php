@@ -60,26 +60,30 @@ $(document).ready(function () {
 	de l'association.<br /> Si vous n'en faites pas partie, nous serions
 	ravis que vous nous rejoignez.
 </div>
-<form id='inscription' action="verifier.php?<?PHP echo SID; ?>" method="post">
+<form id='inscription'
+	action="inscription_traitement.php?<?PHP echo SID; ?>" method="post">
 	<table>
 		<tr>
 			<td>Prénom</td>
-			<td><input type="text" value="" id='prenom' name="prenom" size=27 required></td>
+			<td><input type="text" value="" id='prenom' name="prenom" size=27
+				required></td>
 		</tr>
 		<tr>
 			<td>Nom</td>
-			<td><input type="text" value="" id='nom' name="nom" size=27 required ></td>
+			<td><input type="text" value="" id='nom' name="nom" size=27 required></td>
 		</tr>
 		<tr>
 			<td colspan="2"><br></td>
 		</tr>
 		<tr>
 			<td>Pseudo</td>
-			<td><input type="text" value="" id='pseudo' name="pseudo" size=27 required></td>
+			<td><input type="text" value="" id='pseudo' name="pseudo" size=27
+				required></td>
 		</tr>
 		<tr>
 			<td>Mot de Passe</td>
-			<td><input type="password" value="" id='mdp' name="mdp" size=27 required></td>
+			<td><input type="password" value="" id='mdp' name="mdp" size=27
+				required></td>
 		</tr>
 		<tr>
 			<td colspan="2"><br></td>
@@ -94,7 +98,8 @@ $(document).ready(function () {
 		</tr>
 		<tr>
 			<td>E-mail</td>
-			<td><input type="text" value="" id='mail' name="email" size=27 required></td>
+			<td><input type="text" value="" id='mail' name="email" size=27
+				required></td>
 		</tr>
 		<tr>
 			<td colspan="2"><br></td>
