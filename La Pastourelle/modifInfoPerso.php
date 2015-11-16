@@ -49,28 +49,22 @@ if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! veri
 	if (isset ( $_POST ["etat_annuaire"] ) && $_POST ["etat_annuaire"] == "true") {
 		$etat_annuaire = 1;
 	}
-	$bdd = new Connection();
-	$stmt = null;
-	if ($mdp) {
-		$mdp = sha1 ( $mdp );
-		$sql = "UPDATE tuser SET motdepasse=:pass, email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, adresse=:adresse, etat_annuaire=:annuaire WHERE id_membre=:id";
-		$stmt = $bdd->prepare ( $sql );
-		$stmt->bindValue ( ':pass', $mdp, PDO::PARAM_STR );
+	$mdp = sha1 ( $mdp );
+	$info = array(
+			"mail" => $mail,
+			"pass" => isset($pass) && $pass ? $pass : null,
+			"nom" => $nom,
+			"prenom" => $prenom,
+			"adresse" => $adresse,
+			"tel" => $tel,
+			"annuaire" => $etat_annuaire,
+			"id" => $_SESSION["id"]
+	);
+	if(updatePersonnalInfo($info)) {
+		echo "Votre compte a bien été modifié";
 	} else {
-		$sql = "UPDATE tuser SET email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, adresse=:adresse, etat_annuaire=:annuaire WHERE id_membre=:id";
-		$stmt = $bdd->prepare ( $sql );
+		echo "Erreur lors de la modification";
 	}
-	
-	$stmt->bindValue ( ':mail', $mail, PDO::PARAM_STR );
-	$stmt->bindValue ( ':tel', $tel, PDO::PARAM_INT );
-	$stmt->bindValue ( ':nom', $nom, PDO::PARAM_STR );
-	$stmt->bindValue ( ':prenom', $prenom, PDO::PARAM_STR );
-	$stmt->bindValue ( ':adresse', $adresse, PDO::PARAM_STR );
-	$stmt->bindValue ( ':annuaire', $etat_annuaire, PDO::PARAM_INT );
-	$stmt->bindValue ( ':id', $_SESSION ["id"], PDO::PARAM_INT );
-	$stmt->execute ();
-	echo "Votre compte a bien été modifié";
-	// session_destroy();
 }
 
 

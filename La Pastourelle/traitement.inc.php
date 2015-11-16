@@ -1919,3 +1919,53 @@ function addLang ( $code, $nom, $img )
     
     return true;
 }	
+
+/**
+ * Affiche ou masque un membre de l'annuaire
+ * @param integer $id L'id du membre à modifier
+ * @param boolean $val true si le membre doit figurer dans l'annuaire, false sinon
+ */
+function setMemberToAnnuaire($id, $val = true) {
+	$bdd = new Connection ();
+	$req_del = $bdd->prepare ( "UPDATE tuser SET etat_annuaire = ? WHERE id_membre=?" );
+	$req_del->bindValue ( 1, ($val ? 1 : 0));
+	$req_del->bindValue ( 2, $id);
+	$req_del->execute ();
+}
+
+/**
+ * Modifie les informations personnelles d'un membre
+ * @param array $info La liste des informations personnelles
+ */
+function updatePersonnalInfo($info) {
+	$bdd = new Connection();
+	
+	// Si pas le bon nombre d'arguments
+	if (!(count($info) == 7 || count($info) == 8)) {
+		return false;
+	}
+	
+	// Cas où l'on change le password
+	if (isset($info["pass"])) {
+		$sql = "UPDATE tuser SET motdepasse=:pass, email=:mail, telephone=:tel, nom=:nom, 
+				prenom=:prenom, adresse=:adresse, etat_annuaire=:annuaire 
+				WHERE id_membre=:id";
+		$stmt = $bdd->prepare ( $sql );
+		$stmt->bindValue ( ':pass',  $info["pass"], PDO::PARAM_STR );
+	} else {
+		$sql = "UPDATE tuser SET email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, 
+				adresse=:adresse, etat_annuaire=:annuaire 
+				WHERE id_membre=:id";
+		$stmt = $bdd->prepare ( $sql );
+	}
+	
+	$stmt->bindValue ( ':mail', $info["mail"], PDO::PARAM_STR );
+	$stmt->bindValue ( ':tel', $info["tel"], PDO::PARAM_INT );
+	$stmt->bindValue ( ':nom', $info["nom"], PDO::PARAM_STR );
+	$stmt->bindValue ( ':prenom', $info["prenom"], PDO::PARAM_STR );
+	$stmt->bindValue ( ':adresse', $info["adresse"], PDO::PARAM_STR );
+	$stmt->bindValue ( ':annuaire', $info["annuaire"], PDO::PARAM_INT );
+	$stmt->bindValue ( ':id', $info["id"], PDO::PARAM_INT );
+	$stmt->execute ();
+	return true;
+}
