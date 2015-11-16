@@ -23,7 +23,7 @@ function recup_texte ($num, $page, $lang)
 }
 
 /**
- * h
+ * 
  * ************************************
  * Récupération d'un texte dans la BD *
  * ************************************
@@ -63,31 +63,24 @@ function recup_titre ($lecontent, $lang)
 
 /**
  * ************************************
- * Récupération des fichiers dans la base de données
+ * Récupération d'une image dans la BD *
  * ************************************
  */
-function getFile ()
+function recup_img ($num, $page)
 {
     $bdd = new Connection();
-    
-    $retour = array();
-    $cpt = 0;
-    
     /**
-     * recupération des revues de presse
+     * récupération de l'image demandée
      */
-    $rqt_revue = "SELECT * FROM uploaded_file ORDER BY file_adr";
+    $rqt_img = "SELECT img_adr FROM image WHERE img_num=? AND img_page=?";
     
-    $result = $bdd->prepare($rqt_revue);
+    $result = $bdd->prepare($rqt_img);
+    $result->bindValue(1, $num);
+    $result->bindValue(2, $page);
     $result->execute();
     
-    while ($row = $result->fetch()) {
-        $retour[$cpt]['id'] = $row['file_num'];
-        $retour[$cpt]['adr'] = $row['file_adr'];
-        $cpt ++;
-    }
-    
-    return $retour;
+    // Requête sur clé primaire, un seul élément possible
+    return $result->fecth();
 }
 
 /**
@@ -143,7 +136,7 @@ function recup_revuePresse ()
     /**
      * recupération des revues de presse
      */
-    $rqt_revue = "SELECT * FROM revue_presse ORDER BY presse_num DESC";
+    $rqt_revue = "SELECT presse_img, presse_txt, num_presse FROM revue_presse";
     
     $result = $bdd->prepare($rqt_revue);
     $result->execute();
@@ -287,7 +280,7 @@ function recup_datePlanning ($id)
     
     if ($row = $result->fetch()) {
         $tab_planning['jour'] = $row['pl_jour'];
-        $tab_planning['date'] = date("j/m/Y", strtotime($row['pl_date']));
+        $tab_planning['date'] = str_replace("-", "/", $row['pl_date']);
         $tab_planning['lieu'] = $row['pl_lieu'];
         $tab_planning['joueur'] = $row['pl_musiciens'];
         $tab_planning['id'] = $row['id_planning'];
@@ -503,6 +496,53 @@ function stripnl2br2 ($string)
 }
 
 /**
+ * ***********************************************
+ * Récupération du texte d'une page donnée *
+ * ***********************************************
+ */
+function getTexte ($page)
+{
+    $bdd = new Connection();
+    
+    $retour = array();
+    /**
+     * recupération du texte
+     */
+    $sql = "SELECT texte FROM texte WHERE txt_page=? ";
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindValue(1, $page);
+    $stmt->execute();
+    while ($row = $stmt->fetch()) {
+        $retour[] = nl2br($row["texte"]);
+    }
+    
+    return $retour;
+}
+
+/**
+ * Met à jour le texte d'une page donné
+ *
+ * @param string $page
+ *            La page à mettre à jour
+ * @param string $content
+ *            Le nouveau texte
+ */
+function setTexte ($page, $content)
+{
+    $bdd = new Connection();
+    
+    $retour = array();
+    /**
+     * recupération du texte
+     */
+    $sql = "UPDATE texte SET texte = ? WHERE txt_page=? ";
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindValue(1, $content);
+    $stmt->bindValue(2, $page);
+    $stmt->execute();
+}
+
+/**
  * Récupération des coordonnées
  */
 function recup_infoCoord ()
@@ -600,6 +640,194 @@ function redirect ($lien, $sec)
 {
     // Fait planter si suivit par un exit
     // header('Refresh:'.$sec.'; URL='.$lien);
+}
+
+/*
+ * Fonction ajoutLang Langage : PHP
+ *
+ * Fonction d'ajout de langue dans la base de données
+ *
+ * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
+ * @param ini Initiales de la nouvelle langue
+ *
+ */
+function ajoutLang ($ini)
+{
+    $bdd = new Connection();
+    // Ajout des textes
+    $req_add = $bdd->prepare(
+            "INSERT INTO texte  VALUES
+							(0, 'accueil', ?, 'Traduction non faite\r\n'),
+							(0, 'avis', ?, 'Traduction non faite'),
+							(0, 'boutique', ?, 'Traduction non faite'),
+							(0, 'coordonnees', ?, 'Traduction nnon faite'),
+							(0, 'danse', ?, 'Traduction non faite'),
+							(0, 'ecole', ?, 'Traduction non faite'),
+							(0, 'historique', ?, 'Traduction non faite'),
+							(0, 'lien', ?, 'Traduction non faite'),
+							(0, 'revue_presse', ?, 'Traduction non faite'),
+							(0, 'theatre', ?, 'Traduction non faite'),
+							(1, 'danse', ?, 'Traduction non faite\r\n'),
+							(1, 'ecole', ?, 'Traduction non faite\r\n\r\n'),
+							(1, 'historique', ?, 'Traduction non faite\r\n\r\n\r\n'),
+							(1, 'theatre', ?, 'Traduction non faite\r\n\r\n\r\n')");
+    $req_add->execute(
+            array(
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini,
+                    $ini
+            ));
+    // Ajout de la boutique
+    // Récupération des informations sur les articles
+    $req_nbB = $bdd->query('SELECT * FROM boutique WHERE lang = "fr"');
+    $nbB = $req_nbB->fetchAll();
+    // Ajout du bon nombre de description d'articles pour la langue
+    for ($i = 1; $i <= count($nbB); $i ++) {
+        $req_addB = $bdd->prepare(
+                "INSERT INTO texte  VALUES(?, 'boutique', ?, 'Traduction non faite\r\n')");
+        $req_addB->execute(
+                array(
+                        $i,
+                        $ini
+                ));
+    }
+    // Ajout du bon nombre de details des articles en boutique
+    for ($i = 0; $i < count($nbB); $i ++) {
+        $req_addD = $bdd->prepare(
+                "INSERT INTO boutique VALUES(?, ?, ?, ?, ?, 'Traduction non faite\r\n')");
+        $req_addD->execute(
+                array(
+                        $nbB[$i]['pd_num'],
+                        $ini,
+                        $nbB[$i]['pd_prix'],
+                        $nbB[$i]['pd_img'],
+                        $nbB[$i]['pd_txt']
+                ));
+    }
+    // Ajout des liens
+    // Récupération des informations sur les liens
+    $req_nbL = $bdd->query('SELECT * FROM lien_ext WHERE lang = "fr"');
+    $nbL = $req_nbL->fetchAll();
+    // Ajout du bon nombre de description de liens pour la langue
+    for ($i = 1; $i <= count($nbL) + 1; $i ++) {
+        $req_addL = $bdd->prepare(
+                "INSERT INTO texte  VALUES(?, 'lien', ?, 'Traduction non faite\r\n')");
+        $req_addL->execute(
+                array(
+                        $i,
+                        $ini
+                ));
+    }
+    // Ajout du bon nombre de details des liens
+    for ($i = 0; $i < count($nbL); $i ++) {
+        $req_addDL = $bdd->prepare(
+                "INSERT INTO lien_ext VALUES(?, ?, ?, ?, ?, 'Traduction non faite\r\n')");
+        $req_addDL->execute(
+                array(
+                        $nbL[$i]['id'],
+                        $ini,
+                        $nbL[$i]['lien'],
+                        $nbL[$i]['lien_img'],
+                        $nbL[$i]['lien_txt']
+                ));
+    }
+    // Ajout des revues de presse
+    // Récupération des informations sur les revues de presse
+    $req_nbR = $bdd->query('SELECT * FROM revue_presse');
+    $nbR = $req_nbR->fetchAll();
+    // Ajout du bon nombre de description de liens pour la langue
+    for ($i = 1; $i <= count($nbR); $i ++) {
+        $req_addL = $bdd->prepare(
+                "INSERT INTO texte  VALUES(?, 'revue_presse', ?, 'Traduction non faite\r\n')");
+        $req_addL->execute(
+                array(
+                        $i,
+                        $ini
+                ));
+    }
+    // Pas d'ajout de details (car pas de texte a traduire)
+    // Ajout de l'actualité
+    // Récupération des informations sur les actualités
+    $req_nbA = $bdd->query('SELECT * FROM actualite WHERE lang = "fr"');
+    $nbA = $req_nbA->fetchAll();
+    
+    // Ajout des informations sur les actualités
+    $req_addA = $bdd->prepare(
+            "INSERT INTO actualite  VALUES 
+								  ('danse', ?, ?, ?, ?, 'Traduction pas faite', ?),
+								  ('theatre', ?, ?, ?, ?, 'Traduction pas faite', ?)");
+    $req_addA->execute(
+            array(
+                    $ini,
+                    $nbA[0]['act_lieu'],
+                    $nbA[0]['act_date'],
+                    $nbA[0]['act_heure'],
+                    $nbA[0]['act_img'],
+                    $ini,
+                    $nbA[1]['act_lieu'],
+                    $nbA[1]['act_date'],
+                    $nbA[1]['act_heure'],
+                    $nbA[1]['act_img']
+            ));
+    // Ajout des expressions pour parfaire la traduction
+    // Récupération des informations sur les traductions annexes
+    $req_nbT = $bdd->query('SELECT * FROM tradannexe WHERE lang = "fr"');
+    $nbT = $req_nbT->fetchAll();
+    // Ajout des traductions annexes
+    for ($i = 0; $i < count($nbT); $i ++) {
+        $req_addT = $bdd->prepare(
+                "INSERT INTO tradannexe  VALUES(?, ?, 'A traduire')");
+        $req_addT->execute(
+                array(
+                        $ini,
+                        $nbT[$i]['nomTrad']
+                ));
+    }
+}
+
+/*
+ * TODO a recoder
+ * Fonction supprLang Langage : PHP
+ *
+ * Fonction de suppression de langue dans la base de données
+ *
+ * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
+ * @param ini Initiales de la nouvelle langue
+ *
+ */
+function supprLang ($ini)
+{
+    $bdd = new Connection();
+    // Suppression des textes de la langue
+    $requete = "DELETE FROM texte WHERE lang = " . $ini;
+    $result = $bdd->select($requete);
+    
+    // Suppression de la boutique de la langue
+    $requete = "DELETE FROM boutique WHERE lang = " . $ini;
+    $result = $bdd->select($requete);
+    
+    // Suppression des liens de la langue
+    $requete = "DELETE FROM lien_ext WHERE lang =" . $ini;
+    $result = $bdd->select($requete);
+    
+    // Suppression de l'actualité de la langue
+    $requete = "DELETE FROM actualite WHERE lang = " . $ini;
+    $result = $bdd->select($requete);
+    
+    // Suppressiion des traductions annexes
+    $requete = "DELETE FROM tradannexe WHERE lang = " . $ini;
+    $result = $bdd->select($requete);
 }
 
 /**
@@ -706,11 +934,6 @@ function upload_file ($basedir, $format, $file, $prefix = "")
     // code de l'erreur si jamais il y en a une:
     $codeErreur = $file["error"];
     
-    // Créé le dossier s'il n'existe pas
-    if (! file_exists($basedir)) {
-        mkdir($basedir, 0777, true);
-    }
-    
     // On préfixe comme il faut
     if (! empty($prefixe))
         $prefix = $prefix . "_";
@@ -785,7 +1008,7 @@ function deleteMusic ($id)
         $stmt2 = $bdd->prepare("DELETE FROM playlist WHERE music_id=:id");
         $stmt2->bindValue(":id", $id);
         $stmt2->execute();
-        @unlink($row["music_lien"]);
+        unlink($row["music_lien"]);
         return true;
     } else {
         return false;
@@ -903,7 +1126,7 @@ function deleteDiapo ($id)
         $stmt2 = $bdd->prepare("DELETE FROM diaporama WHERE diapo_id=:id");
         $stmt2->bindValue(":id", $id);
         $stmt2->execute();
-        @unlink($row["diapo_lien"]);
+        unlink($row["diapo_lien"]);
         return true;
     } else {
         return false;
@@ -1116,7 +1339,7 @@ function activerMembre ($id)
 {
     $bdd = new Connection();
     $stmt = $bdd->prepare(
-            "UPDATE tuser SET etat_validation = 1 WHERE id_membre = :id");
+            "UPDATE tuser SET etat_validation = 1 WHERE id_membre = ?");
     $stmt->bindValue(1, $id);
     $stmt->execute();
 }
@@ -1217,7 +1440,7 @@ function deleteBlogPic ($id)
         $stmt2 = $bdd->prepare("DELETE FROM photo WHERE id_photo = ?");
         $stmt2->bindValue(1, $id);
         $stmt2->execute();
-        @unlink($stmt1->fetch()['adr_photo']);
+        unlink($stmt1->fetch()['adr_photo']);
         return true;
     }
     return false;
@@ -1380,7 +1603,7 @@ function deleteImageActu ($id)
                     "UPDATE actualite SET act_img = null WHERE act_id = ?");
             $stmt2->bindValue(1, $id);
             $stmt2->execute();
-            @unlink($row['act_img']);
+            unlink($row['act_img']);
         }
         return true;
     }
@@ -1461,6 +1684,43 @@ function setNiveauMembre ($id, $niveau)
     $stmt->bindValue(2, $id);
     $stmt->execute();
 }
+
+/**
+ * Suppression d'une langue
+ * @param integer $id L'id de la langue à supprimer
+ */
+function deleteLang ( $id )
+{
+	$bdd = new Connection();
+    $stmt1 = $bdd->prepare("SELECT * FROM lang WHERE lang_id = ?");
+    $stmt1->bindValue(1, $id);
+    $stmt1->execute();
+    if ($stmt1->rowCount() == 1) {
+        $stmt2 = $bdd->prepare("DELETE FROM lang WHERE lang_id = ?");
+        $stmt2->bindValue(1, $id);
+        $stmt2->execute();
+        unlink($stmt1->fetch()['lang_img']);
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Ajout d'une langue
+ */
+function addLang ( $code, $nom, $img )
+{
+    $bdd = new Connection();
+    $sql = "INSERT INTO lang (lang_code, lang_nom, lang_img) VALUES (:code, :nom, :img)";
+	
+    $insert = $bdd->prepare($sql);
+    $insert->bindValue(":code", $code);
+    $insert->bindValue(":nom", $nom);
+    $insert->bindValue(":img", $img);
+    $insert->execute();
+    
+    return true;
+}	
 
 /**
  * Récupère la liste des comptes rendus

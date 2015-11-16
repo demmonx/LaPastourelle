@@ -5,7 +5,6 @@ $titre = recup_titre("accueil_00", $_SESSION['lang']);
 $titre = isset($titre) ? $titre["valeurtrad"] : 'Inconnu';
 
 ?>
-
 <div class="clear"></div>
 <?php
 // Phrase du jour
