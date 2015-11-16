@@ -6,7 +6,7 @@
 <?php
 require_once ("traitement.inc.php");
 if (! isset ( $_SESSION ['pseudo'] ) || ! isset ( $_SESSION ['pass'] ) || ! verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-	header ( "Content-Type: text/html; charset=utf-8" );
+	@header ( "Content-Type: text/html; charset=utf-8" );
 	echo "<center>
 			Vous ne pouvez pas accèder à ces pages sans être connecté en tant que membre<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
@@ -19,16 +19,10 @@ if (! isset ( $_SESSION ['pseudo'] ) || ! isset ( $_SESSION ['pass'] ) || ! veri
 	}
 	// Si on est admin et que l'id est correct
 	if ($adminOk && isset ( $_GET ['id'] ) && is_numeric ( $_GET ['id'] )) {
-		header ( "Content-Type: text/html; charset=utf-8" );
-		$bdd = new Connection ();
-		$req_del = $bdd->prepare ( "UPDATE tuser SET etat_annuaire = 0 WHERE id_membre=?" );
-		$req_del->bindValue ( 1, $_GET ['id'], PDO::PARAM_INT );
-		$req_del->execute ();
+		setMemberToAnnuaire($_GET['id'], false);
 		
 		// Affichage
 		echo '<center>Retrait effectuée</center>';
-		echo "<center><a class='btn btn-link' href='index.php?page=annuaire'>Retour à la page précédente</a></center>";
-		exit ();
 	}
 	
 	// récupération des liens dans la BD et traitement
@@ -98,7 +92,7 @@ if (! isset ( $_SESSION ['pseudo'] ) || ! isset ( $_SESSION ['pass'] ) || ! veri
 		echo "	<TD>" . $row['tel'] . "</TD>";
 		echo "	<TD>" . $row['adresse'] . "</TD>";
 		if ($adminOk) {
-			echo "<TD><A class='btn btn-link' HREF='annuaire.php?id=" . $row['id'] . "'>Retirer</A></TD>";
+			echo "<TD><A class='btn btn-link' HREF='index.php?page=annuaire&id=" . $row['id'] . "'>Retirer</A></TD>";
 		}
 		echo "</TR>";
 	}
