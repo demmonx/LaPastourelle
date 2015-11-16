@@ -23,7 +23,7 @@ function recup_texte ($num, $page, $lang)
 }
 
 /**
- * 
+ * h
  * ************************************
  * Récupération d'un texte dans la BD *
  * ************************************
@@ -63,24 +63,31 @@ function recup_titre ($lecontent, $lang)
 
 /**
  * ************************************
- * Récupération d'une image dans la BD *
+ * Récupération des fichiers dans la base de données
  * ************************************
  */
-function recup_img ($num, $page)
+function getFile ()
 {
     $bdd = new Connection();
-    /**
-     * récupération de l'image demandée
-     */
-    $rqt_img = "SELECT img_adr FROM image WHERE img_num=? AND img_page=?";
     
-    $result = $bdd->prepare($rqt_img);
-    $result->bindValue(1, $num);
-    $result->bindValue(2, $page);
+    $retour = array();
+    $cpt = 0;
+    
+    /**
+     * recupération des revues de presse
+     */
+    $rqt_revue = "SELECT * FROM uploaded_file ORDER BY file_adr";
+    
+    $result = $bdd->prepare($rqt_revue);
     $result->execute();
     
-    // Requête sur clé primaire, un seul élément possible
-    return $result->fecth();
+    while ($row = $result->fetch()) {
+        $retour[$cpt]['id'] = $row['file_num'];
+        $retour[$cpt]['adr'] = $row['file_adr'];
+        $cpt ++;
+    }
+    
+    return $retour;
 }
 
 /**
@@ -136,7 +143,7 @@ function recup_revuePresse ()
     /**
      * recupération des revues de presse
      */
-    $rqt_revue = "SELECT presse_img, presse_txt, num_presse FROM revue_presse";
+    $rqt_revue = "SELECT * FROM revue_presse ORDER BY presse_num DESC";
     
     $result = $bdd->prepare($rqt_revue);
     $result->execute();
@@ -280,7 +287,7 @@ function recup_datePlanning ($id)
     
     if ($row = $result->fetch()) {
         $tab_planning['jour'] = $row['pl_jour'];
-        $tab_planning['date'] = str_replace("-", "/", $row['pl_date']);
+        $tab_planning['date'] = date("j/m/Y", strtotime($row['pl_date']));
         $tab_planning['lieu'] = $row['pl_lieu'];
         $tab_planning['joueur'] = $row['pl_musiciens'];
         $tab_planning['id'] = $row['id_planning'];
@@ -496,53 +503,6 @@ function stripnl2br2 ($string)
 }
 
 /**
- * ***********************************************
- * Récupération du texte d'une page donnée *
- * ***********************************************
- */
-function getTexte ($page)
-{
-    $bdd = new Connection();
-    
-    $retour = array();
-    /**
-     * recupération du texte
-     */
-    $sql = "SELECT texte FROM texte WHERE txt_page=? ";
-    $stmt = $bdd->prepare($sql);
-    $stmt->bindValue(1, $page);
-    $stmt->execute();
-    while ($row = $stmt->fetch()) {
-        $retour[] = nl2br($row["texte"]);
-    }
-    
-    return $retour;
-}
-
-/**
- * Met à jour le texte d'une page donné
- *
- * @param string $page
- *            La page à mettre à jour
- * @param string $content
- *            Le nouveau texte
- */
-function setTexte ($page, $content)
-{
-    $bdd = new Connection();
-    
-    $retour = array();
-    /**
-     * recupération du texte
-     */
-    $sql = "UPDATE texte SET texte = ? WHERE txt_page=? ";
-    $stmt = $bdd->prepare($sql);
-    $stmt->bindValue(1, $content);
-    $stmt->bindValue(2, $page);
-    $stmt->execute();
-}
-
-/**
  * Récupération des coordonnées
  */
 function recup_infoCoord ()
@@ -641,7 +601,6 @@ function redirect ($lien, $sec)
     // Fait planter si suivit par un exit
     // header('Refresh:'.$sec.'; URL='.$lien);
 }
-
 
 /**
  * Renvoie l'identifiant d'un membre en fonction de son pseudo
@@ -747,6 +706,11 @@ function upload_file ($basedir, $format, $file, $prefix = "")
     // code de l'erreur si jamais il y en a une:
     $codeErreur = $file["error"];
     
+    // Créé le dossier s'il n'existe pas
+    if (! file_exists($basedir)) {
+        mkdir($basedir, 0777, true);
+    }
+    
     // On préfixe comme il faut
     if (! empty($prefixe))
         $prefix = $prefix . "_";
@@ -821,7 +785,7 @@ function deleteMusic ($id)
         $stmt2 = $bdd->prepare("DELETE FROM playlist WHERE music_id=:id");
         $stmt2->bindValue(":id", $id);
         $stmt2->execute();
-        unlink($row["music_lien"]);
+        @unlink($row["music_lien"]);
         return true;
     } else {
         return false;
@@ -939,7 +903,7 @@ function deleteDiapo ($id)
         $stmt2 = $bdd->prepare("DELETE FROM diaporama WHERE diapo_id=:id");
         $stmt2->bindValue(":id", $id);
         $stmt2->execute();
-        unlink($row["diapo_lien"]);
+        @unlink($row["diapo_lien"]);
         return true;
     } else {
         return false;
@@ -1152,7 +1116,7 @@ function activerMembre ($id)
 {
     $bdd = new Connection();
     $stmt = $bdd->prepare(
-            "UPDATE tuser SET etat_validation = 1 WHERE id_membre = ?");
+            "UPDATE tuser SET etat_validation = 1 WHERE id_membre = :id");
     $stmt->bindValue(1, $id);
     $stmt->execute();
 }
@@ -1253,7 +1217,7 @@ function deleteBlogPic ($id)
         $stmt2 = $bdd->prepare("DELETE FROM photo WHERE id_photo = ?");
         $stmt2->bindValue(1, $id);
         $stmt2->execute();
-        unlink($stmt1->fetch()['adr_photo']);
+        @unlink($stmt1->fetch()['adr_photo']);
         return true;
     }
     return false;
@@ -1416,7 +1380,7 @@ function deleteImageActu ($id)
                     "UPDATE actualite SET act_img = null WHERE act_id = ?");
             $stmt2->bindValue(1, $id);
             $stmt2->execute();
-            unlink($row['act_img']);
+            @unlink($row['act_img']);
         }
         return true;
     }
@@ -1497,43 +1461,6 @@ function setNiveauMembre ($id, $niveau)
     $stmt->bindValue(2, $id);
     $stmt->execute();
 }
-
-/**
- * Suppression d'une langue
- * @param integer $id L'id de la langue à supprimer
- */
-function deleteLang ( $id )
-{
-	$bdd = new Connection();
-    $stmt1 = $bdd->prepare("SELECT * FROM lang WHERE lang_id = ?");
-    $stmt1->bindValue(1, $id);
-    $stmt1->execute();
-    if ($stmt1->rowCount() == 1) {
-        $stmt2 = $bdd->prepare("DELETE FROM lang WHERE lang_id = ?");
-        $stmt2->bindValue(1, $id);
-        $stmt2->execute();
-        unlink($stmt1->fetch()['lang_img']);
-        return true;
-    }
-    return false;
-}
-
-/**
- * Ajout d'une langue
- */
-function addLang ( $code, $nom, $img )
-{
-    $bdd = new Connection();
-    $sql = "INSERT INTO lang (lang_code, lang_nom, lang_img) VALUES (:code, :nom, :img)";
-	
-    $insert = $bdd->prepare($sql);
-    $insert->bindValue(":code", $code);
-    $insert->bindValue(":nom", $nom);
-    $insert->bindValue(":img", $img);
-    $insert->execute();
-    
-    return true;
-}	
 
 /**
  * Récupère la liste des comptes rendus
@@ -1955,4 +1882,40 @@ function deleteRevue ($id)
     }
     return false;
 }
-?>
+
+/**
+ * Suppression d'une langue
+ * @param integer $id L'id de la langue à supprimer
+ */
+function deleteLang ( $id )
+{
+	$bdd = new Connection();
+    $stmt1 = $bdd->prepare("SELECT * FROM lang WHERE lang_id = ?");
+    $stmt1->bindValue(1, $id);
+    $stmt1->execute();
+    if ($stmt1->rowCount() == 1) {
+        $stmt2 = $bdd->prepare("DELETE FROM lang WHERE lang_id = ?");
+        $stmt2->bindValue(1, $id);
+        $stmt2->execute();
+        unlink($stmt1->fetch()['lang_img']);
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Ajout d'une langue
+ */
+function addLang ( $code, $nom, $img )
+{
+    $bdd = new Connection();
+    $sql = "INSERT INTO lang (lang_code, lang_nom, lang_img) VALUES (:code, :nom, :img)";
+	
+    $insert = $bdd->prepare($sql);
+    $insert->bindValue(":code", $code);
+    $insert->bindValue(":nom", $nom);
+    $insert->bindValue(":img", $img);
+    $insert->execute();
+    
+    return true;
+}	
