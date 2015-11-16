@@ -18,21 +18,21 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 	<?php
     echo "<h1>Liste des images : </h1>";
     $tab = recup_all_diapos();
-        echo "<table class='table table-bordered' id='list-photos-full'>";
-        if (count($tab) > 0) {
-       		require_once 'list_photos.php';
-        } else {
-        	echo "<tr><td>Aucune image n'a été trouvée</td></tr>";
-        }
-        echo "</table>";
+    echo "<table class='table table-bordered' id='list-photos-full'>";
+    if (count($tab) > 0) {
+        require_once 'list_photos.php';
+    } else {
+        echo "<tr><td>Aucune image n'a été trouvée</td></tr>";
+    }
+    echo "</table>";
     
     echo "<h1>Ajouter une nouvelle image : </h1>";
     ?>
 	<form action="slider_traitement.php" method="post"
 		enctype="multipart/form-data" id="formS">
 		<label for="fichier">Photo : <input type="file" id="uploadFile"
-			name="fichier"></label> <label> <input class="btn btn-info"
-			type="submit" value="Ajouter"></label>
+			name="fichier"></label> <input class="btn btn-info" type="submit"
+			value="Ajouter">
 		<div id="msgReturn"></div>
 	</form>
 </center>

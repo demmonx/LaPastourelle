@@ -1,11 +1,12 @@
 <?php
-if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-	echo "<center>
+if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
+         ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+    echo "<center>
 			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
 		  </center>";
-	redirect ( "index.php?page=accueil", 3 );
-	exit ( 0 );
+    redirect("index.php?page=accueil", 3);
+    exit(0);
 } // else
 ?>
 <h1>Administration de l'actualité</h1>
@@ -29,8 +30,6 @@ if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! veri
 	</div>
 </div>
 
-<A class='btn btn-link' HREF=index.php?page=change_img_act>Modifier les
-	images</A>
 
 <script language="javascript">
 $(document).ready(function () {
