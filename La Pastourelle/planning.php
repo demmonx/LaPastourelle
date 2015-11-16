@@ -12,16 +12,12 @@ if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! veri
 	exit ( 0 );
 }
 require_once 'traitement.inc.php';
-		$bdd = new Connection ();
 if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
 	// Suppression dans la base de données
 	if (isset ( $_GET ['id'] ) && is_numeric ( $_GET ['id'] )) {
 		// récupération de l'evt à delete
-		$id = $_GET ["id"];
 		// Suppression dans la BD
-		$req_suppr = $bdd->prepare ( "DELETE FROM planning WHERE id_planning =? " );
-		$req_suppr->bindValue ( 1, $id );
-		$req_suppr->execute ();
+		deleteFromPlanning($_GET ["id"]);
 		
 		// Ajout dans la base de données
 	}
