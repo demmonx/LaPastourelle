@@ -23,7 +23,7 @@ function recup_texte ($num, $page, $lang)
 }
 
 /**
- * h
+ * 
  * ************************************
  * Récupération d'un texte dans la BD *
  * ************************************
@@ -1339,7 +1339,7 @@ function activerMembre ($id)
 {
     $bdd = new Connection();
     $stmt = $bdd->prepare(
-            "UPDATE tuser SET etat_validation = 1 WHERE id_membre = :id");
+            "UPDATE tuser SET etat_validation = 1 WHERE id_membre = ?");
     $stmt->bindValue(1, $id);
     $stmt->execute();
 }
@@ -1684,4 +1684,41 @@ function setNiveauMembre ($id, $niveau)
     $stmt->bindValue(2, $id);
     $stmt->execute();
 }
+
+/**
+ * Suppression d'une langue
+ * @param integer $id L'id de la langue à supprimer
+ */
+function deleteLang ( $id )
+{
+	$bdd = new Connection();
+    $stmt1 = $bdd->prepare("SELECT * FROM lang WHERE lang_id = ?");
+    $stmt1->bindValue(1, $id);
+    $stmt1->execute();
+    if ($stmt1->rowCount() == 1) {
+        $stmt2 = $bdd->prepare("DELETE FROM lang WHERE lang_id = ?");
+        $stmt2->bindValue(1, $id);
+        $stmt2->execute();
+        unlink($stmt1->fetch()['lang_img']);
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Ajout d'une langue
+ */
+function addLang ( $code, $nom, $img )
+{
+    $bdd = new Connection();
+    $sql = "INSERT INTO lang (lang_code, lang_nom, lang_img) VALUES (:code, :nom, :img)";
+	
+    $insert = $bdd->prepare($sql);
+    $insert->bindValue(":code", $code);
+    $insert->bindValue(":nom", $nom);
+    $insert->bindValue(":img", $img);
+    $insert->execute();
+    
+    return true;
+}	
 ?>
