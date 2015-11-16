@@ -1969,3 +1969,14 @@ function updatePersonnalInfo($info) {
 	$stmt->execute ();
 	return true;
 }
+
+/**
+ * Supprime un évènement du planning
+ * @param integer $id L'identifiant de l'évènement à supprimer
+ */
+function deleteFromPlanning($id) {
+	$bdd = new Connection();
+	$req_suppr = $bdd->prepare ( "DELETE FROM planning WHERE id_planning =? " );
+	$req_suppr->bindValue ( 1, $id );
+	$req_suppr->execute ();
+}
