@@ -218,7 +218,7 @@ au projet à jour, ainsi que de rédiger les comptes rendus de réunion\\
 	\begin{itemize}
 	  \item le site hébergé, testé et fonctionnel
 	  \item un manuel d'utilisateur pour l'assocation
-	  \item un dossier projet
+	  \item un dossier projet, avec les schémas de conception et les codes d'accès pour modifier le site web
 	  \item un plan projet
 	\end{itemize}
 
@@ -232,10 +232,6 @@ deux mois. \\
 partie de réponse aux exigences de l'assocation, et une seconde partie basée 
 sur des améliorations non-proposées mais envisageable.
 
-\subsubsection*{Première partie}
-La première partie sera consacrée à la réponse aux exigences initiale. Pour 
-cela, nous avons du prendre un rendez-vous avec le client afin de détailler les 
-besoins. \\
 Nous avons dû réaliser divers documents afin d'assurer le suivi de projet : 
 \begin{itemize}
     \item La liste des tâches
@@ -316,11 +312,31 @@ les logiciels suivants : \\
  sur OpenShift afin de pouvoir consulter les tâches à effctuer depuis n'importe
  où, ainsi qu'accéder à la dernière version des documents projets, même si le
  rapport est hébergé sur Github.
+ \par Github est un système d'hébergement de code source public dans la version que nous allons utiliser, par conséquent, les codes sources seront visibles par tout internaute. Il ne pourra toutefois les modifier. Ainsi par raison de sécurité, nous avons retiré les outils permettant à un tiers d'accéder aux données privées de l'association ainsi qu'aux informations concernant les membres.
  \par Les rapports seront rédigés la plupart du temps en LaTeX afin de
  s'affranchir du système d'exploitation, car certains utilisent Linux et
  d'autres Windows. 
 
 \section{Pilotage}
+Une réunion projet est le moment où l'on pose des questions à la MOA afin de s'assurer du travail à accomplir, ou de proposer des éléments de réalisation. 
+Un comité de pilotage (COPIL) a pour but de faire le point à un instant T sur l'avancée du projet et définir les taches qui devront etre accomplis dans le futur. \\
+
+\par Nous nous engageons à rencontrer le client plusieurs fois durant le projet. Tout d'abord avant les vacances de Toussaint afin d'éclaircir les taches à accomplir durant une réunion projet. Ensuite, nous le rencontrerons autour de mi-novembre pour un COPIL qui portera sur les exigences du client qui ont été accomplis jusqu'à présent (taches urgentes et importantes). Enfin, il faudra faire un dernier comité de pilotage le 8 ou le 9 décembre afin de présenter les scénarios de test, les
+modifications effectuées, établir la recette et les conditions de migration. 
+\section{Recettes}
+La recette est l'acception du projet par le client. Pour cela, il est nécessaire d'établir des conditions préalables à la signature de celle-ci : 
+\begin{itemize}
+ \item les erreurs bloquantes : ce sont celles qui empechent l'accès au site. En cas d'erreur bloquante, la recette ne pourra pas etre signée.
+ \item les erreurs importantes : celles qui empechent un module de fonctionner, mais qui ne perturbe pas l'intégralité ni la stabilité du site. Nous nous autorisons un maximum de deux erreurs de ce type pour signer la recette.
+ \item les erreurs minimes : celles qui sont relatives à l'aspect général du site, elles n'empechent en rien le fonctionnement. Le recette ne sera pas signée si plus de dix erreurs minimes sont détectées.
+\end{itemize}
+
+\par Pour signer la recette, tous les livrables exigés devront impérativement etre fournis.
+
+\section{Migration}
+En ce qui concerne la migration du site et de sa base de données associée, nous nous engageons à déployer la version à jour sur le serveur existant, en assurant la sauvegarde des versions précédentes. Nous testerons également l'ensemble des fonctionnalités sur le nouveau site afin de s'assurer que tout est déployé correctement. 
+Une fois le site déployé, nous signerons une nouvelle recette afin d'assurer que tout a été correctement implémenté.
+
 \subsection{Prévision initiale}
 Initialement, nous avions prévus de suivre cette plannification, avec la
 première partie jusqu'au jalon définie avec un peu de précision, puis la suite
@@ -378,7 +394,6 @@ retiré de ce tableau les tâches terminée lors de la plannification précéden
 
 \subsection{Avancement final}
 
-\section{Recettes}
 \section{Compte rendu de réunion}
 \subsection{Réunion initiale avec le client (21/10/2015)}
 Lors de la réunion initiale avec le client, nous lui avons fait part de nos 
