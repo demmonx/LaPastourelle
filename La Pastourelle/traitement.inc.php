@@ -43,15 +43,13 @@ function recup_phrasejour ($lang)
 }
 
 /**
- * ************************************
- * Récupération d'un titre dans la BD *
- * ************************************
+ * Récupération des traductions dans la BD pour un élém donné
  */
-function recup_titre ($lecontent, $lang)
+function getTraduction ($lecontent, $lang)
 {
     // ------------------- TEST CONNECTION PDO ------------------------ //
     $bdd = new Connection();
-    $sql = "SELECT valeurtrad FROM tradannexe WHERE nomtrad= ? AND lang= ?";
+    $sql = "SELECT valeurtrad FROM tradannexe WHERE nomtrad = ? AND lang= ?";
     $result = $bdd->prepare($sql);
     $result->bindValue(1, $lecontent);
     $result->bindValue(2, $lang);
@@ -102,9 +100,8 @@ function recup_lienExt ()
     $retour = array();
     $cpt = 0;
     
-    $rqt_lien = "SELECT * FROM lien_ext";
     $result = $bdd->prepare("SELECT * FROM lien_ext");
-    
+    $result->execute();
     while ($row = $result->fetch()) {
         $retour[$cpt ++] = extractLinkFromARow($row);
     }
@@ -509,22 +506,20 @@ function recup_infoCoord ()
 {
     $bdd = new Connection();
     $tab_coord = array();
-    $cpt = 0;
     /**
      * recupération des liens externes sous la forme : adr | mail | tel | img
      */
-    $rqt_coord = "SELECT coord_adr, coord_mail, coord_tel, coord_img FROM coordonnees";
+    $rqt_coord = "SELECT * FROM coordonnees";
     
     $result = $bdd->prepare($rqt_coord);
-    $result = $bdd->execute();
+    $result->execute();
     
-    while ($row = $stmt->fetch()) {
-        $tab_coord[$cpt]['adr'] = $row['coord_adr'];
-        $tab_coord[$cpt]['tel'] = $row['coord_tel'];
-        $tab_coord[$cpt]['mail'] = $row['coord_mail'];
-        $tab_coord[$cpt]['img'] = $row['coord_img'];
-        $tab_coord[$cpt]['id'] = $row['coord_num'];
-        $cpt ++;
+    if ($row = $result->fetch()) {
+        $tab_coord['adr'] = $row['coord_adr'];
+        $tab_coord['tel'] = $row['coord_tel'];
+        $tab_coord['mail'] = $row['coord_mail'];
+        $tab_coord['img'] = $row['coord_img'];
+        $tab_coord['id'] = $row['coord_num'];
     }
     
     return $tab_coord;
@@ -937,12 +932,13 @@ function getLanguages ()
     $i = 0;
     $bdd = new Connection();
     $return = array();
-    $stmt = $bdd->prepare("SELECT * FROM lang");
+    $stmt = $bdd->prepare(
+            "SELECT * FROM lang JOIN languages_world ON lang_code = id");
     $stmt->execute();
     while ($row = $stmt->fetch()) {
         $return[$i]["id"] = $row["lang_id"];
-        $return[$i]["name"] = $row['lang_nom'];
-        $return[$i]["code"] = $row['lang_code'];
+        $return[$i]["name"] = $row['nom_en'];
+        $return[$i]["img"] = $row['lang_img'];
         $i ++;
     }
     return $return;
@@ -976,11 +972,32 @@ function getSupportedLanguages ()
 function reverseLanguage ($code)
 {
     $bdd = new Connection();
-    $stmt = $bdd->prepare("SELECT lang_id FROM lang WHERE lang_code=?");
+    $stmt = $bdd->prepare(
+            "SELECT lang_id FROM lang JOIN languages_world ON lang_code=id WHERE locale=?");
     $stmt->bindValue(1, $code);
     $stmt->execute();
     
     return $stmt->rowCount() > 0 ? $stmt->fetch()[0] : - 1;
+}
+
+/**
+ * Retourne la liste de toutes les langues disponibles au niveau mondiale
+ * et des locales associées
+ */
+function getAllLanguages ()
+{
+    $i = 0;
+    $bdd = new Connection();
+    $return = array();
+    $stmt = $bdd->prepare("SELECT * FROM languages_world ORDER BY nom_en");
+    $stmt->execute();
+    while ($row = $stmt->fetch()) {
+        $return[$i]["id"] = $row["id"];
+        $return[$i]["name"] = $row['nom_en'];
+        $return[$i]["code"] = $row['locale'];
+        $i ++;
+    }
+    return $return;
 }
 
 /**
@@ -1340,7 +1357,7 @@ function addActuType ($nom)
 {
     // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
     // requêtes
-    $type = preg_replace("#[^!_a-z]+#", '', $nom);
+    $type = preg_replace("#[^!_a-z]+#", '', strtolower($nom));
     $bdd = new Connection();
     
     // On regarde si le type existe déjà
@@ -1885,11 +1902,13 @@ function deleteRevue ($id)
 
 /**
  * Suppression d'une langue
- * @param integer $id L'id de la langue à supprimer
+ *
+ * @param integer $id
+ *            L'id de la langue à supprimer
  */
-function deleteLang ( $id )
+function deleteLang ($id)
 {
-	$bdd = new Connection();
+    $bdd = new Connection();
     $stmt1 = $bdd->prepare("SELECT * FROM lang WHERE lang_id = ?");
     $stmt1->bindValue(1, $id);
     $stmt1->execute();
@@ -1897,7 +1916,7 @@ function deleteLang ( $id )
         $stmt2 = $bdd->prepare("DELETE FROM lang WHERE lang_id = ?");
         $stmt2->bindValue(1, $id);
         $stmt2->execute();
-        unlink($stmt1->fetch()['lang_img']);
+        @unlink($stmt1->fetch()['lang_img']);
         return true;
     }
     return false;
@@ -1906,77 +1925,113 @@ function deleteLang ( $id )
 /**
  * Ajout d'une langue
  */
-function addLang ( $code, $nom, $img )
+function addLang ($code, $img)
 {
     $bdd = new Connection();
-    $sql = "INSERT INTO lang (lang_code, lang_nom, lang_img) VALUES (:code, :nom, :img)";
-	
+    $sql = "INSERT INTO lang (lang_code, lang_img) VALUES (:code,  :img)";
+    
     $insert = $bdd->prepare($sql);
     $insert->bindValue(":code", $code);
-    $insert->bindValue(":nom", $nom);
     $insert->bindValue(":img", $img);
     $insert->execute();
     
     return true;
-}	
+}
 
 /**
  * Affiche ou masque un membre de l'annuaire
- * @param integer $id L'id du membre à modifier
- * @param boolean $val true si le membre doit figurer dans l'annuaire, false sinon
+ *
+ * @param integer $id
+ *            L'id du membre à modifier
+ * @param boolean $val
+ *            true si le membre doit figurer dans l'annuaire, false sinon
  */
-function setMemberToAnnuaire($id, $val = true) {
-	$bdd = new Connection ();
-	$req_del = $bdd->prepare ( "UPDATE tuser SET etat_annuaire = ? WHERE id_membre=?" );
-	$req_del->bindValue ( 1, ($val ? 1 : 0));
-	$req_del->bindValue ( 2, $id);
-	$req_del->execute ();
+function setMemberToAnnuaire ($id, $val = true)
+{
+    $bdd = new Connection();
+    $req_del = $bdd->prepare(
+            "UPDATE tuser SET etat_annuaire = ? WHERE id_membre=?");
+    $req_del->bindValue(1, ($val ? 1 : 0));
+    $req_del->bindValue(2, $id);
+    $req_del->execute();
 }
 
 /**
  * Modifie les informations personnelles d'un membre
- * @param array $info La liste des informations personnelles
+ *
+ * @param array $info
+ *            La liste des informations personnelles
  */
-function updatePersonnalInfo($info) {
-	$bdd = new Connection();
-	
-	// Si pas le bon nombre d'arguments
-	if (!(count($info) == 7 || count($info) == 8)) {
-		return false;
-	}
-	
-	// Cas où l'on change le password
-	if (isset($info["pass"])) {
-		$sql = "UPDATE tuser SET motdepasse=:pass, email=:mail, telephone=:tel, nom=:nom, 
+function updatePersonnalInfo ($info)
+{
+    $bdd = new Connection();
+    
+    // Si pas le bon nombre d'arguments
+    if (! (count($info) == 7 || count($info) == 8)) {
+        return false;
+    }
+    
+    // Cas où l'on change le password
+    if (isset($info["pass"])) {
+        $sql = "UPDATE tuser SET motdepasse=:pass, email=:mail, telephone=:tel, nom=:nom, 
 				prenom=:prenom, adresse=:adresse, etat_annuaire=:annuaire 
 				WHERE id_membre=:id";
-		$stmt = $bdd->prepare ( $sql );
-		$stmt->bindValue ( ':pass',  $info["pass"], PDO::PARAM_STR );
-	} else {
-		$sql = "UPDATE tuser SET email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, 
+        $stmt = $bdd->prepare($sql);
+        $stmt->bindValue(':pass', $info["pass"], PDO::PARAM_STR);
+    } else {
+        $sql = "UPDATE tuser SET email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, 
 				adresse=:adresse, etat_annuaire=:annuaire 
 				WHERE id_membre=:id";
-		$stmt = $bdd->prepare ( $sql );
-	}
-	
-	$stmt->bindValue ( ':mail', $info["mail"], PDO::PARAM_STR );
-	$stmt->bindValue ( ':tel', $info["tel"], PDO::PARAM_INT );
-	$stmt->bindValue ( ':nom', $info["nom"], PDO::PARAM_STR );
-	$stmt->bindValue ( ':prenom', $info["prenom"], PDO::PARAM_STR );
-	$stmt->bindValue ( ':adresse', $info["adresse"], PDO::PARAM_STR );
-	$stmt->bindValue ( ':annuaire', $info["annuaire"], PDO::PARAM_INT );
-	$stmt->bindValue ( ':id', $info["id"], PDO::PARAM_INT );
-	$stmt->execute ();
-	return true;
+        $stmt = $bdd->prepare($sql);
+    }
+    
+    $stmt->bindValue(':mail', $info["mail"], PDO::PARAM_STR);
+    $stmt->bindValue(':tel', $info["tel"], PDO::PARAM_INT);
+    $stmt->bindValue(':nom', $info["nom"], PDO::PARAM_STR);
+    $stmt->bindValue(':prenom', $info["prenom"], PDO::PARAM_STR);
+    $stmt->bindValue(':adresse', $info["adresse"], PDO::PARAM_STR);
+    $stmt->bindValue(':annuaire', $info["annuaire"], PDO::PARAM_INT);
+    $stmt->bindValue(':id', $info["id"], PDO::PARAM_INT);
+    $stmt->execute();
+    return true;
 }
 
 /**
  * Supprime un évènement du planning
- * @param integer $id L'identifiant de l'évènement à supprimer
+ *
+ * @param integer $id
+ *            L'identifiant de l'évènement à supprimer
  */
-function deleteFromPlanning($id) {
-	$bdd = new Connection();
-	$req_suppr = $bdd->prepare ( "DELETE FROM planning WHERE id_planning =? " );
-	$req_suppr->bindValue ( 1, $id );
-	$req_suppr->execute ();
+function deleteFromPlanning ($id)
+{
+    $bdd = new Connection();
+    $req_suppr = $bdd->prepare("DELETE FROM planning WHERE id_planning =? ");
+    $req_suppr->bindValue(1, $id);
+    $req_suppr->execute();
+}
+
+/**
+ * Envoie un mail
+ *
+ * @param string $nom
+ *            Le nom de l'auteur du mail
+ * @param string $email
+ *            Son adresse mail
+ * @param string $message
+ *            Le message à envoyer
+ */
+function sendMail ($nom, $email, $message)
+{
+    // Pour définir chaque input du formulaire, ajouter le signe de dollar
+    // devant
+    $msg = "Nom:\t$nom\n";
+    $msg .= "E-Mail:\t$email\n";
+    $msg .= "Message:\t$message\n\n";
+    
+    // Pourrait continuer ainsi jusqu'à la fin du formulaire
+    $recipient = "pastourelle.rodez@yahoo.fr";
+    $subject = "Formulaire du site internet";
+    $mailheaders = "From:formulaire votre avis nous interesse // contact<> \n";
+    $mailheaders .= "Reply-To: $email\n\n";
+    mail($recipient, $subject, $msg, $mailheaders);
 }

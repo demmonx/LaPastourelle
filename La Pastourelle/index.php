@@ -17,8 +17,8 @@ if (isset($_GET['lang']) && ! empty($_GET['lang'])) {
 // Récupère l'id à partir du code
 $_SESSION['lang'] = $_SESSION['lang'] < 0 ? 1 : $_SESSION['lang'];
 
-if ($supported_lang[array_search($_SESSION['lang'], $supported_lang)] !=
-         $_SESSION['lang']) {
+if (count($supported_lang) > 0 && $supported_lang[array_search(
+        $_SESSION['lang'], $supported_lang)] != $_SESSION['lang']) {
     $_SESSION['lang'] = reverseLanguage('fr');
 }
 
@@ -90,13 +90,6 @@ $languages = getLanguages();
 foreach ($languages as $lang) {
     $lien = "index.php?lang=" . $lang['id'];
     
-    // Le logo de la langue n'existe pas
-    if (! file_exists('image/lang/' . $lang['code'] . '.png')) {
-        $img = "image/lang/inc.png";
-    } else {
-        $img = "image/lang/" . $lang['code'] . ".png";
-    }
-    
     // On a récupéré une page
     if (isset($_GET['page'])) {
         $lien .= "&page=" . $_GET['page'];
@@ -107,8 +100,8 @@ foreach ($languages as $lang) {
     }
     
     // Affichage des selecteurs
-    echo "<a href='" . $lien . "'><img src='" . $img .
-             "' width='19' height='12' style='border :1px solid green;' /></a>";
+    echo " <a href='" . $lien . "'><img src='" . $lang['img'] .
+             "' width='19' height='12' /></a>";
 }
 ?>
 					</p>
@@ -191,6 +184,18 @@ if (isset($_GET['page'])) {
     require_once ("accueil.php");
 }
 ?>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
