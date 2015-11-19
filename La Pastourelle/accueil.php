@@ -1,8 +1,5 @@
 <?php
 @session_start();
-// récupération du titre de la page
-$titre = recup_titre("accueil_00", $_SESSION['lang']);
-$titre = isset($titre) ? $titre["valeurtrad"] : 'Inconnu';
 
 ?>
 <div class="clear"></div>
@@ -14,9 +11,12 @@ if (isset($phrase) && $phrase != "") {
              " </marquee>";
 }
 
-echo "<CENTER><H1>" . $titre . "</H1></CENTER>";
-
-// Actualité
+// Titre
+$titre = getTraduction("accueil_titre", $_SESSION['lang']);
+if (isset($titre["valeurtrad"]))
+    echo "<h1>" . $titre["valeurtrad"] . "</h1>";
+    
+    // Actualité
 $actu = getActu($_SESSION['lang']);
 foreach ($actu as $row) {
     echo "<div class='box grid_6'>";
