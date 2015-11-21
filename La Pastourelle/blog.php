@@ -1,10 +1,10 @@
 <?php
 if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
          ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "<center>
+    echo "
 			Vous ne pouvez pas accèder à ces pages sans être connecté<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  </center>";
+		  ";
     redirect("index.php?page=accueil", 3);
     exit(0);
 } // else
@@ -12,7 +12,7 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 // Nombre de photos par page
 DEFINE("PHOTO_PER_PAGE", 10);
 $total = getNbPic(); // Nombre de photos dispo
-                      
+                     
 // compte le nombre de pages.
 $nombreDePages = floor($total / PHOTO_PER_PAGE);
 
@@ -37,17 +37,17 @@ $les_photos = getPicByRange($premiereEntree, PHOTO_PER_PAGE);
 // S'affiche uniquement si l'utilisateur est un administrateur
 // pour ajouter de nouvelles photos
 if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "<DIV><CENTER><B>Pour ajouter une nouvelle photo</B></CENTER></DIV>";
+    echo "<DIV><B>Pour ajouter une nouvelle photo</B></DIV>";
     
     echo '
-		<center>
+		
 		<form method="POST" id="post-pic" action="blog_traitement.php" enctype="multipart/form-data">
-		<br>Description de la photo :<br><TEXTAREA name="description"   id="desc" rows=2 cols=40 wrap=hard></TEXTAREA><br><br>
+		<br>Description de la photo :<br><TEXTAREA name="description"   id="desc"></TEXTAREA><br><br>
 		Fichier : <input type="file" id="uploadFile" name="fichier" size="50">
 		<input type="hidden" name="ac" value="1" />
 		<input class="btn btn-info" type="submit" name="envoyer" value="Enregistrer cette photo">
 		</form>
-		</center>';
+		';
 }
 
 // ouverture tableau
@@ -55,7 +55,7 @@ foreach ($les_photos as $row) {
     echo "<div>";
     // la date de la photo
     echo "<br><I>Publié le " . $row['date'] .
-             "</I><a class='btn btn-link' href='#header' style='font-size:10px;'>&nbsp&nbspHaut de page</a> | <a class='btn btn-link' href='#basDePage' style='font-size:10px;'>Bas de page</a>";
+             "</I><a class='btn btn-link' href='#header' >Bas de page</a>";
     
     // si administrateur -> pour supprimer la photo
     if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
@@ -65,21 +65,20 @@ foreach ($les_photos as $row) {
     }
     
     // la photo
-    echo "<br><center><IMG class='ssBordure' style='margin-top:-10px' ALT=" .
-             $row['adr'] . " HEIGHT=\"500\" WIDTH=\"400\" src='" . $row['adr'] .
-             "'></center><br>";
+    echo "<br><IMG class='ssBordure'  ALT=" . $row['adr'] . " src='" .
+             $row['adr'] . "'><br>";
     // description de la photo s'il en existe une
     if ($row['txt'] != null) {
         echo "<b>Description de l'image :</b>" . $row['txt'] . "<br><br/>";
     }
     
-    echo "<center><b><i class='icon-comment'></i> Commentaires</b></center></br>";
+    echo "<b><i class='icon-comment'></i> Commentaires</b></br>";
     // affichage des commentaires pour chaque photo s'ils existent
     $les_commentaires = getBlogComment($row['id']);
     foreach ($les_commentaires as $resultat) {
         echo "<div>";
         // auteur du commentaire
-        echo "<B>" . $resultat['pseudo'] . " : </B>&nbsp&nbsp";
+        echo "<B>" . $resultat['pseudo'] . " : </B>";
         
         // le commentaire
         echo nl2br(html_entity_decode($resultat['txt']));
@@ -94,16 +93,15 @@ foreach ($les_photos as $row) {
         echo "<hr>";
     }
     // formulaire de commentaire
-    echo '<center>
+    echo '
 				<form method="post" class="post-comment" action="blog_traitement.php">
-					<textarea name="content" rows="3" cols="60"></textarea><br>
-					<input type="hidden" name="photo" value="' .
-             $row['id'] . '" />
+					<textarea name="content"></textarea><br>
+					<input type="hidden" name="photo" value="' . $row['id'] . '" />
 							<input type="hidden" name="ac" value="2" />
 					
 					<input class="btn btn-info" type="submit" value="Poster un commentaire">
 				</form>
-			</center>
+			
 			<hr></div>';
 }
 // GESTION DES BOUTONS DE LA PAGINATION

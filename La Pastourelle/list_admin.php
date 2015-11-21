@@ -1,19 +1,20 @@
 <?php
-@session_start ();
+@session_start();
 require_once 'traitement.inc.php';
 $adminOK = false;
-if (isset ( $_SESSION ['pseudo'] ) && isset ( $_SESSION ['pass'] ) && verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-	$adminOK = true;
+if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &&
+         verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+    $adminOK = true;
 }
 
 if (! $adminOK) {
-	exit ( "Vous n'avez pas les droits requis" );
+    exit("Vous n'avez pas les droits requis");
 }
 ?>
-<center>
-	<h2>Administrateurs</h2>
-</center>
-<TABLE class='table table-bordered' CELLPADDING=5px>
+
+<h2>Administrateurs</h2>
+
+<TABLE class='table table-bordered'>
 	<TR>
 		<H3>
 			<TH>Prenom</TH>
@@ -26,25 +27,27 @@ if (! $adminOK) {
 		</H3>
 	</TR>
 <?php
-$rep = getAdmin ();
-foreach ( $rep as $row ) {
-	echo "<TR>
-		<TD><B>" . $row ['prenom'] . "</B></TD>
-		<TD><B>" . $row ['nom'] . "</B></TD>
-		<TD>" . $row ['pseudo'] . "</TD>
-		<TD>" . $row ['email'] . "</TD>
-		<TD>" . $row ['telephone'] . "</TD>
-		<TD>" . $row ['adresse'] . "</TD>
-		<TD><A class='action'  HREF='gestion_admin.php?ac=1&id=" . $row ['id'] . "'>Retirer</A></TD>
+$rep = getAdmin();
+foreach ($rep as $row) {
+    echo "<TR>
+		<TD><B>" . $row['prenom'] . "</B></TD>
+		<TD><B>" . $row['nom'] . "</B></TD>
+		<TD>" . $row['pseudo'] . "</TD>
+		<TD>" . $row['email'] . "</TD>
+		<TD>" . $row['telephone'] . "</TD>
+		<TD>" . $row['adresse'] .
+             "</TD>
+		<TD><A class='action'  HREF='gestion_admin.php?ac=1&id=" .
+             $row['id'] . "'>Retirer</A></TD>
 		</TR>
 		<TR></TR>";
 }
 ?>
 </table>
-<center>
-	<h2>Membres</h2>
-</center>
-<TABLE class='table table-bordered' CELLPADDING=5px>
+
+<h2>Membres</h2>
+
+<TABLE class='table table-bordered'>
 	<TR>
 		<H3>
 			<TH>Prenom</TH>
@@ -57,16 +60,18 @@ foreach ( $rep as $row ) {
 		</H3>
 	</TR>
 <?php
-$rep = recup_membre ();
-foreach ( $rep as $row ) {
-	echo "<TR>
-		<TD><B>" . $row ['prenom'] . "</B></TD>
-		<TD><B>" . $row ['nom'] . "</B></TD>
-		<TD>" . $row ['pseudo'] . "</TD>
-		<TD>" . $row ['email'] . "</TD>
-		<TD>" . $row ['telephone'] . "</TD>
-		<TD>" . $row ['adresse'] . "</TD>
-		<TD><A class='action' HREF='gestion_admin.php?ac=2&id=" . $row ['id'] . "'>Promouvoir</A></TD>
+$rep = recup_membre();
+foreach ($rep as $row) {
+    echo "<TR>
+		<TD><B>" . $row['prenom'] . "</B></TD>
+		<TD><B>" . $row['nom'] . "</B></TD>
+		<TD>" . $row['pseudo'] . "</TD>
+		<TD>" . $row['email'] . "</TD>
+		<TD>" . $row['telephone'] . "</TD>
+		<TD>" . $row['adresse'] .
+             "</TD>
+		<TD><A class='action' HREF='gestion_admin.php?ac=2&id=" .
+             $row['id'] . "'>Promouvoir</A></TD>
 		</TR>
 		<TR></TR>";
 }

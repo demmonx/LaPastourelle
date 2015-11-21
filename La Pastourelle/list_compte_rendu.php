@@ -2,10 +2,10 @@
 @session_start ();
 require_once "traitement.inc.php";
 if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-	echo "<center>
+	echo "
 			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  </center>";
+		  ";
 	redirect ( "index.php?page=accueil", 3 );
 	exit ( 0 );
 } // else
@@ -13,9 +13,9 @@ $list = getCompteRendu ();
 $admin = verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] );
 // Affichage du titre
 if ($admin) {
-	echo '<center><H2>Compte rendu des réunions précédentes</H2></center>';
+	echo '<H2>Compte rendu des réunions précédentes</H2>';
 } else {
-	echo "<center><H2>COMPTE RENDU DE REUNION, D'ASSEMBLEE GENERALE, ...</H2></center>";
+	echo "<H2>COMPTE RENDU DE REUNION, D'ASSEMBLEE GENERALE, ...</H2>";
 }
 
 // Affichage de chaque compte rendu

@@ -10,9 +10,9 @@
 		 OR (isset($_GET['continent']) AND !in_array($_GET['continent'],$continents_valides) )){?>
 
 		<!--AFFICHAGE DU MONDE AVEC LES CONTINENTS CLIQUABLES-->
-		<h1 style="text-align:center">
+		<h1 >
 			<?php echo $recupMonde[0]['valeurTrad']; ?></h1>
-			<div style="text-align:center">
+			<div >
 				<a href="index.php?page=mondeLogo&continent=EU">
 					<span id="europe"></span>
 				</a>
@@ -69,11 +69,11 @@
 			$coords = $req_coord->fetchAll();
 			$req_coord->closeCursor();
 			//Affichage de l'image?>
-			<h1 style="text-align:center">Cliquez sur la carte pour ajouter un drapeau</h1><?php
+			<h1 >Cliquez sur la carte pour ajouter un drapeau</h1><?php
 			// Affichage du continent?>
-			<center>
+			
 				<!--Utilisation de la librairie GD pour pouvoir avoir la carte cliquable mais aussi voir les drapeaux cliquables-->
-				<form action="index.php?page=mondeLogo&continent=<?php echo $_GET['continent'];?>" method="POST" style="text-align: center">
+				<form action="index.php?page=mondeLogo&continent=<?php echo $_GET['continent'];?>" method="POST" >
 					<input type="image" class='ssBordure' src="image/mondeLogoImg.php?continent=<?php echo $_GET['continent'];?>" name="monde" alt="carte du monde"/>
 				</form>
 			
@@ -99,7 +99,7 @@
 				echo "</tr>";
 			}
 			echo"</table>";
-			echo "<br /><br /><center><a class='btn btn-link' href='index.php?page=mondeLogo&continent=".$_GET['continent']."'>Revenir à la page précédente</a></center>";
+			echo "<br /><br /><a class='btn btn-link' href='index.php?page=mondeLogo&continent=".$_GET['continent']."'>Revenir à la page précédente</a>";
 			
 		//Affichage de la description d'un pays (avec l'administration si admin
 		} else if (isset($_GET['visux']) AND isset($_GET['visuy'])) {
@@ -118,7 +118,7 @@
 					$extension = strrchr($_FILES['fichier']['name'], '.');
 					if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
 					{
-						echo '<center>Ajout NON effectué car vous devez ajouter des fichiers de type .jpg uniquement</center>';
+						echo 'Ajout NON effectué car vous devez ajouter des fichiers de type .jpg uniquement';
 					} else {
 						$dossier = 'image/mondeLogo/desc/';
 						$fichier = $_GET['visux'].'-'.$_GET['visuy'].'-'.$_GET['continent'].'.jpg';
@@ -135,7 +135,7 @@
 								imagejpeg($nouvelle,$image);
 								imagedestroy ($chemin);
 						} else {
-							echo '<center>Ajout non effectué</center>';
+							echo 'Ajout non effectué';
 						}
 					}
 				}
@@ -150,18 +150,18 @@
 			///$req_coord->execute(array($_GET['continent'], $_GET['visux'], $_GET['visuy']));
 			$coords = $req_coord->fetchAll();
 			$req_coord->closeCursor();?>
-			<center>
+			
 				<h1><?php echo $coords[0]['titre']; ?> </h1><br />
 
 				
-					<img class='ssBordure' src="image/mondeLogo/desc/<?php echo $_GET['visux']."-".$_GET['visuy'].'-'.$_GET['continent'].".jpg";?>" width="500" height="400" />
+					<img class='ssBordure' src="image/mondeLogo/desc/<?php echo $_GET['visux']."-".$_GET['visuy'].'-'.$_GET['continent'].".jpg";?>"  />
 				
 				<p><?php echo $coords[0]['texte']; ?></p>
-			</center><?php
+			<?php
 			
 			if (isset($_SESSION['pseudo']) AND isset($_SESSION['pass']) AND verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])){?>
 				<hr /><br />
-				<form class="form-horizontal" action="index.php?page=mondeLogo&continent=<?php echo $_GET['continent'];?>&visux=<?php echo $_GET['visux'];?>&visuy=<?php echo $_GET['visuy'];?>" enctype="multipart/form-data" method="POST" class="formS" style="margin-left : 20px;">
+				<form class="form-horizontal" action="index.php?page=mondeLogo&continent=<?php echo $_GET['continent'];?>&visux=<?php echo $_GET['visux'];?>&visuy=<?php echo $_GET['visuy'];?>" enctype="multipart/form-data" method="POST" class="formS" >
 					<div class="control-group">
 						<label class="control-label" for="titre">Titre :</label>
 						<div class="controls">
@@ -180,10 +180,10 @@
 							<textarea name="desc" cols="60" rows="10"><?php echo $coords[0]['texte']; ?></textarea>
 						</div>
 					</div>
-					<center><input class="btn btn-info" type="submit" value="Modifier" />
+					<input class="btn btn-info" type="submit" value="Modifier" />
 				</form><?php
 			}
-			echo "<br /><center><a class='btn btn-link' href='index.php?page=mondeLogo&continent=".$_GET['continent']."'>".$recupMonde[1]['valeurTrad']."</a></center>";
+			echo "<br /><a class='btn btn-link' href='index.php?page=mondeLogo&continent=".$_GET['continent']."'>".$recupMonde[1]['valeurTrad']."</a>";
 		//Affichage par défaut quand on clique sur on continent => drapeaux cliquables sur le continent
 		} else {
 			//Récupération des différentes coordonnées
@@ -194,9 +194,9 @@
 			$coords = $req_coord->fetchAll();
 			$req_coord->closeCursor();
 			//Affichage de l'image?>
-			<h1 style="text-align:center"><?php echo $recupMonde[2]['valeurTrad']; ?></h1><?php
+			<h1 ><?php echo $recupMonde[2]['valeurTrad']; ?></h1><?php
 			// Affichage du continent?>
-			<center>
+			
 				<?php
 				/* // info sur la dimension de l'image
 				$hauteur = abs(900 - $infos_image[1]) - 13; // hauteur de l'image
@@ -217,11 +217,11 @@
 					//Affichage des drapeaux aux bonnes coordonnées
 					for ($i=0;$i<count($coords);$i++) {
 						echo '<a href="index.php?page=mondeLogo&continent='.$_GET['continent'].'&visux='.$coords[$i]['x'].'&visuy='.$coords[$i]['y'].'">
-						<span class="img_logo ssBordure" style="margin-left:'.$coords[$i]['x'].'px;margin-top:'.($coords[$i]['y']-$hauteur).'px;"></span></a>';
+						<span class="img_logo ssBordure" ></span></a>';
 					}?>
 					
 				</div><br /><br /><br />
-				<img class="ssBordure" src="image/mondeLogo/<?php echo $_GET['continent'];?>.jpg" width="900px" height="900px" alt="Continent" />
+				<img class="ssBordure" src="image/mondeLogo/<?php echo $_GET['continent'];?>.jpg"  />
 		
 				
 				
@@ -230,7 +230,7 @@
 					<a class="btn btn-link" href="index.php?page=mondeLogo&continent=<?php echo $_GET['continent']; ?>&visux=a">Administration des pays visités pour ce continent</a><br /><br /><?php
 				}?>
 				<a class="btn btn-link" href='index.php?page=mondeLogo'><?php echo $recupMonde[3]['valeurTrad']; ?></a>
-			</center><?php
+			<?php
 		}
 	}
 ?>

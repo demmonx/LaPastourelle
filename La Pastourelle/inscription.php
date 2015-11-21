@@ -52,9 +52,9 @@ $(document).ready(function () {
 
 </script>
 
-<center>
-	<h2>Inscription</h2>
-</center>
+
+<h2>Inscription</h2>
+
 <div id="espace_reserve">
 	Attention ! L'inscription au site est <span>réservée</span> aux seuls <span>membres</span>
 	de l'association.<br /> Si vous n'en faites pas partie, nous serions
@@ -65,25 +65,22 @@ $(document).ready(function () {
 	<table>
 		<tr>
 			<td>Prénom</td>
-			<td><input type="text" value="" id='prenom' name="prenom" size=27
-				required></td>
+			<td><input type="text" value="" id='prenom' name="prenom" required></td>
 		</tr>
 		<tr>
 			<td>Nom</td>
-			<td><input type="text" value="" id='nom' name="nom" size=27 required></td>
+			<td><input type="text" value="" id='nom' name="nom" required></td>
 		</tr>
 		<tr>
 			<td colspan="2"><br></td>
 		</tr>
 		<tr>
 			<td>Pseudo</td>
-			<td><input type="text" value="" id='pseudo' name="pseudo" size=27
-				required></td>
+			<td><input type="text" value="" id='pseudo' name="pseudo" required></td>
 		</tr>
 		<tr>
 			<td>Mot de Passe</td>
-			<td><input type="password" value="" id='mdp' name="mdp" size=27
-				required></td>
+			<td><input type="password" value="" id='mdp' name="mdp" required></td>
 		</tr>
 		<tr>
 			<td colspan="2"><br></td>
@@ -94,28 +91,26 @@ $(document).ready(function () {
 		</tr>
 		<tr>
 			<td>Téléphone</td>
-			<td><input type="text" value="" id='tel' name="tel" size=27 required></td>
+			<td><input type="text" value="" id='tel' name="tel" required></td>
 		</tr>
 		<tr>
 			<td>E-mail</td>
-			<td><input type="text" value="" id='mail' name="email" size=27
-				required></td>
+			<td><input type="text" value="" id='mail' name="email" required></td>
 		</tr>
 		<tr>
 			<td colspan="2"><br></td>
 		</tr>
 		<tr>
-			<td>Ajout de vos coordonnées<br /> dans l'annuaire <br />des membres
-				de l'association.<br /> Oui si coché
-			</td>
+			<td>Ajout de vos coordonnées dans l'annuaire des membres de
+				l'association. Oui si coché</td>
 			<td><input type="checkbox" name="etat_annuaire" value="true"></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center"><?php dsp_crypt(0,1); ?></td>
+			<td colspan="2"><?php dsp_crypt(0,1); ?></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center">Recopier le code:<br> <input
-				type="text" name="code" id='code' required></td>
+			<td colspan="2">Recopier le code:<br> <input type="text" name="code"
+				id='code' required></td>
 		</tr>
 	</table>
 

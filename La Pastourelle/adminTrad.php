@@ -1,9 +1,9 @@
 <?php
 if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
          ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "	<center>
+    echo "	
 				Vous ne pouvez pas accéder à ces pages sans être connecté en tant qu'administrateur<br />				Revenir Ã  la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-			</center>";
+			";
     redirect("index.php?page=accueil", 3);
     exit(0);
 }
@@ -54,9 +54,9 @@ $(document).ready(function () {
 });
 </script>
 
-<center>
+
 	<h1>Ajout d'une langue</h1>
-</center>
+
 <div class="identification">
 	<form class="form-horizontal" action="lang_maj_traitement.php"
 		method="POST" id="formS" enctype="multipart/form-data">

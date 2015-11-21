@@ -1,14 +1,14 @@
 <?php
 if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
          ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "<center>
+    echo "
 			Vous ne pouvez pas accéder à ces pages sans être connecté en tant qu'administrateur<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  </center>";
+		  ";
     exit(0);
 } else {
     ?>
-<center>
+
 	<div id="slideshow">
 	<?php
     
@@ -35,7 +35,7 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 			value="Ajouter">
 		<div id="msgReturn"></div>
 	</form>
-</center>
+
 
 <script type="text/javascript">
 $(document).ready(function () {

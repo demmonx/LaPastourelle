@@ -1,5 +1,5 @@
 <SCRIPT LANGUAGE="JavaScript">
-/* On crée une fonction de verification */
+/* On crï¿½e une fonction de verification */
 function verifForm(formulaire)
 {
 temps = formulaire.date.value;
@@ -17,13 +17,13 @@ else
 
 <?php
 
-	//récupération des info dans la BD et traitement
+	//rï¿½cupï¿½ration des info dans la BD et traitement
 	$tab_planning = recup_planning();
 	$cpt = 0;
 	$taille_tab = count($tab_planning);
 
 	/** titre */
-	echo "<DIV id=\"accueil\"><CENTER><H2>ADMINISTRATION DU PLANNING</H2>";
+	echo "<DIV id=\"accueil\"><H2>ADMINISTRATION DU PLANNING</H2>";
 	echo "<BR><BR>";
 	echo "<FORM METHOD=POST ACTION=\"ajoutDatePlanning.php\">
 			<TABLE WIDTH=840px>
@@ -59,6 +59,6 @@ else
 		          <TD><A HREF=\"supprDatePlanning.php?date=".$une_date."&lieu=".$une_lieu."\">Supprimer cette date</A></TD></TR>";
 	}
 	
-	echo "</CENTER></TABLE></DIV>";
+	echo "</TABLE></DIV>";
 
 ?>

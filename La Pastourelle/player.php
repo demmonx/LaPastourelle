@@ -31,14 +31,14 @@ if ($adminOK) {
 <!--Formulaire d'ajout d'une musique-->
 <h1>Ajout d'une chanson :</h1>
 
-</center>
+
 <form action="player_traitement.php" method="post"
-	enctype="multipart/form-data" class="formS" style="margin-left: 200px;">
+	enctype="multipart/form-data" class="formS" >
 	<label for="fichier">Musique à ajouter : </label><input type="file"
 		name="fichier" id="uploadFile"><br /> <label for="nom">Titre : </label><input
 		type="text" name="nom" id="titre"><br /> <label for="band">Chanteur/Groupe
 		: </label><input type="text" name="band" id="groupe"><br />
-	<center>
+	
 		<input type="submit" value="Ajouter">
 		<div id="msgReturn"></div>
 
