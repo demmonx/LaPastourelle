@@ -3,7 +3,7 @@ require_once "traitement.inc.php";
 // Teste les entrées
 $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-if (! (($action && $id) || (isset($_FILES["fichier"])))) {
+if (! (($action && $id) || (isset($_FILES["fichier"]) && !empty($_FILES["fichier"]["name"])))) {
     exit("Erreur lors de la réalisation de l'action");
 }
 

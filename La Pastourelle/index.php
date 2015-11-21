@@ -47,7 +47,7 @@ $bdd = new Connection();
 		<div class="grid_5">
 			<ul class="diaporama">
 						<?php
-    $tab = recup_actuel_diapos();
+    $tab = getActiveDiapos();
     $i = 1;
     foreach ($tab as $diapo) {
         echo "<li><img  height=225 src='" . $diapo["lien"] . "' alt='Image " . $i .
@@ -184,32 +184,26 @@ if (isset($_GET['page'])) {
 }
 ?>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	</div>
 </div>
 <!-- FOOTER -->
 <footer class="container_12" id="basDePage">
 	<div class="footer_copy grid_9">
 		<p>
-			Groupe Folklorique La Pastourelle de Rodez<br /> Immeuble des
-			Sociétés Musicales - Avenue de l'Europe - 12000 RODEZ -
-			05.65.75.95.28<br /> Association reconnue d'intérêt général et
-			habilitée à ce titre à recevoir des dons - <span class="comment"><a
-				class="btn btn-link" href="mailto:pastourelle.rodez@yahoo.fr">pastourelle.rodez@yahoo.fr</a></span>
-			<br /> <br />
+		<?php
+$coord = getCoordonnees();
+if (isset($coord['adr'])) {
+    echo nl2br(html_entity_decode($coord['adr'])) . " - ";
+}
+if (isset($coord['tel'])) {
+    echo convertPhoneNumber($coord['tel']) . "<br />";
+}
+echo "Association reconnue d'intérêt général et
+			habilitée à ce titre à recevoir des dons";
+if (isset($coord['mail'])) {
+    echo " - <a href='mailto:" . $coord['mail'] . "'>" . $coord['mail'] . "</a>";
+}
+?>
 					<?php
     
     ?>
@@ -240,7 +234,9 @@ if (isset($_GET['page'])) {
 			href="index.php?page=identification"><i class="icon-key icon-large"></i>
 			Se connecter</a>
 				<?php }?>
-		</div>
+		
+	
+	</div>
 	<div class="clear"></div>
 </footer>
 

@@ -2,33 +2,12 @@
 require_once ("Connection.class.php");
 
 /**
- * ************************************
- * Récupération d'un texte dans la BD *
- * ************************************
- */
-function recup_texte ($num, $page, $lang)
-{
-    $bdd = new Connection();
-    
-    // ------------------- TEST CONNECTION PDO ------------------------ //
-    $sql = "SELECT texte FROM texte WHERE txt_num=? AND txt_page=? AND lang=?";
-    $result = $bdd->prepare($sql);
-    $result->bindValue(1, $num);
-    $result->bindValue(2, $page);
-    $result->bindValue(3, $lang);
-    $result->execute();
-    
-    // Requête sur clé primaire, un seul élément possible
-    return $result->fetch();
-}
-
-/**
  * h
  * ************************************
  * Récupération d'un texte dans la BD *
  * ************************************
  */
-function recup_phrasejour ($lang)
+function getPhraseJour ($lang)
 {
     $bdd = new Connection();
     
@@ -93,7 +72,7 @@ function getFile ()
  * Récupération des liens externes *
  * *********************************
  */
-function recup_lienExt ()
+function getLinks ()
 {
     $bdd = new Connection();
     
@@ -118,9 +97,7 @@ function extractLinkFromARow ($row)
     $retour['id'] = $row['lien_num'];
     $retour['url'] = $row['lien_url'];
     $retour['img'] = $row['lien_img'];
-    $retour['content'] = isset($row['lien_content']) ? $row['lien_content'] : "";
-    $retour['nom_prive'] = $row['lien_nom_prive'];
-    $retour['nom_public'] = $row['lien_nom_admin'];
+    $retour['nom'] = $row['lien_nom'];
     
     return $retour;
 }
@@ -130,7 +107,7 @@ function extractLinkFromARow ($row)
  * Récupération des revues de presse *
  * ***********************************
  */
-function recup_revuePresse ()
+function getRevuePresse ()
 {
     $bdd = new Connection();
     
@@ -160,7 +137,7 @@ function recup_revuePresse ()
  * Récupération de la liste des membres *
  * **************************************
  */
-function recup_annuaire ($recherche, $typeRecherche, $role)
+function getAnnuaire ($recherche, $typeRecherche, $role)
 {
     $bdd = new Connection();
     // $tab_annuaire = array();
@@ -212,32 +189,11 @@ function recup_annuaire ($recherche, $typeRecherche, $role)
 }
 
 /**
- * ******************************************************
- * Récupération des membres non présent dans l'annuaire *
- * *******************************************************
- */
-function recup_non_annuaire ()
-{
-    $bdd = new Connection();
-    $tab_membre = array();
-    
-    $stmt = $bdd->prepare(
-            "SELECT * FROM tuser WHERE etat_validation = 1 AND etat_annuraire = 0 ORDER BY nom");
-    $result = $stmt->execute();
-    $i = 0;
-    while ($row = $stmt->fetch()) {
-        $tab_membre[$i ++] = extractMembreFromARow($row);
-    }
-    
-    return $tab_membre;
-}
-
-/**
  * ***********************************
  * Récupération des info du planning *
  * ***********************************
  */
-function recup_planning ()
+function getPlanning ()
 {
     $bdd = new Connection();
     
@@ -252,12 +208,7 @@ function recup_planning ()
     $result->execute();
     
     while ($row = $result->fetch()) {
-        $tab_planning[$cpt]['jour'] = $row['pl_jour'];
-        $tab_planning[$cpt]['date'] = str_replace("-", "/", $row['pl_date']);
-        $tab_planning[$cpt]['lieu'] = $row['pl_lieu'];
-        $tab_planning[$cpt]['joueur'] = $row['pl_musiciens'];
-        $tab_planning[$cpt]['id'] = $row['id_planning'];
-        $cpt ++;
+        $tab_planning[$cpt ++] = extractDatePlanningFromARow($row);
     }
     
     return $tab_planning;
@@ -268,7 +219,7 @@ function recup_planning ()
  * Récupération des info d'une date du planning *
  * **********************************************
  */
-function recup_datePlanning ($id)
+function getDatePlanning ($id)
 {
     $bdd = new Connection();
     
@@ -283,13 +234,23 @@ function recup_datePlanning ($id)
     $result->execute();
     
     if ($row = $result->fetch()) {
-        $tab_planning['jour'] = $row['pl_jour'];
-        $tab_planning['date'] = date("j/m/Y", strtotime($row['pl_date']));
-        $tab_planning['lieu'] = $row['pl_lieu'];
-        $tab_planning['joueur'] = $row['pl_musiciens'];
-        $tab_planning['id'] = $row['id_planning'];
+        $tab_planning = extractDatePlanningFromARow($row);
     }
     
+    return $tab_planning;
+}
+
+/**
+ * Récupère les infos du planning à partir d'une ligne de BD
+ */
+function extractDatePlanningFromARow ($row)
+{
+    $tab_planning = array();
+    $tab_planning['jour'] = $row['pl_jour'];
+    $tab_planning['date'] = str_replace("-", "/", $row['pl_date']);
+    $tab_planning['lieu'] = $row['pl_lieu'];
+    $tab_planning['joueur'] = $row['pl_musiciens'];
+    $tab_planning['id'] = $row['id_planning'];
     return $tab_planning;
 }
 
@@ -298,7 +259,7 @@ function recup_datePlanning ($id)
  * Récupération des membres à valider *
  * ************************************
  */
-function recup_membre_valider ()
+function getUnvalitedMember ()
 {
     $bdd = new Connection();
     
@@ -326,7 +287,7 @@ function recup_membre_valider ()
  * Récupération des membres *
  * ************************
  */
-function recup_membre ()
+function getMembers ()
 {
     $tab_membre = array(); // tableau contenant les informations des membres a
                            // recuperer
@@ -349,7 +310,7 @@ function recup_membre ()
  * Récupération d'un membre avec son pseudo *
  * ******************************************
  */
-function recup_un_membre ($pseudo)
+function getMember ($pseudo)
 {
     $bdd = new Connection();
     
@@ -502,7 +463,7 @@ function stripnl2br2 ($string)
 /**
  * Récupération des coordonnées
  */
-function recup_infoCoord ()
+function getCoordonnees ()
 {
     $bdd = new Connection();
     $tab_coord = array();
@@ -610,7 +571,7 @@ function getId ($pseudo)
 }
 
 /* Fonction pour recuperer un tableau de la playlist courante */
-function recup_actuel_playlist ()
+function getPlaylist ()
 {
     $bdd = new Connection();
     $i = 0;
@@ -627,7 +588,7 @@ function recup_actuel_playlist ()
 }
 
 /* Fonction pour recuperer un tableau de toutes les musiques disponibles */
-function recup_all_music ()
+function getMusics ()
 {
     $bdd = new Connection();
     $i = 0;
@@ -811,7 +772,7 @@ function insertMusic ($path, $band, $nom)
 }
 
 /* Fonction pour recuperer un tableau du diaporama courant */
-function recup_actuel_diapos ()
+function getActiveDiapos ()
 {
     $bdd = new Connection();
     $i = 0;
@@ -827,7 +788,7 @@ function recup_actuel_diapos ()
 }
 
 /* Fonction pour recuperer un tableau de toutes les diapositives disponibles */
-function recup_all_diapos ()
+function getDiapos ()
 {
     $bdd = new Connection();
     $i = 0;
@@ -1377,6 +1338,34 @@ function addActuType ($nom)
 }
 
 /**
+ * Créé un nouveau lien
+ *
+ * @param string $nom
+ *            Le nom du nouveau lien
+ * @param string $url
+ *            l'url du lien
+ */
+function addLink ($nom, $url)
+{
+    $bdd = new Connection();
+    
+    // On regarde si l'url existe déjà
+    $stmt = $bdd->prepare("SELECT * FROM lien_ext WHERE lien_url = ?");
+    $stmt->bindValue(1, $url);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        throw new Exception("Un lien avec la même URL existe déjà");
+    } // else on ajoute
+    $stmt->closeCursor();
+    
+    $stmt = $bdd->prepare(
+            "INSERT INTO lien_ext (lien_url, lien_nom) VALUES(?,?)");
+    $stmt->bindValue(1, $url);
+    $stmt->bindValue(2, $nom);
+    $stmt->execute();
+}
+
+/**
  * Supprime l'image relative à un type d'actualité de la BD et du disque
  *
  * @param intger $id
@@ -1405,6 +1394,34 @@ function deleteImageActu ($id)
 }
 
 /**
+ * Supprime l'image relative à un lien de la BD et du disque
+ *
+ * @param intger $id
+ *            L'id du lien concerné
+ */
+function deleteImageLink ($id)
+{
+    $bdd = new Connection();
+    $stmt1 = $bdd->prepare("SELECT * FROM lien_ext WHERE lien_num = ?");
+    $stmt1->bindValue(1, $id);
+    $stmt1->execute();
+    // Vérifie si le champ existe
+    if ($stmt1->rowCount() == 1) {
+        $row = $stmt1->fetch();
+        // Vérifie si l'image existe
+        if (isset($row['lien_img'])) {
+            $stmt2 = $bdd->prepare(
+                    "UPDATE lien_ext SET lien_img = null WHERE lien_num = ?");
+            $stmt2->bindValue(1, $id);
+            $stmt2->execute();
+            @unlink($row['lien_img']);
+        }
+        return true;
+    }
+    return false;
+}
+
+/**
  * Supprime le type d'actu de la base de donnée, supprime l'éventuelle image
  * associé du disque
  *
@@ -1416,6 +1433,25 @@ function deleteTypeActu ($id)
     $bdd = new Connection();
     if (deleteImageActu($id)) {
         $stmt2 = $bdd->prepare("DELETE FROM actualite WHERE act_id = ?");
+        $stmt2->bindValue(1, $id);
+        $stmt2->execute();
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Supprime le lien de la base de donnée, supprime l'éventuelle image
+ * associé du disque
+ *
+ * @param integer $id
+ *            L'id du lien concerné
+ */
+function deleteLink ($id)
+{
+    $bdd = new Connection();
+    if (deleteImageLink($id)) {
+        $stmt2 = $bdd->prepare("DELETE FROM lien_ext WHERE lien_num = ?");
         $stmt2->bindValue(1, $id);
         $stmt2->execute();
         return true;
@@ -1437,6 +1473,27 @@ function insertImageActu ($image, $id)
     $bdd = new Connection();
     deleteImageActu($id);
     $stmt2 = $bdd->prepare("UPDATE actualite SET act_img = ? WHERE act_id = ?");
+    $stmt2->bindValue(1, $image);
+    $stmt2->bindValue(2, $id);
+    $stmt2->execute();
+    return true;
+}
+
+/**
+ * Change l'image relative à un lien, supprime l'ancienne du disque
+ * si elle existe
+ *
+ * @param
+ *            string Le chemin de la nouvelle image
+ * @param intger $id
+ *            L'id du lien concerné
+ */
+function insertImageLink ($image, $id)
+{
+    $bdd = new Connection();
+    deleteImageLink($id);
+    $stmt2 = $bdd->prepare(
+            "UPDATE lien_ext SET lien_img = ? WHERE lien_num = ?");
     $stmt2->bindValue(1, $image);
     $stmt2->bindValue(2, $id);
     $stmt2->execute();
@@ -2008,6 +2065,7 @@ function deleteFromPlanning ($id)
     $req_suppr = $bdd->prepare("DELETE FROM planning WHERE id_planning =? ");
     $req_suppr->bindValue(1, $id);
     $req_suppr->execute();
+    return true;
 }
 
 /**
@@ -2029,9 +2087,88 @@ function sendMail ($nom, $email, $message)
     $msg .= "Message:\t$message\n\n";
     
     // Pourrait continuer ainsi jusqu'à la fin du formulaire
-    $recipient = "pastourelle.rodez@yahoo.fr";
-    $subject = "Formulaire du site internet";
+    $coord = getCoordonnees();
+    $recipient = isset($coord["mail"]) ? $coord["mail"] : "pastourelle.rodez@yahoo.fr";
+    $subject = "Formulaire de contact";
     $mailheaders = "From:formulaire votre avis nous interesse // contact<> \n";
     $mailheaders .= "Reply-To: $email\n\n";
     mail($recipient, $subject, $msg, $mailheaders);
+}
+
+/**
+ * Convertit un format de télpéhone 0101010101 en 01 01 01 01 01
+ *
+ * @param String $tel
+ *            Le numéro à convertir
+ * @return string le téléphone convertit si possible, ou la chaine d'entrée si
+ *         erreur
+ */
+function convertPhoneNumber ($tel)
+{
+    if (preg_match('/^(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})$/', $tel, $matches)) {
+        return $matches[1] . ' ' . $matches[2] . ' ' . $matches[3] . ' ' .
+                 $matches[4] . ' ' . $matches[5];
+    }
+    return $tel;
+}
+
+/**
+ * Met à jour les informations de contact de la pastourelle
+ *
+ * @param string $tel
+ *            Le numéro de téléphone où l'association est joignable
+ * @param string $adresse
+ *            L'adresse de l'association
+ * @param string $mail
+ *            L'adresse mail utilisée par l'association
+ * @param string $image
+ *            L'image de la localisation des bureaux
+ */
+function updateCoor ($tel, $adresse, $mail, $image = null)
+{
+    $bdd = new Connection();
+    $sql = "UPDATE coordonnees SET coord_adr=:adr, coord_mail=:mail, coord_tel=:tel";
+    // Si on a l'image on change un peu la requete
+    if ($image != null) {
+        $sql .= ", coord_img=:img";
+        // On récup l'ancienne image et on la supprime du disque
+        $coord = getCoordonnees();
+        @unlink($coord["img"]);
+    }
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindValue(':tel', $tel);
+    $stmt->bindValue(':adr', $adresse);
+    $stmt->bindValue(':mail', $mail);
+    if ($image != null) {
+        $stmt->bindValue(':img', $image);
+    }
+    $stmt->execute();
+}
+
+/**
+ * Ajoute un évènement au planning
+ *
+ * @param string $jour
+ *            Le jour de la semaine
+ * @param string $musiciens
+ *            Les musiciens qui vont jouer
+ * @param string $date
+ *            La date de l'évènement
+ * @param string $lieu
+ *            Le lieu de l'évènement
+ * @param integer $id
+ *            L'identifiant de l'évènement
+ */
+function addDatePlanning ($jour, $date, $lieu, $musiciens)
+{
+    $bdd = new Connection();
+    $stmt = $bdd->prepare(
+            "INSERT INTO planning (pl_jour, pl_date, pl_lieu, pl_musiciens) 
+            VALUES (:jour, :date, :lieu, :music)");
+    $stmt->bindValue(':jour', $jour);
+    $stmt->bindValue(':date', $date);
+    $stmt->bindValue(':lieu', $lieu);
+    $stmt->bindValue(':music', $musiciens);
+    $stmt->execute();
+    return true;
 }

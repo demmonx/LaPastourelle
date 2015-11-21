@@ -6,7 +6,7 @@ if (isset($titre["valeurtrad"]))
     echo "<h1>" . $titre["valeurtrad"] . "</h1>";
     
     // récupération des informations à ajouter dans la page
-$coord = recup_infoCoord();
+$coord = getCoordonnees();
 if (count($coord) < 0) {
     echo "Aucune information à afficher";
 } // else
@@ -15,7 +15,7 @@ if (count($coord) < 0) {
 <table>
 	<tr>
 		<th>Téléphone :</th>
-		<td><?php echo $coord['tel']; ?></td>
+		<td><?php echo convertPhoneNumber($coord['tel']); ?></td>
 	</tr>
 	<tr>
 		<th>Adresse :</th>
@@ -23,10 +23,18 @@ if (count($coord) < 0) {
 	</tr>
 	<tr>
 		<th>Carte :</th>
-		<td><img src='<?php echo $coord['img']; ?>' /></td>
+		<td>
+
+			<figure>
+				<a href="<?php echo $coord['img']; ?>" title="Cliquez pour agrandir">
+					<img src="<?php echo $coord['img']; ?>" alt="Localisation" />
+					<figcaption>Cliquez ici pour agrandir</figcaption>
+				</a>
+			</figure>
+		</td>
 	</tr>
 	<tr>
 		<th>Mail :</th>
-		<td><a href="mailto:<?php echo $coord['mail']; ?>">Envoyer un email</a></td>
+		<td><a href="mailto:<?php echo $coord['mail']; ?>"><?php echo $coord['mail']; ?></a></td>
 	</tr>
 </table>

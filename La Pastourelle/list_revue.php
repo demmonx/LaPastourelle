@@ -11,7 +11,7 @@ if (! $adminOK) {
     exit("Vous n'avez pas les droits requis");
 }
 echo "<table>";
-$tab = recup_revuePresse();
+$tab = getRevuePresse();
 if (count($tab) != 0) {
     
     echo "<tr>";

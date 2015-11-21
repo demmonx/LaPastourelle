@@ -17,7 +17,7 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 	</div>
 	<?php
     echo "<h1>Liste des images : </h1>";
-    $tab = recup_all_diapos();
+    $tab = getDiapos();
     echo "<table class='table table-bordered' id='list-photos-full'>";
     if (count($tab) > 0) {
         require_once 'list_photos.php';

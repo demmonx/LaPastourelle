@@ -53,7 +53,7 @@ $(document).ready(function () {
 
 <?php
     
-    $info_date = recup_datePlanning($_GET["id"]);
+    $info_date = getDatePlanning($_GET["id"]);
     if (count($info_date) <= 0) {
         echo "Impossible de modifier l'élément sélectionné";
     } else {
@@ -64,7 +64,7 @@ $(document).ready(function () {
 				<TR><TD>Jour</TD><TD><INPUT required type=text id='jour' name='jour'  value='" .
                  $info_date['jour'] .
                  "'></TD></tr>
-			<tr><TD>Date (jj/mm/aaaa)</TD><TD><INPUT required type=text id='date' name='date'  value='" .
+			<tr><TD>Date (jj/mm/aaaa)</TD><TD><INPUT required class='datepicker' type=text id='date' name='date'  value='" .
                  $info_date['date'] .
                  "'></TD></tr>
 			<tr><TD>Lieu</TD><TD><INPUT required type=text name='lieu' id='lieu'  value='" .
@@ -72,7 +72,8 @@ $(document).ready(function () {
                  "'></tr>
 			<tr><TD>Musiciens</TD><TD><textarea required name='musiciens' id='joueur'>" .
                  $info_date['joueur'] . "</textarea></TD></TR></TABLE>
-				<INPUT type=hidden name='id' id='id' value='" . $info_date['id'] . "'>
+				<INPUT type=hidden name='id' id='id' value='" .
+                 $info_date['id'] . "'>
 				<BR><input type='submit' value='Modifier'>
 		  </FORM><div id='msgReturn'></div>";
     }

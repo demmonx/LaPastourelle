@@ -24,7 +24,7 @@ foreach ( $languages as $lang ) {
 	<td>
 	<input  class="input-medium span4" type="text"
 			name="phrase[<?php echo $lang['id'];?>]"
-			value="<?php echo recup_phrasejour($lang['id']);?>" /> 
+			value="<?php echo getPhraseJour($lang['id']);?>" /> 
 	</td></tr>	
 <?php
 }

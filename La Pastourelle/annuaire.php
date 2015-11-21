@@ -29,13 +29,13 @@ if (! isset($_SESSION['pseudo']) || ! isset($_SESSION['pass']) ||
     
     // récupération des liens dans la BD et traitement
     if (isset($_POST['aRechercher'])) {
-        $tab_membre = recup_annuaire($_POST['aRechercher'], 
+        $tab_membre = getAnnuaire($_POST['aRechercher'], 
                 $_POST['typeRecherche'], 0);
     } else 
         if (isset($_POST['aTrier'])) {
-            $tab_membre = recup_annuaire($_POST['aTrier'], "", 1);
+            $tab_membre = getAnnuaire($_POST['aTrier'], "", 1);
         } else {
-            $tab_membre = recup_annuaire("", "", 2);
+            $tab_membre = getAnnuaire("", "", 2);
         }
     $cpt = 0;
     $taille_tab = count($tab_membre);

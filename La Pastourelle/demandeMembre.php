@@ -83,7 +83,7 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
     echo "
 	
 		<h2>Membres en attente de validation</h2>";
-    $aValider = recup_membre_valider();
+    $aValider = getUnvalitedMember();
     if (count($aValider) == 0) {
         echo "Il n'y a aucun membre en attente
 	";
@@ -141,7 +141,7 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 	
 		<H2>Membres déjà validés </H2>  ";
     
-    $tab_membre = recup_membre();
+    $tab_membre = getMembers();
     $cpt = 0;
     $taille_tab = count($tab_membre);
     

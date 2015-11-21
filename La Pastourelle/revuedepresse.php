@@ -2,7 +2,7 @@
 // récupération du titre de la page
 $titre = getTraduction("revue_presse_titre", $_SESSION['lang']);
 // récupération des revues de presse dans la BD et traitement
-$tab_revue = recup_revuePresse();
+$tab_revue = getRevuePresse();
 
 if (isset($titre["valeurtrad"]))
     echo "<h1>" . $titre["valeurtrad"] . "</h1>";

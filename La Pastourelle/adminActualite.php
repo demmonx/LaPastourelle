@@ -10,25 +10,23 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 } // else
 ?>
 <h1>Administration de l'actualité</h1>
-<div id='accueil'>
-	<h4>Création d'un type d'actualité</h4>
-	<form method="post" id="newType" action="actu_type_maj.php">
-		<input type="text" name="nom" id='nomType' placeholder="Nom" required /><br />
-		<input type="submit" value="Créer" />
-	</form>
-	<div id='ajout-result'></div>
+<h2>Création d'un type d'actualité</h2>
+<form method="post" id="newType" action="actu_type_maj.php">
+	<input type="text" name="nom" id='nomType' placeholder="Nom" required /><br />
+	<input type="submit" value="Créer" />
+</form>
+<div id='ajout-result'></div>
 
-	<h4>Modifier les types d'actualité</h4>
-	<div id='modif-type'>
+<h2>Modifier les types d'actualité</h2>
+<div id='modif-type'>
 		<?php require 'list_actu_type.php'; ?>
 	</div>
 
-	<h4>Modifier le contenu</h4>
+<h2>Modifier le contenu</h2>
 
-	<div id='actu-container'>
+<div id='actu-container'>
 		<?php require 'list_actu.php'; ?>
 	</div>
-</div>
 
 
 <script language="javascript">

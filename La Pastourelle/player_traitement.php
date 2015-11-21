@@ -5,7 +5,7 @@ $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $band = filter_input(INPUT_POST, 'band', FILTER_SANITIZE_SPECIAL_CHARS);
 $name = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-if (! (($action && $id) || (isset($_FILES["fichier"])))) {
+if (! (($action && $id) || (isset($_FILES["fichier"]) && !empty($_FILES["fichier"]["name"])))) {
     exit("Erreur lors de la réalisation de l'action");
 }
 
