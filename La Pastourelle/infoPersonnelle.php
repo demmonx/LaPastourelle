@@ -1,12 +1,14 @@
 <?php
-if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass']) OR !verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-	echo "<center>
+if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
+         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
+    echo "
 			Vous ne pouvez pas accèder à ces pages sans être connecté<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  </center>";
-	redirect("index.php?page=accueil", 3);
-	exit(0);
-} else { ?>
+		  ";
+    redirect("index.php?page=accueil", 3);
+    exit(0);
+} else {
+    ?>
 <script language="javascript">
 $(document).ready(function () {
     /** * Formulaire de connexion ** */
@@ -57,90 +59,99 @@ $(document).ready(function () {
 
 
 <?php
-
-	/** récupération des données personnelle */
-	$pseudo = $_SESSION['pseudo'];
-	
-	//récupération des liens dans la BD et traitement
-	$tab_membre = recup_un_membre($pseudo);
-	$cpt = 0;
-	$taille_tab = count($tab_membre);
-	//while ($cpt < $taille_tab )
-	//{
-	if ($taille_tab == 0) {
-		echo "<center>Votre profil n'a pas encore été validé nous ne pouvons pas afficher vos coordonnées<br/></center>";
-	}
-		$le_psd = $tab_membre ['pseudo'];
-		$l_email = $tab_membre ['email'];
-		$le_telephone = $tab_membre ['telephone'];
-		$le_nom = $tab_membre ['nom'];
-		$le_prenom = $tab_membre ['prenom'];
-		$l_adresse = $tab_membre ['adresse'];
-		$l_etat_annuaire = $tab_membre ['etat_annuaire'];
-	
-	
-		$l_adresse = str_replace("<br />", "", $l_adresse);
-
-		echo "<BR><BR>
-		<CENTER>
-			<H2>MODIFICATION DES DONNEES PERSONNELLES</H2><BR><BR>
+    
+    /**
+     * récupération des données personnelle
+     */
+    $pseudo = $_SESSION['pseudo'];
+    
+    // récupération des liens dans la BD et traitement
+    $tab_membre = recup_un_membre($pseudo);
+    $cpt = 0;
+    $taille_tab = count($tab_membre);
+    // while ($cpt < $taille_tab )
+    // {
+    if ($taille_tab == 0) {
+        echo "Votre profil n'a pas encore été validé nous ne pouvons pas afficher vos coordonnées<br/>";
+    }
+    $le_psd = $tab_membre['pseudo'];
+    $l_email = $tab_membre['email'];
+    $le_telephone = $tab_membre['telephone'];
+    $le_nom = $tab_membre['nom'];
+    $le_prenom = $tab_membre['prenom'];
+    $l_adresse = $tab_membre['adresse'];
+    $l_etat_annuaire = $tab_membre['etat_annuaire'];
+    
+    $l_adresse = str_replace("<br />", "", $l_adresse);
+    
+    echo "<BR><BR>
+		
+			<H2>MODIFICATION DES DONNEES PERSONNELLES</H2>
 			<FORM id='modif' METHOD=POST ACTION='modifInfoPerso.php'>
 				<TABLE>
 					<TR>
 						<TD>Pseudo</TD>
-						<TD><strong>".$le_psd."</strong></TD>
+						<TD><strong>" . $le_psd . "</strong></TD>
 					</TR>
 					<TR>
 						<TD>Nom</TD>
-						<TD><INPUT TYPE='text' VALUE='".$le_nom."' NAME='nom' id='nom' size=27></TD>
+						<TD><INPUT TYPE='text' VALUE='" .
+             $le_nom .
+             "' NAME='nom' id='nom'></TD>
 					</TR>
 
 					<TR>
 						<TD>Prénom</TD>
-        				<TD><INPUT TYPE='text' VALUE='".$le_prenom."' NAME='prenom' id='prenom' size=27></TD>
+        				<TD><INPUT TYPE='text' VALUE='" .
+             $le_prenom .
+             "' NAME='prenom' id='prenom'></TD>
 					</TR>
 					<TR>
 						<TD>Nouveau Mot de Passe</TD>
-						<TD><INPUT TYPE='password' NAME='Nmdp' id='mdp' size=27></TD>
+						<TD><INPUT TYPE='password' NAME='Nmdp' id='mdp'></TD>
 					</TR>
 					<TR>
 						<TD>Retaper le Mot de Passe </TD>
-						<TD><INPUT TYPE='password' NAME='mdp2' id='mdp2' size=27></TD>
+						<TD><INPUT TYPE='password' NAME='mdp2' id='mdp2'></TD>
 					</TR>
 					<TR>
 						<TD>Adresse</TD>
-						<TD><TEXTAREA rows='4' id='adresse' name='adresse'>".stripnl2br2($l_adresse)."</TEXTAREA></TD>
+						<TD><TEXTAREA rows='4' id='adresse' name='adresse'>" .
+             stripnl2br2($l_adresse) .
+             "</TEXTAREA></TD>
 					</TR>
 					<TR>
 						<TD>Téléphone</TD>
-						<TD><INPUT TYPE='text' id='tel' VALUE='".$le_telephone."' NAME='tel' size=27></TD>
+						<TD><INPUT TYPE='text' id='tel' VALUE='" .
+             $le_telephone . "' NAME='tel'></TD>
 					</TR>
 					<TR>
 						<TD>E-mail</TD>
-						<TD><INPUT TYPE='text' id='mail' VALUE='".$l_email."' NAME='email' size=27></TD>
+						<TD><INPUT TYPE='text' id='mail' VALUE='" .
+             $l_email . "' NAME='email'></TD>
 					</TR>
 					<TR>
-						<TD> cochez cette case si vous acceptez<BR>
-							 que les adminstrateurs puisse mettre<BR>
-							 vos coordonnées dans l'annuaire <BR>
+						<TD> cochez cette case si vous acceptez
+							 que les adminstrateurs puisse mettre
+							 vos coordonnées dans l'annuaire
 							 des membres présent sur ce site
 						</TD>";
-				if ($l_etat_annuaire == 1){
-					echo"
+    if ($l_etat_annuaire == 1) {
+        echo "
 						<TD><INPUT TYPE='checkbox' NAME='etat_annuaire[]' VALUE='1' checked></TD>
 					</TR>";
-				} else {
-					echo"
+    } else {
+        echo "
 					<TR>
 						<TD><INPUT TYPE='checkbox' NAME='etat_annuaire[]' VALUE='0'></TD>
 					</TR>";
-				}
-				echo "
+    }
+    echo "
 				</TABLE>
 				<BR>
 				<input type='submit' value='Modifier' />
 			</FORM>
             <div id='msgReturn'></div>
-		</CENTER>";
+		";
 }
 ?>

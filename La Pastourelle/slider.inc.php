@@ -8,7 +8,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &
     echo "<div class='slideshow'><ul>";
     foreach ($tab as $row)
         echo "<li><img src='" . $row["lien"] .
-                 "'  max-width='50%' height='auto' /></li>";
+                 "'  max- /></li>";
     echo "</ul>";
     ?>
 </div>

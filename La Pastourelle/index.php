@@ -50,8 +50,8 @@ $bdd = new Connection();
     $tab = recup_actuel_diapos();
     $i = 1;
     foreach ($tab as $diapo) {
-        echo "<li><img width=335 height=225 src='" . $diapo["lien"] .
-                 "' alt='Image " . $i . "' /></li>";
+        echo "<li><img  height=225 src='" . $diapo["lien"] . "' alt='Image " . $i .
+                 "' /></li>";
         $i ++;
     }
     ?>
@@ -100,8 +100,7 @@ foreach ($languages as $lang) {
     }
     
     // Affichage des selecteurs
-    echo " <a href='" . $lien . "'><img src='" . $lang['img'] .
-             "' width='19' height='12' /></a>";
+    echo " <a href='" . $lien . "'><img src='" . $lang['img'] . "'  /></a>";
 }
 ?>
 					</p>
@@ -110,17 +109,17 @@ foreach ($languages as $lang) {
 	<!-- corps  -->
 
 	<div id="corps">
-		<center>
-			<!-- Menu -->
+
+		<!-- Menu -->
 				<?php
     if (isset($_SESSION['pseudo']) and isset($_SESSION['pass']) and
              verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
         // menu admin
         ?>
 					<div class="clear"></div>
-			<nav class="grid_12">
-				<ul class="navigM">
-					<li><a href="index.php?page=deconnexion">Se déconnecter</a></li>
+		<nav class="grid_12">
+			<ul class="navigM">
+				<li><a href="index.php?page=deconnexion">Se déconnecter</a></li>
 					<?php
         if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
             
@@ -131,21 +130,21 @@ foreach ($languages as $lang) {
 
 
 						<li><a href="index.php?page=blog">Blog</a>
-					
-					<li><a href="index.php?page=planning">Planning</a></li>
-					<li><a href="index.php?page=annuaire">Annuaire</a></li>
-					<li><a href="index.php?page=compte_rendu">Compte Rendu</a></li>
-				</ul>
-			</nav>
-			<div class="clear"></div>
+				
+				<li><a href="index.php?page=planning">Planning</a></li>
+				<li><a href="index.php?page=annuaire">Annuaire</a></li>
+				<li><a href="index.php?page=compte_rendu">Compte Rendu</a></li>
+			</ul>
+		</nav>
+		<div class="clear"></div>
 			<?php } ?>
 			
 					<div class="clear"></div>
-			<nav class="grid_12">
-				<ul class="navig">
-					<li><a href="index.php">Accueil</a></li>
-					<li><a href="#">Présentation</a>
-						<ul>
+		<nav class="grid_12">
+			<ul class="navig">
+				<li><a href="index.php">Accueil</a></li>
+				<li><a href="#">Présentation</a>
+					<ul>
 						<?php
     $pageDispo = getPage();
     foreach ($pageDispo as $unePage) {
@@ -154,18 +153,18 @@ foreach ($languages as $lang) {
     }
     ?>
 						</ul></li>
-					<li><a href="index.php?page=boutique">Boutique</a></li>
-					<li><a href="index.php?page=revuedepresse">Revue de presse</a></li>
-					<li><a href="index.php?page=lien">Liens</a></li>
-					<li><a href="#">Contact</a>
-						<ul>
-							<li><a href="index.php?page=coordonnees">Coordonnées</a></li>
-							<li><a href="index.php?page=avis">Laissez votre avis</a></li>
-						</ul></li>
-				</ul>
-			</nav>
-			<div class="clear"></div>
-			<br /><?php
+				<li><a href="index.php?page=boutique">Boutique</a></li>
+				<li><a href="index.php?page=revuedepresse">Revue de presse</a></li>
+				<li><a href="index.php?page=lien">Liens</a></li>
+				<li><a href="#">Contact</a>
+					<ul>
+						<li><a href="index.php?page=coordonnees">Coordonnées</a></li>
+						<li><a href="index.php?page=avis">Laissez votre avis</a></li>
+					</ul></li>
+			</ul>
+		</nav>
+		<div class="clear"></div>
+		<br /><?php
 
 if (isset($_GET['page'])) {
     if ($_GET['page'] == 'generic' && isset($_GET['id']) &&
@@ -249,8 +248,6 @@ if (isset($_GET['page'])) {
 <!-- Bouton haut de page en javascript -->
 <script src="js/jquery.ui.totop.min.js" type="text/javascript"> </script>
 <script src="js/easing.js" type="text/javascript"> </script>
-<script src="js/prototype.js" type="text/javascript"> </script>
-<script src="js/sortHTMLTable.js" type="text/javascript"> </script>
 
 <script type="text/javascript">
 		$(document).ready(function() {

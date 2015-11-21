@@ -1,10 +1,10 @@
 <?php
 if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
          ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "<center>
+    echo "
 			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  </center>";
+		  ";
     exit(0);
 } else {
     ?>
@@ -58,26 +58,25 @@ $(document).ready(function () {
         echo "Impossible de modifier l'élément sélectionné";
     } else {
         
-        echo "<DIV id=\"accueil\"><CENTER><H2>ADMINISTRATION DU PLANNING</H2>";
-        echo "<BR><BR>";
+        echo "<H2>ADMINISTRATION DU PLANNING</H2>";
         echo "<FORM METHOD='POST' id='modif' ACTION='modifDatePlanning_traitement.php'>
-			<TABLE WIDTH=840px>
-				<TR><TD>Jour</TD><TD><INPUT required type=text id='jour' name='jour' size=15px value='" .
+			<TABLE >
+				<TR><TD>Jour</TD><TD><INPUT required type=text id='jour' name='jour'  value='" .
                  $info_date['jour'] .
                  "'></TD></tr>
-			<tr><TD>Date (jj/mm/aaaa)</TD><TD><INPUT required type=text id='date' name='date' size=15px value='" .
+			<tr><TD>Date (jj/mm/aaaa)</TD><TD><INPUT required type=text id='date' name='date'  value='" .
                  $info_date['date'] .
                  "'></TD></tr>
-			<tr><TD>Lieu</TD><TD><INPUT required type=text name='lieu' id='lieu' size=15px value='" .
+			<tr><TD>Lieu</TD><TD><INPUT required type=text name='lieu' id='lieu'  value='" .
                  $info_date['lieu'] .
                  "'></tr>
 			<tr><TD>Musiciens</TD><TD><textarea required name='musiciens' id='joueur'>" .
                  $info_date['joueur'] . "</textarea></TD></TR></TABLE>
-				<INPUT type=hidden name='id' id='id' size=15px value='" . $info_date['id'] . "'>
+				<INPUT type=hidden name='id' id='id' value='" . $info_date['id'] . "'>
 				<BR><input type='submit' value='Modifier'>
-		  </FORM><div id='msgReturn'></div></DIV>";
+		  </FORM><div id='msgReturn'></div>";
     }
     
-    echo "<CENTER><A class='btn btn-link' HREF='index.php?page=planning'>Retour à la page précédente</A></CENTER>";
+    echo "<A class='btn btn-link' HREF='index.php?page=planning'>Retour à la page précédente</A>";
 }
 ?>

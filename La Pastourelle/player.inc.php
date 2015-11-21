@@ -9,7 +9,7 @@ function getPlayer ()
     $tab = recup_actuel_playlist();
     if (count($tab) > 0) {
         echo '
-    <center>
+    
 	<div class="player">
 		<div class="pl"></div>
 		<div class="title"></div>

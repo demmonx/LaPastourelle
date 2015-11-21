@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.5.30)  19 NOV 2015 18:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.5.30)  20 NOV 2015 20:26
 entering extended mode
  restricted \write18 enabled.
+ Source specials enabled.
  %&-line parsing enabled.
 **Rapport.tex
 (./Rapport.tex
@@ -1300,14 +1301,14 @@ File: t1iwonal.fd 2008/07/22 v0.995 font definition file for T1/iwonal (MW)
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(56.9055pt, 514.71037pt, 42.67912pt)
+* h-part:(L,W,R)=(42.67912pt, 528.93675pt, 42.67912pt)
 * v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=514.71037pt
+* \textwidth=528.93675pt
 * \textheight=681.15898pt
-* \oddsidemargin=-15.36449pt
-* \evensidemargin=-15.36449pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -1428,26 +1429,7 @@ LaTeX Font Info:    Try loading font information for OMX+iwonal on input line 7
 File: omxiwonal.fd 2008/07/22 v0.995 font definition file for OMX/iwonal (MW)
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Rapport.tocpdfTeX warni
-ng (ext4): destination with the same identifier (name{page.1}) has been already
- used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.30 ...ement de l'application Web}{21}{chapter.3}
-                                                   [1
-
-])
-\tf@toc=\write6
-\openout6 = `Rapport.toc'.
-
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.78719pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Chapitre A.
 
 Underfull \hbox (badness 10000) in paragraph at lines 81--88
@@ -1469,7 +1451,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--123
 
  []
 
-[3
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.124 \par C
+            oncernant l'aspect technique, ce projet ne peut Ãªtre que bÃ©nÃ©...
+[1
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 124--129
@@ -1482,7 +1470,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4]
+[2]
 Underfull \hbox (badness 10000) in paragraph at lines 186--190
 
  []
@@ -1518,7 +1506,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5] <include/cycle_v.pdf, id=219, 650.45126pt x 330.52052pt>
+[3] <include/cycle_v.pdf, id=181, 650.45126pt x 330.52052pt>
 File: include/cycle_v.pdf Graphic file (type pdf)
 
 <use include/cycle_v.pdf>
@@ -1535,8 +1523,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6 <./include/cycle_v.pdf>]
-<include/copil_template.pdf, id=242, 597.23125pt x 845.1575pt>
+[4 <./include/cycle_v.pdf>]
+<include/copil_template.pdf, id=204, 597.23125pt x 845.1575pt>
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf>
@@ -1547,7 +1535,7 @@ File: include/copil_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/copil_template.pdf used on input line 280.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<include/copil_template.pdf, id=245, page=1, 597.23125pt x 845.1575pt>
+<include/copil_template.pdf, id=207, page=1, 597.23125pt x 845.1575pt>
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf, page 1>
@@ -1578,8 +1566,8 @@ File: include/copil_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/copil_template.pdf, page1 used on input line 2
 83.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
- [7 <./include/copil_template.pdf>]
-<include/recette_template.pdf, id=258, 597.23125pt x 845.1575pt>
+ [5 <./include/copil_template.pdf>]
+<include/recette_template.pdf, id=220, 597.23125pt x 845.1575pt>
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf>
@@ -1590,7 +1578,7 @@ File: include/recette_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/recette_template.pdf used on input line 285.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<include/recette_template.pdf, id=261, page=1, 597.23125pt x 845.1575pt>
+<include/recette_template.pdf, id=223, page=1, 597.23125pt x 845.1575pt>
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf, page 1>
@@ -1621,16 +1609,49 @@ File: include/recette_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/recette_template.pdf, page1 used on input line
  288.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
- [8 <./include/recette_template.pdf>]
+ [6 <./include/recette_template.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 293--295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--323
+Underfull \hbox (badness 10000) in paragraph at lines 326--330
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--343
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--346
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 346--349
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--352
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1638,89 +1659,78 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10]
 \openout2 = `include/Liste_tache_21-10.aux'.
 
  (./include/Liste_tache_21-10.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--8
-[]|\T1/iwonal/m/n/10.95 Caractères in-dé-si-rables
+[]|[]\T1/iwonal/m/n/10.95 Caractères in-dé-si-rables
  []
 
 
 Underfull \hbox (badness 2828) in paragraph at lines 18--18
-[]|\T1/iwonal/m/n/10.95 Changement du for-mu-
+[]|[]\T1/iwonal/m/n/10.95 Changement du for-mu-
  []
 
 
 Underfull \hbox (badness 7308) in paragraph at lines 22--22
-[]|\T1/iwonal/m/n/10.95 Changer l'ordre d'af-fi-
+[]|[]\T1/iwonal/m/n/10.95 Changer l'ordre d'af-fi-
  []
 
 
 Underfull \hbox (badness 5119) in paragraph at lines 24--24
-[]|\T1/iwonal/m/n/10.95 Dimensionnement au-to-
+[]|[]\T1/iwonal/m/n/10.95 Dimensionnement au-to-
  []
 
 
 Underfull \hbox (badness 1430) in paragraph at lines 48--48
-[]|\T1/iwonal/m/n/10.95 Changer la cou-leur de
+[]|[]\T1/iwonal/m/n/10.95 Changer la cou-leur de
  []
 
 )
-Overfull \hbox (3.80292pt too wide) in paragraph at lines 2--346
-[][] 
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11
+[10
 
-] <include/gantt22-10.pdf, id=286, 845.0471pt x 597.51233pt>
+] <include/gantt22-10.pdf, id=253, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf>
-Package pdftex.def Info: include/gantt22-10.pdf used on input line 348.
+Package pdftex.def Info: include/gantt22-10.pdf used on input line 376.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
  <use include/gantt22-10.pdf>
-Package pdftex.def Info: include/gantt22-10.pdf used on input line 348.
+Package pdftex.def Info: include/gantt22-10.pdf used on input line 376.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 
-<include/gantt22-10.pdf, id=289, page=1, 845.0471pt x 597.51233pt>
+<include/gantt22-10.pdf, id=256, page=1, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 348.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 376.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
  <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 348.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 376.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 348.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 376.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
  <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 348.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 376.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 348.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 376.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
- [12
+ [11
 
 
  <./include/gantt22-10.pdf>]
@@ -1730,7 +1740,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13
+[12
 
 
 ]
@@ -1738,57 +1748,53 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
  (./include/Liste_tache_3-11.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--10
-[]|\T1/iwonal/m/n/10.95 Caractères in-dé-si-rables
+[]|[]\T1/iwonal/m/n/10.95 Caractères in-dé-si-rables
  []
 
 
 Underfull \hbox (badness 2828) in paragraph at lines 22--22
-[]|\T1/iwonal/m/n/10.95 Changement du for-mu-
+[]|[]\T1/iwonal/m/n/10.95 Changement du for-mu-
  []
 
 
 Underfull \hbox (badness 7308) in paragraph at lines 26--26
-[]|\T1/iwonal/m/n/10.95 Changer l'ordre d'af-fi-
+[]|[]\T1/iwonal/m/n/10.95 Changer l'ordre d'af-fi-
  []
 
 
 Underfull \hbox (badness 5119) in paragraph at lines 28--28
-[]|\T1/iwonal/m/n/10.95 Dimensionnement au-to-
+[]|[]\T1/iwonal/m/n/10.95 Dimensionnement au-to-
  []
 
 
 Underfull \hbox (badness 2376) in paragraph at lines 40--40
-[]|\T1/iwonal/m/n/10.95 Recoder l'ad-mi-nis-tra-tion
+[]|[]\T1/iwonal/m/n/10.95 Recoder l'ad-mi-nis-tra-tion
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 42--43
-[]|\T1/iwonal/m/n/10.95 Correction er-reurs di-
+[]|[]\T1/iwonal/m/n/10.95 Correction er-reurs di-
  []
 
 
 Underfull \hbox (badness 1430) in paragraph at lines 56--56
-[]|\T1/iwonal/m/n/10.95 Changer la cou-leur de
+[]|[]\T1/iwonal/m/n/10.95 Changer la cou-leur de
  []
 
 )
-Overfull \hbox (9.57356pt too wide) in paragraph at lines 1--367
-[][] 
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14
+[13
 
-] <include/gantt3-11.png, id=327, 1205.50375pt x 856.19875pt>
+] <include/gantt3-11.png, id=292, 1205.50375pt x 856.19875pt>
 File: include/gantt3-11.png Graphic file (type png)
 
 <use include/gantt3-11.png>
-Package pdftex.def Info: include/gantt3-11.png used on input line 371.
+Package pdftex.def Info: include/gantt3-11.png used on input line 399.
 (pdftex.def)             Requested size: 602.75041pt x 428.09833pt.
 
 
@@ -1797,14 +1803,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15 <./include/gantt3-11.png>]
+[14 <./include/gantt3-11.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16
+[15
 
 
 
@@ -1813,37 +1819,37 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
  (./include/Liste_tache_15-11.tex
 Underfull \hbox (badness 2828) in paragraph at lines 26--26
-[]|\T1/iwonal/m/n/10.95 Changement du for-mu-
+[]|[]\T1/iwonal/m/n/10.95 Changement du for-mu-
  []
 
 
 Underfull \hbox (badness 7308) in paragraph at lines 30--30
-[]|\T1/iwonal/m/n/10.95 Changer l'ordre d'af-fi-
+[]|[]\T1/iwonal/m/n/10.95 Changer l'ordre d'af-fi-
  []
 
 
 Underfull \hbox (badness 5119) in paragraph at lines 32--32
-[]|\T1/iwonal/m/n/10.95 Dimensionnement au-to-
+[]|[]\T1/iwonal/m/n/10.95 Dimensionnement au-to-
  []
 
 
 Underfull \hbox (badness 2837) in paragraph at lines 47--47
-[]|\T1/iwonal/m/n/10.95 Recoder la par-tie des
+[]|[]\T1/iwonal/m/n/10.95 Recoder la par-tie des
  []
 
 
 Underfull \hbox (badness 2376) in paragraph at lines 53--54
-[]|\T1/iwonal/m/n/10.95 Recoder l'ad-mi-nis-tra-tion
+[]|[]\T1/iwonal/m/n/10.95 Recoder l'ad-mi-nis-tra-tion
  []
 
 
 Underfull \hbox (badness 1430) in paragraph at lines 67--67
-[]|\T1/iwonal/m/n/10.95 Changer la cou-leur de
+[]|[]\T1/iwonal/m/n/10.95 Changer la cou-leur de
  []
 
 )
-Overfull \hbox (31.6487pt too wide) in paragraph at lines 1--387
-[][] 
+Overfull \hbox (17.42232pt too wide) in paragraph at lines 1--415
+[][][] 
  []
 
 
@@ -1852,13 +1858,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17
+[16
 
-] <include/gantt15-11.png, id=341, 842.14626pt x 762.85pt>
+] <include/gantt15-11.png, id=306, 842.14626pt x 762.85pt>
 File: include/gantt15-11.png Graphic file (type png)
 
 <use include/gantt15-11.png>
-Package pdftex.def Info: include/gantt15-11.png used on input line 391.
+Package pdftex.def Info: include/gantt15-11.png used on input line 419.
 (pdftex.def)             Requested size: 421.0721pt x 381.42407pt.
 
 
@@ -1867,23 +1873,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18 <./include/gantt15-11.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 399--404
+[17 <./include/gantt15-11.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 427--432
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--411
+Underfull \hbox (badness 10000) in paragraph at lines 432--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--416
+Underfull \hbox (badness 10000) in paragraph at lines 439--444
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--423
+Underfull \hbox (badness 10000) in paragraph at lines 444--451
 
  []
 
@@ -1893,13 +1899,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19
+[18
 
 
 
 ]
 Chapitre B.
-[20
+[19
 
 ]
 Chapitre C.
@@ -1907,51 +1913,35 @@ Chapitre C.
 Package caption Warning: Unused \captionsetup[table] on input line 40.
 See the caption package documentation for explanation.
 
-[21
+[20
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 447.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 447.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 475.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 475.
  (./Rapport.aux (./include/Liste_tache_21-10.aux)
 (./include/Liste_tache_3-11.aux) (./include/Liste_tache_15-11.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 447.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 447.
-
-
-Package rerunfilecheck Warning: File `Rapport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Rapport.out':
-(rerunfilecheck)             Before: BEF37DAF2CED3CFB43DD650731FCDACC;2225
-(rerunfilecheck)             After:  6704EC56CA0A0C554AF47D841C39F17C;2280.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 447.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 475.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 475.
+Package rerunfilecheck Info: File `Rapport.out' has not changed.
+(rerunfilecheck)             Checksum: 6704EC56CA0A0C554AF47D841C39F17C;2280.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 475.
  ) 
 Here is how much of TeX's memory you used:
- 25604 strings out of 493105
- 495145 string characters out of 6137072
- 682875 words of memory out of 5000000
+ 25596 strings out of 493105
+ 495046 string characters out of 6137072
+ 682878 words of memory out of 5000000
  28491 multiletter control sequences out of 15000+600000
- 57611 words of font info for 44 fonts, out of 8000000 for 9000
+ 54482 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,19n,92p,968b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subsection.1.4.3} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.4.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.4.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/shar
-e/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr/share/texlive/tex
-mf-dist/fonts/type1/nowacki/iwona/iwonal.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/nowacki/iwona/iwonam.pfb>
-Output written on Rapport.pdf (22 pages, 757552 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/sh
+are/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr/share/texlive/t
+exmf-dist/fonts/type1/nowacki/iwona/iwonal.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/nowacki/iwona/iwonam.pfb>
+Output written on Rapport.pdf (21 pages, 754970 bytes).
 PDF statistics:
- 392 PDF objects out of 1000 (max. 8388607)
- 314 compressed objects within 4 object streams
- 64 named destinations out of 1000 (max. 500000)
- 440 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 353 PDF objects out of 1000 (max. 8388607)
+ 277 compressed objects within 3 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 448 words of extra memory for PDF output out of 10000 (max. 10000000)
 
