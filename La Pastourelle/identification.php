@@ -19,29 +19,26 @@ if (! empty($_POST['pseudo']) and ! empty($_POST['motdepasse'])) {
     exit(0);
 }
 ?>
-<div id="espace_reserve">
-	Espace <span>réservé</span> aux membres de la Pastourelle<br /> Pour <span>accéder</span>
-	à cet espace, vous devez obligatoirement être <span>inscrit</span>.<br />
-	Pour vous <span>inscrire</span>, <span>cliquez</span> sur la rubrique <span>"s'inscrire"</span>
-	et <span>remplissez</span> les champs qui vous sont demandés.
-</div>
+	Espace
+réservé
+aux membres de la Pastourelle
+<br />
+Pour accéder à cet espace, vous devez obligatoirement être inscrit .
+<br />
+Pour vous inscrire , cliquez sur la rubrique "s'inscrire" et remplissez
+les champs qui vous sont demandés.
 <H2>Identification</H2>
-<div class="identification">
-	<FORM class="form-horizontal" ACTION="index.php?page=identification"
-		METHOD="POST">
-		<div class="control-group">
-			<label class="control-label for="inputEmail">Pseudo</label>
-			<div class="controls">
-				<input type="text" name="pseudo" placeholder="Pseudo">
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="inputPassword">Mot de passe</label>
-			<div class="controls">
-				<input type="password" name="motdepasse" placeholder="Mot de Passe">
-			</div>
-		</div>
-		<button type="submit" class="btn">Se Connecter</button>
-	</FORM>
-</div>
-';
+<FORM ACTION="index.php?page=identification" METHOD="POST">
+	<table>
+		<tr>
+			<td>Pseudo</td>
+			<td><input type="text" name="pseudo" placeholder="Pseudo" /></td>
+		</tr>
+		<tr>
+			<td>Mot de passe</td>
+			<td><input type="password" name="motdepasse"
+				placeholder="Mot de Passe" /></td>
+		</tr>
+	</table>
+	<input type="submit" value="Se Connecter" />
+</FORM>

@@ -1,11 +1,8 @@
 <?php
 @session_start();
 
-?>
-<div class="clear"></div>
-<?php
 // Phrase du jour
-$phrase = recup_phrasejour($_SESSION['lang']);
+$phrase = getPhraseJour($_SESSION['lang']);
 if (isset($phrase) && $phrase != "") {
     echo "<marquee scrollAmount=\"4\">Phrase de la semaine : " . $phrase .
              " </marquee>";
@@ -18,13 +15,26 @@ if (isset($titre["valeurtrad"]))
     
     // Actualité
 $actu = getActu($_SESSION['lang']);
+echo "<div class='slide-accueil'>";
 foreach ($actu as $row) {
-    echo "<div class='box grid_6'>";
+    echo "<div>";
     $img_actu = $row['img'];
     if (! empty($row['img']))
         echo "<img src='" . $img_actu . "'><br /><br />";
     echo "<span class='comment'>" . (isset($row['txt']) ? $row['txt'] : "") .
              "</span></div>";
 }
-?>
-<div class="clear"></div>
+echo "</div>"?>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.slide-accueil').slick({
+    	  slidesToShow: 2,
+    	  slidesToScroll: 1,
+    	  autoplay: true,
+    	  autoplaySpeed: 5000,
+    	  dots: true
+    });	
+});
+</script>

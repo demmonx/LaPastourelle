@@ -10,16 +10,16 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
     redirect("index.php?page=accueil", 3);
     exit(0);
 } // else
-// Affichage du titre
-if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
+  // Affichage du titre
+if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
     echo '<H2>Ajouter un compte rendu</H2>';
     ?>
 <form action='compte_rendu_traitement.php' method='post' id='new-cr'>
 	<textarea name='content' class='form-compteRendu' placeholder='Contenu'
 		required></textarea>
-	<br /> <label>Date de réunion : </label><input type='text' name='date'
-		placeholder="jj/mm/aaaa" required /> <input type="submit"
-		value="Ajouter" />
+	<br /> <label>Date de réunion : </label><input type='text'
+		class='datepicker' name='date' placeholder="jj/mm/aaaa" required /> <input
+		type="submit" value="Ajouter" />
 </form>
 <?php
 }
@@ -30,7 +30,6 @@ require_once 'list_compte_rendu.php';
 
 <script type="text/javascript">
 $(document).ready(function () {
-
 
 	/* Vérification de la date */
 	function checkDate(date) {

@@ -16,7 +16,7 @@ if (isset ( $_SESSION ['pseudo'] ) && isset ( $_SESSION ['pass'] ) && verifLoAdm
 }
 
 if ($adminOK) {
-	$tab = recup_all_music ();
+	$tab = getMusics ();
 	// Génération de la liste pour l'admin
 	echo "<h1>Listes des fichiers audio : </h1>";
 	echo "<table id='liste-player-full'>";

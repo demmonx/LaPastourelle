@@ -66,7 +66,7 @@ $(document).ready(function () {
     $pseudo = $_SESSION['pseudo'];
     
     // récupération des liens dans la BD et traitement
-    $tab_membre = recup_un_membre($pseudo);
+    $tab_membre = getMember($pseudo);
     $cpt = 0;
     $taille_tab = count($tab_membre);
     // while ($cpt < $taille_tab )

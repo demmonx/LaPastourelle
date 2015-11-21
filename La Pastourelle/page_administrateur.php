@@ -11,19 +11,21 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 <DIV id=\"menu2\">
 	<B><BR> Gérer : <A class='btn btn-link' HREF='index.php?page=slider'>Le
 			diaporama de photos </A> <A class='btn btn-link'
-		HREF='index.php?page=adminActualite'>L'actualité</A>  <A
+		HREF='index.php?page=adminActualite'>L'actualité</A> <A
 		class='btn btn-link' HREF='index.php?page=change_admin'>Les
-			administrateurs </A>  <A class='btn btn-link'
-		HREF='index.php?page=adminTrad'>Les traductions</A> <br />
-		<br /> Modifier : <A class='btn btn-link'
-		HREF='index.php?page=change_txt'>Un texte</A> 
-		<a class='btn btn-link' href='index.php?page=change_phrasejour'>La
-			phrase de la semaine</a>  <br /> <br /> <A
-		class='btn btn-link' HREF='index.php?page=gest_content'>Importer du
-			contenu</A> | <A class='btn btn-link'
+			administrateurs </A> <A class='btn btn-link'
+		HREF='index.php?page=adminTrad'>Les traductions</A> <br /> <br />
+		Modifier : <A class='btn btn-link' HREF='index.php?page=change_txt'>Un
+			texte</A> <a class='btn btn-link'
+		href='index.php?page=change_phrasejour'>La phrase de la semaine</a> <br />
+		<br /> <A class='btn btn-link' HREF='index.php?page=gest_content'>Importer
+			du contenu</A> | <A class='btn btn-link'
 		HREF='index.php?page=gestion_page'>Gérer les pages</A> | <A
 		class='btn btn-link' HREF='index.php?page=gestion_revue'>Gérer les
-			revues</A> </B>
+			revues</A> </B> | <A class='btn btn-link'
+		HREF='index.php?page=gestion_coordonnees'>Gérer les coordonnées</A> |
+	<A class='btn btn-link' HREF='index.php?page=gestion_liens'>Gérer les
+		liens</A> </B>
 </DIV>
 <br />
 <?php

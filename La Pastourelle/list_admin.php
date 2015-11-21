@@ -60,7 +60,7 @@ foreach ($rep as $row) {
 		</H3>
 	</TR>
 <?php
-$rep = recup_membre();
+$rep = getMembers();
 foreach ($rep as $row) {
     echo "<TR>
 		<TD><B>" . $row['prenom'] . "</B></TD>

@@ -8,7 +8,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &&
 }
 
 if ($adminOK) {
-    $tab = recup_all_diapos();
+    $tab = getDiapos();
     if (count($tab) != 0) {
         
         echo "<tr>";

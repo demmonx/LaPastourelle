@@ -6,7 +6,7 @@ require_once 'traitement.inc.php';
  */
 function getPlayer ()
 {
-    $tab = recup_actuel_playlist();
+    $tab = getPlaylist();
     if (count($tab) > 0) {
         echo '
     

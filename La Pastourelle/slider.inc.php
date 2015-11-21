@@ -4,7 +4,7 @@ require_once 'traitement.inc.php';
 if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &
          verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
     
-    $tab = recup_actuel_diapos();
+    $tab = getActiveDiapos();
     echo "<div class='slideshow'><ul>";
     foreach ($tab as $row)
         echo "<li><img src='" . $row["lien"] .

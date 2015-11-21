@@ -10,7 +10,7 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_SPECIAL_CHARS);
-if (! (($action && $id) || ($type && isset($_FILES["fichier"])))) {
+if (! (($action && $id) || ($type && isset($_FILES["fichier"]) && !empty($_FILES["fichier"]["name"])))) {
     exit("Erreur lors de la réalisation de l'action");
 }
 
