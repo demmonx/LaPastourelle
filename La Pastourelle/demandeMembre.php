@@ -5,7 +5,7 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 			Vous ne pouvez pas accéder à ces pages sans être connecté en tant qu'administrateur<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
 		  ";
-    // redirect("index.php?page=accueil", 3);
+    // 
     echo '
 			<script language="javascript" type="text/javascript">
 				setTimeout("window.location=\'index.php?page=accueil\'", 3000);
@@ -54,13 +54,14 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 				<th>-</th>";
         echo "
 			</tr>";
-        foreach ($messNoValid as $row) { // $messNoValid =
-                                         // $req_messNoValid->fetch()) {
+        foreach ($messNoValid as $row) {
             echo "
 			<tr>";
             echo "
-				<td>" . $row['date'] . "</td><td>" . $row['nom'] . "</td>
-				<td>" . $row['message'] . "</td>";
+				<td>" . $row['date'] .
+                     "</td><td>" . $row['nom'] . "</td>
+				<td>" .
+                     nl2br(html_entity_decode($row['message'])) . "</td>";
             echo "
 				<td>
 					<a class='btn btn-link' href='index.php?page=page_administrateur&id=" .

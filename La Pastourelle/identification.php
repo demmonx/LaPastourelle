@@ -1,44 +1,51 @@
-<?php
-/*
- * Analyse du formulaire, Variables de session, Redirection OPTIMISE
- * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
- */
-if (! empty($_POST['pseudo']) and ! empty($_POST['motdepasse'])) {
-    echo "
-	";
-    if (verifLo($_POST['pseudo'], sha1($_POST['motdepasse']))) {
-        $_SESSION['pseudo'] = $_POST['pseudo'];
-        $_SESSION['pass'] = sha1($_POST['motdepasse']);
-        $_SESSION['id'] = getId($_POST['pseudo']);
-        echo "Félicitations ! Vous êtes maintenant connecté sur le site de La Pastourelle de Rodez<br />";
-    } else {
-        echo "Pseudo ou mot de passe incorrect<br />";
-    }
-    echo "Pour revenir à la page d'accueil, cliquez<a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-	";
-    exit(0);
-}
-?>
-	Espace
-réservé
-aux membres de la Pastourelle
+ Espace réservé aux membres de la Pastourelle
 <br />
 Pour accéder à cet espace, vous devez obligatoirement être inscrit .
 <br />
 Pour vous inscrire , cliquez sur la rubrique "s'inscrire" et remplissez
 les champs qui vous sont demandés.
 <H2>Identification</H2>
-<FORM ACTION="index.php?page=identification" METHOD="POST">
+<FORM ACTION="identification_traitement.php" class='login-form'
+	METHOD="POST">
 	<table>
 		<tr>
 			<td>Pseudo</td>
-			<td><input type="text" name="pseudo" placeholder="Pseudo" /></td>
+			<td><input type="text" name="pseudo" placeholder="Pseudo" required /></td>
 		</tr>
 		<tr>
 			<td>Mot de passe</td>
-			<td><input type="password" name="motdepasse"
-				placeholder="Mot de Passe" /></td>
+			<td><input type="password" name="pass" placeholder="Mot de Passe"
+				required /></td>
 		</tr>
 	</table>
-	<input type="submit" value="Se Connecter" />
+	<input type="submit" value="Connexion" />
+	<div id='msgReturn'></div>
 </FORM>
+<script language="javascript">
+$(document).ready(function () {
+
+    /** Création de type */
+    $('.login-form').on('submit', function (e) {
+        e.preventDefault(); // Empeche de soumettre le formulaire
+        var form = $(this); // L'objet jQuery du formulaire
+        var pseudo =$("input[name=pseudo]", form).val();
+        var pass =$("input[name=pass]", form).val();
+        $('#msgReturn').empty();  // affichage du résultat
+        if (pseudo === "" || pass === ''|| code === '') {
+        	 $('#msgReturn').append("Les champs doivent être remplis");
+        } else {
+            // Envoi de la requête HTTP en mode asynchrone
+            $.ajax({
+                url: form.attr('action'), // cible (formulaire)
+                type: form.attr('method'), // méthode (formulaire)
+                data: form.serialize(), // Envoie de toutes les données
+                success: function (html) { // Récupération de la réponse
+                    $('#msgReturn').append(html);  // affichage du résultat
+                    form.get(0).reset();                    
+                }
+            });
+        }
+    });
+});
+
+</script>

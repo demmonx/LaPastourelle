@@ -25,7 +25,8 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 			revues</A> </B> | <A class='btn btn-link'
 		HREF='index.php?page=gestion_coordonnees'>Gérer les coordonnées</A> |
 	<A class='btn btn-link' HREF='index.php?page=gestion_liens'>Gérer les
-		liens</A> </B>
+		liens</A> </B> | <A class='btn btn-link'
+		HREF='index.php?page=gestion_boutique'>Gérer la boutique</A> </B>
 </DIV>
 <br />
 <?php

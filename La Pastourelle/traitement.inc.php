@@ -612,13 +612,23 @@ function verifLo ($login, $pass)
     // de passe $pass
     $bdd = new Connection();
     $req_connect = $bdd->prepare(
-            'SELECT * FROM tuser WHERE etat_validation = 1 AND pseudo = ? AND motdepasse = ?');
+            'SELECT * FROM tuser WHERE pseudo = ? AND motdepasse = ?');
     $req_connect->bindValue(1, $login);
     $req_connect->bindValue(2, $pass);
     $req_connect->execute();
     
     // Si on a rien recupéré false sinon true
-    return $req_connect->rowCount() == 1;
+    if ($req_connect->rowCount() != 1) {
+        throw new Exception(
+                "Les informations saisies n'ont pas permises de vous identifier");
+    } else 
+        if ($req_connect->rowCount() == 1 &&
+                 $req_connect->fetch()["etat_validation"] == 1) {
+            return true;
+        } else {
+            throw new Exception(
+                    "Votre compte doit être validé par un administrateur pour pouvoir vous connecter");
+        }
 }
 
 /*
@@ -647,22 +657,6 @@ function verifLoAdmin ($login, $pass)
     
     // Si on a rien recupéré false sinon true
     return $req_connect->rowCount() == 1;
-}
-
-/*
- * Fonction redirect Langage : PHP
- *
- * Fonction de redirection après un temps donné
- *
- * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
- * @param lien La page à attendre lors de la redirection
- * @param sec Le nombre de secondes avant la redirection
- *
- */
-function redirect ($lien, $sec)
-{
-    // Fait planter si suivit par un exit
-    // header('Refresh:'.$sec.'; URL='.$lien);
 }
 
 /**
@@ -1188,6 +1182,7 @@ function deleteMessageLivre ($id)
     $stmt = $bdd->prepare("DELETE FROM livreor WHERE id =?");
     $stmt->bindValue(1, $id);
     $stmt->execute();
+    return true;
 }
 
 /**
@@ -1199,6 +1194,7 @@ function deleteMembre ($id)
     $stmt = $bdd->prepare("DELETE FROM tuser WHERE id_membre =?");
     $stmt->bindValue(1, $id);
     $stmt->execute();
+    return true;
 }
 
 /**
@@ -2453,4 +2449,23 @@ function addDatePlanning ($jour, $date, $lieu, $musiciens)
     $stmt->bindValue(':music', $musiciens);
     $stmt->execute();
     return true;
+}
+
+/**
+ * Ajoute un message au livre d'or
+ *
+ * @param $nom Le
+ *            nom de l'auteur du message
+ * @param $message Le
+ *            contenu du message
+ */
+function addMessageToLivre ($nom, $message)
+{
+    $bdd = new Connection();
+    $addMess = $bdd->prepare(
+            "INSERT INTO livreor (date, nom, message, validation)
+				VALUES(NOW(), ?, ?, 0)");
+    $addMess->bindValue(1, $nom);
+    $addMess->bindValue(2, $message);
+    $addMess->execute();
 }

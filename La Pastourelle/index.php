@@ -71,7 +71,7 @@ $bdd = new Connection();
 		</div>
 		<div id="mp3_texte">Nos musiques</div>
 		<div id="livre">
-			<a href="index.php?page=livreOR" title="Le livre d'or"><img
+			<a href="index.php?page=livre_or" title="Le livre d'or"><img
 				src="/ressources/images/book.png"></a>
 		</div>
 		<div id="livre_texte">Le livre d'or</div>
