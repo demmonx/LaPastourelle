@@ -18,10 +18,10 @@ $actu = getActu($_SESSION['lang']);
 echo "<div class='slide-accueil'>";
 foreach ($actu as $row) {
     echo "<div>";
-    $img_actu = $row['img'];
-    if (! empty($row['img']))
-        echo "<img src='" . $img_actu . "'><br /><br />";
-    echo "<span class='comment'>" . (isset($row['txt']) ? $row['txt'] : "") .
+    if (isset($row['img']))
+        echo "<img src='" . $row['img'] . "'><br /><br />";
+    echo "<span class='comment'>" .
+             (isset($row['txt']) ? nl2br(html_entity_decode($row['txt'])) : "") .
              "</span></div>";
 }
 echo "</div>"?>

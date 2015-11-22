@@ -24,7 +24,7 @@ foreach ( $type as $field ) {
 foreach ( $type as $field ) {
 	foreach ( $langage as $lang ) {
 		try {
-			update_actu($_POST [$field ["type"]] [$lang ["id"]],$field ["type"], $lang ["id"] );
+			updateActu($_POST [$field ["type"]] [$lang ["id"]],$field ["type"], $lang ["id"] );
 		} catch (Exception $e) {
 			exit($e->getMessage());
 		}

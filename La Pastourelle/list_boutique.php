@@ -10,16 +10,16 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
  * Teste si on a reçu tous les champs, même vide
  * Pour cela, besoin de lister les champs à recevoir
  */
-$type = getActuType();
+$produit = getProducts();
 $langage = getLanguages();
 ?>
-<FORM METHOD='POST' id='actuMaj' ACTION='actu_maj.php'>
+<FORM METHOD='POST' id='boutiqueMaj' ACTION='boutique_maj.php'>
 	<table>
 		<tr>
 			<th>Langue</th>
 					<?php
-    foreach ($type as $field) {
-        echo "<th>" . $field["name"] . "</th>";
+    foreach ($produit as $field) {
+        echo "<th>" . $field["name_admin"] . "</th>";
     }
     ?>
 				</tr>
@@ -30,13 +30,20 @@ $langage = getLanguages();
         echo "<tr><td>" . $lang["name"] . "</td>";
         
         // Récupération de tous les types pour toutes les langues
-        foreach ($type as $field) {
+        foreach ($produit as $field) {
             // Récupération du contenu
-            $content = getActuAdmin($lang["id"], $field["id"]);
-            $content = isset($content["txt"]) ? $content["txt"] : "";
-            echo "<td><textarea name='" . $field["type"] . "[" . $lang["id"] .
-                     "]'>";
-            echo stripnl2br2($content);
+            $content = getBoutiqueAdmin($lang["id"], $field["id"]);
+            echo "<td>";
+            // Récupération du nom
+            echo "<input type='text' required value='" .
+                     (isset($content["name"]) ? $content["name"] : "") .
+                     "' name='" . $field["produit"] . "[" . $lang["id"] .
+                     "][name]' />";
+            
+            // Récupération de la description
+            echo "<textarea name='" . $field["produit"] . "[" . $lang["id"] .
+                     "][desc]'>";
+            echo stripnl2br2(isset($content["txt"]) ? $content["txt"] : "");
             echo "</textarea></td>";
         }
         echo "</tr>";
@@ -49,7 +56,7 @@ $langage = getLanguages();
 <script language="javascript">
 $(document).ready(function () {
     /** * Formulaire d'actualité ** */
-    $('#actuMaj').on('submit', function (e) {
+    $('#boutiqueMaj').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
         var form = $(this); // L'objet jQuery du formulaire
         $('#msgReturn').empty();
