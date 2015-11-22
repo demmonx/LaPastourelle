@@ -355,12 +355,36 @@ function extractMembreFromARow ($row)
  *
  * @param int $lang
  *            L'identifiant de la langue
+ * @return array Le tableau de toutes les actualités disponibles pour cette
+ *         langue
+ */
+function getActu ($lang)
+{
+    $return = array(); // tableau contenant les informations des actualitées a
+                       // recuperer
+    $cpt = 0;
+    
+    $types = getActuType();
+    foreach ($types as $type) {
+        $return[$cpt] = getActuAdmin($lang, $type["id"]);
+        $return[$cpt]['img'] = $type['img'];
+        $cpt ++;
+    }
+    
+    return $return;
+}
+
+/**
+ * Renvoie la liste des actus disponibles pour cette langue
+ *
+ * @param int $lang
+ *            L'identifiant de la langue
  * @param int $type
  *            L'identifiant du type d'actualité
  * @return array Le tableau de toutes les actualités disponibles pour cette
  *         langue
  */
-function getActu ($lang, $type = null)
+function getActuAdmin ($lang, $type)
 {
     $bdd = new Connection();
     
@@ -371,33 +395,74 @@ function getActu ($lang, $type = null)
     /**
      * recupération de toute l'actualite
      */
-    $rqt_act = 'SELECT * FROM actu_content RIGHT OUTER JOIN actualite ON act_id = actu ';
-    if ($type != null) {
-        $rqt_act .= " WHERE actu=?";
-    }
+    $rqt_act = 'SELECT * FROM actu_content RIGHT OUTER JOIN actualite ON act_id = actu WHERE actu=? AND lang = ?';
     
     $result = $bdd->prepare($rqt_act);
-    if ($type != null) {
-        $result->bindValue(1, $type);
-    }
+    $result->bindValue(1, $type);
+    $result->bindValue(2, $lang);
     $result->execute();
     
-    // Si pas de résulktat on renvoie quand même l'image et les types
-    if ($result->rowCount() <= 0) {
-        $result = $bdd->prepare("SELECT * FROM actualite");
-        $result->execute();
+    if ($row = $result->fetch()) {
+        $tab_act = extractActuFromARow($row);
     }
     
-    while ($row = $result->fetch()) {
-        $tab_act[$cpt]['id'] = $row["act_id"];
-        $tab_act[$cpt]['type'] = $row["act_type"];
-        $tab_act[$cpt]['name'] = $row["act_nom"];
-        $tab_act[$cpt]['img'] = isset($row["act_img"]) ? $row["act_img"] : "";
-        if (isset($row["lang"]) && $row['lang'] == $lang) {
-            $tab_act[$cpt]['txt'] = isset($row["content"]) ? stripnl2br(
-                    $row["content"]) : "";
-        }
+    return $tab_act;
+}
+
+/**
+ * Renvoie la liste des produits disponibles pour cette langue
+ *
+ * @param int $lang
+ *            L'identifiant de la langue
+ * @return array Le tableau de toutes les produits pour cette
+ *         langue
+ */
+function getBoutique ($lang)
+{
+    $return = array(); // tableau contenant les informations des actualitées a
+                       // recuperer
+    $cpt = 0;
+    
+    $products = getProducts();
+    foreach ($products as $prod) {
+        $return[$cpt] = getBoutiqueAdmin($lang, $prod["id"]);
+        $return[$cpt]["prix"] = $prod["prix"];
+        $return[$cpt]['img'] = $prod['img'];
         $cpt ++;
+    }
+    
+    return $return;
+}
+
+/**
+ * Renvoie la liste des produits disponibles pour cette langue
+ *
+ * @param int $lang
+ *            L'identifiant de la langue
+ * @param int $type
+ *            L'identifiant du produit
+ * @return array Le tableau de toutes les produits pour cette
+ *         langue
+ */
+function getBoutiqueAdmin ($lang, $type)
+{
+    $bdd = new Connection();
+    
+    $tab_act = array(); // tableau contenant les informations des actualitées a
+                        // recuperer
+    
+    /**
+     * recupération de toute l'actualite
+     */
+    $rqt_act = 'SELECT * FROM produits_contenu RIGHT OUTER JOIN produits ON bt_prod = pd_num WHERE bt_prod=?  AND bt_lang = ?';
+    
+    $result = $bdd->prepare($rqt_act);
+    $result->bindValue(1, $type);
+    $result->bindValue(2, $lang);
+    $result->execute();
+    
+    if ($row = $result->fetch()) {
+        $tab_act = extractProductFromARow($row);
     }
     
     return $tab_act;
@@ -418,7 +483,7 @@ function getActuType ()
     /**
      * recupération de l'actualite
      */
-    $rqt_act = 'SELECT * FROM actualite';
+    $rqt_act = 'SELECT * FROM actualite ORDER BY act_nom';
     
     $result = $bdd->prepare($rqt_act);
     $result->execute();
@@ -439,8 +504,50 @@ function extractActuFromARow ($row)
     $tab_act['id'] = $row["act_id"];
     $tab_act['type'] = $row["act_type"];
     $tab_act['name'] = $row["act_nom"];
-    $tab_act['img'] = isset($row["act_img"]) ? $row["act_img"] : "";
-    $tab_act['txt'] = isset($row["content"]) ? stripnl2br($row["content"]) : "";
+    $tab_act['img'] = isset($row["act_img"]) ? $row["act_img"] : null;
+    $tab_act['txt'] = isset($row["content"]) ? $row["content"] : null;
+    return $tab_act;
+}
+
+/**
+ *
+ * @return La liste de tous les produits disponibles
+ */
+function getProducts ()
+{
+    $bdd = new Connection();
+    
+    $tab_act = array();
+    $cpt = 0;
+    
+    /**
+     * recupération de l'actualite
+     */
+    $rqt_act = 'SELECT * FROM produits ORDER BY pd_nom_admin';
+    
+    $result = $bdd->prepare($rqt_act);
+    $result->execute();
+    
+    while ($row = $result->fetch()) {
+        $tab_act[$cpt ++] = extractProductFromARow($row);
+    }
+    
+    return $tab_act;
+}
+
+/**
+ * Récupère les infos d'actualité à partir d'un champ de BD
+ */
+function extractProductFromARow ($row)
+{
+    $tab_act = array();
+    $tab_act['id'] = $row["pd_num"];
+    $tab_act['produit'] = $row["pd_nom_prive"];
+    $tab_act['name_admin'] = $row["pd_nom_admin"];
+    $tab_act['prix'] = $row["pd_prix"];
+    $tab_act['name'] = isset($row["bt_nom_public"]) ? $row["bt_nom_public"] : null;
+    $tab_act['img'] = isset($row["pd_img"]) ? $row["pd_img"] : null;
+    $tab_act['txt'] = isset($row["bt_content"]) ? stripnl2br($row["bt_content"]) : null;
     return $tab_act;
 }
 
@@ -962,6 +1069,64 @@ function getAllLanguages ()
 }
 
 /**
+ * Met à jour les infos du produit pour un produit et une langue selectionnée
+ *
+ * @param string $nom
+ *            Le nom du produit
+ * @param string $desc
+ *            La description du produit
+ * @param string $type
+ *            Le produit à mettre à jour
+ * @param int $langue
+ *            La langue du produit
+ */
+function updateProduct ($nom, $desc, $produit, $langue)
+{
+    $bdd = new Connection();
+    
+    // On regarde si la valeur existe déjà
+    $stmt1 = $bdd->prepare(
+            "SELECT * FROM produits_contenu
+			JOIN produits
+			ON pd_num = bt_prod
+			WHERE pd_nom_prive = :prod
+			AND bt_lang = :lang");
+    $stmt1->bindValue(":lang", $langue);
+    $stmt1->bindValue(":prod", $produit);
+    $stmt1->execute();
+    
+    // Si pas d'objet on insère à condition que le contenu ne soit pas vide,
+    // sinon inutile
+    if ($stmt1->rowCount() == 0 && ! empty(trim($nom))) {
+        $stmt2 = $bdd->prepare(
+                "INSERT INTO produits_contenu
+			(bt_content, bt_nom_public, bt_lang, bt_prod) VALUES (:desc, :nom, :lang, (SELECT pd_num FROM produits WHERE pd_nom_prive=:prod))");
+        $stmt2->bindValue(":desc", ! empty($desc) ? $desc : null);
+        $stmt2->bindValue(":nom", $nom);
+        $stmt2->bindValue(":lang", $langue);
+        $stmt2->bindValue(":prod", $produit);
+        $stmt2->execute();
+        return true;
+    } else 
+        if ($stmt1->rowCount() > 1) { // Plusieurs items avec même clé =
+                                      // table corrompue
+            throw new InvalidArgumentException(
+                    "Au moins une donnée est corrompue");
+        } // sinon on update
+    
+    $stmt2 = $bdd->prepare(
+            "UPDATE produits_contenu
+			SET bt_content = :desc,
+            bt_nom_public = :nom
+			WHERE bt_num = :id");
+    $stmt2->bindValue(":desc", ! empty($desc) ? $desc : null);
+    $stmt2->bindValue(":nom", $nom);
+    $stmt2->bindValue(":id", $stmt1->fetch()["bt_num"]);
+    $stmt2->execute();
+    return true;
+}
+
+/**
  * Met à jour l'actualité pour un type et une langue selectionnée
  *
  * @param string $valeur
@@ -971,7 +1136,7 @@ function getAllLanguages ()
  * @param int $langue
  *            La langue de l'actualité
  */
-function update_actu ($valeur, $type, $langue)
+function updateActu ($valeur, $type, $langue)
 {
     $bdd = new Connection();
     
@@ -1338,6 +1503,38 @@ function addActuType ($nom)
 }
 
 /**
+ * Ajoute un nouveau produit à la boutique
+ *
+ * @param string $nom
+ *            Le nom du nouveau produit
+ * @param float $prix
+ *            Le prix du nouveau produit
+ */
+function addProduct ($nom, $prix)
+{
+    // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
+    // requêtes
+    $type = preg_replace("#[^!_a-z]+#", '', strtolower($nom));
+    $bdd = new Connection();
+    
+    // On regarde si le type existe déjà
+    $stmt = $bdd->prepare("SELECT * FROM produits WHERE pd_nom_prive = ?");
+    $stmt->bindValue(1, $type);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        throw new Exception("Un produit identique existe déjà");
+    } // else on ajoute
+    $stmt->closeCursor();
+    
+    $stmt = $bdd->prepare(
+            "INSERT INTO produits (pd_nom_prive, pd_nom_admin, pd_prix) VALUES(?,?,?)");
+    $stmt->bindValue(1, $type);
+    $stmt->bindValue(2, $nom);
+    $stmt->bindValue(3, $prix);
+    $stmt->execute();
+}
+
+/**
  * Créé un nouveau lien
  *
  * @param string $nom
@@ -1363,6 +1560,34 @@ function addLink ($nom, $url)
     $stmt->bindValue(1, $url);
     $stmt->bindValue(2, $nom);
     $stmt->execute();
+}
+
+/**
+ * Supprime l'image relative à un produit de la BD et du disque
+ *
+ * @param intger $id
+ *            L'id du produit concerné
+ */
+function deleteImageProduct ($id)
+{
+    $bdd = new Connection();
+    $stmt1 = $bdd->prepare("SELECT * FROM produits WHERE pd_num = ?");
+    $stmt1->bindValue(1, $id);
+    $stmt1->execute();
+    // Vérifie si le champ existe
+    if ($stmt1->rowCount() == 1) {
+        $row = $stmt1->fetch();
+        // Vérifie si l'image existe
+        if (isset($row['pd_img'])) {
+            $stmt2 = $bdd->prepare(
+                    "UPDATE produits SET pd_img = null WHERE pd_num = ?");
+            $stmt2->bindValue(1, $id);
+            $stmt2->execute();
+            @unlink($row['pd_img']);
+        }
+        return true;
+    }
+    return false;
 }
 
 /**
@@ -1422,6 +1647,25 @@ function deleteImageLink ($id)
 }
 
 /**
+ * Supprime le produit de la base de donnée, supprime l'éventuelle image
+ * associé du disque
+ *
+ * @param integer $id
+ *            L'id du produit concerné
+ */
+function deleteProduct ($id)
+{
+    $bdd = new Connection();
+    if (deleteImageProduct($id)) {
+        $stmt2 = $bdd->prepare("DELETE FROM produits WHERE pd_num = ?");
+        $stmt2->bindValue(1, $id);
+        $stmt2->execute();
+        return true;
+    }
+    return false;
+}
+
+/**
  * Supprime le type d'actu de la base de donnée, supprime l'éventuelle image
  * associé du disque
  *
@@ -1473,6 +1717,44 @@ function insertImageActu ($image, $id)
     $bdd = new Connection();
     deleteImageActu($id);
     $stmt2 = $bdd->prepare("UPDATE actualite SET act_img = ? WHERE act_id = ?");
+    $stmt2->bindValue(1, $image);
+    $stmt2->bindValue(2, $id);
+    $stmt2->execute();
+    return true;
+}
+
+/**
+ * Change le prix d'un produit
+ *
+ * @param
+ *            float Le nouveau prix du produit
+ * @param intger $id
+ *            L'id du produit concerné
+ */
+function updateProductPrice ($price, $id)
+{
+    $bdd = new Connection();
+    $stmt2 = $bdd->prepare("UPDATE produits SET pd_prix = ? WHERE pd_num = ?");
+    $stmt2->bindValue(1, $price);
+    $stmt2->bindValue(2, $id);
+    $stmt2->execute();
+    return true;
+}
+
+/**
+ * Change l'image relative à un produit, supprime l'ancienne du disque
+ * si elle existe
+ *
+ * @param
+ *            string Le chemin de la nouvelle image
+ * @param intger $id
+ *            L'id du produit concerné
+ */
+function insertImageProduct ($image, $id)
+{
+    $bdd = new Connection();
+    deleteImageProduct($id);
+    $stmt2 = $bdd->prepare("UPDATE produits SET pd_img = ? WHERE pd_num = ?");
     $stmt2->bindValue(1, $image);
     $stmt2->bindValue(2, $id);
     $stmt2->execute();

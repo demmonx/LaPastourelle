@@ -32,8 +32,8 @@ $langage = getLanguages();
         // Récupération de tous les types pour toutes les langues
         foreach ($type as $field) {
             // Récupération du contenu
-            $content = getActu($lang["id"], $field["id"]);
-            $content = isset($content[0]["txt"]) ? $content[0]["txt"] : "";
+            $content = getActuAdmin($lang["id"], $field["id"]);
+            $content = isset($content["txt"]) ? $content["txt"] : "";
             echo "<td><textarea name='" . $field["type"] . "[" . $lang["id"] .
                      "]'>";
             echo stripnl2br2($content);
