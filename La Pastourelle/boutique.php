@@ -20,7 +20,8 @@ foreach ($prod as $row) {
              $row['img'] . "'>" : "") . "</td>";
     echo "<td>" . (isset($row['name']) ? $row['name'] : "") . "</td>";
     echo "<td>" . (isset($row['txt']) ? $row['txt'] : "") . "</td>";
-    echo "<td>" . (isset($row['prix']) ? $row['prix'] : "") . "</td>";
+    echo "<td>" . (isset($row['prix']) ? number_format($row['prix'], 2, '.', 
+            ' ') . " €" : "") . "</td>";
     echo "</tr>";
 }
 ?>

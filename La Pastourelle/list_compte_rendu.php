@@ -1,49 +1,54 @@
 <?php
-@session_start ();
+@session_start();
 require_once "traitement.inc.php";
-if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-	echo "
+if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
+         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
+    echo "
 			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
 			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
 		  ";
-	redirect ( "index.php?page=accueil", 3 );
-	exit ( 0 );
+    exit(0);
 } // else
-$list = getCompteRendu ();
-$admin = verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] );
+$list = getCompteRendu();
+$admin = verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass']);
 // Affichage du titre
 if ($admin) {
-	echo '<H2>Compte rendu des réunions précédentes</H2>';
+    echo '<H2>Compte rendu des réunions précédentes</H2>';
 } else {
-	echo "<H2>COMPTE RENDU DE REUNION, D'ASSEMBLEE GENERALE, ...</H2>";
+    echo "<H2>COMPTE RENDU DE REUNION, D'ASSEMBLEE GENERALE, ...</H2>";
 }
 
 // Affichage de chaque compte rendu
-if (count ( $list ) == 0) {
-	echo "Aucun compte rendu à afficher";
+if (count($list) == 0) {
+    echo "Aucun compte rendu à afficher";
 }
-foreach ( $list as $row ) {
-	echo " <div>";
-	if ($admin) {
-		$delete_img = "<a class='delete' href='compte_rendu_traitement.php?ac=1&id=" . $row ["id"] . "'><img src='/ressources/images/delete.png'/></a>";
-		echo $delete_img . " ";
-	}
-	echo "Compte rendu du " . date ( "j-M-Y", strtotime ( $row ['date'] ) ) . " : <button class='spoiler'>Afficher / Masquer</button>
+foreach ($list as $row) {
+    echo " <div>";
+    if ($admin) {
+        $delete_img = "<a class='delete' href='compte_rendu_traitement.php?ac=1&id=" .
+                 $row["id"] . "'><img src='/ressources/images/delete.png'/></a>";
+        echo $delete_img . " ";
+    }
+    echo "Compte rendu du " . date("j-M-Y", strtotime($row['date'])) . " : <button class='spoiler'>Afficher / Masquer</button>
         	<div class='spoiler-hidden' >";
-	// Formulaire de modification
-	if ($admin) {
-		echo "
+    // Formulaire de modification
+    if ($admin) {
+        echo "
 				  <FORM method='post' action='compte_rendu_traitement.php' class='update'>
 					Modifier le compte rendu : <BR>
-                    <input type='hidden' value='" . $row ["id"] . "' name='id' />
-					<textarea class='form-compteRendu' name='content' rows='15' cols='20'>" . stripnl2br2 ( ($row ["txt"]) ) . "</textarea><br />
+                    <input type='hidden' value='" .
+                 $row["id"] .
+                 "' name='id' />
+					<textarea class='form-compteRendu' name='content' rows='15' cols='20'>" .
+                 stripnl2br2(($row["txt"])) . "</textarea><br />
 					<input class='btn' type='submit' value='Modifier'>
 				  </FORM>";
-	} else {
-		echo "
-				  <div >" . nl2br ( html_entity_decode ( decodeREGEX ( $row ["txt"] ) ) ) . "</div>";
-	}
-	echo "</div></div>";
+    } else {
+        echo "
+				  <div >" .
+                 nl2br(html_entity_decode(decodeREGEX($row["txt"]))) . "</div>";
+    }
+    echo "</div></div>";
 }
 
 ?>
