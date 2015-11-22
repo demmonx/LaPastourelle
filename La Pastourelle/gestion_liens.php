@@ -1,13 +1,5 @@
 <?php
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "
-			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  ";
-    
-    exit(0);
-} // else
+verifLoginWithArray($_SESSION, 1);
 ?>
 <h1>Administration des liens</h1>
 <h2>Ajout d'un lien</h2>

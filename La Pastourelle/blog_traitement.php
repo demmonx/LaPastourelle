@@ -2,10 +2,10 @@
 @session_start();
 header('Content-Type: text/html; charset=utf-8');
 require_once "traitement.inc.php";
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-		! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-			exit("Vous n'avez pas les droits requis");
-		} // else
+
+// Vérification de la connexion
+verifLoginWithArray($_SESSION, 0);
+
 			
 // Teste les entrées
 $choix = filter_input ( INPUT_POST, 'ac', FILTER_VALIDATE_INT );
@@ -22,6 +22,7 @@ if (! (($action && $id) || (isset ( $_FILES ["fichier"] ) && $choix) || ($choix 
 
 // else
 if ($action) {
+	verifLoginWithArray($_SESSION, 1);
 	// On met à jour les infos
 	switch ($action) {
 		case 1 :
@@ -43,10 +44,6 @@ if ($action) {
 	}
 } // else
   
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-		! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-			exit("Vous n'avez pas les droits requis");
-		} // else
 // On ajoute des infos
 if ($choix) {
 	
@@ -54,6 +51,7 @@ if ($choix) {
 		
 		// Ajout des photos
 		case 1 :
+			verifLoginWithArray($_SESSION, 1);
 			$file = $_FILES ["fichier"];
 			
 			// On ajoute une musique

@@ -1,11 +1,7 @@
 <?php
 @session_start();
 require_once 'traitement.inc.php';
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur";
-    exit(0);
-}
+verifLoginWithArray($_SESSION, 1);
 
 // récupération du membre a supprimer
 $date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_SPECIAL_CHARS);

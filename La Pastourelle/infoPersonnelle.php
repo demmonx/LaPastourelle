@@ -1,13 +1,5 @@
 <?php
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "
-			Vous ne pouvez pas accèder à ces pages sans être connecté<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  ";
-    
-    exit(0);
-} else {
+verifLoginWithArray($_SESSION, 0);
     ?>
 <script language="javascript">
 $(document).ready(function () {
@@ -151,7 +143,5 @@ $(document).ready(function () {
 				<BR>
 				<input type='submit' value='Modifier' />
 			</FORM>
-            <div id='msgReturn'></div>
-		";
-}
+            <div id='msgReturn'></div>";
 ?>

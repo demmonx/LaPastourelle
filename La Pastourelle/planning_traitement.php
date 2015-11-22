@@ -1,11 +1,8 @@
 <?php
-session_start();
+@session_start();
 require 'traitement.inc.php';
 // Vérification si on est admin
-if (! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    exit(
-            "Vous devez être administrateur pour procéder à la l'ajout d'un évènement");
-}
+verifLoginWithArray($_SESSION, 1);
 
 // Regarde si le formulaire est correct
 $date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_SPECIAL_CHARS);

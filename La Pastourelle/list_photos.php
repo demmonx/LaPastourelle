@@ -1,13 +1,7 @@
 <?php
 @session_start();
 require_once 'traitement.inc.php';
-$adminOK = false;
-if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &&
-         verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    $adminOK = true;
-}
-
-if ($adminOK) {
+verifLoginWithArray($_SESSION, 1);
     $tab = getDiapos();
     if (count($tab) != 0) {
         
@@ -34,5 +28,4 @@ if ($adminOK) {
             echo "</tr>";
         }
     }
-}
 ?>

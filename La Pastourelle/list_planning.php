@@ -1,14 +1,16 @@
 <?php
-@session_start();
-@header('Content-Type: text/html; charset=utf-8');
+@session_start ();
+@header ( 'Content-Type: text/html; charset=utf-8' );
 require_once "traitement.inc.php";
-if (! isset($_SESSION['pseudo']) || ! isset($_SESSION['pass']) ||
-         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-    exit("Vous n'avez pas les droits requis");
-} // else
-  
+verifLoginWithArray ( $_SESSION, 0 );
+try {
+	$adminOk = checkLoginWithArray ( $_SESSION, 0 );
+} catch ( Exception $e ) {
+	$adminOk = false;
+}
+
 // récupération des info dans la BD et traitement
-$tab_planning = getPlanning();
+$tab_planning = getPlanning ();
 
 /**
  * tableau du planning
@@ -20,37 +22,31 @@ echo "
 				<TH>DATE</TH>
 				<TH>LIEU</TH>
 				<TH>MUSICIENS</TH>";
-if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "<TH colspan='3'>Actions</TH>";
+if ($adminOk) {
+	echo "<TH colspan='3'>Actions</TH>";
 } // Ajout des colones de suppression
 echo "</TR>";
-$adminOK = false;
-if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    $adminOK = true;
-}
-foreach ($tab_planning as $row) {
-    $un_jour = $row["jour"];
-    $une_date = $row["date"];
-    $un_lieu = $row["lieu"];
-    $un_musiciens = $row["joueur"];
-    $unId = $row["id"];
-    
-    // traitement de la date pour l'afficher de la forme jj/mm/aaaa
-    $morceau_date = explode("/", $une_date);
-    $jour = $morceau_date[2];
-    $mois = $morceau_date[1];
-    $annee = $morceau_date[0];
-    $une_date = $jour . "/" . $mois . "/" . $annee;
-    
-    echo "<TR><TD>" . $un_jour . "</TD><TD>" . $une_date . "</TD><TD>" . $un_lieu .
-             "</TD><TD>" . $un_musiciens . "</TD> ";
-    if ($adminOK) {
-        echo "<TD><A class='delete btn btn-link' HREF='planning_traitement.php?ac=1&id=" .
-                 $unId .
-                 "'><img src='ressources/images/delete.png' alt='Supprimer' /> </A> </TD>
-			      <TD><A class='btn btn-link' HREF='index.php?page=modifDatePlanning&id=" .
-                 $unId . "'> Modifier</A></TD>";
-    }
+foreach ( $tab_planning as $row ) {
+	$un_jour = $row ["jour"];
+	$une_date = $row ["date"];
+	$un_lieu = $row ["lieu"];
+	$un_musiciens = $row ["joueur"];
+	$unId = $row ["id"];
+	
+	// traitement de la date pour l'afficher de la forme jj/mm/aaaa
+	$morceau_date = explode ( "/", $une_date );
+	$jour = $morceau_date [2];
+	$mois = $morceau_date [1];
+	$annee = $morceau_date [0];
+	$une_date = $jour . "/" . $mois . "/" . $annee;
+	
+	echo "<TR><TD>" . $un_jour . "</TD><TD>" . $une_date . "</TD><TD>" . $un_lieu . "</TD><TD>" . $un_musiciens . "</TD> ";
+	if ($adminOk) {
+		echo "<TD><A class='delete btn btn-link' HREF='planning_traitement.php?ac=1&id=" . $unId . "'>";
+		echo "<img src='ressources/images/delete.png' alt='Supprimer' /> </A></TD>";
+		echo " <TD><A class='btn btn-link' HREF='index.php?page=modifDatePlanning&id=" . $unId . "'> Modifier</A></TD>";
+	}
+	echo "</tr>";
 }
 
 echo "</TABLE>";

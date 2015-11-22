@@ -10,9 +10,10 @@ echo "<p>" . (isset($trad[0]) ? $trad[0] : "Non traduit") . " :
     <a class='btn btn-link' href='#'
 		onClick=\"javascript:window.open('player_tab.php','popup')\">" . (isset($trad[1]) ? $trad[1] : "Non traduit") . "</a></p>";
 
-$adminOK = false;
-if (isset ( $_SESSION ['pseudo'] ) && isset ( $_SESSION ['pass'] ) && verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-	$adminOK = true;
+try {
+	$adminOk = checkLoginWithArray($_SESSION, 0);
+} catch (Exception $e) {
+	$adminOk = false;
 }
 
 if ($adminOK) {

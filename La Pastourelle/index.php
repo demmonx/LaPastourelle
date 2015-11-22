@@ -1,30 +1,29 @@
 <?php
-session_start();
+session_start ();
 // inclusion des fichiers de fonction
 require_once ("traitement.inc.php");
 require_once ("Connection.class.php");
-$supported_lang = getSupportedLanguages();
+$supported_lang = getSupportedLanguages ();
 
 // Definition de la langue
-if (! isset($_SESSION['lang'])) {
-    $_SESSION['lang'] = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
+if (! isset ( $_SESSION ['lang'] )) {
+	$_SESSION ['lang'] = substr ( $_SERVER ["HTTP_ACCEPT_LANGUAGE"], 0, 2 );
 }
 
-if (isset($_GET['lang']) && ! empty($_GET['lang'])) {
-    $_SESSION['lang'] = strtolower($_GET['lang']);
+if (isset ( $_GET ['lang'] ) && ! empty ( $_GET ['lang'] )) {
+	$_SESSION ['lang'] = strtolower ( $_GET ['lang'] );
 }
 
 // Récupère l'id à partir du code
-$_SESSION['lang'] = $_SESSION['lang'] < 0 ? 1 : $_SESSION['lang'];
+$_SESSION ['lang'] = $_SESSION ['lang'] < 0 ? 1 : $_SESSION ['lang'];
 
-if (count($supported_lang) > 0 && $supported_lang[array_search(
-        $_SESSION['lang'], $supported_lang)] != $_SESSION['lang']) {
-    $_SESSION['lang'] = reverseLanguage('fr');
+if (count ( $supported_lang ) > 0 && $supported_lang [array_search ( $_SESSION ['lang'], $supported_lang )] != $_SESSION ['lang']) {
+	$_SESSION ['lang'] = reverseLanguage ( 'fr' );
 }
 
 require 'header.php';
 // connexion à la base de donnée
-$bdd = new Connection();
+$bdd = new Connection ();
 ?>
 
 <div id="bg-top"></div>
@@ -47,14 +46,13 @@ $bdd = new Connection();
 		<div class="grid_5">
 			<ul class="diaporama">
 						<?php
-    $tab = getActiveDiapos();
-    $i = 1;
-    foreach ($tab as $diapo) {
-        echo "<li><img  height=225 src='" . $diapo["lien"] . "' alt='Image " . $i .
-                 "' /></li>";
-        $i ++;
-    }
-    ?>
+						$tab = getActiveDiapos ();
+						$i = 1;
+						foreach ( $tab as $diapo ) {
+							echo "<li><img  height=225 src='" . $diapo ["lien"] . "' alt='Image " . $i . "' /></li>";
+							$i ++;
+						}
+						?>
 					</ul>
 		</div>
 
@@ -84,25 +82,25 @@ $bdd = new Connection();
 
 		<div id="lang">
 			<p><?php
-// Récupération de toutes les langues disponibles
-// Affichage du drapeau correspondant
-$languages = getLanguages();
-foreach ($languages as $lang) {
-    $lien = "index.php?lang=" . $lang['id'];
-    
-    // On a récupéré une page
-    if (isset($_GET['page'])) {
-        $lien .= "&page=" . $_GET['page'];
-    }
-    
-    if (isset($_GET['id'])) {
-        $lien .= "&id=" . $_GET['id'];
-    }
-    
-    // Affichage des selecteurs
-    echo " <a href='" . $lien . "'><img src='" . $lang['img'] . "'  /></a>";
-}
-?>
+			// Récupération de toutes les langues disponibles
+			// Affichage du drapeau correspondant
+			$languages = getLanguages ();
+			foreach ( $languages as $lang ) {
+				$lien = "index.php?lang=" . $lang ['id'];
+				
+				// On a récupéré une page
+				if (isset ( $_GET ['page'] )) {
+					$lien .= "&page=" . $_GET ['page'];
+				}
+				
+				if (isset ( $_GET ['id'] )) {
+					$lien .= "&id=" . $_GET ['id'];
+				}
+				
+				// Affichage des selecteurs
+				echo " <a href='" . $lien . "'><img src='" . $lang ['img'] . "'  /></a>";
+			}
+			?>
 					</p>
 		</div>
 	</div>
@@ -112,20 +110,30 @@ foreach ($languages as $lang) {
 
 		<!-- Menu -->
 				<?php
-    if (isset($_SESSION['pseudo']) and isset($_SESSION['pass']) and
-             verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-        // menu admin
-        ?>
+				// On vérifie les statuts de connexion
+				try {
+					$member = checkLoginWithArray ( $_SESSION, 0 );
+				} catch ( Exception $e ) {
+					$member = false;
+				}
+				try {
+					$admin = checkLoginWithArray ( $_SESSION, 1 );
+				} catch ( Exception $e ) {
+					$admin = false;
+				}
+				if ($member) {
+					// menu admin
+					?>
 					<div class="clear"></div>
 		<nav class="grid_12">
 			<ul class="navigM">
 				<li><a href="index.php?page=deconnexion">Se déconnecter</a></li>
 					<?php
-        if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-            
-            echo "<li><a href='index.php?page=page_administrateur'>Administration</a>";
-        }
-        ?>
+					if ($admin) {
+						
+						echo "<li><a href='index.php?page=page_administrateur'>Administration</a>";
+					}
+					?>
 
 
 
@@ -146,12 +154,11 @@ foreach ($languages as $lang) {
 				<li><a href="#">Présentation</a>
 					<ul>
 						<?php
-    $pageDispo = getPage();
-    foreach ($pageDispo as $unePage) {
-        echo "<li><a href='index.php?page=generic&id=" . $unePage['id'] . "'>" .
-                 $unePage['nom'] . "</a></li>";
-    }
-    ?>
+						$pageDispo = getPage ();
+						foreach ( $pageDispo as $unePage ) {
+							echo "<li><a href='index.php?page=generic&id=" . $unePage ['id'] . "'>" . $unePage ['nom'] . "</a></li>";
+						}
+						?>
 						</ul></li>
 				<li><a href="index.php?page=boutique">Boutique</a></li>
 				<li><a href="index.php?page=revuedepresse">Revue de presse</a></li>
@@ -165,24 +172,21 @@ foreach ($languages as $lang) {
 		</nav>
 		<div class="clear"></div>
 		<br /><?php
-
-if (isset($_GET['page'])) {
-    if ($_GET['page'] == 'generic' && isset($_GET['id']) &&
-             is_numeric($_GET['id'])) {
-        $page = $_GET["id"];
-        require_once ("generic.php");
-    } else 
-        if (! strstr($_GET['page'], 'http://') && ! strstr($_GET['page'], 
-                'www.') && ! strstr($_GET['page'], '/')) {
-            // && file_exists($_GET['page'])) {
-            require_once ($_GET['page'] . ".php");
-        } else {
-            require_once ("accueil.php");
-        }
-} else {
-    require_once ("accueil.php");
-}
-?>
+		
+		if (isset ( $_GET ['page'] )) {
+			if ($_GET ['page'] == 'generic' && isset ( $_GET ['id'] ) && is_numeric ( $_GET ['id'] )) {
+				$page = $_GET ["id"];
+				require_once ("generic.php");
+			} else if (! strstr ( $_GET ['page'], 'http://' ) && ! strstr ( $_GET ['page'], 'www.' ) && ! strstr ( $_GET ['page'], '/' )) {
+				// && file_exists($_GET['page'])) {
+				require_once ($_GET ['page'] . ".php");
+			} else {
+				require_once ("accueil.php");
+			}
+		} else {
+			require_once ("accueil.php");
+		}
+		?>
 	
 	</div>
 </div>
@@ -191,34 +195,33 @@ if (isset($_GET['page'])) {
 	<div class="footer_copy grid_9">
 		<p>
 		<?php
-$coord = getCoordonnees();
-if (isset($coord['adr'])) {
-    echo nl2br(html_entity_decode($coord['adr'])) . " - ";
-}
-if (isset($coord['tel'])) {
-    echo convertPhoneNumber($coord['tel']) . "<br />";
-}
-echo "Association reconnue d'intérêt général et
+		$coord = getCoordonnees ();
+		if (isset ( $coord ['adr'] )) {
+			echo nl2br ( html_entity_decode ( $coord ['adr'] ) ) . " - ";
+		}
+		if (isset ( $coord ['tel'] )) {
+			echo convertPhoneNumber ( $coord ['tel'] ) . "<br />";
+		}
+		echo "Association reconnue d'intérêt général et
 			habilitée à ce titre à recevoir des dons";
-if (isset($coord['mail'])) {
-    echo " - <a href='mailto:" . $coord['mail'] . "'>" . $coord['mail'] . "</a>";
-}
-?>
+		if (isset ( $coord ['mail'] )) {
+			echo " - <a href='mailto:" . $coord ['mail'] . "'>" . $coord ['mail'] . "</a>";
+		}
+		?>
 					<?php
-    
-    ?>
+					
+					?>
 				</p>
 	</div>
 	<div>
 					<?php
-    if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &&
-             verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-        if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-            echo '<b>Vous êtes Administrateur : ' . $_SESSION['pseudo'] . ' ';
-        } else {
-            echo '<b>Vous êtes Membre : ' . $_SESSION['pseudo'];
-        }
-        ?>
+					if ($member) {
+						if ($admin) {
+							echo '<b>Vous êtes Administrateur : ' . $_SESSION ['pseudo'] . ' ';
+						} else {
+							echo '<b>Vous êtes Membre : ' . $_SESSION ['pseudo'];
+						}
+						?>
        <br /> <a href="index.php?page=infoPersonnelle"><i
 			class="icon-user icon-large"></i> Mon compte</a><br /> <a
 			href="index.php?page=deconnexion"><i class="icon-lock icon-large"></i>
@@ -226,8 +229,8 @@ if (isset($coord['mail'])) {
                  
                  
                  <?php
-    } else {
-        ?>
+					} else {
+						?>
 						
 						<a href="index.php?page=inscription"><i
 			class="icon-user icon-large"></i> S'inscrire</a> <br /> <br /> <a

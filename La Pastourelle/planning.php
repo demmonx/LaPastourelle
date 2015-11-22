@@ -5,16 +5,14 @@
  * présente avec une restriction d'accès bien sur
  * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
  */
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "
-			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  ";
-    exit(0);
+verifLoginWithArray ( $_SESSION, 0 );
+try {
+	$adminOk = checkLoginWithArray ( $_SESSION, 0 );
+} catch ( Exception $e ) {
+	$adminOk = false;
 }
-if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    ?>
+?>
+    if ($adminOk) {
 <script language="javascript">
 $(document).ready(function () {
 	
@@ -55,39 +53,33 @@ $(document).ready(function () {
     });
 });
 </SCRIPT>
-<?php
-    /* Titre admin */
-    echo "<H2>ADMINISTRATION DU PLANNING</H2>";
-    /* Formulaire d'ajout d'un évenement */
-    echo "
-			<FORM class='form-horizontal' id='ajout' METHOD='POST' ACTION='planning_traitement.php'>
-				<div class='control-group'>
-					<label class='control-label'>Jour</label>
-					<div class='controls'>
-						<INPUT type=text id='jour' name='jour' required />
-					</div>
-				</div>
-				<div class='control-group'>
-					<label class='control-label'>Date (jj/mm/aaaa)</label>
-					<div class='controls'>
-						<INPUT type=text id='date' class='datepicker' name='date' required />
-					</div>
-				</div>
-				<div class='control-group'>
-					<label class='control-label'>Lieu</label>
-					<div class='controls'>
-						<INPUT type=text id='lieu' name='lieu' required />
-					</div>
-				</div>
-				<div class='control-group'>
-					<label class='control-label'>Musiciens</label>
-					<div class='controls'>
-						<INPUT type=text id='musiciens' name='musiciens' required />
-					</div>
-				</div>
-				<input type='submit' value='Ajouter'/>
-			</FORM>
- 		<div id='msgReturn'></div>";
+<H2>ADMINISTRATION DU PLANNING</H2>
+
+<FORM class='form-horizontal' id='ajout' METHOD='POST'
+	ACTION='planning_traitement.php'>
+	<table>
+		<tr>
+			<td>Jour</td>
+			<td><INPUT type=text id='jour' name='jour' required /></td>
+		</tr>
+		<tr>
+			<td>Date (jj/mm/aaaa)</td>
+			<td><INPUT type=text id='date' class='datepicker' name='date'
+				required /></td>
+		</tr>
+		<tr>
+			<td>Lieu</td>
+			<td><INPUT type=text id='lieu' name='lieu' required /></td>
+		</tr>
+		<tr>
+			<td>Musiciens</td>
+			<td><INPUT type=text id='musiciens' name='musiciens' required /></td>
+		</tr>
+	</table>
+	<input type='submit' value='Ajouter' />
+</FORM>
+<div id='msgReturn'></div>
+<?php 
 }
 /* Titre membre */
 echo "<H2>PLANNING DES SORTIES ET REPETITIONS A VENIR</H2>";

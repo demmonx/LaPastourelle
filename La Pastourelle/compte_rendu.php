@@ -1,17 +1,14 @@
 <?php
 @session_start();
 require_once "traitement.inc.php";
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "
-			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  ";
-    
-    exit(0);
-} // else
+verifLoginWithArray($_SESSION, 0);
+try {
+	$adminOk = checkLoginWithArray($_SESSION, 0);
+} catch (Exception $e) {
+	$adminOk = false;
+}
   // Affichage du titre
-if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+if ($adminOk) {
     echo '<H2>Ajouter un compte rendu</H2>';
     ?>
 <form action='compte_rendu_traitement.php' method='post' id='new-cr'>

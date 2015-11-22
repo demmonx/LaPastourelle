@@ -1,13 +1,10 @@
 <?php
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "
-			Vous ne pouvez pas accèder à ces pages sans être connecté<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  ";
-    
-    exit(0);
-} // else
+verifLoginWithArray($_SESSION, 0);
+try {
+	$adminOk = checkLoginWithArray($_SESSION, 0);
+} catch (Exception $e) {
+	$adminOk = false;
+}
   
 // Nombre de photos par page
 DEFINE("PHOTO_PER_PAGE", 10);
@@ -36,7 +33,7 @@ $les_photos = getPicByRange($premiereEntree, PHOTO_PER_PAGE);
 // administration intégrée dans la page des blogs
 // S'affiche uniquement si l'utilisateur est un administrateur
 // pour ajouter de nouvelles photos
-if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+if ($adminOk) {
     echo "<DIV><B>Pour ajouter une nouvelle photo</B></DIV>";
     
     echo '
@@ -58,7 +55,7 @@ foreach ($les_photos as $row) {
              "</I><a class='btn btn-link' href='#header' >Bas de page</a>";
     
     // si administrateur -> pour supprimer la photo
-    if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+    if ($adminOk) {
         echo "<div><a class='action' href='blog_traitement.php?ac=2&id=" .
                  $row['id'] .
                  "'><button class='btn btn-info'>Supprimer la photo</button></a></div>";
@@ -84,7 +81,7 @@ foreach ($les_photos as $row) {
         echo nl2br(html_entity_decode($resultat['txt']));
         
         // si administrateur -> pour supprimer un commentaire
-        if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+        if ($adminOk) {
             echo "<br /><a class='action' href='blog_traitement.php?ac=1&id=" .
                      $resultat['id'] .
                      "'><button class='btn btn-info'>Supprimer ce commentaire</button></a>";

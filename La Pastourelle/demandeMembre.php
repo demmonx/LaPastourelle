@@ -1,100 +1,82 @@
 <?php
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "
-			Vous ne pouvez pas accéder à ces pages sans être connecté en tant qu'administrateur<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  ";
-    // 
-    echo '
-			<script language="javascript" type="text/javascript">
-				setTimeout("window.location=\'index.php?page=accueil\'", 3000);
-			</script>';
-    exit(0);
-} else {
-    // Acceptation ou refus d'un message du livre d'or ou d'un membre*/
-    if (isset($_GET['id']) && isset($_GET['confirm']) && is_numeric($_GET['id'])) {
-        // Refus d'un message ou d'un membre
-        if ($_GET['confirm'] == 0) {
-            if (isset($_GET['mb']) and $_GET['mb'] == 1) { // Membre
-                deleteMembre($_GET['id']);
-            } else { // Message
-                deleteMessageLivre($_GET['id']);
-            }
-            
-            // Acceptation d'un message ou d'un membre
-        } else 
-            if ($_GET['confirm'] == 1) {
-                if (isset($_GET['mb']) and $_GET['mb'] == 1) { // Membre
-                    activerMembre($_GET['id']);
-                } else { // Message
-                    validerArticle($_GET['id']);
-                }
-            }
-    }
-    // Message en attente de validation du livre d'or
-    echo "
+verifLoginWithArray ( $_SESSION, 1 );
+// Acceptation ou refus d'un message du livre d'or ou d'un membre*/
+if (isset ( $_GET ['id'] ) && isset ( $_GET ['confirm'] ) && is_numeric ( $_GET ['id'] )) {
+	// Refus d'un message ou d'un membre
+	if ($_GET ['confirm'] == 0) {
+		if (isset ( $_GET ['mb'] ) and $_GET ['mb'] == 1) { // Membre
+			deleteMembre ( $_GET ['id'] );
+		} else { // Message
+			deleteMessageLivre ( $_GET ['id'] );
+		}
+		
+		// Acceptation d'un message ou d'un membre
+	} else if ($_GET ['confirm'] == 1) {
+		if (isset ( $_GET ['mb'] ) and $_GET ['mb'] == 1) { // Membre
+			activerMembre ( $_GET ['id'] );
+		} else { // Message
+			validerArticle ( $_GET ['id'] );
+		}
+	}
+}
+// Message en attente de validation du livre d'or
+echo "
 	
 		<h2>Messages du livre d'or en attente de validation</h2>";
-    $messNoValid = getMessageValidationLivre();
-    if (count($messNoValid) == 0) {
-        echo "Il n'y a aucun message en attente
-	";
-    } else {
-        echo "
+$messNoValid = getMessageValidationLivre ();
+if (count ( $messNoValid ) == 0) {
+	echo "Il n'y a aucun message en attente";
+} else {
+	echo "
 	<div id='liens'>
 		<table class='table table-bordered' >";
-        echo "
+	echo "
 			<tr>";
-        echo "
+	echo "
 				<th>Date</th>
 				<th>Nom</th>
 				<th>Message</th>
 				<th>+</th>
 				<th>-</th>";
-        echo "
+	echo "
 			</tr>";
-        foreach ($messNoValid as $row) {
-            echo "
+	foreach ( $messNoValid as $row ) {
+		echo "
 			<tr>";
-            echo "
-				<td>" . $row['date'] .
-                     "</td><td>" . $row['nom'] . "</td>
-				<td>" .
-                     nl2br(html_entity_decode($row['message'])) . "</td>";
-            echo "
+		echo "
+				<td>" . $row ['date'] . "</td><td>" . $row ['nom'] . "</td>
+				<td>" . nl2br ( html_entity_decode ( $row ['message'] ) ) . "</td>";
+		echo "
 				<td>
-					<a class='btn btn-link' href='index.php?page=page_administrateur&id=" .
-                     $row['id'] . "&confirm=1'>Accepter</a>
+					<a class='btn btn-link' href='index.php?page=page_administrateur&id=" . $row ['id'] . "&confirm=1'>Accepter</a>
 				</td>";
-            echo "
+		echo "
 				<td>
-					<a class='btn btn-link' href='index.php?page=page_administrateur&id=" .
-                     $row['id'] . "&confirm=0'>Refuser</a>
+					<a class='btn btn-link' href='index.php?page=page_administrateur&id=" . $row ['id'] . "&confirm=0'>Refuser</a>
 				</td>";
-            echo "
+		echo "
 			</tr>";
-        }
-        echo "
+	}
+	echo "
 		</table>
 	</div>";
-        // ";
-    }
-    // Membre en attente de validation
-    echo "
+	// ";
+}
+// Membre en attente de validation
+echo "
 	
 		<h2>Membres en attente de validation</h2>";
-    $aValider = getUnvalitedMember();
-    if (count($aValider) == 0) {
-        echo "Il n'y a aucun membre en attente
+$aValider = getUnvalitedMember ();
+if (count ( $aValider ) == 0) {
+	echo "Il n'y a aucun membre en attente
 	";
-    } else {
-        echo "
+} else {
+	echo "
 	<div id='liens'>
 		<table class='table table-bordered' >";
-        echo "
+	echo "
 			<tr>";
-        echo "
+	echo "
 				<th>Nom</th>
 				<th>Prénom</th>
 				<th>Pseudo</th>
@@ -103,50 +85,48 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 				<th>Adresse</th>
 				<th>+</th>
 				<th>-</th>";
-        echo "
+	echo "
 			</tr>";
-        foreach ($aValider as $row) { // $membNoValid =
-                                      // $req_membNoValid->fetch()) {
-            echo "
+	foreach ( $aValider as $row ) { // $membNoValid =
+	                              // $req_membNoValid->fetch()) {
+		echo "
 			<tr>";
-            echo "
-				<td>" . $row['nom'] . "</td>
-				<td>" . $row['prenom'] . "</td>
-				<td>" . $row['pseudo'] . "</td>
-				<td>" . $row['email'] . "</td>
-				<td>" . $row['telephone'] . "</td>
-				<td>" . $row['adresse'] . "</td>";
-            echo "
+		echo "
+				<td>" . $row ['nom'] . "</td>
+				<td>" . $row ['prenom'] . "</td>
+				<td>" . $row ['pseudo'] . "</td>
+				<td>" . $row ['email'] . "</td>
+				<td>" . $row ['telephone'] . "</td>
+				<td>" . $row ['adresse'] . "</td>";
+		echo "
 				<td>
-					<a class='btn btn-link' href='index.php?page=page_administrateur&id=" .
-                     $row['id'] . "&confirm=1&mb=1'>Accepter</a>
+					<a class='btn btn-link' href='index.php?page=page_administrateur&id=" . $row ['id'] . "&confirm=1&mb=1'>Accepter</a>
 				</td>";
-            echo "
+		echo "
 				<td>
-					<a class='btn btn-link' href='index.php?page=page_administrateur&id=" .
-                     $row['id'] . "&confirm=0&mb=1'>Refuser</a>
+					<a class='btn btn-link' href='index.php?page=page_administrateur&id=" . $row ['id'] . "&confirm=0&mb=1'>Refuser</a>
 				</td>";
-            echo "
+		echo "
 			</tr>";
-        }
-        echo "
+	}
+	echo "
 		</table>
 	</div>
 ";
-    }
-    
-    /**
-     * membre deja valider
-     */
-    echo "
+}
+
+/**
+ * membre deja valider
+ */
+echo "
 	
 		<H2>Membres déjà validés </H2>  ";
-    
-    $tab_membre = getMembers();
-    $cpt = 0;
-    $taille_tab = count($tab_membre);
-    
-    echo "
+
+$tab_membre = getMembers ();
+$cpt = 0;
+$taille_tab = count ( $tab_membre );
+
+echo "
 	<DIV id='liens'>
 		<TABLE class='table table-bordered' >
 			<TR>
@@ -157,25 +137,20 @@ if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
 					<TH>Téléphone</TH>
 					<TH>Adresse</TH>
 			</TR>";
-    
-    foreach ($tab_membre as $row) {
-        echo "<TR>
-					<TD><B>" . $row['nom'] . "</B></TD>";
-        echo "	<TD><B>" . $row['prenom'] . "</B></TD>";
-        echo "	<TD>" . $row['pseudo'] . "</TD>";
-        echo "	<TD>" . $row['email'] . "</TD>";
-        echo "	<TD>" . $row['telephone'] . "</TD>";
-        echo "	<TD>" . $row['adresse'] . "</TD>";
-        echo "<TD><A class='btn btn-link' HREF='supprMembre.php?id=" . $row['id'] .
-                 "'>Supprimer</A></TD>";
-        echo "</TR>";
-    }
-    
-    echo "
+
+foreach ( $tab_membre as $row ) {
+	echo "<TR>
+					<TD><B>" . $row ['nom'] . "</B></TD>";
+	echo "	<TD><B>" . $row ['prenom'] . "</B></TD>";
+	echo "	<TD>" . $row ['pseudo'] . "</TD>";
+	echo "	<TD>" . $row ['email'] . "</TD>";
+	echo "	<TD>" . $row ['telephone'] . "</TD>";
+	echo "	<TD>" . $row ['adresse'] . "</TD>";
+	echo "<TD><A class='btn btn-link' HREF='supprMembre.php?id=" . $row ['id'] . "'>Supprimer</A></TD>";
+	echo "</TR>";
+}
+
+echo "
 		</TABLE>
 	</DIV>";
-    // echo "
-    // ";
-    // </DIV>";
-}
 ?>

@@ -1,16 +1,13 @@
 <?php
 @session_start();
 require_once "traitement.inc.php";
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-    echo "
-			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  ";
-    exit(0);
-} // else
+verifLoginWithArray($_SESSION, 0);
+try {
+	$admin = checkLoginWithArray($_SESSION, 0);
+} catch (Exception $e) {
+	$admin = false;
+}
 $list = getCompteRendu();
-$admin = verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass']);
 // Affichage du titre
 if ($admin) {
     echo '<H2>Compte rendu des réunions précédentes</H2>';

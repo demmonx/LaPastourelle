@@ -1,4 +1,12 @@
- Espace réservé aux membres de la Pastourelle
+<?php 
+try {
+	checkLoginWithArray($_SESSION, 0);
+	exit("Nous êtes déjà connecté sur le site");
+} catch (Exception $e) {
+	// do nothing
+}
+?>
+Espace réservé aux membres de la Pastourelle
 <br />
 Pour accéder à cet espace, vous devez obligatoirement être inscrit .
 <br />
@@ -31,7 +39,7 @@ $(document).ready(function () {
         var pseudo =$("input[name=pseudo]", form).val();
         var pass =$("input[name=pass]", form).val();
         $('#msgReturn').empty();  // affichage du résultat
-        if (pseudo === "" || pass === ''|| code === '') {
+        if (pseudo === "" || pass === '') {
         	 $('#msgReturn').append("Les champs doivent être remplis");
         } else {
             // Envoi de la requête HTTP en mode asynchrone
