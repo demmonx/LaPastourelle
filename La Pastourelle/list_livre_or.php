@@ -1,14 +1,18 @@
 <?php
 @session_start();
 require_once 'traitement.inc.php';
+try {
+	$adminOk = checkLoginWithArray($_SESSION, 0);
+} catch (Exception $e) {
+	$adminOk = false;
+}
 $message = getMessageActifLivre();
 if (count($message) <= 0) {
     echo "Aucun message à afficher";
 }
 foreach ($message as $row) {
     echo "<p>";
-    if (isset($_SESSION['pseudo']) and isset($_SESSION['pass']) and
-             verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
+    if ($adminOk) {
         echo "<a class='delete' href='livre_or_traitement.php?ac=1&id=" .
          $row['id'] . "'><img src='ressources/images/delete.png' /></a>";
     }

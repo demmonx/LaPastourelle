@@ -1,15 +1,7 @@
 <?php
 @session_start();
 require_once 'traitement.inc.php';
-$adminOK = false;
-if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &&
-         verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    $adminOK = true;
-}
-
-if (! $adminOK) {
-    exit("Vous n'avez pas les droits requis");
-}
+verifLoginWithArray($_SESSION, 1);
 echo "<table>";
 $tab = getPage();
 if (count($tab) != 0) {

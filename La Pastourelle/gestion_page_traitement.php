@@ -2,10 +2,7 @@
 @session_start();
 header('Content-Type: text/html; charset=utf-8');
 require_once "traitement.inc.php";
-if (! isset($_SESSION['pseudo']) || ! isset($_SESSION['pass']) ||
-         ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    exit("Vous n'avez pas les droits requis");
-} // else
+verifLoginWithArray($_SESSION, 1);
 
 $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);

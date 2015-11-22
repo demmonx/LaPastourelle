@@ -1,16 +1,14 @@
 <?php
-@session_start();
+@session_start ();
 require_once 'traitement.inc.php';
-if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &
-         verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    
-    $tab = getActiveDiapos();
-    echo "<div class='slideshow'><ul>";
-    foreach ($tab as $row)
-        echo "<li><img src='" . $row["lien"] .
-                 "'  max- /></li>";
-    echo "</ul>";
-    ?>
+verifLoginWithArray ( $_SESSION, 1 );
+
+$tab = getActiveDiapos ();
+echo "<div class='slideshow'><ul>";
+foreach ( $tab as $row )
+	echo "<li><img src='" . $row ["lien"] . "'  max- /></li>";
+echo "</ul>";
+?>
 </div>
 <script type="text/javascript">
    $(function(){
@@ -21,6 +19,3 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &
       }, 3500);
    });
 </script>
-<?php
-}
-?>

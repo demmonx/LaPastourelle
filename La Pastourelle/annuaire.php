@@ -1,24 +1,18 @@
 <?php
 // impossible de supprimer sinon
 @session_start();
+@header("Content-Type: text/html; charset=utf-8");
+require_once ("traitement.inc.php");
+verifLoginWithArray($_SESSION, 0);
+try {
+	$adminOk = checkLoginWithArray($_SESSION, 0);
+} catch (Exception $e) {
+	$adminOk = false;
+}
 ?>
 <script src="js/sorttable.js" type="text/javascript"></script>
 
 <?php
-require_once ("traitement.inc.php");
-if (! isset($_SESSION['pseudo']) || ! isset($_SESSION['pass']) ||
-         ! verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-    @header("Content-Type: text/html; charset=utf-8");
-    echo "
-			Vous ne pouvez pas accèder à ces pages sans être connecté en tant que membre<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  ";
-    exit(0);
-} else {
-    $adminOk = false;
-    if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-        $adminOk = true;
-    }
     // Si on est admin et que l'id est correct
     if ($adminOk && isset($_GET['id']) && is_numeric($_GET['id'])) {
         setMemberToAnnuaire($_GET['id'], false);
@@ -105,5 +99,4 @@ if (! isset($_SESSION['pseudo']) || ! isset($_SESSION['pass']) ||
     if ($taille_tab == 0) {
         echo "Aucun membre ne correspond à votre recherche";
     }
-}
 ?>

@@ -1,10 +1,7 @@
 <?php
 @session_start();
 require_once "traitement.inc.php";
-if (! isset($_SESSION['pseudo']) or ! isset($_SESSION['pass']) or
-         ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-    exit("Vous n'avez pas les droits requis");
-} // else
+verifLoginWithArray($_SESSION, 1);
   
 // Teste les entrées
 $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);

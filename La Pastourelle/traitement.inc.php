@@ -1,5 +1,6 @@
 <?php
 require_once ("Connection.class.php");
+require_once ("login.inc.php");
 
 /**
  * h
@@ -295,7 +296,7 @@ function getMembers ()
     $bdd = new Connection();
     
     $stmt = $bdd->prepare(
-            "SELECT * FROM tuser WHERE etat_validation = 1 AND niveau='membre' ORDER BY nom");
+            "SELECT * FROM tuser WHERE etat_validation = 1 AND niveau=0 ORDER BY nom");
     $result = $stmt->execute();
     $i = 0;
     while ($row = $stmt->fetch()) {
@@ -593,71 +594,6 @@ function getCoordonnees ()
     return $tab_coord;
 }
 
-/*
- * Fonction verifLo Langage : PHP
- *
- * Fonction de vérification de l'existance d'un membre actif avec un pseudo
- * $login et un mot de passe $pass donné
- *
- * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
- * @param $login Login à vérifié
- * @param $pass Mot de passe à vérifié
- *
- * @return True si le membre existe
- * False s'il n'existe pas
- */
-function verifLo ($login, $pass)
-{
-    // Vérification de l'existance d'un membre avec le pseudo $login et le mot
-    // de passe $pass
-    $bdd = new Connection();
-    $req_connect = $bdd->prepare(
-            'SELECT * FROM tuser WHERE pseudo = ? AND motdepasse = ?');
-    $req_connect->bindValue(1, $login);
-    $req_connect->bindValue(2, $pass);
-    $req_connect->execute();
-    
-    // Si on a rien recupéré false sinon true
-    if ($req_connect->rowCount() != 1) {
-        throw new Exception(
-                "Les informations saisies n'ont pas permises de vous identifier");
-    } else 
-        if ($req_connect->rowCount() == 1 &&
-                 $req_connect->fetch()["etat_validation"] == 1) {
-            return true;
-        } else {
-            throw new Exception(
-                    "Votre compte doit être validé par un administrateur pour pouvoir vous connecter");
-        }
-}
-
-/*
- * Fonction verifLoAdmin Langage : PHP
- *
- * Fonction de vérification de l'existance d'un ADMIN avec un pseudo $login et
- * un mot de passe $pass donné
- *
- * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
- * @param $login Login à vérifié
- * @param $pass Mot de passe à vérifié
- *
- * @return True si le membre existe
- * False s'il n'existe pas
- */
-function verifLoAdmin ($login, $pass)
-{
-    // Vérification de l'existance d'un membre avec le pseudo $login et le mot
-    // de passe $pass
-    $bdd = new Connection();
-    $req_connect = $bdd->prepare(
-            "SELECT * FROM tuser WHERE etat_validation = 1 AND pseudo = ? AND motdepasse = ? AND niveau = 'administrateur'");
-    $req_connect->bindValue(1, $login);
-    $req_connect->bindValue(2, $pass);
-    $req_connect->execute();
-    
-    // Si on a rien recupéré false sinon true
-    return $req_connect->rowCount() == 1;
-}
 
 /**
  * Renvoie l'identifiant d'un membre en fonction de son pseudo
@@ -1787,7 +1723,7 @@ function getAdmin ()
     $tab_membre = array();
     
     $stmt = $bdd->prepare(
-            "SELECT * FROM tuser WHERE niveau='administrateur' ORDER BY nom");
+            "SELECT * FROM tuser WHERE niveau=1 ORDER BY nom");
     $result = $stmt->execute();
     $i = 0;
     while ($row = $stmt->fetch()) {
@@ -1803,6 +1739,8 @@ function getAdmin ()
  *
  * @param integer $id
  *            L'id du membre à modifier
+ *          @param integer $niveau
+ *            Le niveau d'accès autorisé
  */
 function setNiveauMembre ($id, $niveau)
 {
@@ -2058,7 +1996,7 @@ function inscriptionBDD ($var)
     }
     // insertion dans la base de données du nouvel user
     $sql = "INSERT INTO tuser (pseudo, motdepasse, email, etat_validation, niveau, telephone, nom, prenom, adresse, etat_annuaire)
-						VALUES (:pseudo, :pass, :mail, 0, 'membre', :tel, :nom, :prenom, :adresse, :annuaire)";
+						VALUES (:pseudo, :pass, :mail, 0, 0, :tel, :nom, :prenom, :adresse, :annuaire)";
     $stmt = $bdd->prepare($sql);
     $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
     $stmt->bindValue(':pass', $mdp, PDO::PARAM_STR);

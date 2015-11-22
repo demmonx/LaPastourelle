@@ -21,10 +21,7 @@ if (! ($message && $code && $nom || $id && $action)) {
 // else
 if ($action) {
     // On vérifie que l'on soit admin
-    if (! isset($_SESSION['pseudo']) || ! isset($_SESSION['pass']) ||
-             ! verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-        exit("Vous n'avez pas les droits requis");
-    }
+    verifLoginWithArray($_SESSION, 1);
     
     // On met à jour les infos
     switch ($action) {

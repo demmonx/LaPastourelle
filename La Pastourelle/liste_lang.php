@@ -1,15 +1,7 @@
 <?php
 @session_start();
 require_once 'traitement.inc.php';
-$adminOK = false;
-if (isset($_SESSION['pseudo']) && isset($_SESSION['pass']) &&
-		verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-			$adminOK = true;
-		}
-		
-		if (!$adminOK) {
-			exit ("Vous n'avez pas les droits recquis.");
-		}
+verifLoginWithArray($_SESSION, 1);
 
 $allLang = getLanguages ();
 // Affichage du drapeau correspondant
