@@ -935,7 +935,8 @@ function getLanguages ()
     $stmt->execute();
     while ($row = $stmt->fetch()) {
         $return[$i]["id"] = $row["lang_id"];
-        $return[$i]["name"] = $row['nom_en'];
+        $return[$i]["name"] = $row['nom_fr'];
+        $return[$i]["name_en"] = $row['nom_en'];
         $return[$i]["img"] = $row['lang_img'];
         $i ++;
     }
@@ -991,7 +992,8 @@ function getAllLanguages ()
     $stmt->execute();
     while ($row = $stmt->fetch()) {
         $return[$i]["id"] = $row["id"];
-        $return[$i]["name"] = $row['nom_en'];
+        $return[$i]["name"] = $row['nom_fr'];
+        $return[$i]["name_en"] = $row['nom_en'];
         $return[$i]["code"] = $row['locale'];
         $i ++;
     }

@@ -1,7 +1,8 @@
 \documentclass[11pt]{report}
 
 \usepackage[utf8]{inputenc}
-\usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{geometry}
+\geometry{hmargin=1cm,vmargin=2cm}
 \usepackage{xspace}
 \usepackage[toc,page]{appendix} 
 \usepackage[pdftex]{graphicx}
@@ -469,7 +470,101 @@ système plus facile à utiliser.
 // TODO mettre le schéma SQL
 
 \chapter{Le déploiement de l'application Web}
-\section{Scénario de recettes}
+\section{Scénarios de recette}
 \section{Manuel utilisateur}
 \section{Manuel administrateur}
+\section{Hébergement et compte}
+Le site est hébergé sur OVH. Pour accéder au compte et pouvoir sauvegarder ou
+restaurer la base de données, les identifiants sont : \\
+\begin{itemize}
+  \item ID : PC29352-OVH
+  \item Mot de passe : CROUZADO \\
+\end{itemize}
+
+\par En ce qui concerne la base de données, les informations sont : \\
+\begin{itemize}
+  \item Utilisateur : pastourebd2
+  \item Base de donnée : pastourebd2
+  \item Mot de passe :  postgresql84-1.pro
+  \item Serveur : ik4FgR12zEgD \\
+\end{itemize}
+
+\par Enfin pour le FTP : \\
+\begin{itemize}
+  \item Utilisateur : pastoure
+  \item Mot de passe :  tQWTEXQj
+  \item Serveur : ftp.pastourelle-rodez.com
+\end{itemize}
+
+
+\section{Procédure d'archivage}
+Idéalement, il faudrait tous les mois sauvegarder la base de données contenant
+l'ensemble des informations de l'association, ainsi que les fichiers du site
+web, afin de ne pas perdre les modifications apportées sur les ressources
+(images, audio).
+
+Pour cela, commençons par copier les fichiers du site  : 
+\begin{itemize}
+  \item Connectez vous sur le FTP du site via les identifiants donnés dans la
+  section précédente, en utilisant le logiciel FileZilla ou équivalent.
+  \item Copiez le dossier \og www \fg{} depuis le FTP sur votre ordinateur
+  personnel, et précisez la date de la copie. \\
+\end{itemize}
+
+\par Ensuite, nous allons nous occuper de copier la base de données. La
+manipulation est plus complexe qu'au-dessus : 
+\begin{itemize}
+  \item Rendez-vous sur le site : https://phppgadmin.ovh.net/
+  \item Saisissez les identifiants donnés dans la section précédente
+  \item Cliquez sur \og Exporter \fg{}
+  \item Choisissez sur \og Structure et données \fg{}
+  \item Selectionnez le format \og SQL \fg{}
+  \item Prenez l'option \og Exporter \fg{} au lieu de \og Voir \fg{}
+  \item Validez en appuyant sur \og Exporter \fg{}
+  \item Enregistrez le fichier sur votre ordinateur personnel en précisant la
+  date de la copie
+\end{itemize}
+
+\section{Procédure de reprise après panne}
+En cas de panne importante du site Web, par exemple si une personne mal
+intentionnée arrive à supprimer des fichiers ou des informations dans la base de
+donnée, il va être nécessaire de restaurer l'état du site à une version
+antérieur, fonctionnelle. \\
+\par \textbf{Attention toutefois, cela engendrera une perte
+des modifications réalisées depuis la dernière sauvegarde}, d'où l'intérêt de
+sauvegarder régulièrement. \\
+
+\par Pour restaurer les fichiers du site Web : 
+\begin{itemize}
+  \item Connectez vous sur le FTP du site via les identifiants donnés dans la
+  section précédente, en utilisant le logiciel FileZilla ou équivalent.
+  \item Supprimez le contenu du dossier \og www \fg{}
+  \item Copiez le contenu du dossier de sauvegarde voulu, situé sur votre
+  ordinateur dans le dossier \og www \fg{} du FTP. \\
+\end{itemize} 
+
+\par Pour restaurer la base de donnée : 
+\begin{itemize}
+  \item Rendez-vous sur le site : https://phppgadmin.ovh.net/
+  \item Saisissez les identifiants donnés dans la section précédente
+  \item Dans le menu de gauche, cliquez sur les \og + \fg{} de manière à voir
+  apparaitre l'onglet \og Tables \fg{} et sélectionnez le
+  \item Cochez toutes les cases et faites \og Supprimer \fg{} depuis le menu
+  d'action
+  \item Cochez la case \og CASCADE \fg{} et confirmer la suppression
+  \item  Dans le menu de gauche, cliquez sur les \og pastourebd2 \fg{}
+  \item Cliquez sur \og SQL \fg{} dans le menu principal (2ème onglet)
+  \item Renseignez le fichier à importer, en dessous du champ texte, il
+  correspond à la sauvegarde de la base de donnée que vous voulez restaurer
+  \item Cliquez sur \og Lancer \fg{} et attendre qu'une nouvelle pas s'affiche,
+  avec un certain nombre d'information sur ce qui a été importé \\
+\end{itemize}
+
+\par A partir d'ici, le site est de nouveau opérationnel
+
+\section{Conformité du site aux lois en vigueur}
+\section{Support d'archivage}
+Le site et la base de données seront fournis sur CD au client tel qu'ils
+ont été déployés lors de la phase de mise en production.
+
 \end{document}
