@@ -222,7 +222,7 @@ $bdd = new Connection ();
 							echo '<b>Vous êtes Membre : ' . $_SESSION ['pseudo'];
 						}
 						?>
-       <br /> <a href="index.php?page=infoPersonnelle"><i
+       <br /> <a href="index.php?page=info_perso"><i
 			class="icon-user icon-large"></i> Mon compte</a><br /> <a
 			href="index.php?page=deconnexion"><i class="icon-lock icon-large"></i>
 			Se Déconnecter</a>
