@@ -11,7 +11,7 @@ echo "<p>" . (isset($trad[0]) ? $trad[0] : "Non traduit") . " :
 		onClick=\"javascript:window.open('player_tab.php','popup')\">" . (isset($trad[1]) ? $trad[1] : "Non traduit") . "</a></p>";
 
 try {
-	$adminOk = checkLoginWithArray($_SESSION, 0);
+	$adminOk = checkLoginWithArray($_SESSION, 1);
 } catch (Exception $e) {
 	$adminOk = false;
 }

@@ -2,7 +2,7 @@
 @session_start();
 require_once 'traitement.inc.php';
 try {
-	$adminOk = checkLoginWithArray($_SESSION, 0);
+	$adminOk = checkLoginWithArray($_SESSION, 1);
 } catch (Exception $e) {
 	$adminOk = false;
 }

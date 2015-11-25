@@ -53,7 +53,7 @@ $(document).ready(function () {
     } else {
         
         echo "<H2>ADMINISTRATION DU PLANNING</H2>";
-        echo "<FORM METHOD='POST' id='modif' ACTION='modifDatePlanning_traitement.php'>
+        echo "<FORM METHOD='POST' id='modif' ACTION='modif_date_planning_traitement.php'>
 			<TABLE >
 				<TR><TD>Jour</TD><TD><INPUT required type=text id='jour' name='jour'  value='" .
                  $info_date['jour'] .

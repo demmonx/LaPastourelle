@@ -31,10 +31,10 @@ verifLoginWithArray($_SESSION, 1);
             $pageInclure = $_GET['page_spe'];
             require_once ($pageInclure . ".php");
         } else {
-            require_once ("demandeMembre.php");
+            require_once ("demande_membre.php");
         }
     } else {
-        require_once ("demandeMembre.php");
+        require_once ("demande_membre.php");
     }
 
 ?>
