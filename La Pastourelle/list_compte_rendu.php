@@ -36,7 +36,7 @@ foreach ($list as $row) {
                     <input type='hidden' value='" .
                  $row["id"] .
                  "' name='id' />
-					<textarea class='form-compteRendu' name='content' rows='15' cols='20'>" .
+					<textarea class='editor' name='content' rows='15' cols='20'>" .
                  stripnl2br2(($row["txt"])) . "</textarea><br />
 					<input class='btn' type='submit' value='Modifier'>
 				  </FORM>";
@@ -85,6 +85,7 @@ $(document).ready(function () {
     
     $('.update').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
+        tinyMCE.triggerSave();
         var form = $(this); // L'objet jQuery du formulaire
 
         // Récupération des valeurs
