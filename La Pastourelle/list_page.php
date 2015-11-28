@@ -18,7 +18,7 @@ if (count($tab) != 0) {
         echo "<td>" . $row["nom"] . "</td>";
         echo "<td><a class='delete' href='gestion_page_traitement.php?ac=1&id=" .
                  $row["id"] .
-                 "'><img src='/ressources/images/delete.png'/></a></td>";
+                 "'><i class='fa fa-close fa-2x'></i></a></td>";
         echo "</tr>";
     }
 }

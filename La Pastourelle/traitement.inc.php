@@ -594,7 +594,6 @@ function getCoordonnees ()
     return $tab_coord;
 }
 
-
 /**
  * Renvoie l'identifiant d'un membre en fonction de son pseudo
  */
@@ -938,6 +937,7 @@ function getLanguages ()
         $return[$i]["name"] = $row['nom_fr'];
         $return[$i]["name_en"] = $row['nom_en'];
         $return[$i]["img"] = $row['lang_img'];
+        $return[$i]["code"] = $row['locale'];
         $i ++;
     }
     return $return;
@@ -980,6 +980,31 @@ function reverseLanguage ($code)
 }
 
 /**
+ * Retourne les informations d'un language donné
+ *
+ * @param integer $id
+ *            L'identifiant de la langue
+ * @return array Les informations de la langue
+ */
+function getLanguage ($id)
+{
+    $bdd = new Connection();
+    $return = array();
+    $stmt = $bdd->prepare(
+            "SELECT * FROM lang JOIN languages_world ON lang_code=id WHERE lang_id=? ");
+    $stmt->bindValue(1, $id);
+    $stmt->execute();
+    if ($row = $stmt->fetch()) {
+        $return["id"] = $row["lang_id"];
+        $return["name"] = $row['nom_fr'];
+        $return["name_en"] = $row['nom_en'];
+        $return["img"] = $row['lang_img'];
+        $return["code"] = $row['locale'];
+    }
+    return $return;
+}
+
+/**
  * Retourne la liste de toutes les langues disponibles au niveau mondiale
  * et des locales associées
  */
@@ -988,7 +1013,7 @@ function getAllLanguages ()
     $i = 0;
     $bdd = new Connection();
     $return = array();
-    $stmt = $bdd->prepare("SELECT * FROM languages_world ORDER BY nom_en");
+    $stmt = $bdd->prepare("SELECT * FROM languages_world ORDER BY nom_fr");
     $stmt->execute();
     while ($row = $stmt->fetch()) {
         $return[$i]["id"] = $row["id"];
@@ -1724,8 +1749,7 @@ function getAdmin ()
     $bdd = new Connection();
     $tab_membre = array();
     
-    $stmt = $bdd->prepare(
-            "SELECT * FROM tuser WHERE niveau=1 ORDER BY nom");
+    $stmt = $bdd->prepare("SELECT * FROM tuser WHERE niveau=1 ORDER BY nom");
     $result = $stmt->execute();
     $i = 0;
     while ($row = $stmt->fetch()) {
@@ -1741,7 +1765,7 @@ function getAdmin ()
  *
  * @param integer $id
  *            L'id du membre à modifier
- *          @param integer $niveau
+ * @param integer $niveau
  *            Le niveau d'accès autorisé
  */
 function setNiveauMembre ($id, $niveau)

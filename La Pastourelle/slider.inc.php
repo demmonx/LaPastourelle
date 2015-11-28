@@ -1,21 +1,23 @@
 <?php
-@session_start ();
+@session_start();
 require_once 'traitement.inc.php';
-verifLoginWithArray ( $_SESSION, 1 );
+verifLoginWithArray($_SESSION, 1);
 
-$tab = getActiveDiapos ();
-echo "<div class='slideshow'><ul>";
-foreach ( $tab as $row )
-	echo "<li><img src='" . $row ["lien"] . "'  max- /></li>";
-echo "</ul>";
+$tab = getActiveDiapos();
+echo "<div class='slide-admin'>";
+foreach ($tab as $row)
+    echo "<div><img src='" . $row["lien"] . "' /></div>";
+echo "</div>";
 ?>
 </div>
 <script type="text/javascript">
-   $(function(){
-      setInterval(function(){
-         $(".slideshow ul").animate({marginLeft:-350},1000,function(){
-            $(this).css({marginLeft:0}).find("li:last").after($(this).find("li:first"));
-         })
-      }, 3500);
-   });
+$(document).ready(function(){
+    $('.slide-admin').slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+    	dots: true,
+    	arrows: true,
+    	infinite: true,
+    });	
+});
 </script>

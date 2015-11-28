@@ -10,7 +10,7 @@ if (count ( $allLang ) > 1) {
 	foreach ( $allLang as $lang ) {
 		echo "<tr>";
 		echo "<td>" . $lang ["name"] . "</td>";
-		echo "<td><a class='delete' href='lang_maj_traitement.php?ac=1&id=" . $lang ["id"] . "'><img src='/ressources/images/delete.png'/></a></td>";
+		echo "<td><a class='delete' href='lang_maj_traitement.php?ac=1&id=" . $lang ["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
 		echo "</tr>";
 	}
 	echo "</table>";
