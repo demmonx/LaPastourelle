@@ -16,7 +16,7 @@ try {
 ?>
 <!--  Navigation pour tout le monde -->
 
-<nav class="navbar navbar-default " role="navigation" id="navigationbar">
+<nav class="navbar navbar-default" role="navigation" id="navigationbar">
     <?php if ($member) { ?>
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -28,7 +28,7 @@ try {
 			</button>
 		</div>
 		<div class="collapse navbar-collapse navbar-menubuilder">
-			<ul class='nav navbar-nav'>
+			<ul class='nav navbar-nav '>
 				<li><a href="index.php?page=deconnexion"><i
 						class="fa fa-sign-out fa-lg"></i> Se déconnecter</a></li>
 					<?php
@@ -88,6 +88,14 @@ try {
             <?php
         }
         ?>				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				
