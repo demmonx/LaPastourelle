@@ -12,7 +12,7 @@ if ($adminOk) {
     echo '<H2>Ajouter un compte rendu</H2>';
     ?>
 <form action='compte_rendu_traitement.php' method='post' id='new-cr'>
-	<textarea name='content' class='form-compteRendu' placeholder='Contenu'
+	<textarea name='content' class='editor' placeholder='Contenu'
 		required></textarea>
 	<br /> <label>Date de réunion : </label><input type='text'
 		class='datepicker' name='date' placeholder="jj/mm/aaaa" required /> <input
@@ -40,6 +40,7 @@ $(document).ready(function () {
     /** * Formulaire de connexion ** */
     $('#new-cr').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
+        tinyMCE.triggerSave();
         var form = $(this); // L'objet jQuery du formulaire
 
         // Récupération des valeurs

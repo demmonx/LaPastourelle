@@ -13,13 +13,13 @@ foreach ($langage as $lang) {
 <?php echo $item['nom'] ?> : <button class="spoiler">Afficher / Masquer</button>
 	<div class="spoiler-hidden ">
 		<form action="change_text_traitement.php" class='update' method='post'>
-			<textarea class='form-compteRendu' name='content'><?php
+			<textarea class='editor' name='content'><?php
         
         echo (isset($content['txt']) ? stripnl2br2($content["txt"]) : "");
         ?></textarea>
 			<input type='hidden' name='lang' value='<?php echo $lang['id']; ?>' />
 			<input type='hidden' name='page' value='<?php echo $item['id']; ?>' />
-			<br /> <input type='submit' value='Modifier' />
+			<br /> <input type='submit' onclick="CKupdate()" value='Modifier' />
 		</form>
 	</div>
 </div>
@@ -30,7 +30,6 @@ foreach ($langage as $lang) {
 <!-- On appelle la fonction spoiler ici, sinon elle ne trouve pas les éléments -->
 <script type="text/javascript">
 $(document).ready(function () {
-
     /*** Spoiler ***/
     // Clique sur élément
     $(".spoiler").click(function () {
@@ -38,13 +37,18 @@ $(document).ready(function () {
         return false;  // bloque la fonction par défaut
     });
 
+
+
+    
     
     $('.update').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
+        tinyMCE.triggerSave();
         var form = $(this); // L'objet jQuery du formulaire
 
         // Récupération des valeurs
         var content = $("textarea[name=content]", form).val();
+        alert(content);
 
         // Vérifie pour éviter de lancer une requête fausse
         if (content === '') {

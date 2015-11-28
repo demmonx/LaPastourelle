@@ -31,12 +31,14 @@
 	rel='stylesheet' type='text/css'>
 
 <!-- Diaporama -->
-<script src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="ressources/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="js/tiny-conf.js" ></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.diaporama.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<script src="js/video.js"></script>
+<script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>
+<script type="text/javascript" src="js/video.js"></script>
 <script type="text/javascript" src="ressources/slick/slick.js"></script>
 <script type="text/javascript" src="js/datepicker-fr.js"></script>
 </head>
