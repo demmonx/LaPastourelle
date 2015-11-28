@@ -79,7 +79,7 @@ $(document).ready(function () {
     echo "<BR><BR>
 		
 			<H2>MODIFICATION DES DONNEES PERSONNELLES</H2>
-			<FORM id='modif' METHOD=POST ACTION='modifInfoPerso.php'>
+			<FORM id='modif' METHOD=POST ACTION='info_perso_trait.php'>
 				<TABLE>
 					<TR>
 						<TD>Pseudo</TD>

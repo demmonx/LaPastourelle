@@ -73,7 +73,7 @@ try {
 								<li><a href='index.php?page=gestion_boutique'> Boutique</a></li>
 								<li><a href='index.php?page=admin_actu'> Actualités</a></li>
 								<li><a href='index.php?page=gestion_liens'> Liens</a></li>
-								<li><a href=''> Voyages</a></li>
+								<li><a href='index.php?page=gestion_voyage'> Voyages</a></li>
 							</ul></li>
 
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -88,6 +88,10 @@ try {
             <?php
         }
         ?>				
+				
+				
+				
+				
 				
 				
 				
@@ -142,7 +146,7 @@ try {
 				<li><a href="player_tab.php" target="_blank"><i
 						class="fa fa-music fa-lg"></i> Nos musiques</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="index.php?page=mondeLogo"><i class="fa fa-globe fa-lg"></i>
+				<li><a href="index.php?page=voyage"><i class="fa fa-globe fa-lg"></i>
 						Nos voyages</a></li>
 				<li role="separator" class="divider"></li>
 				<li class="dropdown"><a class="dropdown-toggle"

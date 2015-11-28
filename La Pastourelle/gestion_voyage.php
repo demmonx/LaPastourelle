@@ -56,7 +56,7 @@ $(document).ready(function () {
 
 
 <h1>Ajouter un voyage</h1>
-<form action="admin_logo_traitement.php" method="POST" id="formS">
+<form action="gestion_voyage_traitement.php" method="POST" id="formS">
 
 	<select id='continent' name="continent">
 		<option value="">Continent</option>
