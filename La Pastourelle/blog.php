@@ -1,11 +1,11 @@
 <?php
 verifLoginWithArray($_SESSION, 0);
 try {
-	$adminOk = checkLoginWithArray($_SESSION, 1);
+    $adminOk = checkLoginWithArray($_SESSION, 1);
 } catch (Exception $e) {
-	$adminOk = false;
+    $adminOk = false;
 }
-  
+
 // Nombre de photos par page
 DEFINE("PHOTO_PER_PAGE", 10);
 $total = getNbPic(); // Nombre de photos dispo
@@ -93,7 +93,8 @@ foreach ($les_photos as $row) {
     echo '
 				<form method="post" class="post-comment" action="blog_traitement.php">
 					<textarea name="content"></textarea><br>
-					<input type="hidden" name="photo" value="' . $row['id'] . '" />
+					<input type="hidden" name="photo" value="' .
+             $row['id'] . '" />
 							<input type="hidden" name="ac" value="2" />
 					
 					<input class="btn btn-info" type="submit" value="Poster un commentaire">
@@ -115,4 +116,4 @@ for ($i = 1; $i <= $nombreDePages; $i ++) {
 echo "</table>";
 ?>
 
-<script type="text/javascript" src="js/blog.js"></script>
+<script type="text/javascript" src="ressources/js/blog.js"></script>

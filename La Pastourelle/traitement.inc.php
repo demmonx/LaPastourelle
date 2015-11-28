@@ -13,13 +13,13 @@ function getPhraseJour ($lang)
     $bdd = new Connection();
     
     // ------------------- TEST CONNECTION PDO ------------------------ //
-    $sql = "SELECT valeurtrad FROM tradannexe WHERE nomTrad ='phrasejour' AND lang=? ORDER BY nomTrad";
+    $sql = "SELECT phrase_content FROM phrase_jour WHERE phrase_lang=? ORDER BY phrase_id DESC";
     $result = $bdd->prepare($sql);
     $result->bindValue(1, $lang);
     $result->execute();
     
     // Requête sur clé primaire, un seul élément possible
-    return $result->fetch()['valeurtrad'];
+    return $result->fetch()['phrase_content'];
 }
 
 /**
@@ -1013,7 +1013,7 @@ function getAllLanguages ()
     $i = 0;
     $bdd = new Connection();
     $return = array();
-    $stmt = $bdd->prepare("SELECT * FROM languages_world ORDER BY nom_fr");
+    $stmt = $bdd->prepare("SELECT * FROM languages_world ORDER BY nom_en");
     $stmt->execute();
     while ($row = $stmt->fetch()) {
         $return[$i]["id"] = $row["id"];
@@ -1397,38 +1397,16 @@ function updatePhraseJour ($content, $lang)
 {
     $bdd = new Connection();
     
-    // On regarde si la valeur existe déjà
-    $stmt1 = $bdd->prepare(
-            "SELECT * FROM tradannexe
-			WHERE nomTrad = 'phrasejour'
-			AND lang = :lang");
-    $stmt1->bindValue(":lang", $lang);
-    $stmt1->execute();
-    
     // Si pas d'objet on insère à condition que le contenu ne soit pas vide,
     // sinon inutile
-    if ($stmt1->rowCount() == 0 && ! empty(trim($content))) {
+    if (! empty(trim($content))) {
         $stmt2 = $bdd->prepare(
-                "INSERT INTO tradannexe
-			(valeurtrad, lang, nomtrad) VALUES (:valeur, :lang, 'phrasejour')");
+                "INSERT INTO phrase_jour
+			(phrase_content, phrase_lang) VALUES (:valeur, :lang)");
         $stmt2->bindValue(":valeur", $content);
         $stmt2->bindValue(":lang", $lang);
         $stmt2->execute();
-        return true;
-    } else 
-        if ($stmt1->rowCount() > 1) { // Plusieurs items avec même clé =
-                                      // table corrompue
-            throw new InvalidArgumentException(
-                    "Au moins une donnée est corrompue");
-        } // sinon on update
-    
-    $modif_phrasejour = $bdd->prepare(
-            "UPDATE tradannexe SET valeurTrad = ?
-											  WHERE lang = ?
-												AND nomTrad = 'phrasejour'");
-    $modif_phrasejour->bindValue(1, $content);
-    $modif_phrasejour->bindValue(2, $lang);
-    $modif_phrasejour->execute();
+    }
     return true;
 }
 
@@ -1790,7 +1768,7 @@ function getCompteRendu ()
     $result = $stmt->execute();
     $i = 0;
     while ($row = $stmt->fetch()) {
-        $return[$i]["txt"] = decodeREGEX($row["cr_text"]);
+        $return[$i]["txt"] = $row["cr_text"];
         $return[$i]["date"] = $row["cr_date"];
         $return[$i]["id"] = $row["cr_num"];
         $i ++;
@@ -1889,28 +1867,6 @@ function deletePage ($id)
     $stmt->bindValue(1, $id);
     $stmt->execute();
     return true;
-}
-
-/**
- * Décode tous les tags insérables dans une chaine et les convertit en balise
- * html
- *
- * @param string $str
- *            La chaine à convertir
- * @return string La chaine convertie
- */
-function decodeREGEX ($str)
-{
-    $str = preg_replace('`\{image}(.+)\{/image\}`iUs', 
-            '<img src="$1" alt="Image" /> ', $str);
-    $str = preg_replace('`\{b}(.+)\{/b\}`iUs', '<b>$1</b>', $str);
-    $str = preg_replace('`\{i}(.+)\{/i\}`iUs', '<i>$1</i>', $str);
-    $str = preg_replace('`\{titre1}(.+)\{/titre1\}`iUs', '<h1>$1</h1>', $str);
-    $str = preg_replace('`\{titre2}(.+)\{/titre2\}`iUs', '<h2>$1</h2>', $str);
-    $str = preg_replace('`\{video}(.+)\{/video\}`iUs', 
-            "<video controls src='$1'></video>", $str);
-    
-    return $str;
 }
 
 /**

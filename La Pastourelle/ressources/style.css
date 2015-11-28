@@ -1,14 +1,17 @@
-/* Document CSS
-/* Document CSS
- * style.css  * Feuille de style g�n�rale du site
- */
-/* BODY */
+.slick-dots li button:before {
+        display: block;
+    position: relative;
+}
 .border-right {
 	border-right: 1px solid grey;
 }
 header, footer {
 	background-color: rgb(40,40,40);
 	color(170,170,170);	
+}
+
+footer {
+	margin-top: 50px;
 }
 
 section {
@@ -26,7 +29,7 @@ body {
 	font-family: "Arial";
 	color: #4F5857;
 }
-.slide-accueil {
+.slide-accueil, .slide-admin {
 	width: 50%;
 	margin: auto;
 }

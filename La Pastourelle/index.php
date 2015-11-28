@@ -105,9 +105,9 @@ if (isset($coord['mail'])) {
 					<?php
     if ($member) {
         if ($admin) {
-            echo '<b>Vous êtes Administrateur : ' . $_SESSION['pseudo'] . ' ';
+            echo '<b>Vous êtes Administrateur : ' . $_SESSION['pseudo'] . '</b>';
         } else {
-            echo '<b>Vous êtes Membre : ' . $_SESSION['pseudo'];
+            echo '<b>Vous êtes Membre : ' . $_SESSION['pseudo'] . "</b>";
         }
         ?>
        <br /> <a href="index.php?page=info_perso"><i
