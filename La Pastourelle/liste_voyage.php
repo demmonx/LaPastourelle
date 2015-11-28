@@ -9,7 +9,7 @@ if (count ( $allVoyage ) > 0) {
 
 	foreach ( $allVoyage as $voy ) {
 		echo "<div>";
-		echo "<a class='delete' href='admin_logo_traitement.php?ac=1&id=" . $voy ["id"] . "'><img src='/ressources/images/delete.png'/></a>";
+		echo "<a class='delete' href='gestion_voyage_traitement.php?ac=1&id=" . $voy ["id"] . "'><img src='/ressources/images/delete.png'/></a>";
 		echo " " .$voy ["pays"];
 		echo " ". $voy ["titre"]. " ";
 		echo "<button class='spoiler'>Afficher / Masquer</button><div class='spoiler-hidden' >";
