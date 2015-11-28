@@ -24,7 +24,7 @@ verifLoginWithArray($_SESSION, 1);
                      "</a></td>";
             echo "<td><a class='delete' href='slider_traitement.php?ac=2&id=" .
                      $row["id"] .
-                     "'><img src='/ressources/images/delete.png'/></a></td>";
+                     "'><i class='fa fa-close fa-2x'></i></a></td>";
             echo "</tr>";
         }
     }

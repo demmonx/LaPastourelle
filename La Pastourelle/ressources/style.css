@@ -1,0 +1,258 @@
+.slick-dots li button:before {
+        display: block;
+    position: relative;
+}
+.border-right {
+	border-right: 1px solid grey;
+}
+header, footer {
+	background-color: rgb(40,40,40);
+	color(170,170,170);	
+}
+
+footer {
+	margin-top: 50px;
+}
+
+section {
+	min-height: 300px;
+}
+
+.slide-top {
+	max-width: 150px;
+	height: auto;
+}
+
+body {
+	width: 100%;
+	margin: auto;
+	font-family: "Arial";
+	color: #4F5857;
+}
+.slide-accueil, .slide-admin {
+	width: 50%;
+	margin: auto;
+}
+.slick-prev:before, .slick-next:before { 
+    color:red !important;
+}
+h1 {
+	width: 100%;
+	margin: auto;
+	display: block;
+}
+
+/** liens hypertexte */
+a {
+	color: rgb(140, 140, 140);
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+
+
+img {width:50%;
+height: auto;}
+
+.img-lang {
+	max-width: 40px;
+	max-height: 40px;
+}
+
+/* Page compte rendu */
+.form-compteRendu {
+	font-family: "Arial";
+	text-align: justify;
+	color: #4F5857;
+	font-size: 16px;
+	width: 90%;
+	height: 300px;
+	padding-left: 50px;
+}
+
+.player {
+	background: transparent url("/ressources/images/spr.png") no-repeat
+		scroll center top;
+	height: 162px;
+	position: relative;
+	width: 326px;
+	z-index: 2;
+}
+
+.title, .artist {
+	font-family: verdana;
+	left: 167px;
+	position: absolute;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.title {
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	top: 23px;
+}
+
+.artist {
+	color: #EEEEEE;
+	font-size: 12px;
+	top: 40px;
+}
+
+.pl {
+	background: transparent url("/ressources/images/spr.png") no-repeat
+		scroll -274px -175px;
+	cursor: pointer;
+	height: 34px;
+	left: 270px;
+	position: absolute;
+	top: 20px;
+	width: 32px;
+}
+
+.pl:hover {
+	top: 21px;
+}
+
+.cover {
+	background: transparent no-repeat scroll center top;
+	border-radius: 5px 5px 5px 5px;
+	height: 94px;
+	left: 20px;
+	position: absolute;
+	top: 20px;
+	width: 94px;
+}
+
+.controls-player {
+	cursor: pointer;
+	height: 23px;
+	left: 167px;
+	position: absolute;
+	top: 65px;
+	width: 138px;
+}
+
+.controls-player  .play, .controls-player  .pause, .controls-player  .rew,
+	.controls-player  .fwd {
+	background: transparent url("/ressources/images/spr.png") no-repeat
+		scroll 0 0;
+	float: left;
+	height: 100%;
+	width: 33%;
+}
+
+.controls-player .play {
+	background-position: -8px -171px;
+}
+
+.controls-player  .pause {
+	background-position: -8px -198px;
+	display: none;
+}
+
+.controls-player  .rew {
+	background-position: -54px -171px;
+}
+
+.controls-player  .fwd {
+	background-position: -100px -171px;
+}
+
+.controls-player  .play:hover {
+	background-position: -8px -170px;
+}
+
+.controls-player .pause:hover {
+	background-position: -8px -197px;
+}
+
+.controls-player .rew:hover {
+	background-position: -54px -170px;
+}
+
+.controls-player .fwd:hover {
+	background-position: -100px -170px;
+}
+
+.hidden {
+	display: none;
+}
+
+.controls-player .visible {
+	display: block;
+}
+
+.volume {
+	height: 11px;
+	left: 186px;
+	position: absolute;
+	top: 96px;
+	width: 112px;
+}
+
+.tracker {
+	height: 15px;
+	left: 20px;
+	position: absolute;
+	top: 126px;
+	width: 285px;
+}
+
+.ui-slider-range {
+	background: transparent url("/ressources/images/spr.png") no-repeat
+		scroll 5px -222px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+}
+
+.ui-slider-handle {
+	cursor: pointer;
+	height: 10px;
+	margin-left: -5px;
+	position: absolute;
+	top: 2px;
+	width: 10px;
+	z-index: 2;
+}
+
+.volume .ui-slider-handle {
+	background: url("/ressources/images/spr.png") no-repeat scroll -201px
+		-188px rgba(0, 0, 0, 0);
+	height: 13px;
+	width: 13px;
+}
+
+.playlist {
+	background-color: #333333;
+	border-radius: 5px 5px 5px 5px;
+	list-style-type: none;
+	margin: -10px 0 0 2px;
+	padding-bottom: 10px;
+	padding-top: 15px;
+	position: relative;
+	width: 326px;
+	z-index: 1;
+}
+
+.playlist li {
+	color: #EEEEEE;
+	cursor: pointer;
+	margin: 0 0 5px 15px;
+}
+
+.playlist li.active {
+	font-weight: bold;
+}
+
+.spoiler-hidden {
+	display: none;
+	margin-top: 10px;
+	padding: 5px;
+}

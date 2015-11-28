@@ -31,7 +31,7 @@ function getPlayer ()
                      "'>" . $row["titre"] . "</li>";
         }
         echo "</ul>";
-        echo "<script type='text/javascript' src='js/player.js'></script>";
+        echo "<script type='text/javascript' src='ressources/js/player.js'></script>";
         
     } else {
         echo "Pas de chansons disponibles";
