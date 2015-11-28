@@ -22,8 +22,9 @@ if (isset($titre["valeurtrad"]))
 		Message :<br>
 		<textarea name="message" class='form-compteRendu' required></textarea>
 	</p>
-	<span class="g-recaptcha" data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></span>
-	<input type="submit" value="Envoyer" />
+	<span class="g-recaptcha"
+		data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></span> <input
+		type="submit" value="Envoyer" />
 	<div id='msgReturn'></div>
 </form>
 

@@ -1,25 +1,22 @@
 <?php
 verifLoginWithArray($_SESSION, 1);
 // Formulaire qui changera la phrase du jour
-$languages = getLanguages ();
+$languages = getLanguages();
 ?>
-<form id="phraseMaj" class="form-horizontal" action="change_phrasejour_traitement.php"
-	method="post">
+<form id="phraseMaj" class="form-horizontal"
+	action="change_phrasejour_traitement.php" method="post">
 	<table>
 		<tr>
 			<th>Langue</th>
 			<th>Phrase</th>
 		</tr>
 <?php
-foreach ( $languages as $lang ) {
-	?>
+foreach ($languages as $lang) {
+    ?>
 	<tr>
-	<td><?php echo $lang['name'];?></td>
-	<td>
-	<textarea
-			name="phrase[<?php echo $lang['id'];?>]" />
-			<?php echo getPhraseJour($lang['id']);?>" </textarea> 
-	</td></tr>	
+			<td><?php echo $lang['name'];?></td>
+			<td><textarea name="phrase[<?php echo $lang['id'];?>]"><?php echo getPhraseJour($lang['id']);?></textarea></td>
+		</tr>	
 <?php
 }
 ?> 
@@ -33,7 +30,7 @@ $(document).ready(function () {
     $('#phraseMaj').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
         var form = $(this); // L'objet jQuery du formulaire
-
+        $('#msgReturn').empty();
             // Envoi de la requête HTTP en mode asynchrone
             $.ajax({
                 url: form.attr('action'), // cible (formulaire)

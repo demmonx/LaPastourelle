@@ -17,7 +17,7 @@ $(document).ready(function () {
         // Regex de test l'adresse mail
         var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
         $('#msgReturn').empty();
-        // Vérifie pour éviter de lancer une requête fausseruc
+        // Vérifie pour éviter de lancer une requête fausse
         if (pseudo === '' || pass === '' || mail === '' || nom === '' 
             || prenom === '' || tel === '' || adresse === '') {
             $('#msgReturn').append('Les champs doivent êtres remplis');
@@ -54,8 +54,7 @@ $(document).ready(function () {
 	de l'association.<br /> Si vous n'en faites pas partie, nous serions
 	ravis que vous nous rejoignez.
 </div>
-<form id='inscription'
-	action="inscription_traitement.php" method="post">
+<form id='inscription' action="inscription_traitement.php" method="post">
 	<table>
 		<tr>
 			<td>Prénom</td>
@@ -100,8 +99,8 @@ $(document).ready(function () {
 			<td><input type="checkbox" name="etat_annuaire" value="true"></td>
 		</tr>
 	</table>
-	
-			<div class="g-recaptcha" data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></div>
+	<div class="g-recaptcha"
+		data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></div>
 
 	<br> <input type="submit" name="submit" value="S'inscrire" />
 </form>

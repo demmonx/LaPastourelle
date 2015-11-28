@@ -44,7 +44,7 @@ foreach ( $tab_planning as $row ) {
 	if ($adminOk) {
 		echo "<TD><A class='delete btn btn-link' HREF='planning_traitement.php?ac=1&id=" . $unId . "'>";
 		echo "<img src='ressources/images/delete.png' alt='Supprimer' /> </A></TD>";
-		echo " <TD><A class='btn btn-link' HREF='index.php?page=modifDatePlanning&id=" . $unId . "'> Modifier</A></TD>";
+		echo " <TD><A class='btn btn-link' HREF='index.php?page=modif_date_planning&id=" . $unId . "'> Modifier</A></TD>";
 	}
 	echo "</tr>";
 }

@@ -48,7 +48,6 @@
 	src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src="ressources/slick/slick.js"></script>
 <script type="text/javascript" src="js/datepicker-fr.js"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>

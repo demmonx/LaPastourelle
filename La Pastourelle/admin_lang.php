@@ -10,7 +10,7 @@ $(document).ready(function () {
 		$("#liste-lang").load("liste_lang.php");
 	}
 
-	// Ajout d'une nouvelle langue
+	// Ajout d'une nouvelle musique
     $('#formS').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
         var form = $(this); // L'objet jQuery du formulaire
@@ -50,10 +50,11 @@ $(document).ready(function () {
 
 	<h1>Ajout d'une langue</h1>
 
+<div class="identification">
 	<form class="form-horizontal" action="lang_maj_traitement.php"
 		method="POST" id="formS" enctype="multipart/form-data">
 
-		<label for="nom">Langue</label> <select
+		<label class="control-label" for="nom">Langue</label> <select
 			id="nom-lang" name="lang">
 			<option value="">-- Choix --</option>
 			<?php
@@ -62,11 +63,12 @@ foreach ($lang as $row) {
     echo "<option value=" . $row['id'] . ">" . $row["name"] . "</option>";
 }
 ?>
-		</select> <label for="fichier">Drapeau</label> <input
+		</select> <label class="control-label" for="fichier">Drapeau</label> <input
 			type="file" name="fichier" size="20" id='uploadFile' /> <input
 			class="btn" type="submit" name="envoyer" value="Enregistrer" />
 		<div id="msgReturn"></div>
 	</form>
+</div>
 
 <hr />
 

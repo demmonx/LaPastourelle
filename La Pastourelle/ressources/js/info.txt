@@ -1,0 +1,31 @@
+TRI DE TABLEAU HTML EN JAVASCRIPT, ORIENTÉ OBJET, MULTI COLONNES
+Evolution par vb1 du script : http://www.javascriptfr.com/code.aspx?ID=34180 (auteur zilx).
+
+Pas besoins de modifier le tableau a trier :
+Les fleches permettant d'activer le tri sur tel ou tel colonne sont ajoutées par le script dans les entêtes ainsi que les évènements correspondant (onClick).
+Ce script utilise la très bonne librairie prototype.js que vous pouvez télécharger ici : http://prototype.conio.net/
+
+-------------------------------------------
+07/04/2006 Version 1.51
+      - Correction : meilleur gestion des cellules totalement vides sous FireFox
+
+14/01/2006 Version 1.5
+      - Fonctionne sous IE (testé sous IE6) et FireFox
+      - Possibilité de tri sur plusieurs colonnes  : dans l'ordre naturel
+       ( + importante en 1er ) avec affichage de l'index de chaque colonne.
+      - Possibilité de modifier l'ordre d'affichage des colonne en fonction de leur ordre de tri ( option à l'instanciation )
+      - Il est possible de désactiver le tri d'une colonne en re-cliquant sur un bouton déjà actif.
+      - Recherche automatique du type de données dans les lignes suivantes si la 1ere est vide
+      - Remplacement des balises (&nbsp;...) par la fonction unescapeHTML de prototype.js pour ne
+	pas géner l'ordre de tri
+      - Remplacement des accents pour ne pas géner l'ordre de tri ( ils restent à l'affichage )
+
+08/01/2006 Version initiale :
+Correction:
+  - La fonction de tri était appelée 2x à tort a cause d'un eventHandler "click" dupliqué ( sauf pour la 1ere colonne ).
+  - L'ordre de tri des colonnes précédement triées était invérsé lors du tri descendant d'une autre colonne.
+Ajout:
+  - La fleche de tri utilisée devient rouge pour indiquer le sens de tri.
+  - Un nombre est ajouté dans le titre des colonnes triées pour indiquer l'ordre dans lequels elles ont été triées. ( Colonne 1, Colonne 2 ... ) Il faut commencer le tri par la colonne que l'on souhaite comme dernier critére de tri.
+  - Pour determiner le type de chaque colonne ( Nombre, date ou chaine ) : si la premiere cellule de la premiere ligne est vide, regarde dans les lignes suivante.
+
