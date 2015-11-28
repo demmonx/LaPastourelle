@@ -3,9 +3,9 @@
 require_once "traitement.inc.php";
 verifLoginWithArray($_SESSION, 0);
 try {
-	$admin = checkLoginWithArray($_SESSION, 0);
+    $admin = checkLoginWithArray($_SESSION, 0);
 } catch (Exception $e) {
-	$admin = false;
+    $admin = false;
 }
 $list = getCompteRendu();
 // Affichage du titre
@@ -23,7 +23,7 @@ foreach ($list as $row) {
     echo " <div>";
     if ($admin) {
         $delete_img = "<a class='delete' href='compte_rendu_traitement.php?ac=1&id=" .
-                 $row["id"] . "'><img src='/ressources/images/delete.png'/></a>";
+                 $row["id"] . "'><i class='fa fa-close fa-2x'></i></a>";
         echo $delete_img . " ";
     }
     echo "Compte rendu du " . date("j-M-Y", strtotime($row['date'])) . " : <button class='spoiler'>Afficher / Masquer</button>
@@ -34,23 +34,23 @@ foreach ($list as $row) {
 				  <FORM method='post' action='compte_rendu_traitement.php' class='update'>
 					Modifier le compte rendu : <BR>
                     <input type='hidden' value='" .
-                 $row["id"] .
-                 "' name='id' />
-					<textarea class='form-compteRendu' name='content' rows='15' cols='20'>" .
-                 stripnl2br2(($row["txt"])) . "</textarea><br />
+                 $row["id"] . "' name='id' />
+					<textarea class='editor' name='content' rows='15' cols='20'>" .
+                 nl2br(html_entity_decode($row["txt"])) . "</textarea><br />
 					<input class='btn' type='submit' value='Modifier'>
 				  </FORM>";
     } else {
         echo "
 				  <div >" .
-                 nl2br(html_entity_decode(decodeREGEX($row["txt"]))) . "</div>";
+                 nl2br(html_entity_decode($row["txt"])) . "</div>";
     }
     echo "</div></div>";
 }
 
 ?>
+<!-- On appelle la fonction spoiler ici, sinon elle ne trouve pas les éléments -->
 <script>
-	function refresh() {
-		$("#list-cr").load("list_compte_rendu.php");
-	}</script>
+ 	function refresh() {
+ 		$("#list-cr").load("list_compte_rendu.php");
+ 	}</script>
 <script type="text/javascript" src="ressources/js/gest_content.js"></script>

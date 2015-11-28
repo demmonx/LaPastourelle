@@ -6,8 +6,7 @@ echo "<div id='livre-container'>";
 require 'list_livre_or.php';
 echo "</div>";
 ?>
-<form action="livre_or_traitement.php"
-	class='post-form' method="post">
+<form action="livre_or_traitement.php" class='post-form' method="post">
 	<table>
 		<tr>
 			<td>Nom </label></td>
@@ -20,9 +19,11 @@ echo "</div>";
 			<td colspan=2><textarea name="message" required></textarea></td>
 		</tr>
 		<tr>
-			<td colspan="2"><span class="g-recaptcha" data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></span></td>
+			<td colspan="2"><span class="g-recaptcha"
+				data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></span></td>
 		</tr>
 	</table>
+
 	<input type="submit" class="btn" value="Envoyer" />
 	<div id="ajout-result"></div>
 </form>

@@ -3,10 +3,6 @@
 @header('Content-Type: text/html; charset=utf-8');
 require_once ("traitement.inc.php");
 
-if (! (isset($_POST['g-recaptcha-response']) &&  verifCaptcha($_SERVER, $_POST['g-recaptcha-response']))) {
-	exit("Code de validation incorrect");
-}
-
 $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -37,6 +33,11 @@ if ($action) {
             exit("L'action selectionnée est invalide");
     }
 } // else
+
+if (! (isset($_POST['g-recaptcha-response']) &&
+         verifCaptcha($_SERVER, $_POST['g-recaptcha-response']))) {
+    exit("Code de validation incorrect");
+}
 
 // Ajout
 addMessageToLivre($nom, $message);

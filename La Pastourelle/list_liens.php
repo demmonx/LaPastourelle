@@ -21,7 +21,7 @@ if (count($tab) != 0) {
         echo "<td>" . $row["nom"] . "</td>";
         echo "<td>" . $row["url"] . "</td>";
         $delete_img = "<a class='delete' href='gestion_liens_traitement.php?ac=1&id=" .
-                 $row["id"] . "'><img src='/ressources/images/delete.png'/></a>";
+                 $row["id"] . "'><i class='fa fa-close fa-2x'></i></a>";
         echo "<td>" .
                  (! empty($row["img"]) ? $row["img"] . $delete_img : "Pas d'image") .
                  "</td>";
@@ -32,7 +32,7 @@ if (count($tab) != 0) {
         echo "</form></td>";
         echo "<td><a class='delete' href='gestion_liens_traitement.php?ac=2&id=" .
                  $row["id"] .
-                 "'><img src='/ressources/images/delete.png'/></a></td>";
+                 "'><i class='fa fa-close fa-2x'></i></a></td>";
         echo "</tr>";
     }
 }

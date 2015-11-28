@@ -12,7 +12,7 @@ foreach ($files as $file) {
              "</a></td>";
     echo "<td><a class='delete' href='gest_content_traitement.php?ac=1&id=" .
              $file["id"] .
-             "'><img src='/ressources/images/delete.png'/></a></td>";
+             "'><i class='fa fa-close fa-2x'></i></a></td>";
     echo "</tr>";
 }
 echo "</table>";
