@@ -19,7 +19,7 @@ foreach ($langage as $lang) {
         ?></textarea>
 			<input type='hidden' name='lang' value='<?php echo $lang['id']; ?>' />
 			<input type='hidden' name='page' value='<?php echo $item['id']; ?>' />
-			<br /> <input type='submit' onclick="CKupdate()" value='Modifier' />
+			<br /> <input type='submit' value='Modifier' />
 		</form>
 	</div>
 </div>
@@ -30,6 +30,7 @@ foreach ($langage as $lang) {
 <!-- On appelle la fonction spoiler ici, sinon elle ne trouve pas les éléments -->
 <script type="text/javascript">
 $(document).ready(function () {
+
     /*** Spoiler ***/
     // Clique sur élément
     $(".spoiler").click(function () {
@@ -37,18 +38,13 @@ $(document).ready(function () {
         return false;  // bloque la fonction par défaut
     });
 
-
-
-    
     
     $('.update').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
-        tinyMCE.triggerSave();
         var form = $(this); // L'objet jQuery du formulaire
 
         // Récupération des valeurs
         var content = $("textarea[name=content]", form).val();
-        alert(content);
 
         // Vérifie pour éviter de lancer une requête fausse
         if (content === '') {

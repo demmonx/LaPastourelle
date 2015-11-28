@@ -1,17 +1,18 @@
 <?php
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
-$cryptinstall = "./cryptographp.fct.php";
-require_once $cryptinstall;
 require_once ("traitement.inc.php");
+
+if (! (isset($_POST['g-recaptcha-response']) &&  verifCaptcha($_SERVER, $_POST['g-recaptcha-response']))) {
+	exit("Code de validation incorrect");
+}
 
 $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
 $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
-$code = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_SPECIAL_CHARS);
 // Champs non renseignés
-if (! ($message && $code && $nom || $id && $action)) {
+if (! ($message && $nom || $id && $action)) {
     exit("Les champs doivent être remplis");
 }
 
@@ -36,11 +37,6 @@ if ($action) {
             exit("L'action selectionnée est invalide");
     }
 } // else
-  
-// Secure code invalide
-if (! chk_crypt($code)) {
-    exit("Le code de sécurité est invalide");
-}
 
 // Ajout
 addMessageToLivre($nom, $message);
