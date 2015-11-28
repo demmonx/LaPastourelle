@@ -1,7 +1,4 @@
 <?php
-$cryptinstall = "./cryptographp.fct.php";
-require_once $cryptinstall;
-?><?php
 // Récupération des textes annexes de traduction pour cette zone
 $trad = getTrad($_SESSION['lang'], 'livre');
 // Affichage du texte
@@ -9,7 +6,7 @@ echo "<div id='livre-container'>";
 require 'list_livre_or.php';
 echo "</div>";
 ?>
-<form action="livre_or_traitement.php?<?PHP echo SID; ?>"
+<form action="livre_or_traitement.php"
 	class='post-form' method="post">
 	<table>
 		<tr>
@@ -23,11 +20,7 @@ echo "</div>";
 			<td colspan=2><textarea name="message" required></textarea></td>
 		</tr>
 		<tr>
-			<td colspan="2"><?php dsp_crypt(0,1); ?></td>
-		</tr>
-		<tr>
-			<td>Code :</td>
-			<td><input type="text" name="code" required></td>
+			<td colspan="2"><span class="g-recaptcha" data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></span></td>
 		</tr>
 	</table>
 	<input type="submit" class="btn" value="Envoyer" />
@@ -43,9 +36,8 @@ $(document).ready(function () {
         var form = $(this); // L'objet jQuery du formulaire
         var name =$("input[name=nom]", form).val();
         var message =$("textarea[name=message]", form).val();
-        var code =$("input[name=code]", form).val();
         $('#ajout-result').empty();  // affichage du résultat
-        if (name === "" || message === ''|| code === '') {
+        if (name === "" || message === '') {
         	 $('#ajout-result').append("Les champs doivent être remplis");
         } else {
             // Envoi de la requête HTTP en mode asynchrone

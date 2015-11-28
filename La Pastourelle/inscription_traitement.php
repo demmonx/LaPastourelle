@@ -1,12 +1,12 @@
 <?php
-$cryptinstall = "./cryptographp.fct.php";
-require_once $cryptinstall;
-require_once 'traitement.inc.php';
 
+require_once 'traitement.inc.php';
 /* on vérifie le captcha */
-if (! (isset($_POST['code']) || ! chk_crypt($_POST['code']))) {
-    exit("Code incorrect de validation incorrect");
+if (! (isset($_POST['g-recaptcha-response']) &&  verifCaptcha($_SERVER, $_POST['g-recaptcha-response']))) {
+    exit("Code de validation incorrect");
 }
+
+// Go essayer
 
 $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS);
 $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);

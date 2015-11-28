@@ -1,7 +1,3 @@
-<?php
-$cryptinstall = "./cryptographp.fct.php";
-require_once $cryptinstall;
-?>
 <script language="javascript">
 $(document).ready(function () {
     /** * Formulaire de connexion ** */
@@ -11,7 +7,6 @@ $(document).ready(function () {
 
         // Récupération des valeurs
         var pseudo = $('#pseudo').val();  
-        var code = $('#code').val();  
         var mail = $('#mail').val();  
         var nom = $('#nom').val();  
         var prenom = $('#prenom').val(); 
@@ -22,8 +17,8 @@ $(document).ready(function () {
         // Regex de test l'adresse mail
         var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
         $('#msgReturn').empty();
-        // Vérifie pour éviter de lancer une requête fausse
-        if (pseudo === '' || pass === '' || code === '' || mail === '' || nom === '' 
+        // Vérifie pour éviter de lancer une requête fausseruc
+        if (pseudo === '' || pass === '' || mail === '' || nom === '' 
             || prenom === '' || tel === '' || adresse === '') {
             $('#msgReturn').append('Les champs doivent êtres remplis');
         }else if (isNaN(tel) || tel.length != 10) {
@@ -41,7 +36,6 @@ $(document).ready(function () {
                     if (html === "Votre inscription a été prise en compte" ) {
                     	form.get(0).reset();
                     } else {
-                    	$('#code').val("");
                     	$('#pass').val("");
                     }
                 }
@@ -61,7 +55,7 @@ $(document).ready(function () {
 	ravis que vous nous rejoignez.
 </div>
 <form id='inscription'
-	action="inscription_traitement.php?<?PHP echo SID; ?>" method="post">
+	action="inscription_traitement.php" method="post">
 	<table>
 		<tr>
 			<td>Prénom</td>
@@ -105,14 +99,9 @@ $(document).ready(function () {
 				l'association. Oui si coché</td>
 			<td><input type="checkbox" name="etat_annuaire" value="true"></td>
 		</tr>
-		<tr>
-			<td colspan="2"><?php dsp_crypt(0,1); ?></td>
-		</tr>
-		<tr>
-			<td colspan="2">Recopier le code:<br> <input type="text" name="code"
-				id='code' required></td>
-		</tr>
 	</table>
+	
+			<div class="g-recaptcha" data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></div>
 
 	<br> <input type="submit" name="submit" value="S'inscrire" />
 </form>

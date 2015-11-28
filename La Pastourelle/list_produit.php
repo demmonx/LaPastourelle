@@ -26,7 +26,7 @@ if (count($tab) != 0) {
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
         $delete_img = "<a class='delete' href='produit_maj.php?ac=1&id=" .
-                 $row["id"] . "'><i class='fa fa-close fa-2x'></i></a>";
+                 $row["id"] . "'><img src='/ressources/images/delete.png'/></a>";
         echo "<td>" .
                  (! empty($row["img"]) ? $row["img"] . $delete_img : "Pas d'image") .
                  "</td>";
@@ -36,7 +36,7 @@ if (count($tab) != 0) {
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
         echo "<td><a class='delete' href='produit_maj.php?ac=2&id=" . $row["id"] .
-                 "'><i class='fa fa-close fa-2x'></i></a></td>";
+                 "'><img src='/ressources/images/delete.png'/></a></td>";
         echo "</tr>";
     }
 }

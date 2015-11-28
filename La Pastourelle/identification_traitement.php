@@ -2,14 +2,12 @@
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
 require_once ("traitement.inc.php");
-
 $pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS);
 $pass = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_SPECIAL_CHARS);
 // Champs non renseignés
 if (! ($pseudo && $pass)) {
     exit("Les champs doivent être remplis");
 }
-
 try {
 	$pass = sha1($pass);
     checkLogin($pseudo, $pass, 0);
