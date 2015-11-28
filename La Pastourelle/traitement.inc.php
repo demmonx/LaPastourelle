@@ -3,6 +3,115 @@ require_once ("Connection.class.php");
 require_once ("login.inc.php");
 
 /**
+ * Retourne tous les continents dans lesquels un voyages à été effectué par la
+ * pastourelle
+ */
+function getVoyage ()
+{
+    $bdd = new Connection();
+    $return = array();
+    $stmt = $bdd->prepare(
+            "SELECT *
+			FROM logocarte
+			JOIN countries P
+			ON P.id_pays=pays
+			JOIN continent C
+			ON C.id_cont= P.code_continent
+			ORDER BY code_continent, name_fr");
+    $result = $stmt->execute();
+    $i = 0;
+    while ($row = $stmt->fetch()) {
+        $return[$i ++] = extractVoyageFromARow($row);
+    }
+    
+    return $return;
+}
+
+/**
+ * Récpère les infos sur un voyage
+ *
+ * @param array $row
+ *            Une ligne de BD
+ * @return array Les infos du voyage
+ */
+function extractVoyageFromARow ($row)
+{
+    $return = array();
+    $return["id"] = $row["id_logo"];
+    $return["id_continent"] = $row["code_continent"];
+    $return["continent"] = $row["nom"];
+    $return["pays"] = $row["name_fr"];
+    $return["id_pays"] = $row["id_pays"];
+    $return["titre"] = $row["titre"];
+    $return["txt"] = $row["texte"];
+    return $return;
+}
+
+/**
+ * Retourne la liste de tous les pays d'un certain continent passé en paramètre
+ *
+ * @param integer $continent
+ *            Le continent dont on veut les pays
+ */
+function getPays ($continent = null)
+{
+    $i = 0;
+    $bdd = new Connection();
+    $return = array();
+    $sql = "SELECT * FROM countries ";
+    if ($continent != null)
+        $sql .= "WHERE code_continent = ? ";
+    $sql .= "ORDER BY name_fr";
+    $stmt = $bdd->prepare($sql);
+    if ($continent != null) {
+        $stmt->bindValue(1, $continent);
+    }
+    $stmt->execute();
+    while ($row = $stmt->fetch()) {
+        $return[$i]["id"] = $row["id_pays"];
+        $return[$i]["name_fr"] = $row['name_fr'];
+        $i ++;
+    }
+    return $return;
+}
+
+/**
+ * Vérification du captcha par le système reCaptcha
+ *
+ * @param array $serveur
+ *            La variable superglobales serveur
+ * @param string $valeur
+ *            La valeur du code de sécurité
+ * @return boolean true si le code est valide, false sinon
+ */
+function verifCaptcha ($serveur, $valeur)
+{
+    if ($serveur['REQUEST_METHOD'] != 'POST') {
+        return false;
+    }
+    $key = '6LdtxxETAAAAAN5MKrpW49AdK_IaEZvkYEZ_UVfU';
+    $response = $valeur;
+    $ip = $serveur['REMOTE_ADDR'];
+    
+    $gapi = 'https://www.google.com/recaptcha/api/siteverify?secret=' . $key .
+             '&response=' . $response . '&remoteip=' . $ip;
+    
+    $json = json_decode(file_get_contents($gapi), true);
+    
+    // if (!$json['success']) {
+    // foreach($json['error-codes'] as $error) {
+    // Erreurs possibles missing-input-secret The secret parameter is missing.
+    // invalid-input-secret The secret parameter is invalid or malformed.
+    // missing-input-response The response parameter is missing.
+    // invalid-input-response The response parameter is invalid or malformed.
+    // echo $error.'<br />';
+    // }
+    // return false;
+    // }
+    return $json['success'];
+}
+
+/**
  * h
  * ************************************
  * Récupération d'un texte dans la BD *
@@ -2388,4 +2497,88 @@ function addMessageToLivre ($nom, $message)
     $addMess->bindValue(1, $nom);
     $addMess->bindValue(2, $message);
     $addMess->execute();
+}
+
+/**
+ * Ajoute un voyage dans la base de données
+ *
+ * @param $continent continent
+ *            du voyage
+ * @param $pays pays
+ *            du voyage
+ * @param $lieu lieu
+ *            du voyage
+ * @param $titre titre
+ *            du voyage
+ * @param $texte description/comentaire
+ *            du voyage
+ */
+function addVoyage ($pays, $titre, $texte)
+{
+    $bdd = new Connection();
+    $addVoy = $bdd->prepare(
+            "INSERT INTO logocarte (pays, titre, texte)
+				VALUES(?, ?, ?)");
+    $addVoy->bindValue(1, $pays);
+    $addVoy->bindValue(2, $titre);
+    $addVoy->bindValue(3, $texte);
+    
+    $addVoy->execute();
+    
+    return true;
+}
+
+/**
+ * Suppression d'un voyage dans la table
+ *
+ * @param integer $id
+ *            L'id du voyage à supprimer
+ */
+function deleteVoyage ($id)
+{
+    $bdd = new Connection();
+    $stmt1 = $bdd->prepare("DELETE FROM logocarte WHERE id_logo = ?");
+    $stmt1->bindValue(1, $id);
+    $stmt1->execute();
+    return true;
+}
+
+/**
+ * Retourne la liste de touts les continents
+ */
+function getContinents ()
+{
+    $i = 0;
+    $bdd = new Connection();
+    $return = array();
+    $stmt = $bdd->prepare("SELECT * FROM continent ORDER BY id_cont");
+    $stmt->execute();
+    while ($row = $stmt->fetch()) {
+        $return[$i]["id"] = $row["id_cont"];
+        $return[$i]["code"] = $row["code"];
+        $return[$i]["nom"] = $row["nom"];
+        $i ++;
+    }
+    return $return;
+}
+
+function getVoyageDetail ($id)
+{
+    $bdd = new Connection();
+    $return = array();
+    $stmt = $bdd->prepare(
+            "SELECT *
+			FROM logocarte
+			JOIN countries P
+			ON P.id_pays=pays
+			JOIN continent C
+			ON C.id_cont= P.code_continent
+			WHERE id_logo = ?");
+    $stmt->bindValue(1, $id);
+    $result = $stmt->execute();
+    if ($row = $stmt->fetch()) {
+        $return = extractVoyageFromARow($row);
+    }
+    
+    return $return;
 }
