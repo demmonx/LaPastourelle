@@ -20,16 +20,15 @@ $lang = $_SESSION['lang'];
 <!--  Navigation pour tout le monde -->
 
 <nav class="navbar navbar-default" role="navigation" id="navigationbar">
-    <?php if ($member) { ?>
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
 				data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+					class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
 		</div>
+    <?php if ($member) { ?>
 		<div class="collapse navbar-collapse navbar-menubuilder">
 			<ul class='nav navbar-nav '>
 				<li><a href="index.php?page=deconnexion"><i

@@ -48,7 +48,7 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 <link rel="stylesheet" type="text/css" href="ressources/slick/slick.css" />
 <link rel="stylesheet" type="text/css"
 	href="ressources/slick/slick-theme.css" />
-<link rel="stylesheet" href="ressources/style.css" type="text/css" />
+<link rel="stylesheet" media="all" href="ressources/style.css" type="text/css" />
 <link rel="icon" type="image/png" href="image/faviconlogo.png" />
 
 <!-- polices -->
