@@ -16,7 +16,7 @@ function getVoyage ()
 			JOIN countries P
 			ON P.id_pays=pays
 			JOIN continent C
-			ON C.id_cont= P.code_continent
+			ON C.cont_id= P.code_continent
 			ORDER BY code_continent, name_fr");
     $result = $stmt->execute();
     $i = 0;
@@ -39,7 +39,9 @@ function extractVoyageFromARow ($row)
     $return = array();
     $return["id"] = $row["id_logo"];
     $return["id_continent"] = $row["code_continent"];
-    $return["continent"] = $row["nom"];
+    $return["continent"] = $row["cont_name"];
+    $return["continent_code"] = $row["cont_name"];
+    $return["pays_code"] = $row["code"];
     $return["pays"] = $row["name_fr"];
     $return["id_pays"] = $row["id_pays"];
     $return["titre"] = $row["titre"];
@@ -2683,7 +2685,7 @@ function getContinents ()
     $i = 0;
     $bdd = new Connection();
     $return = array();
-    $stmt = $bdd->prepare("SELECT * FROM continent ORDER BY id_cont");
+    $stmt = $bdd->prepare("SELECT * FROM continent ORDER BY cont_id");
     $stmt->execute();
     while ($row = $stmt->fetch()) {
         $return[$i]["id"] = $row["id_cont"];
@@ -2707,7 +2709,7 @@ function getVoyageDetail ($id)
 			JOIN countries P
 			ON P.id_pays=pays
 			JOIN continent C
-			ON C.id_cont= P.code_continent
+			ON C.cont_id= P.code_continent
 			WHERE id_logo = ?");
     $stmt->bindValue(1, $id);
     $result = $stmt->execute();
