@@ -1,29 +1,5 @@
 <?php
-session_start();
-// inclusion des fichiers de fonction
-require_once ("traitement.inc.php");
-require_once ("Connection.class.php");
-$supported_lang = getSupportedLanguages();
-
-// Definition de la langue
-if (! isset($_SESSION['lang'])) {
-    $_SESSION['lang'] = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
-}
-
-if (isset($_GET['lang']) && ! empty($_GET['lang'])) {
-    $_SESSION['lang'] = strtolower($_GET['lang']);
-}
-
-// Récupère l'id à partir du code
-$_SESSION['lang'] = $_SESSION['lang'] < 0 ? 1 : $_SESSION['lang'];
-
-if (count($supported_lang) > 0 && $supported_lang[array_search(
-        $_SESSION['lang'], $supported_lang)] != $_SESSION['lang']) {
-    $_SESSION['lang'] = reverseLanguage('fr');
-}
-
-require 'header.php';
-// connexion à la base de donnée
+require 'header.inc.php';
 ?>
 <!-- HEADER -->
 <header class="row">
@@ -132,17 +108,5 @@ if (isset($coord['mail'])) {
 
 <!-- END FOOTER -->
 </body>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('.slide-top').slick({
-    		  dots: false,
-    		  arrows: false,
-    		  infinite: true,
-    		  speed: 500,
-    		  autoplay: true,
-    		  fade: true,
-    		  cssEase: 'linear'
-    });	
-});
-</script>
+
 </html>

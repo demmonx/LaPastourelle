@@ -3,17 +3,16 @@
 require_once "traitement.inc.php";
 verifLoginWithArray($_SESSION, 0);
 try {
-	$adminOk = checkLoginWithArray($_SESSION, 1);
+    $adminOk = checkLoginWithArray($_SESSION, 1);
 } catch (Exception $e) {
-	$adminOk = false;
+    $adminOk = false;
 }
-  // Affichage du titre
+// Affichage du titre
 if ($adminOk) {
     echo '<H2>Ajouter un compte rendu</H2>';
     ?>
 <form action='compte_rendu_traitement.php' method='post' id='new-cr'>
-	<textarea name='content' class='editor' placeholder='Contenu'
-		required></textarea>
+	<textarea name='content' class='editor' placeholder='Contenu'></textarea>
 	<br /> <label>Date de réunion : </label><input type='text'
 		class='datepicker' name='date' placeholder="jj/mm/aaaa" required /> <input
 		type="submit" value="Ajouter" />

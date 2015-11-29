@@ -1,3 +1,27 @@
+<?php
+// Gestion de la langue
+session_start();
+// inclusion des fichiers de fonction
+require_once ("traitement.inc.php");
+$supported_lang = getSupportedLanguages();
+
+// Definition de la langue
+if (! isset($_SESSION['lang'])) {
+    $_SESSION['lang'] = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
+}
+
+if (isset($_GET['lang']) && ! empty($_GET['lang'])) {
+    $_SESSION['lang'] = strtolower($_GET['lang']);
+}
+
+// Récupère l'id à partir du code
+$_SESSION['lang'] = $_SESSION['lang'] < 0 ? 1 : $_SESSION['lang'];
+
+if (count($supported_lang) > 0 && $supported_lang[array_search(
+        $_SESSION['lang'], $supported_lang)] != $_SESSION['lang']) {
+    $_SESSION['lang'] = reverseLanguage('fr');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,16 +62,31 @@
 <script type="text/javascript" src="ressources/tinymce/tinymce.min.js"></script>
 <script type="text/javascript"
 	src="ressources/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="ressources/js/sorttable.js"></script>
 <script type="text/javascript"
 	src="ressources/smartmenus/jquery.smartmenus.js"></script>
 <script type="text/javascript"
 	src="ressources/smartmenus/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
-<script type="text/javascript" src="js/tiny-conf.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="ressources/js/tiny-conf.js"></script>
+<script type="text/javascript"
+	src="ressources/js/jquery-ui-1.11.4/jquery-ui.js"></script>
 <script type="text/javascript"
 	src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src="ressources/slick/slick.js"></script>
-<script type="text/javascript" src="js/datepicker-fr.js"></script>
+<script type="text/javascript" src="ressources/js/datepicker-fr.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.slide-top').slick({
+    		  dots: false,
+    		  arrows: false,
+    		  infinite: true,
+    		  speed: 500,
+    		  autoplay: true,
+    		  fade: true,
+    		  cssEase: 'linear'
+    });	
+});
+</script>
 </head>
 
 <body>

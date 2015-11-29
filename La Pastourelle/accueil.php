@@ -9,9 +9,9 @@ if (isset($phrase) && $phrase != "") {
 }
 
 // Titre
-$titre = getTraduction("accueil_titre", $_SESSION['lang']);
-if (isset($titre["valeurtrad"]))
-    echo "<h1>" . $titre["valeurtrad"] . "</h1>";
+$titre = getTraduction("accueil", $_SESSION['lang']);
+if (isset($titre["content"]))
+    echo "<h1>" . $titre["content"] . "</h1>";
     
     // Actualité
 $actu = getActu($_SESSION['lang']);

@@ -1,9 +1,9 @@
 <?php
 // récupération du titre de la page
 // récupération du titre de la page
-$titre = getTraduction("avis_titre", $_SESSION['lang']);
-if (isset($titre["valeurtrad"]))
-    echo "<h1>" . $titre["valeurtrad"] . "</h1>";
+$titre = getTraduction("avis", $_SESSION['lang']);
+if (isset($titre["content"]))
+    echo "<h1>" . $titre["content"] . "</h1>";
 ?>
 
 <FORM method="POST" action="avis_traitement.php" id='avis-post'>

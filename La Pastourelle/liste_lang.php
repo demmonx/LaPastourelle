@@ -3,19 +3,34 @@
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
 
-$allLang = getLanguages ();
+$supported_lang = getSupportedLanguages();
+$allLang = getLanguages();
 // Affichage du drapeau correspondant
-if (count ( $allLang ) > 1) {
-	echo '<table><tr><th>Langue</th><th>Action</th></tr>';
-	foreach ( $allLang as $lang ) {
-		echo "<tr>";
-		echo "<td>" . $lang ["name"] . "</td>";
-		echo "<td><a class='delete' href='lang_maj_traitement.php?ac=1&id=" . $lang ["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
-		echo "</tr>";
-	}
-	echo "</table>";
+if (count($allLang) > 1) {
+    echo '<table><tr><th>Langue</th><th>Action</th><th>Support</th></tr>';
+    foreach ($allLang as $lang) {
+        
+        // Vérifie si la langue est supporté ou pas
+        $support = $supported_lang[array_search($lang["id"], $supported_lang)] ==
+                 $lang["id"];
+        // Si c'est bon on affiche un check
+        $support_link = "<i class='fa fa-check fa-2x'></i>";
+        // Sinon bug + lien de modif
+        $unsupport_link = "<i class='fa fa-bug fa-2x'></i>";
+        
+        // Affichage tableau
+        echo "<tr>";
+        echo "<td>" . $lang["name"] . "</td>";
+        echo "<td><a class='delete' href='lang_maj_traitement.php?ac=1&id=" .
+                 $lang["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
+        echo "<td><a target='blank' href='index.php?page=gestion_titre&lang=" .
+                 $lang['id'] . "'>" .
+                 ($support ? $support_link : $unsupport_link) . "</a></td>";
+        echo "</tr>";
+    }
+    echo "</table>";
 } else {
-	echo "<br /><br /><b>Aucune langue à  supprimer</b>";
+    echo "<br /><br /><b>Aucune langue à  supprimer</b>";
 }
 ?>
 

@@ -1,9 +1,9 @@
  <?php
 
 // récupération du titre de la page
-$titre = getTraduction("coordonnees_titre", $_SESSION['lang']);
-if (isset($titre["valeurtrad"]))
-    echo "<h1>" . $titre["valeurtrad"] . "</h1>";
+$titre = getTraduction("coord", $_SESSION['lang']);
+if (isset($titre["content"]))
+    echo "<h1>" . $titre["content"] . "</h1>";
     
     // récupération des informations à ajouter dans la page
 $coord = getCoordonnees();
