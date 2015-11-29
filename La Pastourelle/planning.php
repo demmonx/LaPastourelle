@@ -5,14 +5,14 @@
  * présente avec une restriction d'accès bien sur
  * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
  */
-verifLoginWithArray ( $_SESSION, 0 );
+verifLoginWithArray($_SESSION, 0);
 try {
-	$adminOk = checkLoginWithArray ( $_SESSION, 1);
-} catch ( Exception $e ) {
-	$adminOk = false;
+    $adminOk = checkLoginWithArray($_SESSION, 1);
+} catch (Exception $e) {
+    $adminOk = false;
 }
-?>
-    if ($adminOk) {
+if ($adminOk) {
+    ?>
 <script language="javascript">
 $(document).ready(function () {
 	
@@ -79,7 +79,7 @@ $(document).ready(function () {
 	<input type='submit' value='Ajouter' />
 </FORM>
 <div id='msgReturn'></div>
-<?php 
+<?php
 }
 /* Titre membre */
 echo "<H2>PLANNING DES SORTIES ET REPETITIONS A VENIR</H2>";

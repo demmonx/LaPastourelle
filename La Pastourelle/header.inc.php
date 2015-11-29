@@ -74,6 +74,7 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 	src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src="ressources/slick/slick.js"></script>
 <script type="text/javascript" src="ressources/js/datepicker-fr.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
     $('.slide-top').slick({
