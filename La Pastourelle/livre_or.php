@@ -1,6 +1,6 @@
 <?php
 // Récupération des textes annexes de traduction pour cette zone
-$trad = getTrad($_SESSION['lang'], 'livre');
+$trad = getTraduction('livre', $_SESSION['lang']);
 // Affichage du texte
 echo "<div id='livre-container'>";
 require 'list_livre_or.php';

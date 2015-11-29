@@ -1,7 +1,7 @@
 <?php
-$titre = getTraduction("lien_titre", $_SESSION['lang']);
-if (isset($titre["valeurtrad"]))
-    echo "<h1>" . $titre["valeurtrad"] . "</h1>";
+$titre = getTraduction("lien", $_SESSION['lang']);
+if (isset($titre["content"]))
+    echo "<h1>" . $titre["content"] . "</h1>";
 
 $liens = getLinks();
 if (count($liens) <= 0) {

@@ -2,9 +2,9 @@
 @session_start();
 
 // Titre
-$titre = getTraduction("accueil_boutique", $_SESSION['lang']);
-if (isset($titre["valeurtrad"]))
-    echo "<h1>" . $titre["valeurtrad"] . "</h1>";
+$titre = getTraduction("boutique", $_SESSION['lang']);
+if (isset($titre["content"]))
+    echo "<h1>" . $titre["content"] . "</h1>";
 echo "Le formulaire d'achat à envoyer par courrier :
          <A class='btn btn-link' HREF='ressources/bondecommande-fr.pdf'
          target='_blank'>Bon de commande</A>";

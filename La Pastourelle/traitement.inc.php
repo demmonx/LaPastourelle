@@ -112,7 +112,6 @@ function verifCaptcha ($serveur, $valeur)
 }
 
 /**
- * h
  * ************************************
  * Récupération d'un texte dans la BD *
  * ************************************
@@ -132,20 +131,126 @@ function getPhraseJour ($lang)
 }
 
 /**
- * Récupération des traductions dans la BD pour un élém donné
+ * Récupération des traductions dans la BD pour un titre et une langue donnés
  */
-function getTraduction ($lecontent, $lang)
+function getTraduction ($titre, $lang)
 {
-    // ------------------- TEST CONNECTION PDO ------------------------ //
     $bdd = new Connection();
-    $sql = "SELECT valeurtrad FROM tradannexe WHERE nomtrad = ? AND lang= ?";
+    $sql = "SELECT content FROM traduction 
+            JOIN titre ON code_titre=titre_num 
+            WHERE titre_link = ? AND code_lang= ? ";
     $result = $bdd->prepare($sql);
-    $result->bindValue(1, $lecontent);
+    $result->bindValue(1, $titre);
     $result->bindValue(2, $lang);
     $result->execute();
     
     // Requête sur clé primaire, un seul élément possible
     return $result->fetch();
+}
+
+/**
+ * Récupération des traductions dans la BD pour une langue donné
+ */
+function getTraductionLang ($lang)
+{
+    $bdd = new Connection();
+    $sql = "SELECT content FROM traduction
+            WHERE code_lang= ? ";
+    $result = $bdd->prepare($sql);
+    $result->bindValue(1, $lang);
+    $result->execute();
+    
+    // Requête sur clé primaire, un seul élément possible
+    return $result->fetch();
+}
+
+/**
+ * Renvoie le titre de la page ou une chaine vide si pas de titre
+ *
+ * @param string $titre
+ *            Le titre voulu
+ * @param integer $lang
+ *            La langue dans laquelle on veut le titre
+ */
+function getTitre ($titre, $lang)
+{
+    $titre = getTraduction($titre, $lang);
+    return isset($titre["content"]) ? $titre["content"] : null;
+}
+
+/**
+ * Renvoie la liste de tous les titres disponibles
+ */
+function getTitles ()
+{
+    $bdd = new Connection();
+    $retour = array();
+    
+    $stmt = $bdd->prepare("SELECT * FROM titre ORDER BY titre_nom");
+    $result = $stmt->execute();
+    $i = 0;
+    while ($row = $stmt->fetch()) {
+        $retour[$i]['id'] = $row['titre_num'];
+        $retour[$i]['nom'] = $row['titre_nom'];
+        $retour[$i]['code'] = $row['titre_link'];
+        $i ++;
+    }
+    
+    return $retour;
+}
+
+/**
+ * Met à jour un titre pour une langue donnée
+ *
+ * @param integer $lang
+ *            L'identifiant de la langue du titre
+ * @param integer $titre
+ *            Le code du titre
+ * @param string $valeur
+ *            Le nouveau contenu du titre
+ */
+function updateTitle ($valeur, $titre, $lang)
+{
+    $bdd = new Connection();
+    
+    // On regarde si la valeur existe déjà
+    $stmt1 = $bdd->prepare(
+            "SELECT * FROM traduction 
+			JOIN titre 
+			ON titre_num = code_titre 
+			WHERE  titre_link = :titre 
+			AND code_lang = :lang");
+    $stmt1->bindValue(":lang", $lang);
+    $stmt1->bindValue(":titre", $titre);
+    $stmt1->execute();
+    
+    // Si pas d'objet on insère à condition que le contenu ne soit pas vide,
+    // sinon inutile
+    if ($stmt1->rowCount() == 0 && ! empty(trim($valeur))) {
+        $stmt2 = $bdd->prepare(
+                "INSERT INTO traduction
+			(code_lang, code_titre, content) 
+             VALUES (:lang, (SELECT titre_num FROM titre WHERE titre_link = :titre), :valeur)");
+        $stmt2->bindValue(":valeur", $valeur);
+        $stmt2->bindValue(":lang", $lang);
+        $stmt2->bindValue(":titre", $titre);
+        $stmt2->execute();
+        return true;
+    } else 
+        if ($stmt1->rowCount() > 1) { // Plusieurs items avec même clé =
+                                      // table corrompue
+            throw new InvalidArgumentException(
+                    "Au moins une donnée est corrompue");
+        } // sinon on update
+    
+    $stmt2 = $bdd->prepare(
+            "UPDATE traduction 
+			SET content = :valeur
+			WHERE trad_num = :id");
+    $stmt2->bindValue(":valeur", $valeur);
+    $stmt2->bindValue(":id", $stmt1->fetch()["trad_num"]);
+    $stmt2->execute();
+    return true;
 }
 
 /**
@@ -763,26 +868,6 @@ function extractMusicFromARow ($row)
 }
 
 /**
- * Retourne la traduction des infos pour une langue donnée et pour une partie du
- * site donnée
- */
-function getTrad ($lang, $nom)
-{
-    $retour = array();
-    $bdd = new Connection();
-    // Recupération des textes pour le lectuer sur une autre page
-    $stmt = $bdd->prepare(
-            "SELECT valeurtrad FROM tradannexe WHERE lang = ? AND nomTrad LIKE ? ORDER BY nomTrad");
-    $stmt->bindValue(1, $lang);
-    $stmt->bindValue(2, $nom . '%');
-    $stmt->execute();
-    while ($row = $stmt->fetch()) {
-        $retour[] = $row["valeurtrad"];
-    }
-    return $retour;
-}
-
-/**
  * Ajoute un fichier sur le serveur
  *
  * @param String $basedir
@@ -1029,7 +1114,51 @@ function insertDiapo ($path)
 }
 
 /**
- * Renvoi les langages pour lesquels le site web est utilisable
+ * Renvoi les langages pour lesquels le site web est utilisable avec les détails
+ *
+ * @return array La liste des langages disponibles
+ */
+function getSupportedLanguagesFull ()
+{
+    $i = 0;
+    $bdd = new Connection();
+    $return = array();
+    $stmt = $bdd->prepare(
+            "SELECT * FROM lang JOIN languages_world ON lang_code=id
+            WHERE NOT EXISTS(
+             
+            (SELECT titre_num 
+            FROM titre
+            WHERE titre_num NOT IN (SELECT code_titre 
+            FROM traduction 
+            WHERE code_lang = lang_id)))");
+    $stmt->execute();
+    while ($row = $stmt->fetch()) {
+        $return[$i ++] = extractLanguageFromARow($row);
+    }
+    return $return;
+}
+
+/**
+ * Récupère les informations d'une langue
+ *
+ * @param array $row
+ *            Un ligne de base de donnée
+ */
+function extractLanguageFromARow ($row)
+{
+    $return = array();
+    $return["id"] = $row["lang_id"];
+    $return["name"] = $row['nom_fr'];
+    $return["name_en"] = $row['nom_en'];
+    $return["img"] = $row['lang_img'];
+    $return["code"] = $row['locale'];
+    return $return;
+}
+
+/**
+ * Renvoi les langages pour lesquels les fonctionnalites du site sont
+ * partiellement ou totalement définie
  *
  * @return array La liste des langages disponibles
  */
@@ -1042,18 +1171,13 @@ function getLanguages ()
             "SELECT * FROM lang JOIN languages_world ON lang_code = id");
     $stmt->execute();
     while ($row = $stmt->fetch()) {
-        $return[$i]["id"] = $row["lang_id"];
-        $return[$i]["name"] = $row['nom_fr'];
-        $return[$i]["name_en"] = $row['nom_en'];
-        $return[$i]["img"] = $row['lang_img'];
-        $return[$i]["code"] = $row['locale'];
-        $i ++;
+        $return[$i ++] = extractLanguageFromARow($row);
     }
     return $return;
 }
 
 /**
- * Renvoi les codes des langages supportés
+ * Renvoi les codes des langages supportés totalement
  *
  * @return array La liste des langages disponibles
  */
@@ -1062,7 +1186,15 @@ function getSupportedLanguages ()
     $i = 0;
     $bdd = new Connection();
     $return = array();
-    $stmt = $bdd->prepare("SELECT * FROM lang");
+    $stmt = $bdd->prepare(
+            "SELECT * FROM lang 
+            WHERE NOT EXISTS(
+             
+            (SELECT titre_num 
+            FROM titre
+            WHERE titre_num NOT IN (SELECT code_titre 
+            FROM traduction 
+            WHERE code_lang = lang_id)))");
     $stmt->execute();
     while ($row = $stmt->fetch()) {
         $return[] = $row["lang_id"];
@@ -2562,6 +2694,9 @@ function getContinents ()
     return $return;
 }
 
+/**
+ * Retourne les détails d'un voyage donné
+ */
 function getVoyageDetail ($id)
 {
     $bdd = new Connection();

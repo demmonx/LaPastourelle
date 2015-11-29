@@ -2,7 +2,7 @@
 @session_start();
 require_once 'traitement.inc.php';
 // Récupération de toutes les langues disponibles
-$languages = getLanguages();
+$languages = getSupportedLanguagesFull();
 // Récupération de la langue courante
 $current = getLanguage($_SESSION['lang']);
 

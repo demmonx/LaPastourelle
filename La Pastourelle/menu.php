@@ -2,6 +2,8 @@
 <!-- Menu -->
 <?php
 @session_start();
+require_once 'header.inc.php';
+require_once 'traitement.inc.php';
 // On vérifie les statuts de connexion
 try {
     $member = checkLoginWithArray($_SESSION, 0);
@@ -13,6 +15,7 @@ try {
 } catch (Exception $e) {
     $admin = false;
 }
+$lang = $_SESSION['lang'];
 ?>
 <!--  Navigation pour tout le monde -->
 
@@ -44,7 +47,7 @@ try {
 
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#" role="button"
-							aria-haspopup="true" aria-expanded="false">Membres <span
+							aria-haspopup="true" aria-expanded="false"> Membres <span
 								class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href='index.php?page=demande_membre'> Valider une demande</a></li>
@@ -65,7 +68,7 @@ try {
 									<ul class='dropdown-menu'>
 										<li><a href='index.php?page=gestion_page'> Gestion</a></li>
 										<li><a href='index.php?page=change_txt'> Textes</a></li>
-										<li><a href='index.php?page=gestion_page'> Titres</a></li>
+										<li><a href='index.php?page=gestion_titre'> Titres</a></li>
 									</ul></li>
 								<li><a href='index.php?page=slider'> Diaporama</a></li>
 								<li><a href='index.php?page=gestion_player'> Musiques</a></li>
@@ -96,13 +99,6 @@ try {
 				
 				
 				
-				
-				
-				
-				
-				
-				
-				
 				<li><a href="index.php?page=blog"><i
 						class="fa fa-commenting-o fa-lg"></i> Blog</a>
 				
@@ -121,11 +117,11 @@ try {
 	<?php } ?>
 		<div class="collapse navbar-collapse navbar-menubuilder">
 			<ul class='nav navbar-nav'>
-				<li><a href="index.php"><i class="fa fa-home fa-lg"></i> Accueil</a></li>
+				<li><a href="index.php"><i class="fa fa-home fa-lg"></i> <?php echo getTitre('accueil', $lang); ?></a></li>
 				<li role="separator" class="divider"></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-					aria-expanded="false"><i class="fa fa-book fa-lg"></i> Présentation
+					aria-expanded="false"><i class="fa fa-book fa-lg"></i> <?php echo getTitre('pres', $lang); ?>
 						<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<?php
@@ -138,25 +134,26 @@ try {
 						</ul></li>
 				<li role="separator" class="divider"></li>
 				<li><a href="index.php?page=boutique"><i
-						class="fa fa-shopping-cart fa-lg"></i> Boutique</a></li>
+						class="fa fa-shopping-cart fa-lg"></i> <?php echo getTitre('boutique', $lang); ?></a></li>
 				<li role="separator" class="divider"></li>
 				<li><a href="index.php?page=revuedepresse"><i
-						class="fa fa-newspaper-o fa-lg"></i> Revue de presse</a></li>
+						class="fa fa-newspaper-o fa-lg"></i> <?php echo getTitre('revue', $lang); ?></a></li>
 				<li role="separator" class="divider"></li>
 				<li><a href="player_tab.php" target="_blank"><i
-						class="fa fa-music fa-lg"></i> Nos musiques</a></li>
+						class="fa fa-music fa-lg"></i> <?php echo getTitre('music', $lang); ?></a></li>
 				<li role="separator" class="divider"></li>
 				<li><a href="index.php?page=voyage"><i class="fa fa-globe fa-lg"></i>
-						Nos voyages</a></li>
+						<?php echo getTitre('voyage', $lang); ?></a></li>
 				<li role="separator" class="divider"></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-					aria-expanded="false"><i class="fa fa-envelope fa-lg"></i> Contact
+					aria-expanded="false"><i class="fa fa-envelope fa-lg"></i> <?php echo getTitre('contact', $lang); ?>
 						<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="index.php?page=coordonnees">Coordonnées</a></li>
-						<li><a href="index.php?page=avis">Laissez votre avis</a></li>
-						<li><a href="index.php?page=lien">Liens</a></li>
+						<li><a href="index.php?page=coordonnees"> <?php echo getTitre('coord', $lang); ?></a></li>
+						<li><a href="index.php?page=avis"> <?php echo getTitre('avis', $lang); ?></a></li>
+						<li><a href="index.php?page=livre_or"> <?php echo getTitre('livre', $lang); ?></a></li>
+						<li><a href="index.php?page=lien"> <?php echo getTitre('lien', $lang); ?></a></li>
 					</ul></li>
 			</ul>
 		</div>
