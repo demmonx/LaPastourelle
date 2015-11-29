@@ -108,17 +108,5 @@ if (isset($coord['mail'])) {
 
 <!-- END FOOTER -->
 </body>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('.slide-top').slick({
-    		  dots: false,
-    		  arrows: false,
-    		  infinite: true,
-    		  speed: 500,
-    		  autoplay: true,
-    		  fade: true,
-    		  cssEase: 'linear'
-    });	
-});
-</script>
+
 </html>

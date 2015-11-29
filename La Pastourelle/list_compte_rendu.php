@@ -33,16 +33,14 @@ foreach ($list as $row) {
         echo "
 				  <FORM method='post' action='compte_rendu_traitement.php' class='update'>
 					Modifier le compte rendu : <BR>
-                    <input type='hidden' value='" .
-                 $row["id"] . "' name='id' />
-					<textarea class='editor' name='content' rows='15' cols='20'>" .
+                    <input type='hidden' value='" . $row["id"] . "' name='id' />
+					<textarea class='editor' name='content' >" .
                  nl2br(html_entity_decode($row["txt"])) . "</textarea><br />
 					<input class='btn' type='submit' value='Modifier'>
 				  </FORM>";
     } else {
         echo "
-				  <div >" .
-                 nl2br(html_entity_decode($row["txt"])) . "</div>";
+				  <div >" . nl2br(html_entity_decode($row["txt"])) . "</div>";
     }
     echo "</div></div>";
 }
