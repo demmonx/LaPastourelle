@@ -99,6 +99,12 @@ $lang = $_SESSION['lang'];
 				
 				
 				
+				
+				
+				
+				
+				
+				
 				<li><a href="index.php?page=blog"><i
 						class="fa fa-commenting-o fa-lg"></i> Blog</a>
 				

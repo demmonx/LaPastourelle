@@ -9,13 +9,28 @@ header, footer {
 	background-color: rgb(40,40,40);
 	color(170,170,170);	
 }
+.row {
 
-footer {
-	margin-top: 50px;
+	padding : 10px;
 }
 
-section {
-	min-height: 300px;
+/* required for sticky footer */
+
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -900px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer{
+	height: 900px; /* .push must be the same height as .footer */
+}
+.push {
+	height: 45px;
 }
 
 .slide-top {
@@ -256,3 +271,4 @@ height: auto;}
 	margin-top: 10px;
 	padding: 5px;
 }
+

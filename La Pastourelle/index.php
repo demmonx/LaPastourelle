@@ -2,20 +2,22 @@
 require 'header.inc.php';
 ?>
 <!-- HEADER -->
-<header class="row">
+<div class="wrap">
+	<header class="container-fluid">
+		<div class='row'>
 
-	<div class="col-md-3">
-		<span>Groupe Folklorique Rouergat</span><br /> Fondé en 1948
-	</div>
+			<div class="col-md-3">
+				<span>Groupe Folklorique Rouergat</span><br /> Fondé en 1948
+			</div>
 
-	<div class="col-md-3">
-		<div>La Pastourelle</div>
-		<div>de Rodez</div>
+			<div class="col-md-3">
+				<div>La Pastourelle</div>
+				<div>de Rodez</div>
 
-	</div>
+			</div>
 
-	<div class="col-md-5">
-		<div class="slide-top">
+			<div class="col-md-5">
+				<div class="slide-top">
 						<?php
     $tab = getActiveDiapos();
     foreach ($tab as $diapo) {
@@ -23,22 +25,22 @@ require 'header.inc.php';
     }
     ?>		
 		</div>
-		<div>Affilié à la Fédération des Arts et Traditions Populaires du
-			Centre et Massif Central</div>
+				<div>Affilié à la Fédération des Arts et Traditions Populaires du
+					Centre et Massif Central</div>
 
-		<!-- END HEADER -->
+				<!-- END HEADER -->
 
-	</div>
-	<div class="col-md-1 dropdown">
+			</div>
+			<div class="col-md-1 dropdown">
     <?php require 'menu_lang.php'; ?>
 	</div>
-
-</header>
-<!-- fin - header  -->
+		</div>
+	</header>
+	<!-- fin - header  -->
 <?php require 'menu.php'; ?>
 <!-- .contain-to-grid -->
 
-<section>
+	<section>
 		<?php
 
 if (isset($_GET['page'])) {
@@ -60,9 +62,12 @@ if (isset($_GET['page'])) {
 }
 ?>
 </section>
+	<div class="push"></div>
+</div>
 <!-- FOOTER -->
-<footer class="row">
-	<div class="col-md-8 border-right">
+<footer id='footer' class="footer container-fluid">
+	<div class='row'>
+		<div class="col-md-8 border-right">
 		<?php
 $coord = getCoordonnees();
 if (isset($coord['adr'])) {
@@ -78,7 +83,7 @@ if (isset($coord['mail'])) {
 }
 ?>
 	</div>
-	<div class="col-md-4">
+		<div class="col-md-4">
 					<?php
     if ($member) {
         if ($admin) {
@@ -88,9 +93,9 @@ if (isset($coord['mail'])) {
         }
         ?>
        <br /> <a href="index.php?page=info_perso"><i
-			class="fa fa-user fa-lg"></i> Mon compte</a><br /> <a
-			href="index.php?page=deconnexion"><i class="fa fa-sign-out fa-lg"></i>
-			Se Déconnecter</a>
+				class="fa fa-user fa-lg"></i> Mon compte</a><br /> <a
+				href="index.php?page=deconnexion"><i class="fa fa-sign-out fa-lg"></i>
+				Se Déconnecter</a>
                  
                  
                  <?php
@@ -98,12 +103,14 @@ if (isset($coord['mail'])) {
         ?>
 						
 						<a href="index.php?page=inscription"><i class="fa fa-user fa-lg"></i>
-			S'inscrire</a> <br /> <br /> <a href="index.php?page=identification"><i
-			class="fa fa-lock fa-lg"></i> Se connecter</a>
+				S'inscrire</a> <br /> <br /> <a href="index.php?page=identification"><i
+				class="fa fa-lock fa-lg"></i> Se connecter</a>
 				<?php }?>
 		
 	
 	</div>
+	</div>
+
 </footer>
 
 <!-- END FOOTER -->
