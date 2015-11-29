@@ -28,6 +28,7 @@ $(document).ready(function () {
     $('.update').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
         var form = $(this); // L'objet jQuery du formulaire
+        tinyMCE.triggerSave();
 
         // Récupération des valeurs
         var content = $("textarea[name=content]", form).val();
