@@ -47,7 +47,7 @@ $(document).ready(function () {
                     $('#ajout-result').append(html);  // affichage du résultat
                     $('#boutique-container').load("list_boutique.php");
                     $('#modif-produit').load("list_produit.php");
-                    if (html == "Ajout effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                         form.get(0).reset();
                     }
                 }

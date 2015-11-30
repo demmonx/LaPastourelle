@@ -46,7 +46,7 @@ $(document).ready(function () {
                 success: function (html) { // Récupération de la réponse
                 	$('#ajout-result').append(html);  // affichage du résultat
                     // On efface si ok
-                    if (html === "Ajout effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                         $('#uploadFile').val('');
                         $('#titre').val('');
                         $("#modif-revue").load("list_revue.php");

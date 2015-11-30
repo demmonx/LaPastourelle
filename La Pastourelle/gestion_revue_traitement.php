@@ -24,6 +24,9 @@ if ($action) {
     }
 } // else
 
+if (strlen($titre) >= 100) {
+	exit("Le titre doit faire moins de 100 caractères");
+}
 $file = $_FILES["fichier"];
 
 // On ajoute une diapo

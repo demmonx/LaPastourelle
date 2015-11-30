@@ -37,7 +37,7 @@ $(document).ready(function () {
                 success: function (html) { // Récupération de la réponse
                     alert(html);  // affichage du résultat
                     // On efface si ok
-                    if (html === "Ajout effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                         $('#uploadFile').val('');
                         $('#desc').val('');
                     }
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 type: form.attr('method'), // méthode (formulaire)
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
-                    if (html === "Ajout effectué avec succès" ) {
+                    if (html.search("succès") >= 0) {
                     	form.get(0).reset();
                     }
                     alert(html);

@@ -48,7 +48,7 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     $('#ajout-result').append(html);  // affichage du résultat
-                    if (html == "Ajout effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                         form.get(0).reset();
                     }
                 }

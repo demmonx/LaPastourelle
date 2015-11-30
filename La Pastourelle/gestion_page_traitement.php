@@ -16,6 +16,9 @@ if (! ($nom || $action && $id))
  * On traite la partie ajout
  */
 if ($nom) {
+	if (strlen($nom) >= 100) {
+		exit("Le nom doit faire moins de 100 caractères");
+	}
     try {
         addPage($nom);
         exit("Ajout effectué avec succès");

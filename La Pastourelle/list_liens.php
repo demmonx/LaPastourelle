@@ -56,7 +56,7 @@ $(document).ready(function () {
                 type: 'GET',
                 success: function (html) { // Récupération de la réponse
                     // recharge la liste des images si ok
-                    if (html === "Suppression effectuée avec succès") {
+                    if (html.search("succès") >= 0) {
                         refresh();
                     } else {
                    	 alert(html);                   
@@ -89,7 +89,7 @@ $(document).ready(function () {
                 data: data, // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     // On efface si ok
-                    if (html === "Modification effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                     	$("input[name=fichier]").val('');
                         refresh();
                     } else {

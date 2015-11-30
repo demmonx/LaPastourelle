@@ -45,7 +45,7 @@ $(document).ready(function () {
                 success: function (html) { // Récupération de la réponse
                     $('#ajout-result').append(html);  // affichage du résultat
                     $('#lien-container').load("list_liens.php");
-                    if (html == "Ajout effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                         form.get(0).reset();
                     }
                 }
