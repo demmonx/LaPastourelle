@@ -1,0 +1,143 @@
+.slick-dots li button:before {
+	display: block;
+	position: relative;
+}
+
+.border-right {
+	border-right: 1px solid grey;
+}
+
+header{
+	color:RGB(214,214,214);
+	font-family: 'Open Sans light';
+	background: url('images/background-header.jpg');
+}
+
+footer{
+	background: url('images/background-header.jpg');
+	color:RGB(214,214,214);
+	font-family: 'Open Sans light';
+}
+
+.row {
+	padding: 10px;
+}
+
+/* required for sticky footer */
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+@media ( max-width :768px) {
+	.footer {
+		position: relative;
+		width: 100%;
+	}
+	.slick-dots li button:before {
+		display: none
+	}
+	.border-right {
+		border-right: none
+	}
+	body {
+		margin-bottom: auto;
+	}
+}
+
+@media ( min-width :768px) {
+	.footer {
+		position: absolute;
+		bottom: 0;
+		height: 90px;
+		width: 100%;
+	}
+	body {
+		margin-bottom: 90px;
+	}
+}
+
+.slide-top {
+	max-width: 150px;
+	height: auto;
+}
+
+body {
+	width: 100%;
+	font-family: "Arial";
+	color: #4F5857;
+}
+
+.slide-accueil, .slide-admin {
+	width: 50%;
+	margin: auto;
+}
+
+.slick-prev:before, .slick-next:before {
+	color: red !important;
+}
+
+/** liens hypertexte */
+a {
+	color: rgb(140, 140, 140);
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+
+img {
+	width: 50%;
+	height: auto;
+}
+
+.img-lang {
+	max-width: 40px;
+	max-height: 40px;
+}
+
+/* Page compte rendu */
+.form-compteRendu {
+	font-family: "Arial";
+	text-align: justify;
+	color: #4F5857;
+	font-size: 16px;
+	width: 90%;
+	height: 300px;
+	padding-left: 50px;
+}
+
+.spoiler-hidden {
+	display: none;
+	margin-top: 10px;
+	padding: 5px;
+}
+
+figure {
+	display: block;
+	text-align: center;
+}
+.titre-site {
+	word-wrap: break-word;
+	font-size: 20px;
+	font-family: "Verdana";
+	text-align: center;
+}
+
+.logoPastourelle{
+	width:125px;
+}
+
+.logoAveyron{
+	width:175px;
+	position:absolute;
+	top:-16px;
+	left:30%;
+}
+
+/*.slide-top img {
+	width: 200px;
+	heaight: auto;
+}*/

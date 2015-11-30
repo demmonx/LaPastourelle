@@ -31,7 +31,6 @@
 \usepackage{titlesec}
 \usepackage{multirow}
 \newcommand{\chapterP}{\chapter}
-\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 \pagestyle{fancy}
 \usepackage{caption}
 \usepackage{indentfirst}
@@ -59,16 +58,10 @@
 
 \tikzstyle{line}=[-, thick]
 
-\titlespacing\section{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus
-2pt}
- \titlespacing\paragraph{0pt}{2pt plus 1pt minus 0pt}{0pt plus 2pt minus 2pt}
-\titlespacing\chapter{0pt}{5pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 \title{Projet Externe\\La Pastourelle}
 \author{DEMERY Cyril\\COSTA Mickael\\MEJANE Thibault\\ZEGHMATI Clément}
-\date{2014 - 2015}
+\date{2015-2016}
 
 \pdfinfo{%
   /Title    (Projet Web - La Pastourelle)
@@ -85,7 +78,7 @@
 \tableofcontents
 \chapter{Plan de Management de Projet}
 \section{Introduction}
-L'assocation ``La Pastourelle'' est une assocation de danses folkloriques 
+L'assocation La Pastourelle est une assocation de danses folkloriques 
 aveyronnaises. Ce site est destiné aux membres de l'assocation mais aussi aux 
 visiteurs externes qui souhaitent suivre les actualités concernant les 
 évènements à venir. Il sera donc régulièrement mis à jour par les ayants 
@@ -138,6 +131,57 @@ domaine en pleine expansion actuellement.\\
 des personnes extérieurs et pourra ainsi nous aider dans la recherche d'un 
 emploi.
 \subsection{Cahier des charges}
+L'équipe projet s'engage à réaliser les taches suivantes :
+\subsubsection*{Tâches prioritaires}
+Elles sont obligatoires et sont la cause de la rénovation du site, elles doivent être menées à terme en priorité. 
+
+Correction des erreurs graves liées à l'administration :
+\begin{itemize}
+\item Membre qui ne bascule pas dans l'annuaire après sa validation par un
+administrateur
+\item Problème de masque de saisie qui empêche de voir l'intégralité du contenu
+à modifier 
+\item Problème de saisie de la phrase du jour qui ne fonctionne pas en saisie
+directe, mais seulement via un copié/collé depuis Word
+\item Erreur de caractère dans le planning : impossible de supprimer ou de
+modifier un événement contenant un caractère invalide
+\end{itemize}
+
+\subsubsection*{Tâches importantes}
+Ces tâches seront réalisées dans un second temps et s'il est possible de les effectuer 
+sans trop toucher à la structure du site.
+\begin{itemize}
+ \item Version multilingue du site : il faut, en plus de l'espagnol, donner la
+possibilité d'ajouter du texte en anglais et en occitan 
+ \item Ajout de vidéos : donner la possibilité d'intégrer des liens youtube
+ \item Dimensionnement automatique des photos : réduire automatiquement la
+taille des images, soit à une taille saisie, soit à une taille par défaut 
+ \item Changer l'ordre d'affichage des revues
+ \item Revoir la carte du monde : corriger le problème de doublon et de
+placement du drapeau, ou intégrer un nouveau système de localisation d’évènements
+ \item Changement du formulaire de la page des actualités : il faudrait unifier
+ les champs afin de ne pas avoir à saisir trop d'informations inutiles
+ \item Enlever la mention \og pièce jouée \fg automatique pour la partie théâtre
+ qui s'intègre automatiquement si l'on saisit quelque chose
+\end{itemize}
+
+
+\subsubsection*{Tâches secondaires}
+Ces éléments sont facultatifs et seront réalisés en fonction de nos disponibilités et du temps restant.
+\begin{itemize}
+\item Changer la couleur de fond : mettre des couleurs plus modernes
+\item Changer les icônes : là aussi, intégrer des éléments plus agréables à
+regarder
+\item Inclure un responsive design afin de faciliter la navigation depuis
+différents supports
+\item Repenser le bon de commande afin de le rendre plus attractif
+\item Ergonomie et présentation (liens, boutons de connexion, etc, style de
+formulaire) afin de faciliter la navigation et l'accès au contenu
+\item Changer les photos de la boutique avec des photos plus récentes
+\item Inclure un captcha pour éviter des attaques de robots qui ont déjà eu lieu
+dans le passé
+\end{itemize}
+
 \subsection{Charte du projet}
 Le but de ce projet est de pouvoir fournir un site fonctionnel à la MOA, 
 correspondant aux exigences initiales en ce qui concerne la mise à jour des 
@@ -170,9 +214,13 @@ informations en cas de soucis, et des choix d'outils de travail.
 au projet à jour, ainsi que de rédiger les comptes rendus de réunion\\
 \end{itemize}
 
-\par Concernant les différents livrables à fournir, nous devons rendre le site 
-hébergé, testé et fonctionnel, un manuel d'utilisateur pour l'assocation, ainsi 
-qu'un dossier projet et un plan projet.
+\par Concernant les différents livrables à fournir, nous devons rendre : 
+	\begin{itemize}
+	  \item le site hébergé, testé et fonctionnel
+	  \item un manuel d'utilisateur pour l'assocation
+	  \item un dossier projet, avec les schémas de conception et les codes d'accès pour modifier le site web
+	  \item un plan projet
+	\end{itemize}
 
 
 \section{Organisation}
@@ -184,15 +232,10 @@ deux mois. \\
 partie de réponse aux exigences de l'assocation, et une seconde partie basée 
 sur des améliorations non-proposées mais envisageable.
 
-\subsubsection*{Première partie}
-La première partie sera consacrée à la réponse aux exigences initiale. Pour 
-cela, nous avons du prendre un rendez-vous avec le client afin de détailler les 
-besoins. \\
 Nous avons dû réaliser divers documents afin d'assurer le suivi de projet : 
 \begin{itemize}
     \item La liste des tâches
     \item Le Gantt
-    \item Les diagrammes de cas d'utilisation et les scénarios associés
     \item La répartition des tâches
     \item Les comptes rendus de réunion \\
 \end{itemize}
@@ -205,9 +248,9 @@ ainsi on obtient le tableau suivant :
 \begin{tabular}{ | c | c | }
 \hline 
    COSTA Mickael & Pas de rôle  \\ \hline 
-   DEMERY Cyril & Furher \\ \hline 
+   DEMERY Cyril & Chef de Projet / Gestionnaire de configuration \\ \hline 
    MEJANE Thibault & Secrétaire de projet \\ \hline 
-   ZEGHMATI Clément & Gestionnaire de configuration \\ \hline
+   ZEGHMATI Clément & Pas de rôle \\ \hline
  \end{tabular}
 \subsection{Méthodes de suivi de projet}
 Nous avons décidé de suivre un modèle en V, car le projet est trop court pour 
@@ -215,49 +258,173 @@ des itérations de 3 semaines, et ainsi nous pouvons tester les fonctionnalités
 au fûr et à mesure qu'elles sont implantées.
 \begin{figure}[htp] \centering{
 \includegraphics[scale=0.60]{include/cycle_v.pdf}}
+\caption{Modèle en V}
 \end{figure}
 
 \subsection{Plan de communication}
+Durant les périodes scolaires, nous sommes tous présents sur Rodez, mais étant 
+donné que pendant les vacances et les week-end nous rentrons dans nos 
+départements respectifs, il devient tout de suite plus difficile de communiquer.
+C'est pourquoi nous avons décidé d'utiliser Skype combiné à TeamViewer. Ces 
+deux outils nous permettent de travailler en binôme quelque soit la distance, 
+et ainsi de pouvoir intéragir avec le reste du groupe.\\
+\par Toutefois, nous devons nous réunir régulièrement afin de définir la 
+stratégie à suivre et de programmer les réunions avec les différents 
+intervenants. A ce titre, il serait pertinent de rencontrer la MOA mi-octobre, 
+puis début novembre et enfin vers le 20-25 novembre afin de l'informer 
+de l'anvancée du projet et d'établir les divers travaux à effectuer.
+\newpage
+
 \subsection{Modèles de documents}
+\begin{figure}[htp] \centering{
+\includepdf[scale=0.80]{include/copil_template.pdf}}
+\caption{Modèle de COPIL}
+\end{figure}
+\newpage
+\begin{figure}[htp] \centering{
+\includepdf[scale=0.80]{include/recette_template.pdf}}
+\caption{Modèle de recette}
+\end{figure}
+\newpage
+
 \subsection{Comité de pilotage}
+
 \subsection{Gestion de la configuration}
+Pour ce projet, le gestionnaire de configuration, Cyril, a décidé d'utiliser
+les logiciels suivants : \\ 
+\par 
+\begin{tabular}{ | c | c | c | }
+\hline 
+   Logiciel & Version & Plugin  \\ \hline 
+   LaTeX & 2.22 & tickzuml \\ \hline 
+   LibreOffice & 4.2.8 & spellchecker \\ \hline 
+   Eclipse PHP & Luna & texclipse, egit, pdf4linux \\ \hline
+   PHP & 5.6 & PDO \\ \hline
+   Apache & 2 & \\ \hline
+   MySQL & 5.6.27 & \\ \hline
+   PhpMyAdmin & 4.5 & \\ \hline
+ \end{tabular}
+ 
+ \par En ce qui concerne le travail collaboratif, les codes sources seront
+ hébergés sur GitHub de manière à pouvoir les manipuler facilement depuis
+ n'importe où, et de toujours conserver la dernière version stable. Pour la
+ partie gestion de la plannification, nous utilisons Redmine installé en SaaS
+ sur OpenShift afin de pouvoir consulter les tâches à effctuer depuis n'importe
+ où, ainsi qu'accéder à la dernière version des documents projets, même si le
+ rapport est hébergé sur Github.
+ \par Github est un système d'hébergement de code source public dans la version que nous allons utiliser, par conséquent, les codes sources seront visibles par tout internaute. Il ne pourra toutefois les modifier. Ainsi par raison de sécurité, nous avons retiré les outils permettant à un tiers d'accéder aux données privées de l'association ainsi qu'aux informations concernant les membres.
+ \par Les rapports seront rédigés la plupart du temps en LaTeX afin de
+ s'affranchir du système d'exploitation, car certains utilisent Linux et
+ d'autres Windows. 
 
 \section{Pilotage}
-\subsection{Diagramme des cas d'utilisation}
+Nous nous 
 \subsection{Prévision initiale}
+Initialement, nous avions prévus de suivre cette plannification, avec la
+première partie jusqu'au jalon définie avec un peu de précision, puis la suite
+beaucoup moins car nous devions faire le point avec le client pour voir si le
+résultat de la première partie lui convenait.
+\par
+\include{include/Liste_tache_21-10}
+ \begin{landscape}
+   \includepdf{include/gantt22-10.pdf}
+\end{landscape}
+\clearpage
+
 \subsection{Evolution de la plannification}
+Par la suite, la plannification a évolué, ainsi au 3 novembre 2015, soit juste
+après les vacances, il se trouve que nous en étions à ce niveau (voire page
+suivante). Ici, nous constatons que la plupart des tâches qui étaient à
+effectuer pour le retour des vacances n'ont pas été effectuées et, par
+conséquent, nous sommes très en retard sur le planning car nous avions prévus
+initialement d'effectuer la démonstration avec le client à la mi-novembre.
+\par Toutefois, ce retard s'explique par la grande majorité du groupe débute sur
+php et n'est pas capable de développer rapidement, ou de s'intégrer sur une
+solution déjà développée comme c'est le cas ici. Toutefois, le but de ce projet
+est avant tout que tout le monde participe à son développement, donc nous devons
+faire avec et les développeurs les plus habiles doivent aider ceux qui sont en
+difficultés. 
+\par Par conséquent, il est fortement envisageable que nous nous mettions à
+travailler en binôme afin de rattraper le temps perdu.
+\include{include/Liste_tache_3-11}
+\begin{landscape}
+\begin{figure}[t]
+    \caption{Avancement du projet au 3 novembre 2015}
+   \includegraphics[scale=0.5]{include/gantt3-11.png}
+\end{figure}
+\end{landscape}
+
+Au 15 novembre 2015, peu avant la deuxième réunion avec le client, le projet à
+avancé : les souhaits initiaux ont presque tous été réalisés, et il ne reste que
+quelques détails pour finir de coder le multilinguisme.
+\par Toutefois, le travail a été très mal organisé car seul Cyril a touché au
+code du site à ce jour ainsi qu'à la base de donnée. Notons que nous avons du
+refaire la conception de la base de donnée et passer tout le code source en MVC. Par
+ailleurs, Clément et Mickael ont réalisé l'étude de l'existant en vu de proposer
+au client une nouvelle charte graphique, plus neuve et plus fonctionnelle.
+\par Ainsi, le retard que nous avions accumulé a été en grande partie rattrapé,
+mais comme nous le voyons au fûr et à mesure de l'avancée de nouvelles tâches se
+rajoutent quand nous détectons des problèmes à résoudre. Notons que nous avons
+retiré de ce tableau les tâches terminée lors de la plannification précédente :
+\include{include/Liste_tache_15-11}
+\begin{landscape}
+\begin{figure}[t]
+    \caption{Avancement du projet au 15 novembre 2015}
+   \includegraphics[scale=0.5]{include/gantt15-11.png}
+\end{figure}
+\end{landscape}
+
 \subsection{Avancement final}
 
 \section{Recettes}
-
-\chapter{L'analyse}
-\section{Analyse du besoin}
-\section{Etude de l'existant}
-\subsection{Existant sur le projet}
-\subsection{Elément similaires sur le Web}
-\subsection{Technologies et outils}
-\section{Cas d'utilisation}
-\section{Diagramme des classes}
+\section{Compte rendu de réunion}
+\subsection{Réunion initiale avec le client (21/10/2015)}
+Lors de la réunion initiale avec le client, nous lui avons fait part de nos 
+interrogations sur les tâches à réaliser. Ainsi, Mr Pagès nous a indiqué que les
+plus gros problèmes étaient situés sur les outils de back-office, en raison de 
+l'âge du site mais aussi des équipes de développeurs qui se sont succédées pour
+le réaliser. \\
+\par En ce qui concerne la partie multilangue, il faut conserver les photos
+indépendamment de la langue d'utilisation de façon à ne pas devoir les ajouter
+n-fois. Pour ce qui est de l'occitan, la traduction des textes sera fournie.
+Le masque de saisie est également un gros soucis, car il empêche
+l'administrateur de voir le texte saisit, on ne voit que l'équivalent d'un
+champ texte, il faut donc agrandir la zone afin d'éviter de devoir faire des
+copier/coller depuis Word. \\
+\par Pour la boutique, il faut intégrer les nouvelles photos qui seront
+fournies, et refaire la présentation du bon de commande sur Word ou un outil
+équivalent. Pour la saisie de la phrase du jour, il y a un problème de saisie
+directe qui fait que les modifications ne sont pas toujours prises en compte,
+sauf si l'on copie/colle depuis un traitement de texte. \\
+\par Il faut également revoir la carte du monde qui a des soucis de
+duplications, et qui n'est pas pratique du tout à utiliser. Mr Pagès nous a proposé
+d'éventuellement changer sa forme ou ne plus utiliser une carte, mais plutôt
+des listes ou des tableaux. Pour le planning, il y a un soucis au niveau de la
+modification et de la suppression d'un événement contenant des caractères
+douteux dans le titre qui empêchent la modification et la suppression, il faut
+donc vérifier le filtrage des caractères pour résoudre le problème. \\
+\par Si nous avons le temps, le responsable souhaite que nous améliorons le code
+CAPTCHA car le site a subit des attaques de robot dans le passé.
+La saisie d'actualité doit également être modifiée, il faudrait passer de 5/6
+zones textes à une seule en retirant celles qui sont inutiles.
+Enfin, il y a un problème avec les picèes de théâtre qui passent à "Pièce
+jouée" dès que l'on saisit une valeur, il faudrait donc réparer ce module.
 
 \chapter{Les caractéristiques techniques}
-\section{Choix techniques}
 \section{Charte graphique}
+// TODO nouvelle charte graphique
 \section{Développement}
-\subsection{Arborescence du site}
-\subsection{Architecture générale}
-\subsection{Normes et règles suivies, convention de nommage}
-\subsection{Manuel du développeur}
 \subsection{Eléments de sécurisation du site}
-\subsection{Code source}
+Afin d'éviter l'injection SQL, nous avons utilisé PDO, ainsi qu'un contrôle des
+formulaires en amont via PHP et Javascript pour limiter au maximum les soucis.
+Egalement, nous avons mis à jour le système de protection anti-robot, avec un
+système plus facile à utiliser.
+\subsection{Codes source}
 \section{Base de données}
+// TODO mettre le schéma SQL
 
 \chapter{Le déploiement de l'application Web}
 \section{Scénario de recettes}
 \section{Manuel utilisateur}
 \section{Manuel administrateur}
-\section{Hébergement et compte}
-
-
-
-
 \end{document}

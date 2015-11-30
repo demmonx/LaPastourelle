@@ -1,242 +1,119 @@
 <?php
-if (! isset ( $_SESSION ['pseudo'] ) or ! isset ( $_SESSION ['pass'] ) or ! verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-	echo "<center>
-			Vous ne pouvez pas accèder à ces pages sans être connecté<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  </center>";
-	redirect ( "index.php?page=accueil", 3 );
-	exit ( 0 );
-} else {
-	// Ajout d'un commentaire
-	if (isset ( $_POST ['commentaire'] ) and isset ( $_POST ['add'] ) and $_POST ['add'] == 1 and isset ( $_SESSION ['pseudo'] ) and verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-		$numero = $_POST ['numero_photo'];
-		$insertion_commentaire = "INSERT INTO commentaire (texte, num_photo, auteur)VALUES ('" . $_POST ['commentaire'] . "'," . $numero . ",'" . $_SESSION ['pseudo'] . "')";
-		$insert_com = $bdd->select ( $insertion_commentaire );
-		// mysql_query($insertion_commentaire);
-	}  // Suppression d'un commentaire
-else if (isset ( $_POST ['id_commentaire'] ) and verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-		$lecommentaire = $_POST ['id_commentaire'];
-		$suppression_commentaire = "DELETE FROM commentaire WHERE id_commentaire = $lecommentaire";
-		$suppr_commentaire = $bdd->select ( $suppression_commentaire );
-		// mysql_query($suppression_commentaire);
-	}  // Suppression d'une photo
-else if (isset ( $_POST ['numero_photo'] ) and verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-		$numero = $_POST ['numero_photo'];
-		// Recuperation du nom de la photo et suppression du fichier
-		$req_recupNom = $bdd->prepare ( "SELECT adr_photo FROM photo WHERE id_photo = ?" );
-		$req_recupNom->bindValue ( 1, $numero );
-		$req_recupNom->execute ();
-		if ($req_recupNom->rowCount() == 1) {
-			unlink ( $req_recupNom->fetch ()[0]);
-			
-			// suppression de la photo dans la bases de données
-			$suppression_photo = "DELETE FROM photo where id_photo = ?";
-			$suppr_photo = $bdd->prepare ( $suppression_photo );
-			$suppr_photo->bindValue ( 1, $numero );
-			$suppr_photo->execute ();
-			// suppresion des commentaires de la photo
-			$suppression_commentaire = "DELETE FROM commentaire where num_photo = ?";
-			$suppr_com = $bdd->prepare ( $suppression_commentaire );
-			$suppr_com->bindValue ( 1, $numero );
-			$suppr_com->execute ();
-			echo "<center><h2>Photo supprimée</h2></center>";
-			echo "<center><br /><a class='btn btn-link' href='index.php?page=blog'>Revenir à la page précédente</a></center>";
-		}
-	}
-	// GESTION DE LA PAGINATION
-	// nombre de photos par page
-	$photosParPage = 12;
-	
-	// compte le nombre de photos
-	$retour_total = $bdd->select ( "SELECT COUNT(*) AS total FROM photo" );
-	
-	foreach ( $retour_total as $row ) {
-		$total = $row ['total']; // On récupère le total pour le placer dans la variable $total.
-	}
-	// $donnees_total=mysql_fetch_assoc($retour_total); //On range retour sous la forme d'un tableau.
-	// $total=$donnees_total['total']; //On récupère le total pour le placer dans la variable $total.
-	
-	// compte le nombre de pages.
-	$nombreDePages = ceil ( $total / $photosParPage );
-	
-	if (isset ( $_POST ['lapage'] )) {
-		$pageActuelle = intval ( $_POST ['lapage'] );
-		
-		if ($pageActuelle > $nombreDePages) 
+verifLoginWithArray($_SESSION, 0);
+try {
+    $adminOk = checkLoginWithArray($_SESSION, 1);
+} catch (Exception $e) {
+    $adminOk = false;
+}
 
-		{
-			$pageActuelle = $nombreDePages;
-		}
-	} else {
-		$pageActuelle = 1; // La page actuelle est la n°1
-	}
-	
-	$premiereEntree = ($pageActuelle - 1) * $photosParPage; // On calcule la première entrée à lire
-	                                                        // FIN DE LA GESTION DE LA PAGINATION
-	                                                        
-	// selectionne les photos
-	$rqt_blog_photo = "SELECT id_photo, adr_photo, date_photo, description FROM photo ORDER BY date_photo DESC LIMIT $premiereEntree, $photosParPage ";
-	$les_photos = $bdd->select ( $rqt_blog_photo );
-	
-	// administration intégrée dans la page des blogs
-	// S'affiche uniquement si l'utilisateur est un administrateur
-	// pour ajouter de nouvelles photos
-	if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-		echo "<br><DIV id=\"menu\" style='margin-left:auto;margin-right:auto'><CENTER><B>Pour ajouter une nouvelle photo</B></CENTER></DIV><br>";
+// Nombre de photos par page
+DEFINE("PHOTO_PER_PAGE", 10);
+$total = getNbPic(); // Nombre de photos dispo
+                     
+// compte le nombre de pages.
+$nombreDePages = floor($total / PHOTO_PER_PAGE);
+
+if (isset($_GET['lapage']) && is_numeric($_GET['lapage'])) {
+    $pageActuelle = intval($_GET['lapage']);
+    
+    if ($pageActuelle > $nombreDePages) {
+        $pageActuelle = $nombreDePages;
+    }
+} else {
+    $pageActuelle = 1; // La page actuelle est la n°1
+}
+
+$premiereEntree = ($pageActuelle - 1) * PHOTO_PER_PAGE; // On calcule la
+                                                        // première entrée à
+                                                        // lire
+                                                        
+// selectionne les photos
+$les_photos = getPicByRange($premiereEntree, PHOTO_PER_PAGE);
+
+// administration intégrée dans la page des blogs
+// S'affiche uniquement si l'utilisateur est un administrateur
+// pour ajouter de nouvelles photos
+if ($adminOk) {
+    echo "<DIV><B>Pour ajouter une nouvelle photo</B></DIV>";
+    
+    echo '
 		
-		if (isset ( $_FILES ['fichier_choisi'] )) {
-			require_once ("blog_upload.php");
-			$chemin = new_lien ();
-			if ($chemin) {
-				$insertion_photo = "INSERT INTO photo (adr_photo, date_photo, description) VALUES (:path,NOW(),:desc)";
-				
-				$insert = $bdd->prepare ( $insertion_photo );
-				$insert->bindValue ( ":path", $chemin );
-				$insert->bindValue ( ":desc", isset ( $_POST ["description"] ) ? $_POST ["description"] : "" );
-				$insert->execute ();
-				echo "La photo a bien été ajoutée";
-			} else {
-				echo "pb";
-			}
-		}
-		
-		echo '
-		<center>
-		<form method="POST" action="#" enctype="multipart/form-data">
-		<br>Description de la photo :<br><TEXTAREA name="description"   rows=2 cols=40 wrap=hard></TEXTAREA><br><br>
-		Fichier : <input type="file" name="fichier_choisi" size="50"><br><b> La photo doit être en .jpg et ne doit pas dépasser la taille de 250ko.<br/>
-		Si votre image est dans un autre format ou dépasse cette taille, veuiller utiliser un outil de retouche d\'image comme Paint.<br/><br/>
-		Votre photo sera visible après avoir actualisé la page.<br/><br/></b>
-		
+		<form method="POST" id="post-pic" action="blog_traitement.php" enctype="multipart/form-data">
+		<br>Description de la photo :<br><TEXTAREA name="description"   id="desc"></TEXTAREA><br><br>
+		Fichier : <input type="file" id="uploadFile" name="fichier" size="50">
+		<input type="hidden" name="ac" value="1" />
 		<input class="btn btn-info" type="submit" name="envoyer" value="Enregistrer cette photo">
 		</form>
-		</center>';
-	}
-	
-	// ouverture tableau
-	foreach ( $les_photos as $row ) {
-		echo "<div id='" . $row ['id_photo'] . "'>";
-		// la date de la photo
-		echo "<br><p style='float:left;'><I>Publié le " . $row ['date_photo'] . "</I><a class='btn btn-link' href='#header' style='font-size:10px;'>&nbsp&nbspHaut de page</a>&nbsp&nbsp<a class='btn btn-link' href='#basDePage' style='font-size:10px;'>Bas de page</a>&nbsp&nbsp</p>";
-		
-		// si administrateur -> pour supprimer la photo
-		if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-			echo '<div style="margin-top:10px;"><FORM  METHOD="POST" ACTION="index.php?page=blog">
-			<input type="hidden" name="numero_photo" value="' . $row ['id_photo'] . '" />
-			<input class="btn btn-info" type="submit"  value="Supprimer cette photo">
-			</FORM></div>';
-		}
-		
-		// la photo
-		echo "<br><center><IMG class='ssBordure' style='margin-top:-10px' ALT=" . $row ['adr_photo'] . " HEIGHT=\"500\" WIDTH=\"400\" src='" . $row ['adr_photo'] . "'></center><br>";
-		// description de la photo s'il en existe une
-		if ($row ['description'] != null) {
-			echo "<b>Description de l'image :</b>" . $row ['description'] . "<br><br/>";
-		}
-		
-		echo "<div style='width:700px;margin-left:auto;margin-right:auto;margin-top:-10px;
-						  border-left: 1px solid black;border-right:1px solid black;padding-left: 10px;padding-right:10px;'>";
-		echo "<center><b><i class='icon-comment'></i> Commentaires</b></center></br>";
-		// affichage des commentaires pour chaque photo s'ils existent
-		$rqt_blog_commentaire = "SELECT texte, num_photo, auteur,id_commentaire FROM commentaire WHERE num_photo=" . $row ['id_photo'] . "";
-		$les_commentaires = $bdd->select ( $rqt_blog_commentaire );
-		foreach ( $les_commentaires as $resultat ) {
-			
-			// auteur du commentaire
-			echo "<B>" . $resultat ['auteur'] . " : </B>&nbsp&nbsp";
-			
-			// le commentaire
-			echo $resultat ['texte'];
-			echo "<hr>";
-			
-			// si administrateur -> pour supprimer un commentaire
-			if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-				echo '<div style="margin-top:-5px;">
-				<FORM METHOD="POST" ACTION="index.php?page=blog#' . $row ['id_photo'] . '">
-					<input type="hidden" name="id_commentaire" value="' . $resultat ['id_commentaire'] . '" />
-					<input class="btn btn-info" type="submit" value="Supprimer ce commentaire">
-				</FORM>
-				</div>';
-			}
-		}
-		echo "</div>";
-		// formulaire de commentaire
-		echo '<center>
-				<form method="post" action="index.php?page=blog#' . $row ['id_photo'] . '">
-					<textarea name="commentaire" rows="3" cols="60"></textarea><br>
-					<input type="hidden" name="numero_photo" value="' . $row ['id_photo'] . '" />
-					<input type="hidden" name="add" value="1" />
+		';
+}
+
+// ouverture tableau
+foreach ($les_photos as $row) {
+    echo "<div>";
+    // la date de la photo
+    echo "<br><I>Publié le " . $row['date'] .
+             "</I><a class='btn btn-link' href='#header' >Bas de page</a>";
+    
+    // si administrateur -> pour supprimer la photo
+    if ($adminOk) {
+        echo "<div><a class='action' href='blog_traitement.php?ac=2&id=" .
+                 $row['id'] .
+                 "'><button class='btn btn-info'>Supprimer la photo</button></a></div>";
+    }
+    
+    // la photo
+    echo "<br><IMG class='ssBordure'  ALT=" . $row['adr'] . " src='" .
+             $row['adr'] . "'><br>";
+    // description de la photo s'il en existe une
+    if ($row['txt'] != null) {
+        echo "<b>Description de l'image :</b>" . $row['txt'] . "<br><br/>";
+    }
+    
+    echo "<b><i class='icon-comment'></i> Commentaires</b></br>";
+    // affichage des commentaires pour chaque photo s'ils existent
+    $les_commentaires = getBlogComment($row['id']);
+    foreach ($les_commentaires as $resultat) {
+        echo "<div>";
+        // auteur du commentaire
+        echo "<B>" . $resultat['pseudo'] . " : </B>";
+        
+        // le commentaire
+        echo nl2br(html_entity_decode($resultat['txt']));
+        
+        // si administrateur -> pour supprimer un commentaire
+        if ($adminOk) {
+            echo "<br /><a class='action' href='blog_traitement.php?ac=1&id=" .
+                     $resultat['id'] .
+                     "'><button class='btn btn-info'>Supprimer ce commentaire</button></a>";
+        }
+        echo "</div>";
+        echo "<hr>";
+    }
+    // formulaire de commentaire
+    echo '
+				<form method="post" class="post-comment" action="blog_traitement.php">
+					<textarea name="content"></textarea><br>
+					<input type="hidden" name="photo" value="' .
+             $row['id'] . '" />
+							<input type="hidden" name="ac" value="2" />
 					
 					<input class="btn btn-info" type="submit" value="Poster un commentaire">
 				</form>
-			</center>
+			
 			<hr></div>';
-	}
-	// while( $une_photo = mysql_fetch_object($les_photos)){
-	// echo "<div id='".$une_photo->id_photo."'>";
-	// la date de la photo
-	// echo "<br><p style='float:left;'><I>Publié le ".$une_photo->date_photo."</I><a href='#header' style='font-size:10px;'>&nbsp&nbspHaut de page</a>&nbsp&nbsp<a href='#footer' style='font-size:10px;'>Bas de page</a>&nbsp&nbsp</p>";
-	
-	// si administrateur -> pour supprimer la photo
-	// if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-	// echo '<div style="margin-top:10px;"><FORM METHOD="POST" ACTION="index.php?page=blog">
-	// <input type="hidden" name="numero_photo" value="'.$une_photo->id_photo.'" />
-	// <input type="submit" value="Supprimer cette photo">
-	// </FORM></div>';
-	// }
-	
-	// la photo
-	// echo "<br><center><IMG style='margin-top:-10px' ALT=\"$row['adr_photo']\" HEIGHT=\"500\" WIDTH=\"400\" SRC=\"$row['adr_photo']\"></center><br>";
-	// description de la photo s'il en existe une
-	// if ( $row['description'] != null ){
-	// echo "<b>Description de l'image :</b>".$row['description']."<br>";
-	// }
-	
-	// echo "<div style='width:700px;margin-left:auto;margin-right:auto;margin-top:-10px;
-	// border-left: 1px solid black;border-right:1px solid black;padding-left: 10px;padding-right:10px;'>";
-	// echo "<center><b>Commentaires</b></center>";
-	// affichage des commentaires pour chaque photo s'ils existent
-	// $rqt_blog_commentaire ="SELECT texte, num_photo, auteur,id_commentaire FROM commentaire WHERE num_photo=".$une_photo->id_photo."";
-	// $les_commentaires = mysql_query($rqt_blog_commentaire);
-	// while($un_commentaire = mysql_fetch_object($les_commentaires) ){
-	// auteur du commentaire
-	// echo "<p style='float:left;'><B>".$un_commentaire->auteur." : </B>&nbsp&nbsp</p>";
-	// echo"<br>";
-	// si administrateur -> pour supprimer un commentaire
-	// if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-	// echo '<div style="margin-top:-5px;"><FORM METHOD="POST" ACTION="index.php?page=blog#'.$une_photo->id_photo.'">
-	// <input type="hidden" name="id_commentaire" value="'.$un_commentaire->id_commentaire.'" />
-	// <input style="margin-top:-20px;" type="submit" value="Supprimer ce commentaire">
-	// </FORM></div>';
-	// }
-	
-	// le commentaire
-	// echo "<p>".$un_commentaire->texte."</p>";
-	// echo"<hr>";
-	// }
-	// echo "</div>";
-	// formulaire de commentaire
-	// echo'<center><form method="post" action="index.php?page=blog#'.$une_photo->id_photo.'">
-	// <textarea name="commentaire" rows="3" cols="60"></textarea><br>
-	// <input type="hidden" name="numero_photo" value="'.$une_photo->id_photo.'" />
-	// <input type="hidden" name="add" value="1" />
-	// <input type="submit" value="Poster un commentaire">
-	// </form></center><hr></div>';
-	// }
-	
-	// GESTION DES BOUTONS DE LA PAGINATION
-	for($i = 1; $i <= $nombreDePages; $i ++) {
-		if ($i == $pageActuelle) {
-			echo 'Page ' . $i;
-		} else {
-			echo '
-				  <FORM METHOD="POST" ACTION="index.php?page=blog">
-					<input type="hidden" name="lapage" value="' . $i . '" />
-					<input class="btn btn-small btn-primary" type="submit" value="Page ' . $i . '">
-				  </FORM>';
-		}
-	}
-	// fermeture du tableau
-	echo "</table>";
 }
+// GESTION DES BOUTONS DE LA PAGINATION
+for ($i = 1; $i <= $nombreDePages; $i ++) {
+    if ($i == $pageActuelle) {
+        echo 'Page ' . $i;
+    } else {
+        echo "<a href='index.php?page=blog&lapage=" . $i .
+                 "'><button class='btn btn-small btn-primary' >Page " . $i .
+                 "</button>";
+    }
+}
+// fermeture du tableau
+echo "</table>";
 ?>
+
+<script type="text/javascript" src="ressources/js/blog.js"></script>

@@ -1,51 +1,43 @@
 <?php
-// impossible de supprimer sinon 
-@session_start();?>
+// impossible de supprimer sinon
+@session_start();
+@header("Content-Type: text/html; charset=utf-8");
+require_once ("traitement.inc.php");
+verifLoginWithArray($_SESSION, 0);
+try {
+	$adminOk = checkLoginWithArray($_SESSION, 1);
+} catch (Exception $e) {
+	$adminOk = false;
+}
+?>
 <script src="js/sorttable.js" type="text/javascript"></script>
 
 <?php
-require_once ("traitement.inc.php");
-if (! isset ( $_SESSION ['pseudo'] ) || ! isset ( $_SESSION ['pass'] ) || ! verifLo ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-	header ( "Content-Type: text/html; charset=utf-8" );
-	echo "<center>
-			Vous ne pouvez pas accèder à ces pages sans être connecté en tant que membre<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  </CENTER>";
-	exit ( 0 );
-} else {
-	$adminOk = false;
-	if (verifLoAdmin ( $_SESSION ['pseudo'], $_SESSION ['pass'] )) {
-		$adminOk = true;
-	}
-	// Si on est admin et que l'id est correct
-	if ($adminOk && isset ( $_GET ['id'] ) && is_numeric ( $_GET ['id'] )) {
-		header ( "Content-Type: text/html; charset=utf-8" );
-		$bdd = new Connection ();
-		$req_del = $bdd->prepare ( "UPDATE user SET etat_annuaire = 0 WHERE id_membre=?" );
-		$req_del->bindValue ( 1, $_GET ['id'], PDO::PARAM_INT );
-		$req_del->execute ();
-		
-		// Affichage
-		echo '<center>Retrait effectuée</center>';
-		echo "<center><a class='btn btn-link' href='index.php?page=annuaire'>Retour à la page précédente</a></center>";
-		exit ();
-	}
-	
-	// récupération des liens dans la BD et traitement
-	if (isset ( $_POST ['aRechercher'] )) {
-		$tab_membre = recup_annuaire ( $_POST ['aRechercher'], $_POST ['typeRecherche'], 0 );
-	} else if (isset ( $_POST ['aTrier'] )) {
-		$tab_membre = recup_annuaire ( $_POST ['aTrier'], "", 1 );
-	} else {
-		$tab_membre = recup_annuaire ( "", "", 2 );
-	}
-	$cpt = 0;
-	$taille_tab = count ( $tab_membre );
-	?>
+    // Si on est admin et que l'id est correct
+    if ($adminOk && isset($_GET['id']) && is_numeric($_GET['id'])) {
+        setMemberToAnnuaire($_GET['id'], false);
+        
+        // Affichage
+        echo 'Retrait effectuée';
+    }
+    
+    // récupération des liens dans la BD et traitement
+    if (isset($_POST['aRechercher'])) {
+        $tab_membre = getAnnuaire($_POST['aRechercher'], 
+                $_POST['typeRecherche'], 0);
+    } else 
+        if (isset($_POST['aTrier'])) {
+            $tab_membre = getAnnuaire($_POST['aTrier'], "", 1);
+        } else {
+            $tab_membre = getAnnuaire("", "", 2);
+        }
+    $cpt = 0;
+    $taille_tab = count($tab_membre);
+    ?>
 <DIV id="liens">
-	<CENTER>
-		<H2>ANNUAIRE</H2>
-	</center>
+
+	<H2>ANNUAIRE</H2>
+
 
 
 	<form class="form-inline" action="index.php?page=annuaire"
@@ -69,43 +61,42 @@ if (! isset ( $_SESSION ['pseudo'] ) || ! isset ( $_SESSION ['pass'] ) || ! veri
 			</SELECT> <input type="submit" value="Rechercher" class="btn" />
 		</div>
 	</form><?php
-	if (isset ( $_POST ['aRechercher'] )) {
-		echo "<a class='btn btn-link' href='index.php?page=annuaire'><img src='image/maison.png' alt='Voir la liste complète' width='20' height='20' style='margin-top: 10px;'></a>";
-	}
-	?>
+    if (isset($_POST['aRechercher'])) {
+        echo "<a class='btn btn-link' href='index.php?page=annuaire'><img src='image/maison.png' alt='Voir la liste complète'  ></a>";
+    }
+    ?>
 	<p>Cliquez sur le titre de la colonne choisie (ex : Nom) pour ordonner
 		la liste</p>
 	<?php
-	echo "<TABLE class='sortable table table-bordered table-striped' CELLPADDING=5px WIDTH=860px style='font-size:13px'>
+    echo "<TABLE class='sortable table table-bordered table-striped'  >
 			<TR>
-				<H3>
 					<TH>Nom</TH>
 					<TH>Prénom</TH>
 					<TH>Pseudo</TH>
 					<TH>E-mail</TH>
 					<TH>Téléphone</TH>
 					<TH>Adresse</TH>";
-	if ($adminOk) {
-		echo "<TH><center>Action</center></TH>";
-	}
-	echo "</H3></TR><br/></center>";
-	foreach ( $tab_membre as $row ) {
-		echo "<TR>
+    if ($adminOk) {
+        echo "<TH>Action</TH>";
+    }
+    echo "</TR>";
+    foreach ($tab_membre as $row) {
+        echo "<TR>
 					<TD><B>" . $row['nom'] . "</B></TD>";
-		echo "	<TD><B>" . $row['prenom'] . "</B></TD>";
-		echo "	<TD>" . $row['pseudo'] . "</TD>";
-		echo "	<TD>" . $row['mail'] . "</TD>";
-		echo "	<TD>" . $row['tel'] . "</TD>";
-		echo "	<TD>" . $row['adresse'] . "</TD>";
-		if ($adminOk) {
-			echo "<TD><A class='btn btn-link' HREF='annuaire.php?id=" . $row['id'] . "'>Retirer</A></TD>";
-		}
-		echo "</TR>";
-	}
-	
-	echo "</TABLE></DIV>";
-	if ($taille_tab == 0) {
-		echo "<center>Aucun membre ne correspond à votre recherche</center>";
-	}
-}
+        echo "	<TD><B>" . $row['prenom'] . "</B></TD>";
+        echo "	<TD>" . $row['pseudo'] . "</TD>";
+        echo "	<TD>" . $row['mail'] . "</TD>";
+        echo "	<TD>" . $row['tel'] . "</TD>";
+        echo "	<TD>" . $row['adresse'] . "</TD>";
+        if ($adminOk) {
+            echo "<TD><A class='btn btn-link' HREF='index.php?page=annuaire&id=" .
+                     $row['id'] . "'>Retirer</A></TD>";
+        }
+        echo "</TR>";
+    }
+    
+    echo "</TABLE></DIV>";
+    if ($taille_tab == 0) {
+        echo "Aucun membre ne correspond à votre recherche";
+    }
 ?>

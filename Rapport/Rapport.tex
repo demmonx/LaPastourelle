@@ -1,7 +1,8 @@
 \documentclass[11pt]{report}
 
 \usepackage[utf8]{inputenc}
-\usepackage[top=2cm, bottom=2cm, left=2cm, right=1.5cm]{geometry}
+\usepackage{geometry}
+\geometry{hmargin=1cm,vmargin=2cm}
 \usepackage{xspace}
 \usepackage[toc,page]{appendix} 
 \usepackage[pdftex]{graphicx}
@@ -75,7 +76,7 @@
 \begin{document}
 \maketitle
 \setcounter{tocdepth}{5}
-\tableofcontents
+%SS\tableofcontents
 \chapter{Plan de Management de Projet}
 \section{Introduction}
 L'assocation La Pastourelle est une assocation de danses folkloriques 
@@ -148,7 +149,8 @@ modifier un événement contenant un caractère invalide
 \end{itemize}
 
 \subsubsection*{Tâches importantes}
-Ces tâches seront réalisées dans un second temps et s'il est possible de les effectuer sans trop toucher à la structure du site.
+Ces tâches seront réalisées dans un second temps et s'il est possible de les effectuer 
+sans trop toucher à la structure du site.
 \begin{itemize}
  \item Version multilingue du site : il faut, en plus de l'espagnol, donner la
 possibilité d'ajouter du texte en anglais et en occitan 
@@ -217,7 +219,7 @@ au projet à jour, ainsi que de rédiger les comptes rendus de réunion\\
 	\begin{itemize}
 	  \item le site hébergé, testé et fonctionnel
 	  \item un manuel d'utilisateur pour l'assocation
-	  \item un dossier projet
+	  \item un dossier projet, avec les schémas de conception et les codes d'accès pour modifier le site web
 	  \item un plan projet
 	\end{itemize}
 
@@ -231,15 +233,10 @@ deux mois. \\
 partie de réponse aux exigences de l'assocation, et une seconde partie basée 
 sur des améliorations non-proposées mais envisageable.
 
-\subsubsection*{Première partie}
-La première partie sera consacrée à la réponse aux exigences initiale. Pour 
-cela, nous avons du prendre un rendez-vous avec le client afin de détailler les 
-besoins. \\
 Nous avons dû réaliser divers documents afin d'assurer le suivi de projet : 
 \begin{itemize}
     \item La liste des tâches
     \item Le Gantt
-    \item Les diagrammes de cas d'utilisation et les scénarios associés
     \item La répartition des tâches
     \item Les comptes rendus de réunion \\
 \end{itemize}
@@ -316,11 +313,59 @@ les logiciels suivants : \\
  sur OpenShift afin de pouvoir consulter les tâches à effctuer depuis n'importe
  où, ainsi qu'accéder à la dernière version des documents projets, même si le
  rapport est hébergé sur Github.
+ \par Github est un système d'hébergement de code source public dans la version 
+ que nous allons utiliser, par conséquent, les codes sources seront visibles 
+ par tout internaute. Il ne pourra toutefois les modifier. Ainsi par raison de
+ sécurité, nous avons retiré les outils permettant à un tiers d'accéder aux
+ données privées de l'association ainsi qu'aux informations concernant les
+ membres.
  \par Les rapports seront rédigés la plupart du temps en LaTeX afin de
  s'affranchir du système d'exploitation, car certains utilisent Linux et
  d'autres Windows. 
 
 \section{Pilotage}
+ Une réunion projet est le moment où l'on pose des questions à la MOA afin de
+s'assurer du travail à accomplir, ou de proposer des éléments de réalisation.
+ Un comité de pilotage (COPIL) a pour but de faire le point à un instant T sur
+l'avancée du projet et définir les taches qui devront etre accomplis dans le futur. \\
+
+ \par Nous nous engageons à rencontrer le client plusieurs fois durant le
+ projet. Tout d'abord avant les vacances de Toussaint afin d'éclaircir les
+ taches à accomplir durant une réunion projet. Ensuite, nous le rencontrerons
+ autour de mi-novembre pour un COPIL qui portera sur les exigences du client qui
+ ont été accomplis jusqu'à présent (taches urgentes et importantes). 
+ \par Enfin, il
+ faudra faire un dernier comité de pilotage le 8 ou le 9 décembre afin de
+ présenter les scénarios de test, les modifications effectuées, établir la
+recette et les conditions de migration.
+\section{Recettes}
+ La recette est l'acception du projet par le client. Pour cela, il est
+nécessaire d'établir des conditions préalables à la signature de celle-ci : \\
+\begin{itemize}
+ \item les erreurs bloquantes : ce sont celles qui empechent l'accès au site.
+ En cas d'erreur bloquante, la recette ne pourra pas etre signée. \\
+  \item les erreurs importantes : celles qui empechent un module de fonctionner,
+  mais qui ne perturbe pas l'intégralité ni la stabilité du site. Nous nous
+ autorisons un maximum de deux erreurs de ce type pour signer la recette. \\
+  \item les erreurs minimes : celles qui sont relatives à l'aspect général du
+  site, elles n'empechent en rien le fonctionnement. Le recette ne sera pas
+  signée si plus de dix erreurs minimes sont détectées. \\
+\end{itemize}
+
+\par Pour signer la recette, tous les livrables exigés devront impérativement
+etre fournis.
+
+\section{Migration}
+ En ce qui concerne la migration du site et de sa base de données associée, nous
+ nous engageons à déployer la version à jour sur le serveur existant, en
+ assurant la sauvegarde des versions précédentes. Nous testerons également
+ l'ensemble des fonctionnalités sur le nouveau site afin de s'assurer que tout
+ est déployé correctement.
+ Une fois le site déployé, nous signerons une nouvelle recette afin d'assurer
+que tout a été correctement implémenté.
+
+\newpage
+\section{Plannification}
 \subsection{Prévision initiale}
 Initialement, nous avions prévus de suivre cette plannification, avec la
 première partie jusqu'au jalon définie avec un peu de précision, puis la suite
@@ -356,9 +401,28 @@ travailler en binôme afin de rattraper le temps perdu.
 \end{figure}
 \end{landscape}
 
+Au 15 novembre 2015, peu avant la deuxième réunion avec le client, le projet à
+avancé : les souhaits initiaux ont presque tous été réalisés, et il ne reste que
+quelques détails pour finir de coder le multilinguisme.
+\par Toutefois, le travail a été très mal organisé car seul Cyril a touché au
+code du site à ce jour ainsi qu'à la base de donnée. Notons que nous avons du
+refaire la conception de la base de donnée et passer tout le code source en MVC. Par
+ailleurs, Clément et Mickael ont réalisé l'étude de l'existant en vu de proposer
+au client une nouvelle charte graphique, plus neuve et plus fonctionnelle.
+\par Ainsi, le retard que nous avions accumulé a été en grande partie rattrapé,
+mais comme nous le voyons au fûr et à mesure de l'avancée de nouvelles tâches se
+rajoutent quand nous détectons des problèmes à résoudre. Notons que nous avons
+retiré de ce tableau les tâches terminée lors de la plannification précédente :
+\include{include/Liste_tache_15-11}
+\begin{landscape}
+\begin{figure}[t]
+    \caption{Avancement du projet au 15 novembre 2015}
+   \includegraphics[scale=0.5]{include/gantt15-11.png}
+\end{figure}
+\end{landscape}
+
 \subsection{Avancement final}
 
-\section{Recettes}
 \section{Compte rendu de réunion}
 \subsection{Réunion initiale avec le client (21/10/2015)}
 Lors de la réunion initiale avec le client, nous lui avons fait part de nos 
@@ -397,16 +461,188 @@ jouée" dès que l'on saisit une valeur, il faudrait donc réparer ce module.
 // TODO nouvelle charte graphique
 \section{Développement}
 \subsection{Eléments de sécurisation du site}
-Afin d'éviter l'injection SQL, nous avons utilisé PDO, ainsi qu'un contrôle des
-formulaires en amont via PHP et Javascript pour limiter au maximum les soucis.
-Egalement, nous avons mis à jour le système de protection anti-robot, avec un
-système plus facile à utiliser.
-\subsection{Codes source}
+Afin d'éviter l'injection SQL, nous avons utilisé PDO avec des requêtes
+préparées, ainsi qu'un contrôle des formulaires en amont via PHP et Javascript
+pour limiter au maximum les soucis. \\
+\par Nous avons aussi refait le système de connexion et de gestion des droits
+qui étaient défaillant et inflexible. Ainsi maintenant un membre connecté mais
+en attente de validation par un administrateur ne pourra pas accéder au contenu
+disponible pour les membres validés, comme c'était le cas avant. Pour ce qui est
+des droits d'accès, nous avons augmenté la flexibilité à l'aide d'un système
+numérique, ainsi un simple opérateur \og > \fg{} permet de définir le niveau
+d'autorisation. Par exemple, si le niveau du membre est \og > 1 \fg{}, il ne
+pourra pas accéder aux modules d'administration. \\
+ \par Egalement, nous avons mis à jour le système de protection anti-robot, avec
+ le système reCaptcha de google, plus facile à utiliser et surtout libre 
+ d'utilisation.
+\subsection{Slick}
+Nous avons utilisé le module Slick, qui est un carroussel codé en jQuery, afin
+de proposer un diaporama fluide, efficace et personnalisable. Ainsi, que ce soit
+le diaporama du fil d'actualité, celui de l'administration des images, ou encore
+celui en haut à droite du site, il seront tous basés sur Slick car le système
+actuel est complexe et mal optimisé.
+
+\subsection{TinyMCE}
+Le module TinyMCE permet de proposer un éditeur de texte enrichit dans la mesure
+où il est possible d'ajouter simplement des images, des vidéos, des liens ou
+encore de faire de la mise en page. Il convient très bien pour une utilisation
+quotidienne et permettra au client de concevoir ses pages de manière rapide et
+en voyant ce qu'il fait car c'est un éditeur type \og WYSIWYG \fg{} (\og what you
+see is what you get \fg{}).
 \section{Base de données}
-// TODO mettre le schéma SQL
+Nous avons dû revoir l'intégralité de la base de donnée du site, car c'est un
+des élements qui mettait en péril les fonctionnalités du site web. En effet, les
+clés primaires définies étaient des champs varchar, du coup le passage de valeur
+dans l'URL engendrait des problèmes et il était impossible de traiter
+convenablement les données. \\
+
+\par Pour y remédier, nous avons refait une conception de la base de donnée, en
+rajoutant les contraintes d'intégrité qui n'étaient pas présente initialement
+(clé étrangères, unicité, check). Vous trouverez ce document à la page suivante.
+\\
+
+\par En ce qui concerne le choix du SGBD, nous avions le choix entre MySQL et
+PostgreSQL, mais notre choix s'est porté sur PostgreSQL pour de multiples
+raisons : \\
+\begin{itemize}
+  \item Les contraintes d'intégrités sont mieux gérées que sur MySQL
+  \item Il se rapproche plus d'une utilisation professionnelle, en étant à la
+  fois OpenSource, libre et avec de très performances
+  \item Il est plus facile à utiliser : l'interface d'administration est mieux
+  pensé, l'importation en ligne de commande est plus aisée \\
+\end{itemize}
+
+\par Par conséquent, nous avons du nous former à PostgreSQL, ce qui n'était pas
+bien compliqué car en dehors de quelques éléments syntaxique qui changent de
+MySQL (types, restrictions sur les noms table), le reste était similaire en tout
+point.
 
 \chapter{Le déploiement de l'application Web}
-\section{Scénario de recettes}
+\section{Scénarios de recette}
 \section{Manuel utilisateur}
 \section{Manuel administrateur}
+\section{Hébergement et compte}
+Le site est hébergé sur OVH. Pour accéder au compte et pouvoir sauvegarder ou
+restaurer la base de données, les identifiants sont : \\
+\begin{itemize}
+  \item ID : PC29352-OVH
+  \item Mot de passe : CROUZADO \\
+\end{itemize}
+
+\par En ce qui concerne la base de données, les informations sont : \\
+\begin{itemize}
+  \item Utilisateur : pastourebd2
+  \item Base de donnée : pastourebd2
+  \item Mot de passe :  postgresql84-1.pro
+  \item Serveur : ik4FgR12zEgD \\
+\end{itemize}
+
+\par Enfin pour le FTP : \\
+\begin{itemize}
+  \item Utilisateur : pastoure
+  \item Mot de passe :  tQWTEXQj
+  \item Serveur : ftp.pastourelle-rodez.com
+\end{itemize}
+
+
+\section{Procédure d'archivage}
+Idéalement, il faudrait tous les mois sauvegarder la base de données contenant
+l'ensemble des informations de l'association, ainsi que les fichiers du site
+web, afin de ne pas perdre les modifications apportées sur les ressources
+(images, audio).
+
+Pour cela, commençons par copier les fichiers du site  : 
+\begin{itemize}
+  \item Connectez vous sur le FTP du site via les identifiants donnés dans la
+  section précédente, en utilisant le logiciel FileZilla ou équivalent.
+  \item Copiez le dossier \og www \fg{} depuis le FTP sur votre ordinateur
+  personnel, et précisez la date de la copie. \\
+\end{itemize}
+
+\par Ensuite, nous allons nous occuper de copier la base de données. La
+manipulation est plus complexe qu'au-dessus : 
+\begin{itemize}
+  \item Rendez-vous sur le site : https://phppgadmin.ovh.net/
+  \item Saisissez les identifiants donnés dans la section précédente
+  \item Cliquez sur \og Exporter \fg{}
+  \item Choisissez sur \og Structure et données \fg{}
+  \item Selectionnez le format \og SQL \fg{}
+  \item Prenez l'option \og Exporter \fg{} au lieu de \og Voir \fg{}
+  \item Validez en appuyant sur \og Exporter \fg{}
+  \item Enregistrez le fichier sur votre ordinateur personnel en précisant la
+  date de la copie
+\end{itemize}
+
+\section{Procédure de reprise après panne}
+En cas de panne importante du site Web, par exemple si une personne mal
+intentionnée arrive à supprimer des fichiers ou des informations dans la base de
+donnée, il va être nécessaire de restaurer l'état du site à une version
+antérieur, fonctionnelle. \\
+\par \textbf{Attention toutefois, cela engendrera une perte
+des modifications réalisées depuis la dernière sauvegarde}, d'où l'intérêt de
+sauvegarder régulièrement. \\
+
+\par Pour restaurer les fichiers du site Web : 
+\begin{itemize}
+  \item Connectez vous sur le FTP du site via les identifiants donnés dans la
+  section précédente, en utilisant le logiciel FileZilla ou équivalent.
+  \item Supprimez le contenu du dossier \og www \fg{}
+  \item Copiez le contenu du dossier de sauvegarde voulu, situé sur votre
+  ordinateur dans le dossier \og www \fg{} du FTP. \\
+\end{itemize} 
+
+\par Pour restaurer la base de donnée : 
+\begin{itemize}
+  \item Rendez-vous sur le site : https://phppgadmin.ovh.net/
+  \item Saisissez les identifiants donnés dans la section précédente
+  \item Dans le menu de gauche, cliquez sur les \og + \fg{} de manière à voir
+  apparaitre l'onglet \og Tables \fg{} et sélectionnez le
+  \item Cochez toutes les cases et faites \og Supprimer \fg{} depuis le menu
+  d'action
+  \item Cochez la case \og CASCADE \fg{} et confirmer la suppression
+  \item  Dans le menu de gauche, cliquez sur les \og pastourebd2 \fg{}
+  \item Cliquez sur \og SQL \fg{} dans le menu principal (2ème onglet)
+  \item Renseignez le fichier à importer, en dessous du champ texte, il
+  correspond à la sauvegarde de la base de donnée que vous voulez restaurer
+  \item Cliquez sur \og Lancer \fg{} et attendre qu'une nouvelle pas s'affiche,
+  avec un certain nombre d'information sur ce qui a été importé \\
+\end{itemize}
+
+\par A partir d'ici, le site est de nouveau opérationnel
+
+\section{Conformité du site aux lois en vigueur}
+Le site Web est déployé avec des polices typographiques et des icones provenant
+de font-awesome, une librairie d'icones et de polices vectorielles sous licence
+GPL et libre utilisation pour un projet professionnel et amateur. \\
+
+\par Pour les images hébergées par la Pastourelle, elle provienne de répétitions
+ou de concert, et ne dépendent par de la conception du site Web, mais du contenu
+qu'en a fait le client. Par conséquent, nous supposons que pour les photos qui
+seront hébergées, une demande de droit à l'image aura été préalablement effctuée
+auprès des ayant droits. \\
+
+\par Pour les deux modules utilisés, à savoir Slick et TinyMCE, Slick est sous
+licence MIT, qui donne le droit de modification, utilisation, etc pour une
+utilisation amateure et commerciale du module. TinyMCE est en revanche sous
+licence LGPL pour sa version Community, c'est à dire qu'on peut l'utiliser pour
+un but commercial ou amateur, mais il y a des restrictions concernant la
+modification et la diffusion des codes sources. \\
+
+\par Le template Bootstrap que nous utilisons est sous licence MIT tout comme
+son plugin smartmenus, par conséquent nous avons le droit d'utiliser, modifier
+et diffuser quelque qu'en soit la finalité. \\
+
+\par Le système anti-robot reCaptcha est placé sous licence CreativeCommons 3.0,
+ainsi nous sommes libres de modifier, utiliser et diffuser le module. \\
+
+\par Concernant les logos (tout ce qui touche à la Pastourelle), ils ont été
+redéssinés sous Photoshop afin d'ajouter la transparence qui n'était pas
+présente. Enfin pour les drapeaux de langues, il faudrait en utiliser sous
+licence GPL, qui seront récupérés par le client sur Internet en fonction des
+langues qu'il souhaite rendre disponible sur son site.
+
+\section{Support d'archivage}
+Le site et la base de données seront fournis sur CD au client tel qu'ils
+ont été déployés lors de la phase de mise en production.
+
 \end{document}

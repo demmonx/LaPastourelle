@@ -1,7 +1,3 @@
-<?php
-$cryptinstall = "./cryptographp.fct.php";
-require_once $cryptinstall;
-?>
 <script language="javascript">
 $(document).ready(function () {
     /** * Formulaire de connexion ** */
@@ -11,7 +7,6 @@ $(document).ready(function () {
 
         // Récupération des valeurs
         var pseudo = $('#pseudo').val();  
-        var code = $('#code').val();  
         var mail = $('#mail').val();  
         var nom = $('#nom').val();  
         var prenom = $('#prenom').val(); 
@@ -23,7 +18,7 @@ $(document).ready(function () {
         var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
         $('#msgReturn').empty();
         // Vérifie pour éviter de lancer une requête fausse
-        if (pseudo === '' || pass === '' || code === '' || mail === '' || nom === '' 
+        if (pseudo === '' || pass === '' || mail === '' || nom === '' 
             || prenom === '' || tel === '' || adresse === '') {
             $('#msgReturn').append('Les champs doivent êtres remplis');
         }else if (isNaN(tel) || tel.length != 10) {
@@ -41,7 +36,6 @@ $(document).ready(function () {
                     if (html === "Votre inscription a été prise en compte" ) {
                     	form.get(0).reset();
                     } else {
-                    	$('#code').val("");
                     	$('#pass').val("");
                     }
                 }
@@ -52,34 +46,34 @@ $(document).ready(function () {
 
 </script>
 
-<center>
-	<h2>Inscription</h2>
-</center>
+
+<h2>Inscription</h2>
+
 <div id="espace_reserve">
 	Attention ! L'inscription au site est <span>réservée</span> aux seuls <span>membres</span>
 	de l'association.<br /> Si vous n'en faites pas partie, nous serions
 	ravis que vous nous rejoignez.
 </div>
-<form id='inscription' action="verifier.php?<?PHP echo SID; ?>" method="post">
+<form id='inscription' action="inscription_traitement.php" method="post">
 	<table>
 		<tr>
 			<td>Prénom</td>
-			<td><input type="text" value="" id='prenom' name="prenom" size=27 required></td>
+			<td><input type="text" value="" id='prenom' name="prenom" required></td>
 		</tr>
 		<tr>
 			<td>Nom</td>
-			<td><input type="text" value="" id='nom' name="nom" size=27 required ></td>
+			<td><input type="text" value="" id='nom' name="nom" required></td>
 		</tr>
 		<tr>
 			<td colspan="2"><br></td>
 		</tr>
 		<tr>
 			<td>Pseudo</td>
-			<td><input type="text" value="" id='pseudo' name="pseudo" size=27 required></td>
+			<td><input type="text" value="" id='pseudo' name="pseudo" required></td>
 		</tr>
 		<tr>
 			<td>Mot de Passe</td>
-			<td><input type="password" value="" id='mdp' name="mdp" size=27 required></td>
+			<td><input type="password" value="" id='mdp' name="mdp" required></td>
 		</tr>
 		<tr>
 			<td colspan="2"><br></td>
@@ -90,29 +84,23 @@ $(document).ready(function () {
 		</tr>
 		<tr>
 			<td>Téléphone</td>
-			<td><input type="text" value="" id='tel' name="tel" size=27 required></td>
+			<td><input type="text" value="" id='tel' name="tel" required></td>
 		</tr>
 		<tr>
 			<td>E-mail</td>
-			<td><input type="text" value="" id='mail' name="email" size=27 required></td>
+			<td><input type="text" value="" id='mail' name="email" required></td>
 		</tr>
 		<tr>
 			<td colspan="2"><br></td>
 		</tr>
 		<tr>
-			<td>Ajout de vos coordonnées<br /> dans l'annuaire <br />des membres
-				de l'association.<br /> Oui si coché
-			</td>
+			<td>Ajout de vos coordonnées dans l'annuaire des membres de
+				l'association. Oui si coché</td>
 			<td><input type="checkbox" name="etat_annuaire" value="true"></td>
 		</tr>
-		<tr>
-			<td colspan="2" align="center"><?php dsp_crypt(0,1); ?></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">Recopier le code:<br> <input
-				type="text" name="code" id='code' required></td>
-		</tr>
 	</table>
+	<div class="g-recaptcha"
+		data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></div>
 
 	<br> <input type="submit" name="submit" value="S'inscrire" />
 </form>

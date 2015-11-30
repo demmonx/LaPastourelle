@@ -1,47 +1,73 @@
 <?php
-if (!isset($_SESSION['pseudo']) OR !isset($_SESSION['pass'])OR !verifLo($_SESSION['pseudo'], $_SESSION['pass'])) {
-	echo "<center>
-			Vous ne pouvez pas accèder à ces pages sans être connecté en tant qu'administrateur<br />
-			Revenir à la page d'accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
-		  </center>";
-	redirect("index.php?page=accueil", 3);
-	exit(0);
-} else {
-	if (verifLoAdmin($_SESSION['pseudo'], $_SESSION['pass'])) {
-		if (isset($_POST['compteRendu'])) {
-			//$req_up = $bdd->prepare('UPDATE texte SET texte= ? WHERE txt_page="compte_rendu"');
-			$req_up = $bdd->select("UPDATE texte SET texte='" . $_POST['compteRendu'] . "' WHERE txt_page='compte_rendu'");
-			//$req_up->execute(array($_POST['compteRendu']));
-		
-			//Affichage
-			echo '<center>Modification effectuée</center>';
-			echo "<center><a class='btn btn-link' href='index.php?page=compte_rendu'>Retour à la page précédente</a></center>";
-			exit();
-		}
-		echo '<center><H2>ADMINISTRATION DU COMPTE RENDU</H2><BR><BR></center>';
-
-		//recupération de l'actualite
-		$compte_rendu =  recup_compteRendu(); 
-		
-		//nouvelle actualité
-		
-		echo "
-				  <FORM METHOD=POST ACTION='index.php?page=compte_rendu' >
-					Modifier le compte rendu : <BR>
-					<textarea class='form-compteRendu' name='compteRendu' rows='15' cols='20'>".strip_tags(nl2br($compte_rendu))."</textarea><br />
-					<INPUT class='btn' type=\"submit\" value=\"Modifier\">
-				  </FORM>";
-	} else {
-		echo '<DIV id="accueil">';
-		echo '<center><H2>COMPTE RENDU DE REUNION, D\'ASSEMBLEE GENERALE, ...</H2></center>
-			  </div>';
-
-		//recupération des comptes rendu
-		$texte_compteRendu =  recup_compteRendu();
-		if ( $texte_compteRendu != false){
-			echo $texte_compteRendu;
-		}
-		
-	}
+@session_start();
+require_once "traitement.inc.php";
+verifLoginWithArray($_SESSION, 0);
+try {
+    $adminOk = checkLoginWithArray($_SESSION, 1);
+} catch (Exception $e) {
+    $adminOk = false;
 }
+// Affichage du titre
+if ($adminOk) {
+    echo '<H2>Ajouter un compte rendu</H2>';
+    ?>
+<form action='compte_rendu_traitement.php' method='post' id='new-cr'>
+	<textarea name='content' class='editor' placeholder='Contenu'></textarea>
+	<br /> <label>Date de réunion : </label><input type='text'
+		class='datepicker' name='date' placeholder="jj/mm/aaaa" required /> <input
+		type="submit" value="Ajouter" />
+</form>
+<?php
+}
+echo "<div id='list-cr'>";
+require_once 'list_compte_rendu.php';
 ?>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+	/* Vérification de la date */
+	function checkDate(date) {
+		return ( (new Date(date) !== "Invalid Date" && !isNaN(new Date(date)) ));
+	}
+
+	function refresh() {
+		$("#list-cr").load("list_compte_rendu.php");
+		}
+	
+    /** * Formulaire de connexion ** */
+    $('#new-cr').on('submit', function (e) {
+        e.preventDefault(); // Empeche de soumettre le formulaire
+        tinyMCE.triggerSave();
+        var form = $(this); // L'objet jQuery du formulaire
+
+        // Récupération des valeurs
+        var content = $("textarea[name=content]", form).val();  
+        var date = $("input[name=date]", form).val();  
+
+        $('#msgReturn').empty();
+        // Vérifie pour éviter de lancer une requête fausse
+        if (content === '' || date === '') {
+            alert('Les champs doivent êtres remplis');
+        } else if (!checkDate(date)) {
+            	alert("La date doit être valide");         
+        } else {
+            // Envoi de la requête HTTP en mode asynchrone
+            $.ajax({
+                url: form.attr('action'), // cible (formulaire)
+                type: form.attr('method'), // méthode (formulaire)
+                data: form.serialize(), // Envoie de toutes les données
+                success: function (html) { // Récupération de la réponse
+                    if (html == "Ajout effectué avec succès") {
+                    	refresh();
+                    	form.get(0).reset();
+                        }
+                    alert(html);  // affichage du résultat
+                }
+            });
+        }
+    });
+
+});
+</script>
