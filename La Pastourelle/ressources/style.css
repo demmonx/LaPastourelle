@@ -8,9 +8,8 @@
 }
 
 header, footer {
-	background-color: rgb(40, 40, 40);
-	color
-	(170,170,170);
+	background: url('images/background-header.jpg');
+	color:RGB(214,214,214);
 }
 
 .row {
@@ -126,3 +125,7 @@ figure {
 	width: 200px;
 	heaight: auto;
 }*/
+
+.logoPastourelle{
+	width:125px;
+}

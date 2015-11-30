@@ -8,7 +8,7 @@ require 'header.inc.php';
 			<div class="col-md-3">
 			<figure>
 				<a href="index.php" title="Revenir à l'accueil">
-				<img src="ressources/images/logo.png" alt="La Pastourelle de Rodez"/>
+				<img src="ressources/images/logo.png" class="logoPastourelle" alt="La Pastourelle de Rodez"/>
 					</a>
 	<figcaption><strong>Groupe Folklorique Rouergat</strong><br /> Fondé en 1948</figcaption>
 </figure>
