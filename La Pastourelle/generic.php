@@ -1,6 +1,6 @@
 <?php
 if (! isset($page))
-    exit("404 not found");
+    exit("404 not found". footer());
 
 if (isset($type)) {
     switch ($type) {

@@ -883,8 +883,12 @@ function extractMusicFromARow ($row)
  */
 function upload_file ($basedir, $format, $file, $prefix = "")
 {
-    // nom du fichier choisi:
-    $nomFichier = str_replace(' ', '', $file["name"]);
+	
+	$nomFichier = preg_replace("#[^a-z0-9A-Z_.\-]+#", '', $file["name"]);
+	if (strlen($nomFichier) <= 0) {
+		throw new Exception("Le nom doit contenir des caractères valides");
+	}
+	
     // nom temporaire sur le serveur:
     $nomTemporaire = str_replace(' ', '', $file["tmp_name"]);
     // type du fichier choisi:
@@ -1664,6 +1668,9 @@ function addActuType ($nom)
     // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
     // requêtes
     $type = preg_replace("#[^!_a-z]+#", '', strtolower($nom));
+    if (strlen($type) <= 0) {
+    	throw new Exception("Le nom doit contenir des lettres");
+    }
     $bdd = new Connection();
     
     // On regarde si le type existe déjà

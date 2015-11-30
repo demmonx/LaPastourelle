@@ -35,7 +35,7 @@ $(document).ready(function () {
                 type: 'GET',
                 success: function (html) { // Récupération de la réponse
                     // recharge la liste des images si ok
-                    if (html === "Suppression effectuée avec succès") {
+                    if (html == "Suppression effectuée avec succès") {
                         refresh();
                     } else {
                         alert(html);

@@ -40,6 +40,13 @@ html {
 }
 
 @media ( min-width :768px) {
+	 .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-nav > li {
+    display: inline-block;
+  }
 	.footer {
 		position: absolute;
 		bottom: 0;
@@ -113,16 +120,14 @@ figure {
 	display: block;
 	text-align: center;
 }
+
 .titre-site {
 	word-wrap: break-word;
 	font-size: 20px;
 	font-family: "Verdana";
 	text-align: center;
 }
+
 .aveyron-carte {
 	background: url("ressources/images/");
 }
-/*.slide-top img {
-	width: 200px;
-	heaight: auto;
-}*/
