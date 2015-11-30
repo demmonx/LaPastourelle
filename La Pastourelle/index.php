@@ -8,15 +8,15 @@ require 'header.inc.php';
 			<div class="col-md-3">
 			<figure>
 				<a href="index.php" title="Revenir à l'accueil">
-				<img src="ressources/images/logo.png" class="logoPastourelle" alt="La Pastourelle de Rodez"/>
-					</a>
+					<img src="ressources/images/logo.png" class="logoPastourelle" alt="La Pastourelle de Rodez"/>
+				</a>
 	<figcaption><strong>Groupe Folklorique Rouergat</strong><br /> Fondé en 1948</figcaption>
 </figure>
 			</div>
 
 			<div class="col-md-3 aveyron-carte">
 				<div class='titre-site'>La Pastourelle<br />Rodez</div>
-
+				<img src="ressources/images/aveyron.png" class="logoAveyron" alt="Logo de l'Aveyron"/>
 			</div>
 
 			<div class="col-md-5">

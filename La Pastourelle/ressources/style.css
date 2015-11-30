@@ -7,9 +7,16 @@
 	border-right: 1px solid grey;
 }
 
-header, footer {
+header{
+	color:RGB(214,214,214);
+	font-family: 'Open Sans light';
+	background: url('images/background-header.jpg');
+}
+
+footer{
 	background: url('images/background-header.jpg');
 	color:RGB(214,214,214);
+	font-family: 'Open Sans light';
 }
 
 .row {
@@ -118,14 +125,19 @@ figure {
 	font-family: "Verdana";
 	text-align: center;
 }
-.aveyron-carte {
-	background: url("ressources/images/");
-}
-/*.slide-top img {
-	width: 200px;
-	heaight: auto;
-}*/
 
 .logoPastourelle{
 	width:125px;
 }
+
+.logoAveyron{
+	width:175px;
+	position:absolute;
+	top:-16px;
+	left:30%;
+}
+
+/*.slide-top img {
+	width: 200px;
+	heaight: auto;
+}*/

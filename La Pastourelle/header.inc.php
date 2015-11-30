@@ -50,6 +50,7 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 	href="ressources/slick/slick-theme.css" />
 <link rel="stylesheet" media="all" href="ressources/style.css" type="text/css" />
 <link rel="icon" type="image/png" href="image/faviconlogo.png" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 
 <!-- polices -->
 <link href='http://fonts.googleapis.com/css?family=Kaushan+Script'
