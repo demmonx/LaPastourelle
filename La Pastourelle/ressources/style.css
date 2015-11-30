@@ -30,9 +30,21 @@ html {
 }
 
 @media ( max-width :768px) {
+	.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+}
+
+@media ( max-width: 1400px) {
 	.footer {
 		position: relative;
 		width: 100%;
+		margin-top: 20px;
 	}
 	.slick-dots li button:before {
 		display: none
@@ -45,14 +57,7 @@ html {
 	}
 }
 
-@media ( min-width :768px) {
-	 .navbar-nav {
-    width: 100%;
-    text-align: center;
-  }
-  .navbar-nav > li {
-    display: inline-block;
-  }
+@media ( min-width :1400px) {
 	.footer {
 		position: absolute;
 		bottom: 0;
@@ -91,8 +96,17 @@ a {
 }
 
 a:hover {
-	color: #000000;
+	color: rgb(190, 190, 190);
 	text-decoration: none;
+}
+
+.lang-chooser {
+	position:absolute;
+	bottom:0;
+}
+.col-md-1 {position:relative;
+min-height: 150px;
+margin:auto;
 }
 
 img {
@@ -101,9 +115,11 @@ img {
 }
 
 .img-lang {
-	max-width: 40px;
-	max-height: 40px;
-}
+		max-width: 40px;
+		max-height: 40px;
+
+	}
+
 
 /* Page compte rendu */
 .form-compteRendu {
@@ -130,7 +146,6 @@ figure {
 .titre-site {
 	word-wrap: break-word;
 	font-size: 20px;
-	font-family: "Verdana";
 	text-align: center;
 }
 
@@ -140,14 +155,9 @@ figure {
 }
 
 .logoAveyron{
-	width:175px;
+	width:180px;
 	position:absolute;
 	top:-16px;
 	left:30%;
 }
 
-/*.slide-top img {
-	width: 200px;
-	heaight: auto;
-}*/
-}

@@ -18,6 +18,10 @@ if (strlen($tel) != 10) {
     exit("Le numéro de téléphone doit faire 10 caractères");
 }
 
+if (strlen($mail) >= 100) {
+	exit("L'adresse mail doit faire moins de 100 caractères");
+}
+
 // Si fichier on l'héberge
 if (isset($_FILES["fichier"]) && ! empty($_FILES["fichier"]["name"])) {
     $file = $_FILES["fichier"];

@@ -17,6 +17,9 @@ if (!($pays && $titre || $id)) {
  */
 
 if ($id == null) {
+	if (strlen($titre) >= 100) {
+		exit("Le titre doit faire moins de 100 caractères");
+	}
 if (addVoyage ($pays, $titre, $texte)){
 	exit("Ajout effectué avec succès");
 } else {

@@ -31,6 +31,13 @@ if ($action) {
             exit("L'action selectionnée est invalide");
     }
 } // else
+	
+if (strlen($band) >= 100) {
+	exit("Le nom du groupe doit faire moins de 100 caractères");
+}
+if (strlen($name) >= 100) {
+	exit("Le titre doit faire moins de 100 caractères");
+}
 
 $file = $_FILES["fichier"];
 

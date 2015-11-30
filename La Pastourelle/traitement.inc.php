@@ -1667,10 +1667,11 @@ function addActuType ($nom)
 {
     // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
     // requêtes
-    $type = preg_replace("#[^!_a-z]+#", '', strtolower($nom));
+    $type = substr(preg_replace("#[^!_a-z]+#", '', strtolower($nom)),0,30);
     if (strlen($type) <= 0) {
     	throw new Exception("Le nom doit contenir des lettres");
     }
+    $nom = substr($nom, 0, 100);
     $bdd = new Connection();
     
     // On regarde si le type existe déjà
@@ -1701,7 +1702,11 @@ function addProduct ($nom, $prix)
 {
     // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
     // requêtes
-    $type = preg_replace("#[^!_a-z]+#", '', strtolower($nom));
+    $type = substr(preg_replace("#[^!_a-z]+#", '', strtolower($nom)),0,30);
+    if (strlen($type) <= 0) {
+    	throw new Exception("Le nom doit contenir des lettres");
+    }
+    $nom = substr($nom, 0, 100);
     $bdd = new Connection();
     
     // On regarde si le type existe déjà
@@ -2085,7 +2090,11 @@ function addPage ($nom)
 {
     // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
     // requêtes
-    $code = preg_replace("#[^!_a-z]+#", '', $nom);
+    $code = substr(preg_replace("#[^!_a-z]+#", '', strtolower($nom)),0,30);
+    if (strlen($code) <= 0) {
+    	throw new Exception("Le nom doit contenir des lettres");
+    }
+    $nom = substr($nom, 0, 100);
     $bdd = new Connection();
     
     // On regarde si le type existe déjà
@@ -2212,6 +2221,8 @@ function inscriptionBDD ($var)
     $prenom = ucfirst($var["prenom"]);
     $adresse = $var["adresse"];
     $etat_annuaire = 0;
+       
+    
     if (isset($var["etat_annuaire"]) && $var["etat_annuaire"] == "true") {
         $etat_annuaire = 1;
     }

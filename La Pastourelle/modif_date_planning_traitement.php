@@ -14,6 +14,14 @@ if (! $date || ! $lieu || ! $jour || ! $musiciens || ! $id) {
     exit("Les champs doivent être remplis");
 }
 
+if (strlen($lieu) >= 100) {
+	exit("Le lieu doit faire moins de 100 caractères");
+}
+
+if (strlen($musiciens) >= 150) {
+	exit("Les musiciens doivent faire moins de 150 caractères");
+}
+
 // traitement de la date pour l'inserer de la forme aaaa/mm/jj pour pouvoir les
 // classer par date
 $morceau_date = explode("/", $date);

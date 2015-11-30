@@ -43,7 +43,7 @@ $(document).ready(function () {
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
                     // On efface si ok
-                    if (html === "Ajout effectué avec succès") {
+                    if (html.search("succès") >= 0) {
 						 form.get(0).reset();
 						 refresh();
                     }

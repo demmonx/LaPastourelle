@@ -33,7 +33,7 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
-                    if (html === "Votre inscription a été prise en compte" ) {
+                    if (html.search("compte") >= 0) {
                     	form.get(0).reset();
                     } else {
                     	$('#pass').val("");

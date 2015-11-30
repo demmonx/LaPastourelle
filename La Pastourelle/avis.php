@@ -56,7 +56,7 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
-                    if (html === "Le message a été envoyé avec succès" ) {
+                    if (html.search("succès") >= 0) {
                     	form.get(0).reset();
                     }
                 }
