@@ -1,7 +1,7 @@
 <?php 
 try {
 	checkLoginWithArray($_SESSION, 0);
-	exit("Nous êtes déjà connecté sur le site");
+	exit("Vous êtes déjà connecté sur le site".footer());
 } catch (Exception $e) {
 	// do nothing
 }

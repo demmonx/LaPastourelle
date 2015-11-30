@@ -1,10 +1,8 @@
 <?php
-require_once 'traitement.inc.php';
-
 $test = getVoyage();
 
 if (count($test) <= 0) {
-    exit("Aucun continent trouvé");
+    exit("Aucun continent trouvé".footer());
 }
 $continent = ""; // Variable utilisée pour savoir si le continent à déjà été
                  // écrit
