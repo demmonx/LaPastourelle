@@ -1,4 +1,6 @@
 <?php
+
+require_once 'footer.inc.php';
 /**
  * Vérifie la connexion d'un membre
  * @param string $login Le pseudo du membre
@@ -62,7 +64,7 @@ function verifLogin($pseudo, $pass, $level) {
 	try {
 		checkLogin($pseudo, $pass, $level);
 	} catch (Exception $e) {
-		exit($e->getMessage());
+		exit($e->getMessage().footer());
 	}
 }
 
@@ -75,6 +77,6 @@ function verifLoginWithArray($infos, $level) {
 	try {
 		checkLoginWithArray($infos, $level);
 	} catch (Exception $e) {
-		exit($e->getMessage());
+		exit($e->getMessage().footer());
 	}
 }
