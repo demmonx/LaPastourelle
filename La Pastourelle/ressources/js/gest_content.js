@@ -1,12 +1,5 @@
 $(document).ready(function () {
 
-    /*** Spoiler ***/
-    // Clique sur élément
-    $(".spoiler").click(function () {
-        $(this).next().toggle(0); // inverse l'état de l'élément suivant en 4ms
-        return false;  // bloque la fonction par défaut
-    });
-
 	$('.delete').on('click', function (e) {
         e.preventDefault(); // bloque le click sur le lien
         // confirmation

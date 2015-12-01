@@ -42,6 +42,8 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 	type="text/css" />
 <link rel="stylesheet"
 	href="ressources/bootstrap/css/bootstrap-theme.css" type="text/css" />
+	<link rel="stylesheet"
+	href="ressources/bootstrap/css/normalize.css" type="text/css" />
 <link rel="stylesheet"
 	href="ressources/smartmenus/addons/bootstrap/jquery.smartmenus.bootstrap.css"
 	type="text/css" />

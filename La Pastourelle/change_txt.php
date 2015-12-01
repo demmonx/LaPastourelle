@@ -10,7 +10,7 @@ foreach ($langage as $lang) {
         $content = getContent($item['id'], $lang['id']);
         ?>
 <div>
-<?php echo $item['nom'] ?> : <button class="spoiler">Afficher / Masquer</button>
+<?php echo $item['nom'] ?> : <span class='spoiler'><i class='fa fa-plus-square-o'></i></span>
 	<div class="spoiler-hidden ">
 		<form action="change_text_traitement.php" class='update' method='post'>
 			<textarea class='editor' name='content'><?php
@@ -28,18 +28,10 @@ foreach ($langage as $lang) {
 }
 ?>
 <!-- On appelle la fonction spoiler ici, sinon elle ne trouve pas les éléments -->
+<script type="text/javascript" src="ressources/js/spoiler.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
-    /*** Spoiler ***/
-    // Clique sur élément
-    $(".spoiler").click(function () {
-        $(this).next().toggle(0); // inverse l'état de l'élément suivant en 4ms
-        return false;  // bloque la fonction par défaut
-    });
-
-
-
-    
+  
     
     $('.update').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire

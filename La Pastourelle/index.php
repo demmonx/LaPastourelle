@@ -50,7 +50,7 @@ require_once 'footer.inc.php';
 <!-- fin - header  -->
 <?php require 'menu.php'; ?>
 <!-- .contain-to-grid -->
-<section>
+<section class='container'>
 		<?php
 		
 		if (isset ( $_GET ['page'] )) {

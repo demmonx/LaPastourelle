@@ -25,7 +25,7 @@ verifLoginWithArray($_SESSION, 1);
 	<form action="slider_traitement.php" method="post"
 		enctype="multipart/form-data" id="formS">
 		<label for="fichier">Photo : <input type="file" id="uploadFile"
-			name="fichier"></label> <input class="btn btn-info" type="submit"
+			name="fichier"></label> <input class="btn btn-default" type="submit"
 			value="Ajouter">
 		<div id="msgReturn"></div>
 	</form>
