@@ -12,7 +12,7 @@ verifLoginWithArray($_SESSION, 1);
 	<input type="radio" name="type" value='img' checked> Image <input
 		type="radio" name="type" value='video'> Vidéo<br> <label for="fichier">Photo
 		: <input type="file" id="uploadFile" name="fichier">
-	</label><input class="btn btn-info" type="submit" value="Ajouter">
+	</label><input class="btn btn-default" type="submit" value="Ajouter">
 	<div id='msgReturn'></div>
 
 </form>

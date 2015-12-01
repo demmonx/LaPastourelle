@@ -27,7 +27,7 @@ if (count($tab) != 0) {
                  "</td>";
         echo "<td><form method='post' action='gestion_liens_traitement.php' class='change-img' enctype='multipart/form-data'>";
         echo "<input type='file' id='uploadFile' name='fichier'>";
-        echo "<input class='btn btn-info' type='submit' value='Ajouter'>";
+        echo "<input class='btn btn-default' type='submit' value='Ajouter'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
         echo "<td><a class='delete' href='gestion_liens_traitement.php?ac=2&id=" .
