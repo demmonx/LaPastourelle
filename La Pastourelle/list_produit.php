@@ -22,7 +22,7 @@ if (count($tab) != 0) {
         echo "<td><form method='post' action='produit_maj.php' class='change-prix'>";
         echo "<input type='number' step='0.01' name='newprix' value='" .
                  $row["prix"] . "' />";
-        echo "<input class='btn btn-info' type='submit' value='Modifier'>";
+        echo "<input class='btn btn-default' type='submit' value='Modifier'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
         $delete_img = "<a class='delete' href='produit_maj.php?ac=1&id=" .
@@ -32,7 +32,7 @@ if (count($tab) != 0) {
                  "</td>";
         echo "<td><form method='post' action='produit_maj.php' class='change-img' enctype='multipart/form-data'>";
         echo "<input type='file' name='fichier'>";
-        echo "<input class='btn btn-info' type='submit' value='Ajouter'>";
+        echo "<input class='btn btn-default' type='submit' value='Ajouter'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
         echo "<td><a class='delete' href='produit_maj.php?ac=2&id=" . $row["id"] .
@@ -61,7 +61,7 @@ $(document).ready(function () {
                 type: 'GET',
                 success: function (html) { // Récupération de la réponse
                     // recharge la liste des images si ok
-                    if (html === "Suppression effectuée avec succès") {
+                    if (html.search("succès") >= 0) {
                         refresh();
                     } else {
                    	 alert(html);                   
@@ -94,7 +94,7 @@ $(document).ready(function () {
                 data: data, // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     // On efface si ok
-                    if (html === "Modification effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                     	$("input[name=fichier]").val('');
                         refresh();
                     } else {
@@ -123,7 +123,7 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     alert(html);  // affichage du résultat
-                    if (html == "Mise à jour effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                         refresh();
                     }
                 }

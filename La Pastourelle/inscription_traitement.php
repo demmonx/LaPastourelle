@@ -35,6 +35,14 @@ if (! $prenom || ! $nom || ! $pseudo || ! $mdp || ! $adresse || ! $tel || ! $mai
     $erreur[5][1] = "Le téléphone est invalide";
     $erreur[6][0] = $mail;
     $erreur[6][1] = "L'adresse mail est invalide";
+    $erreur[7][0] = strlen($nom) < 50;
+    $erreur[7][1] = "Le nom doit faire moins de 50 caractères";
+    $erreur[8][0] = strlen($prenom) < 50;
+    $erreur[8][1] = "Le prénom doit faire moins de 50 caractères";
+    $erreur[9][0] = strlen($mail) < 100;
+    $erreur[9][1] = "L'adresse mail doit faire moins de 100 caractères";
+    $erreur[10][0] = strlen($pseudo) < 30;
+    $erreur[10][1] = "Le pseudo doit faire moins de 30 caractères";
     
     // Affichage de la première erreur trouvée
     for ($i = 0; $i < count($erreur); $i ++)

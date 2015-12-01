@@ -42,6 +42,8 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 	type="text/css" />
 <link rel="stylesheet"
 	href="ressources/bootstrap/css/bootstrap-theme.css" type="text/css" />
+	<link rel="stylesheet"
+	href="ressources/bootstrap/css/normalize.css" type="text/css" />
 <link rel="stylesheet"
 	href="ressources/smartmenus/addons/bootstrap/jquery.smartmenus.bootstrap.css"
 	type="text/css" />
@@ -50,12 +52,6 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 	href="ressources/slick/slick-theme.css" />
 <link rel="stylesheet" media="all" href="ressources/style.css" type="text/css" />
 <link rel="icon" type="image/png" href="image/faviconlogo.png" />
-
-<!-- polices -->
-<link href='http://fonts.googleapis.com/css?family=Kaushan+Script'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Oxygen'
-	rel='stylesheet' type='text/css'>
 
 <!-- Diaporama -->
 <script type="text/javascript" src="ressources/js/jquery-1.9.1.min.js"></script>

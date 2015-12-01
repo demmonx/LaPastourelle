@@ -65,6 +65,7 @@ try {
     
     // Insertion dans la BD
     if (addFile($content)) {
+    	
         exit("Ajout effectué avec succès");
     } else {
         exit("Erreur lors de l'ajout");

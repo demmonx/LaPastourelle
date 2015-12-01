@@ -2,7 +2,7 @@
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
 require_once 'traitement.inc.php';
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
 
 ?>
 <!--  Formulaire d'ajout de contenu -->
@@ -12,7 +12,7 @@ verifLoginWithArray($_SESSION, 1);
 	<input type="radio" name="type" value='img' checked> Image <input
 		type="radio" name="type" value='video'> Vidéo<br> <label for="fichier">Photo
 		: <input type="file" id="uploadFile" name="fichier">
-	</label><input class="btn btn-info" type="submit" value="Ajouter">
+	</label><input class="btn btn-default" type="submit" value="Ajouter">
 	<div id='msgReturn'></div>
 
 </form>
@@ -53,7 +53,7 @@ $(document).ready(function () {
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
                     // On efface si ok
-                    if (html === "Ajout effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                         $('#uploadFile').val('');
                         refresh();
                     }

@@ -1,5 +1,8 @@
 <?php
-require_once "traitement.inc.php";
+@session_start();
+@header ( 'Content-Type: text/html; charset=utf-8' );
+require_once 'traitement.inc.php';
+verifLoginWithArray ( $_SESSION, 1);
 // Teste les entrées
 $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
@@ -24,6 +27,9 @@ if ($action) {
     }
 } // else
 
+if (strlen($titre) >= 100) {
+	exit("Le titre doit faire moins de 100 caractères");
+}
 $file = $_FILES["fichier"];
 
 // On ajoute une diapo

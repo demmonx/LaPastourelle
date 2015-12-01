@@ -43,6 +43,15 @@ $jour = $morceau_date[0];
 $mois = $morceau_date[1];
 $annee = $morceau_date[2];
 $date = $annee . "/" . $mois . "/" . $jour;
+
+if (strlen($lieu) >= 100) {
+	exit("Le lieu doit faire moins de 100 caractères");
+}
+
+if (strlen($musiciens) >= 150) {
+	exit("Les musiciens doivent faire moins de 150 caractères");
+}
+
 if (addDatePlanning($nom_jour, $date, $lieu, $musiciens)) {
     exit("Date ajoutée au planning");
 } else {

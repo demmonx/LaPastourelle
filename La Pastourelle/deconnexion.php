@@ -9,5 +9,5 @@ echo "
 		Vous êtes déconnecté<br />
 		Cliquez ici pour revenir à l'Accueil : <a class='btn btn-link' href='index.php?page=accueil'>ICI</a>
 	";
-exit(0);
+exit(footer());
 ?>

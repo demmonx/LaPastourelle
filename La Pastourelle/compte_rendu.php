@@ -1,7 +1,7 @@
 <?php
 @session_start();
 require_once "traitement.inc.php";
-verifLoginWithArray($_SESSION, 0);
+verifLoginWithArray($_SESSION, 0, true);
 try {
     $adminOk = checkLoginWithArray($_SESSION, 1);
 } catch (Exception $e) {
@@ -59,7 +59,7 @@ $(document).ready(function () {
                 type: form.attr('method'), // méthode (formulaire)
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
-                    if (html == "Ajout effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                     	refresh();
                     	form.get(0).reset();
                         }

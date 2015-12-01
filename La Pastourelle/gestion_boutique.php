@@ -1,5 +1,5 @@
 <?php
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
 ?>
 <h1>Administration de la boutique</h1>
 <h2>Ajout d'un produit</h2>
@@ -47,7 +47,7 @@ $(document).ready(function () {
                     $('#ajout-result').append(html);  // affichage du résultat
                     $('#boutique-container').load("list_boutique.php");
                     $('#modif-produit').load("list_produit.php");
-                    if (html == "Ajout effectué avec succès") {
+                    if (html.search("succès") >= 0) {
                         form.get(0).reset();
                     }
                 }

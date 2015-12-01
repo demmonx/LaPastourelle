@@ -14,7 +14,7 @@ foreach ($message as $row) {
     echo "<p>";
     if ($adminOk) {
         echo "<a class='delete' href='livre_or_traitement.php?ac=1&id=" .
-         $row['id'] . "'><img src='ressources/images/delete.png' /></a>";
+         $row['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
     }
     echo "<span >";
     // Traduit le format de date anglais en format français
@@ -48,7 +48,7 @@ $(document).ready(function () {
                 type: 'GET',
                 success: function (html) { // Récupération de la réponse
                     // recharge la liste des images si ok
-                    if (html === "Suppression effectuée avec succès") {
+                    if (html.search("succès") >= 0) {
                         refresh();
                     } else {
                    	 alert(html);                   
