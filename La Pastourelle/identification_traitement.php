@@ -17,7 +17,7 @@ try {
     $_SESSION['pass'] = $pass;
     $_SESSION['id'] = getId($pseudo);
     exit(
-            "Vous êtes maintenant connecté sur le site de La Pastourelle de Rodez<br /><a href='index.php'>Cliquez-ici pour revenir à l'accueil</a>");
+            "Vous êtes maintenant connecté sur le site de La Pastourelle de Rodez");
 } catch (Exception $e) {
     exit($e->getMessage());
 }
