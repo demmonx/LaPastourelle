@@ -30,11 +30,11 @@ echo "</div>"?>
 <script type="text/javascript">
 $(document).ready(function(){
     $('.slide-accueil').slick({
-    	  slidesToShow: 2,
+    	  slidesToShow: 1,
     	  slidesToScroll: 1,
     	  autoplay: true,
     	  autoplaySpeed: 5000,
-    	  dots: true,
+    	  dots: false,
     	  arrows: true
     });	
 });

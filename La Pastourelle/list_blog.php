@@ -1,5 +1,5 @@
 <?php
-@session_start();
+@session_start ();
 require_once 'traitement.inc.php';
 verifLoginWithArray ( $_SESSION, 0 );
 try {
@@ -10,7 +10,7 @@ try {
 // Nombre de photos par page
 DEFINE ( "PHOTO_PER_PAGE", 4 );
 $total = getNbPic (); // Nombre de photos dispo
-                     
+                      
 // compte le nombre de pages.
 $nombreDePages = floor ( $total / PHOTO_PER_PAGE );
 
@@ -50,7 +50,7 @@ foreach ( $les_photos as $row ) {
 	// affichage des commentaires pour chaque photo s'ils existent
 	$les_commentaires = getBlogComment ( $row ['id'] );
 	echo "<b><i class='fa fa-commenting-o fa-lg'></i> Commentaires (" . count ( $les_commentaires ) . ")</b>";
-	echo"  <span class='spoiler'><i class='fa fa-plus-square-o'></i></span>";
+	echo "  <span class='spoiler'><i class='fa fa-plus-square-o'></i></span>";
 	echo "<div class='spoiler-hidden'>";
 	if (count ( $les_commentaires ) <= 0) {
 		echo "Aucun commentaire pour ce billet";
@@ -91,7 +91,7 @@ echo '<ul class="pagination">';
 if ($pageActuelle == 1) {
 	echo '<li class="disabled"><span aria-hidden="true">&laquo;</span></li>';
 } else {
-	echo '<li><a href="index.php?page=blog&lapage='.($pageActuelle-1).'" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+	echo '<li><a href="index.php?page=blog&lapage=' . ($pageActuelle - 1) . '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
 }
 
 // Affiche les pages
@@ -107,7 +107,7 @@ for($i = 1; $i <= $nombreDePages; $i ++) {
 if ($pageActuelle == $nombreDePages) {
 	echo '<li class="disabled"><span aria-hidden="true">&raquo;</span></li>';
 } else {
-	echo '<li><a href="index.php?page=blog&lapage='.($pageActuelle+1).'" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
+	echo '<li><a href="index.php?page=blog&lapage=' . ($pageActuelle + 1) . '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
 }
 echo '</ul>';
 ?>

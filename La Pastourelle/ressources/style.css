@@ -1,21 +1,30 @@
 .border-right {
-	border-right: 1px solid grey;
+	border-right: 1px solid RGB(50,50,50);
 }
 
 header{
-	color:RGB(214,214,214);
+	color:RGB(0,0,0);
 	font-family: 'Open Sans light';
 	background: url('images/background-header.jpg');
 }
 
 footer{
 	background: url('images/background-header.jpg');
-	color:RGB(214,214,214);
+	color:RGB(0,0,0);
 	font-family: 'Open Sans light';
 }
 
 .row {
 	padding: 10px;
+	max-width:1500px;
+	margin:auto;
+}
+
+section{
+	max-width:1200px;
+	margin:0 auto;
+	font-family: 'Open Sans light';
+	font-weight:bold;
 }
 
 /* required for sticky footer */
@@ -68,7 +77,7 @@ html {
 }
 	
 	body {
-		margin-bottom: 90px;
+		margin-bottom: 100px;
 	}
 }
 
@@ -84,8 +93,16 @@ body {
 }
 
 .slide-accueil, .slide-admin {
-	width: 50%;
+	width: 80%;
 	margin: auto;
+	text-align:center;
+}
+
+.slide-accueil img{
+	max-height:450px;
+	width:auto;
+	margin:0 auto;
+	box-shadow:0px 0px 2px 1px RGBA(0,0,0,0.55);
 }
 
 .slick-prev:before, .slick-next:before {
@@ -94,12 +111,14 @@ body {
 
 /** liens hypertexte */
 a {
-	color: rgb(140, 140, 140);
+	color: rgb(50,50,50);
 	text-decoration: none;
+	font-weight:bold;
+	transition:0.2s all;
 }
 
 a:hover {
-	color: rgb(190, 190, 190);
+	color: rgb(0,0,0);
 	text-decoration: none;
 }
 
@@ -146,6 +165,8 @@ figure {
 	text-align: center;
 }
 
+/* Header */
+
 .titre-site {
 	word-wrap: break-word;
 	font-size: 20px;
@@ -168,3 +189,19 @@ figure {
 	cursor:pointer;	
 }
 
+.titre-site{
+	font-family: 'Palatino Linotype';
+	font-style:italic;
+	font-size:50px;
+	position:relative; /* Pour faire passer le texte sur l'image */
+}
+
+section h1{
+	text-align:center;
+	font-weight:bold;
+	border-bottom:1px solid RGB(75,75,75);
+	width:35%;
+	margin:auto;
+	margin-bottom:20px;
+	padding-bottom:5px;
+}
