@@ -26,7 +26,7 @@ les champs qui vous sont demandés.
 				required /></td>
 		</tr>
 	</table>
-	<input type="submit" value="Connexion" />
+	</a><input type="submit" value="Connexion" />
 	<div id='msgReturn'></div>
 </FORM>
 <script language="javascript">
@@ -49,6 +49,9 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
+                    if ("Vous êtes maintenant connecté sur le site de La Pastourelle de Rodez" == html) {
+                    $('#msgReturn').append("<br /><a href='javascript:history.back()'>Cliquez-ici pour revenir à l'accueil</a>");  // affichage du résultat
+                    }
                     form.get(0).reset();                    
                 }
             });
