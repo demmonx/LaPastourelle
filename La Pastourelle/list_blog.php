@@ -35,7 +35,7 @@ foreach ( $les_photos as $row ) {
 	echo "<div>";
 	// si administrateur -> pour supprimer la photo
 	if ($adminOk) {
-		echo "<div><a class='action' href='blog_traitement.php?ac=2&id=" . $row ['id'] . "'><i class='fa fa-close fa-lg'></i></a> ";
+		echo "<div><a class='action' href='blog_traitement.php?ac=2&id=" . $row ['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
 	}
 	// la date de la photo
 	echo "<I>Le " . date ( 'd/m/Y - H\hi', strtotime ( $row ['date'] ) ) . "</I> ";
@@ -59,7 +59,7 @@ foreach ( $les_photos as $row ) {
 		echo "<div>";
 		// si administrateur -> pour supprimer un commentaire
 		if ($adminOk) {
-			echo "<a class='action' href='blog_traitement.php?ac=1&id=" . $resultat ['id'] . "'><i class='fa fa-close fa-lg'></i></a> ";
+			echo "<a class='action' href='blog_traitement.php?ac=1&id=" . $resultat ['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
 		}
 		// auteur du commentaire
 		echo "<B>" . $resultat ['pseudo'] . " : </B>";

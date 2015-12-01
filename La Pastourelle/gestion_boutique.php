@@ -1,5 +1,5 @@
 <?php
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
 ?>
 <h1>Administration de la boutique</h1>
 <h2>Ajout d'un produit</h2>

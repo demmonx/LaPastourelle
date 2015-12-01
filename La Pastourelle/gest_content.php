@@ -2,7 +2,7 @@
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
 require_once 'traitement.inc.php';
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
 
 ?>
 <!--  Formulaire d'ajout de contenu -->

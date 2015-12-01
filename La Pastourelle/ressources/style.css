@@ -1,3 +1,8 @@
+
+@font-face {
+    font-family: Open Sans light;
+    src: url(fonts/OpenSans-Light.ttf);
+}
 .border-right {
 	border-right: 1px solid RGB(50,50,50);
 }
@@ -5,6 +10,7 @@
 header{
 	color:RGB(0,0,0);
 	font-family: 'Open Sans light';
+		font-weight:lighter;
 	background: url('images/background-header.jpg');
 }
 
@@ -68,7 +74,7 @@ html {
 	.footer {
 		position: absolute;
 		bottom: 0;
-		height: 90px;
+		height: 100px;
 		width: 100%;
 	}
 	.slick-dots li button:before {
@@ -81,9 +87,14 @@ html {
 	}
 }
 
+.slide-top img {
+	margin: 5px;
+}
+	
 .slide-top {
-	max-width: 150px;
-	height: auto;
+		max-height: 100px;
+		width: auto;
+		margin-bottom: 30px;
 }
 
 body {
@@ -126,15 +137,12 @@ a:hover {
 	position:absolute;
 	bottom:0;
 }
-.col-md-1 {position:relative;
+.col-md-1 {
+	position:relative;
 min-height: 150px;
 margin:auto;
 }
 
-img {
-	width: 50%;
-	height: auto;
-}
 
 .img-lang {
 		max-width: 40px;
@@ -165,13 +173,12 @@ figure {
 	text-align: center;
 }
 
+.spoiler:hover {
+	cursor:pointer;	
+}
+
 /* Header */
 
-.titre-site {
-	word-wrap: break-word;
-	font-size: 20px;
-	text-align: center;
-}
 
 
 .logoPastourelle{
@@ -185,15 +192,11 @@ figure {
 	left:30%;
 }
 
-.spoiler:hover {
-	cursor:pointer;	
-}
-
 .titre-site{
-	font-family: 'Palatino Linotype';
 	font-style:italic;
 	font-size:50px;
 	position:relative; /* Pour faire passer le texte sur l'image */
+	text-align: center;
 }
 
 section h1{

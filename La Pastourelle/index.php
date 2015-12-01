@@ -30,12 +30,10 @@ require_once 'footer.inc.php';
 						<?php
 						$tab = getActiveDiapos ();
 						foreach ( $tab as $diapo ) {
-							echo "<div><img  height=225 src='" . $diapo ["lien"] . "'/></div>";
+							echo "<div><img  class='img-responsive' src='" . $diapo ["lien"] . "'/></div>";
 						}
 						?>		
 		</div>
-			<div>Affilié à la Fédération des Arts et Traditions Populaires du
-				Centre et Massif Central</div>
 
 			<!-- END HEADER -->
 

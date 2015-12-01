@@ -1,5 +1,5 @@
 <?php
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
 
 echo "<h1>Modification d'un texte</h1>";
 $page = getPage();
