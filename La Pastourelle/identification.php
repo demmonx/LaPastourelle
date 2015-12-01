@@ -6,12 +6,6 @@ try {
 	// do nothing
 }
 ?>
-Espace réservé aux membres de la Pastourelle
-<br />
-Pour accéder à cet espace, vous devez obligatoirement être inscrit .
-<br />
-Pour vous inscrire , cliquez sur la rubrique "s'inscrire" et remplissez
-les champs qui vous sont demandés.
 <H2>Identification</H2>
 <FORM ACTION="identification_traitement.php" class='login-form'
 	METHOD="POST">
