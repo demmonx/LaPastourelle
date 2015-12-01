@@ -1,5 +1,5 @@
 <?php
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
 ?>
 <h1>Administration des pages</h1>
 <h4>Création d'une page</h4>

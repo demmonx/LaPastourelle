@@ -1,5 +1,5 @@
 <?php
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
 // Formulaire qui changera la phrase du jour
 $languages = getLanguages();
 ?>

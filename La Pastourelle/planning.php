@@ -5,7 +5,7 @@
  * présente avec une restriction d'accès bien sur
  * @author Pierre Gaboriaud et Yohan Delmas (IUT de Rodez) Années 2009-2011
  */
-verifLoginWithArray($_SESSION, 0);
+verifLoginWithArray($_SESSION, 0, true);
 try {
     $adminOk = checkLoginWithArray($_SESSION, 1);
 } catch (Exception $e) {

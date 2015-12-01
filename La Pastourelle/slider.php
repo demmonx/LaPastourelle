@@ -1,6 +1,6 @@
 <?php
 @session_start();
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
     ?>
 
 	<div id="slideshow">

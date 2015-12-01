@@ -1,5 +1,5 @@
 <?php
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
 ?>
 <h1>Administration des revues</h1>
 <h4>Ajout d'une revue</h4>

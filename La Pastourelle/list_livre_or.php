@@ -14,7 +14,7 @@ foreach ($message as $row) {
     echo "<p>";
     if ($adminOk) {
         echo "<a class='delete' href='livre_or_traitement.php?ac=1&id=" .
-         $row['id'] . "'><img src='ressources/images/delete.png' /></a>";
+         $row['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
     }
     echo "<span >";
     // Traduit le format de date anglais en format français

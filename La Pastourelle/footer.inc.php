@@ -34,6 +34,8 @@ echo "Association reconnue d'intérêt général et
 if (isset ( $coord ['mail'] )) {
 	echo " - <a href='mailto:" . $coord ['mail'] . "'>" . $coord ['mail'] . "</a>";
 }
+echo "<br /><i>Affilié à la Fédération des Arts et Traditions Populaires du
+Centre et Massif Central</i>";
 ?>
 	</div>
 		<div class="col-md-4">

@@ -1,6 +1,6 @@
 <?php
 @session_start ();
-header ( 'Content-Type: text/html; charset=utf-8' );
+@header ( 'Content-Type: text/html; charset=utf-8' );
 require_once 'traitement.inc.php';
 verifLoginWithArray ( $_SESSION, 1 );
 
