@@ -19,11 +19,10 @@ require_once 'footer.inc.php';
 		</div>
 
 		<div class="col-md-3 aveyron-carte">
+			<img src="ressources/images/aveyron.png" class="logoAveyron" alt="Logo de l'Aveyron" />
 			<div class='titre-site'>
 				La Pastourelle<br />Rodez
 			</div>
-			<img src="ressources/images/aveyron.png" class="logoAveyron"
-				alt="Logo de l'Aveyron" />
 		</div>
 
 		<div class="col-md-5">
