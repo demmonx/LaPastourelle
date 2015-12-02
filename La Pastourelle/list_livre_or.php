@@ -14,7 +14,7 @@ foreach ($message as $row) {
     echo "<p>";
     if ($adminOk) {
         echo "<a class='delete' href='livre_or_traitement.php?ac=1&id=" .
-         $row['id'] . "'><img src='ressources/images/delete.png' /></a>";
+         $row['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
     }
     echo "<span >";
     // Traduit le format de date anglais en format français
@@ -41,7 +41,7 @@ $(document).ready(function () {
 	$('.delete').on('click', function (e) {
         e.preventDefault(); // bloque le click sur le lien
         // confirmation
-        if (confirm("Supprimer l'élément selectionnée ?")) {
+        if (confirm("Supprimer l'élément selectionné ?")) {
             // requete de suppression
             $.ajax({
                 url: $(this).attr("href"),

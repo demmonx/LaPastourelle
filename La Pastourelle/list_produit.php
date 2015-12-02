@@ -22,7 +22,7 @@ if (count($tab) != 0) {
         echo "<td><form method='post' action='produit_maj.php' class='change-prix'>";
         echo "<input type='number' step='0.01' name='newprix' value='" .
                  $row["prix"] . "' />";
-        echo "<input class='btn btn-info' type='submit' value='Modifier'>";
+        echo "<input class='btn btn-default' type='submit' value='Modifier'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
         $delete_img = "<a class='delete' href='produit_maj.php?ac=1&id=" .
@@ -32,7 +32,7 @@ if (count($tab) != 0) {
                  "</td>";
         echo "<td><form method='post' action='produit_maj.php' class='change-img' enctype='multipart/form-data'>";
         echo "<input type='file' name='fichier'>";
-        echo "<input class='btn btn-info' type='submit' value='Ajouter'>";
+        echo "<input class='btn btn-default' type='submit' value='Ajouter'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
         echo "<td><a class='delete' href='produit_maj.php?ac=2&id=" . $row["id"] .
@@ -54,7 +54,7 @@ $(document).ready(function () {
 	$('.delete').on('click', function (e) {
         e.preventDefault(); // bloque le click sur le lien
         // confirmation
-        if (confirm("Supprimer l'élément selectionnée ?")) {
+        if (confirm("Supprimer l'élément selectionné ?")) {
             // requete de suppression
             $.ajax({
                 url: $(this).attr("href"),

@@ -10,10 +10,10 @@ if (count($allVoyage) > 0) {
     foreach ($allVoyage as $voy) {
         echo "<div>";
         echo "<a class='delete' href='gestion_voyage_traitement.php?ac=1&id=" .
-                 $voy["id"] . "'><i class='fa fa-close fa-2x'></i></a>";
-        echo " " . $voy["pays"];
+                 $voy["id"] . "'><i class='fa fa-close fa-2x'></i></a> ";
+        echo $voy["pays"];
         echo " " . $voy["titre"] . " ";
-        echo "<button class='spoiler'>Afficher / Masquer</button><div class='spoiler-hidden' >";
+        echo "<span class='spoiler'><i class='fa fa-plus-square-o'></i></span><div class='spoiler-hidden' >";
         // Formulaire de modification
         
         echo "
@@ -42,4 +42,5 @@ if (count($allVoyage) > 0) {
 	function refresh() {
 		$("#liste-continent").load("liste_voyage.php");
 	}</script>
+	<script type="text/javascript" src="ressources/js/spoiler.js"></script>
 <script type="text/javascript" src="ressources/js/gest_content.js"></script>

@@ -1,17 +1,11 @@
-<?php 
+<?php
 try {
-	checkLoginWithArray($_SESSION, 0);
-	exit("Vous êtes déjà connecté sur le site".footer());
+    checkLoginWithArray($_SESSION, 0);
+    exit("Vous êtes déjà connecté sur le site" . footer());
 } catch (Exception $e) {
-	// do nothing
+    // do nothing
 }
 ?>
-Espace réservé aux membres de la Pastourelle
-<br />
-Pour accéder à cet espace, vous devez obligatoirement être inscrit .
-<br />
-Pour vous inscrire , cliquez sur la rubrique "s'inscrire" et remplissez
-les champs qui vous sont demandés.
 <H2>Identification</H2>
 <FORM ACTION="identification_traitement.php" class='login-form'
 	METHOD="POST">
@@ -26,7 +20,7 @@ les champs qui vous sont demandés.
 				required /></td>
 		</tr>
 	</table>
-	<input type="submit" value="Connexion" />
+	</a><input type="submit" value="Connexion" />
 	<div id='msgReturn'></div>
 </FORM>
 <script language="javascript">
@@ -49,6 +43,9 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
+                    if (html.search("connecté") >= 0) {
+                    $('#msgReturn').append("<br /><a href='javascript:history.back()'>Cliquez-ici pour revenir à la page précédente</a>");  // affichage du résultat
+                    }
                     form.get(0).reset();                    
                 }
             });

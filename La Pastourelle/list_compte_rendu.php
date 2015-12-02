@@ -26,7 +26,7 @@ foreach ($list as $row) {
                  $row["id"] . "'><i class='fa fa-close fa-2x'></i></a>";
         echo $delete_img . " ";
     }
-    echo "Compte rendu du " . date("j-M-Y", strtotime($row['date'])) . " : <button class='spoiler'>Afficher / Masquer</button>
+    echo "Compte rendu du " . date("j-M-Y", strtotime($row['date'])) . " : <span class='spoiler'><i class='fa fa-plus-square-o'></i></span>
         	<div class='spoiler-hidden' >";
     // Formulaire de modification
     if ($admin) {
@@ -52,3 +52,4 @@ foreach ($list as $row) {
  		$("#list-cr").load("list_compte_rendu.php");
  	}</script>
 <script type="text/javascript" src="ressources/js/gest_content.js"></script>
+<script type="text/javascript" src="ressources/js/spoiler.js"></script>

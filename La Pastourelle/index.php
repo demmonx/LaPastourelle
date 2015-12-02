@@ -19,11 +19,10 @@ require_once 'footer.inc.php';
 		</div>
 
 		<div class="col-md-3 aveyron-carte">
+			<img src="ressources/images/aveyron.png" class="logoAveyron" alt="Logo de l'Aveyron" />
 			<div class='titre-site'>
 				La Pastourelle<br />Rodez
 			</div>
-			<img src="ressources/images/aveyron.png" class="logoAveyron"
-				alt="Logo de l'Aveyron" />
 		</div>
 
 		<div class="col-md-5">
@@ -31,12 +30,10 @@ require_once 'footer.inc.php';
 						<?php
 						$tab = getActiveDiapos ();
 						foreach ( $tab as $diapo ) {
-							echo "<div><img  height=225 src='" . $diapo ["lien"] . "'/></div>";
+							echo "<div><img  class='img-responsive' src='" . $diapo ["lien"] . "'/></div>";
 						}
 						?>		
 		</div>
-			<div>Affilié à la Fédération des Arts et Traditions Populaires du
-				Centre et Massif Central</div>
 
 			<!-- END HEADER -->
 
@@ -50,7 +47,7 @@ require_once 'footer.inc.php';
 <!-- fin - header  -->
 <?php require 'menu.php'; ?>
 <!-- .contain-to-grid -->
-<section>
+<section class='container'>
 		<?php
 		
 		if (isset ( $_GET ['page'] )) {

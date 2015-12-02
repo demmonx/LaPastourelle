@@ -1,5 +1,5 @@
 <?php
-verifLoginWithArray($_SESSION, 1);
+verifLoginWithArray($_SESSION, 1, true);
 ?>
 <h1>Administration de l'actualité</h1>
 <h2>Création d'un type d'actualité</h2>

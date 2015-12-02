@@ -1,5 +1,5 @@
 <?php
-verifLoginWithArray($_SESSION, 0);
+verifLoginWithArray($_SESSION, 0, true);
     ?>
 <script language="javascript">
 $(document).ready(function () {

@@ -22,7 +22,7 @@ if (count ( $tab ) != 0) {
 		echo "<td>" . (! empty ( $row ["img"] ) ? $row ["img"] . $delete_img : "Pas d'image") . "</td>";
 		echo "<td><form method='post' action='actu_type_maj.php' class='change-img' enctype='multipart/form-data'>";
 		echo "<input type='file' id='uploadFile' name='fichier'>";
-		echo "<input class='btn btn-info' type='submit' value='Ajouter'>";
+		echo "<input class='btn btn-default' type='submit' value='Ajouter'>";
 		echo "<input type='hidden' name='id' value='".$row ["id"]."' />";
 		echo "</form></td>";
 		echo "<td><a class='delete' href='actu_type_maj.php?ac=2&id=" . $row ["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
@@ -43,7 +43,7 @@ $(document).ready(function () {
 	$('.delete').on('click', function (e) {
         e.preventDefault(); // bloque le click sur le lien
         // confirmation
-        if (confirm("Supprimer l'élément selectionnée ?")) {
+        if (confirm("Supprimer l'élément selectionné ?")) {
             // requete de suppression
             $.ajax({
                 url: $(this).attr("href"),
