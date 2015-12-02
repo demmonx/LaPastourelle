@@ -883,12 +883,11 @@ function extractMusicFromARow ($row)
  */
 function upload_file ($basedir, $format, $file, $prefix = "")
 {
-	
-	$nomFichier = preg_replace("#[^a-z0-9A-Z_.\-]+#", '', $file["name"]);
-	if (strlen($nomFichier) <= 0) {
-		throw new Exception("Le nom doit contenir des caractères valides");
-	}
-	
+    $nomFichier = preg_replace("#[^a-z0-9A-Z_.\-]+#", '', $file["name"]);
+    if (strlen($nomFichier) <= 0) {
+        throw new Exception("Le nom doit contenir des caractères valides");
+    }
+    
     // nom temporaire sur le serveur:
     $nomTemporaire = str_replace(' ', '', $file["tmp_name"]);
     // type du fichier choisi:
@@ -1644,16 +1643,26 @@ function updatePhraseJour ($content, $lang)
 {
     $bdd = new Connection();
     
-    // Si pas d'objet on insère à condition que le contenu ne soit pas vide,
-    // sinon inutile
-    if (! empty(trim($content))) {
+    // On regarde si la valeur existe déjà
+    $stmt1 = $bdd->prepare(
+            "SELECT * FROM phrase_jour
+			WHERE  phrase_lang = :lang");
+    $stmt1->bindValue(":lang", $lang);
+    $stmt1->execute();
+    
+    // Déjà des valeurs pour cette ville et on veut supprimer
+    $null = $stmt1->rowCount() != 0 && empty(trim($content));
+    
+    // On insère la nouvelle valeur
+    if ($null || ! empty(trim($content))) {
         $stmt2 = $bdd->prepare(
                 "INSERT INTO phrase_jour
 			(phrase_content, phrase_lang) VALUES (:valeur, :lang)");
-        $stmt2->bindValue(":valeur", $content);
+        $stmt2->bindValue(":valeur", ($null ? null : $content));
         $stmt2->bindValue(":lang", $lang);
         $stmt2->execute();
     }
+    
     return true;
 }
 
@@ -1667,9 +1676,9 @@ function addActuType ($nom)
 {
     // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
     // requêtes
-    $type = substr(preg_replace("#[^!_a-z]+#", '', strtolower($nom)),0,30);
+    $type = substr(preg_replace("#[^!_a-z]+#", '', strtolower($nom)), 0, 30);
     if (strlen($type) <= 0) {
-    	throw new Exception("Le nom doit contenir des lettres");
+        throw new Exception("Le nom doit contenir des lettres");
     }
     $nom = substr($nom, 0, 100);
     $bdd = new Connection();
@@ -1702,9 +1711,9 @@ function addProduct ($nom, $prix)
 {
     // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
     // requêtes
-    $type = substr(preg_replace("#[^!_a-z]+#", '', strtolower($nom)),0,30);
+    $type = substr(preg_replace("#[^!_a-z]+#", '', strtolower($nom)), 0, 30);
     if (strlen($type) <= 0) {
-    	throw new Exception("Le nom doit contenir des lettres");
+        throw new Exception("Le nom doit contenir des lettres");
     }
     $nom = substr($nom, 0, 100);
     $bdd = new Connection();
@@ -2090,9 +2099,9 @@ function addPage ($nom)
 {
     // Type en minuscule, sans accent et sans espace qui sera utilisé dans les
     // requêtes
-    $code = substr(preg_replace("#[^!_a-z]+#", '', strtolower($nom)),0,30);
+    $code = substr(preg_replace("#[^!_a-z]+#", '', strtolower($nom)), 0, 30);
     if (strlen($code) <= 0) {
-    	throw new Exception("Le nom doit contenir des lettres");
+        throw new Exception("Le nom doit contenir des lettres");
     }
     $nom = substr($nom, 0, 100);
     $bdd = new Connection();
@@ -2221,7 +2230,6 @@ function inscriptionBDD ($var)
     $prenom = ucfirst($var["prenom"]);
     $adresse = $var["adresse"];
     $etat_annuaire = 0;
-       
     
     if (isset($var["etat_annuaire"]) && $var["etat_annuaire"] == "true") {
         $etat_annuaire = 1;

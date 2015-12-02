@@ -49,7 +49,7 @@ $(document).ready(function () {
 	$('.delete').on('click', function (e) {
         e.preventDefault(); // bloque le click sur le lien
         // confirmation
-        if (confirm("Supprimer l'élément selectionnée ?")) {
+        if (confirm("Supprimer l'élément selectionné ?")) {
             // requete de suppression
             $.ajax({
                 url: $(this).attr("href"),
