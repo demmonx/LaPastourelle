@@ -1,9 +1,9 @@
-<?php 
+<?php
 try {
-	checkLoginWithArray($_SESSION, 0);
-	exit("Vous êtes déjà connecté sur le site".footer());
+    checkLoginWithArray($_SESSION, 0);
+    exit("Vous êtes déjà connecté sur le site" . footer());
 } catch (Exception $e) {
-	// do nothing
+    // do nothing
 }
 ?>
 <H2>Identification</H2>
@@ -43,8 +43,8 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
-                    if ("Vous êtes maintenant connecté sur le site de La Pastourelle de Rodez" == html) {
-                    $('#msgReturn').append("<br /><a href='javascript:history.back()'>Cliquez-ici pour revenir à l'accueil</a>");  // affichage du résultat
+                    if (html.search("connecté") >= 0) {
+                    $('#msgReturn').append("<br /><a href='javascript:history.back()'>Cliquez-ici pour revenir à la page précédente</a>");  // affichage du résultat
                     }
                     form.get(0).reset();                    
                 }
