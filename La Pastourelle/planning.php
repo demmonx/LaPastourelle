@@ -53,36 +53,36 @@ $(document).ready(function () {
     });
 });
 </SCRIPT>
-<H2>ADMINISTRATION DU PLANNING</H2>
+<H2>Ajouter un évènement</H2>
 
 <FORM class='form-horizontal' id='ajout' METHOD='POST'
 	ACTION='planning_traitement.php'>
 	<table>
 		<tr>
 			<td>Jour</td>
-			<td><INPUT type=text id='jour' name='jour' required /></td>
+			<td><INPUT type=text id='jour' name='jour' placeholder='Samedi' required /></td>
 		</tr>
 		<tr>
-			<td>Date (jj/mm/aaaa)</td>
+			<td>Date </td>
 			<td><INPUT type=text id='date' class='datepicker' name='date'
-				required /></td>
+				required placeholder='07/12/2015' /></td>
 		</tr>
 		<tr>
 			<td>Lieu</td>
-			<td><INPUT type=text id='lieu' name='lieu' required /></td>
+			<td><INPUT placeholder='Rodez' type=text id='lieu' name='lieu' required /></td>
 		</tr>
 		<tr>
 			<td>Musiciens</td>
-			<td><INPUT type=text id='musiciens' name='musiciens' required /></td>
+			<td><INPUT type=text id='musiciens' placeholder='AC/DC' name='musiciens' required /></td>
 		</tr>
 	</table>
-	<input type='submit' value='Ajouter' />
+	<input type='submit' class='btn' value='Ajouter' />
 </FORM>
 <div id='msgReturn'></div>
 <?php
 }
 /* Titre membre */
-echo "<H2>PLANNING DES SORTIES ET REPETITIONS A VENIR</H2>";
+echo "<H2>Planning des évènements à venir</H2>";
 echo "<div id='planning-container'>";
 require 'list_planning.php';
 echo "</div>";

@@ -17,30 +17,25 @@ if (count($allVoyage) > 0) {
         // Formulaire de modification
         
         echo "
-				  <FORM method='post'  class='update'>
-					Modifier la description : <BR>
+				  <FORM method='post'  action='gestion_voyage_traitement.php' class='update'>
                     <input type='hidden' value='" .
-                 $row["id"] .
+                 $voy["id"] .
                  "' name='id' />
 					<textarea name='content' class='editor'>" .
-                 stripnl2br2(($voy["txt"])) . "</textarea><br />
+                nl2br(html_entity_decode($voy["txt"])) . "</textarea><br />
 					<input class='btn' type='submit' value='Modifier'>
 				  </FORM>";
         echo "</div></div>";
     }
     echo "<br/>";
 } else {
-    echo "<br /><br /><b>Aucun voyage disponible</b>";
+    echo "<p><b>Aucun voyage disponible</b></p>l";
 }
-?>
-
-<?php
-
 ?>
 
 <script>
 	function refresh() {
 		$("#liste-continent").load("liste_voyage.php");
 	}</script>
-	<script type="text/javascript" src="ressources/js/spoiler.js"></script>
 <script type="text/javascript" src="ressources/js/gest_content.js"></script>
+<script type="text/javascript" src="ressources/js/spoiler.js"></script>

@@ -11,43 +11,32 @@ $produit = getProducts();
 $langage = getLanguages();
 ?>
 <FORM METHOD='POST' id='boutiqueMaj' ACTION='boutique_maj.php'>
-	<table>
-		<tr>
-			<th>Langue</th>
-					<?php
-    foreach ($produit as $field) {
-        echo "<th>" . $field["name_admin"] . "</th>";
-    }
-    ?>
-				</tr>
-				<?php
-    
-    // Récupération de toutes les langues
-    foreach ($langage as $lang) {
-        echo "<tr><td>" . $lang["name"] . "</td>";
-        
-        // Récupération de tous les types pour toutes les langues
+    					<?php
+	foreach ($langage as $lang) {
+		echo "<h3 class='spoiler'>" . $lang['name'] . " <i class='fa fa-plus-square-o'></i></h3> ";
+		echo "<div class='spoiler-hidden' >";
         foreach ($produit as $field) {
-            // Récupération du contenu
-            $content = getBoutiqueAdmin($lang["id"], $field["id"]);
-            echo "<td>";
-            // Récupération du nom
-            echo "<input type='text' required value='" .
-                     (isset($content["name"]) ? $content["name"] : "") .
-                     "' name='" . $field["produit"] . "[" . $lang["id"] .
-                     "][name]' />";
-            
-            // Récupération de la description
-            echo "<textarea name='" . $field["produit"] . "[" . $lang["id"] .
+        	echo "<div>";
+        	echo $field['name_admin'] . " ";
+        	echo "<span class='spoiler'><i class='fa fa-plus-square-o'></i></span><div class='spoiler-hidden' >";
+        	// Formulaire de modification
+        	$content = getBoutiqueAdmin($lang["id"], $field["id"]);
+        	echo "<input type='text' placeholder='Nom' value='" .
+        			(isset($content["name"]) ? $content["name"] : "") .
+        			"' name='" . $field["produit"] . "[" . $lang["id"] .
+        			"][name]' /><br>";
+        	$content = isset($content["txt"]) ? $content["txt"] : "";
+        	 echo "<textarea class='bigta' placeholder='Description' name='" . $field["produit"] . "[" . $lang["id"] .
                      "][desc]'>";
-            echo stripnl2br2(isset($content["txt"]) ? $content["txt"] : "");
-            echo "</textarea></td>";
+            echo stripnl2br2($content);
+            echo "</textarea>";
+        	echo "</div></div>";
         }
-        echo "</tr>";
+        echo "</div>";
+        
     }
     ?>
-			</table>
-	<input type='submit' value='Modifier' />
+	<input class='btn' type='submit' value='Modifier' />
 	<div id='msgReturn'></div>
 </FORM>
 <script language="javascript">
@@ -69,3 +58,4 @@ $(document).ready(function () {
     });
 });
 </script>
+<script language="javascript" src='ressources/js/spoiler.js'></script>

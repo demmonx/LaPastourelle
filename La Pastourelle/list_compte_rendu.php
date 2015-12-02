@@ -12,7 +12,7 @@ $list = getCompteRendu();
 if ($admin) {
     echo '<H2>Compte rendu des réunions précédentes</H2>';
 } else {
-    echo "<H2>COMPTE RENDU DE REUNION, D'ASSEMBLEE GENERALE, ...</H2>";
+    echo "<H2>Comptes rendus de réunions, d'assemblées générales, ...</H2>";
 }
 
 // Affichage de chaque compte rendu
@@ -32,7 +32,6 @@ foreach ($list as $row) {
     if ($admin) {
         echo "
 				  <FORM method='post' action='compte_rendu_traitement.php' class='update'>
-					Modifier le compte rendu : <BR>
                     <input type='hidden' value='" . $row["id"] . "' name='id' />
 					<textarea class='editor' name='content' >" .
                  nl2br(html_entity_decode($row["txt"])) . "</textarea><br />

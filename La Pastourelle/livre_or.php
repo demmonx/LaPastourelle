@@ -1,30 +1,22 @@
 <?php
 // Récupération des textes annexes de traduction pour cette zone
-$trad = getTraduction('livre', $_SESSION['lang']);
+$trad = getTraduction ( 'livre', $_SESSION ['lang'] );
 // Affichage du texte
 echo "<div id='livre-container'>";
 require 'list_livre_or.php';
 echo "</div>";
 ?>
 <form action="livre_or_traitement.php" class='post-form' method="post">
-	<table>
-		<tr>
-			<td>Nom </label></td>
-			<td><input type="text" name="nom" required /></td>
-		</tr>
-		<tr>
-			<td colspan=2>Message</td>
-		</tr>
-		<tr>
-			<td colspan=2><textarea name="message" required></textarea></td>
-		</tr>
-		<tr>
-			<td colspan="2"><span class="g-recaptcha"
-				data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></span></td>
-		</tr>
-	</table>
-
-	<input type="submit" class="btn" value="Envoyer" />
+	<p>
+		<INPUT type="text" name="nom" placeholder='Nom' required><br>
+	</p>
+	<P>
+		Message<br>
+		<textarea name="message" class='form-compteRendu' required></textarea>
+	</p>
+	<span class="g-recaptcha"
+		data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></span> <input
+		type="submit" class="btn" value="Envoyer" />
 	<div id="ajout-result"></div>
 </form>
 

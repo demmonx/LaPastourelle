@@ -39,14 +39,14 @@ jQuery(document).ready(function() {
 
         tracker.slider("option", "max", song.duration);
 
-        $('.play').addClass('hidden');
-        $('.pause').addClass('visible');
+        $('.play').css('display', 'none');
+        $('.pause').css('display', 'block');
     }
     function stopAudio() {
         song.pause();
 
-        $('.play').removeClass('hidden');
-        $('.pause').removeClass('visible');
+        $('.pause').css('display', 'none');
+        $('.play').css('display', 'block');
     }
 
     // play click

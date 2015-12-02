@@ -102,7 +102,7 @@ $(document).ready(function () {
 	<div class="g-recaptcha"
 		data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></div>
 
-	<br> <input type="submit" name="submit" value="S'inscrire" />
+	<br> <input class='btn' type='submit' value="S'inscrire" />
 </form>
 <div id='msgReturn'></div>
 

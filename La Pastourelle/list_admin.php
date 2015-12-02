@@ -30,7 +30,7 @@ foreach ($rep as $row) {
 		<TD>" . $row['adresse'] .
              "</TD>
 		<TD><A class='action'  HREF='gestion_admin_traitement.php?ac=1&id=" .
-             $row['id'] . "'>Retirer</A></TD>
+             $row['id'] . "'><i class='fa fa-level-down fa-2x'></i></A></TD>
 		</TR>
 		<TR></TR>";
 }
@@ -63,7 +63,7 @@ foreach ($rep as $row) {
 		<TD>" . $row['adresse'] .
              "</TD>
 		<TD><A class='action' HREF='gestion_admin_traitement.php?ac=2&id=" .
-             $row['id'] . "'>Promouvoir</A></TD>
+             $row['id'] . "'><i class='fa fa-level-up fa-2x'></i></A></TD>
 		</TR>
 		<TR></TR>";
 }

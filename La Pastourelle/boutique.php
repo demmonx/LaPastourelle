@@ -1,19 +1,20 @@
 <?php
 @session_start();
+require_once 'footer.inc.php';
 
 // Titre
 $titre = getTraduction("boutique", $_SESSION['lang']);
 if (isset($titre["content"]))
     echo "<h1>" . $titre["content"] . "</h1>";
 echo "Le formulaire d'achat à envoyer par courrier :
-         <A class='btn btn-link' HREF='ressources/bondecommande-fr.pdf'
+         <A HREF='ressources/bondecommande-fr.pdf'
          target='_blank'>Bon de commande</A>";
 // Actualité
 $prod = getBoutique($_SESSION['lang']);
-echo "<table>";
 if (count($prod) <= 0) {
-    echo "<tr><td>Aucun produit à afficher</td></tr>";
+    exit("Aucun produit à afficher".footer());
 }
+echo "<table class='table table-bordered'>";
 foreach ($prod as $row) {
     echo "<tr>";
     echo "<td>" . (isset($row['img']) ? "<img width='50px' height='50px' src='" .

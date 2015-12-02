@@ -21,7 +21,7 @@ if ($adminOk) {
 	<TEXTAREA name="description" id="desc" placeholder='Description'></TEXTAREA>
 	<br> <br> Image : <input type="file" id="uploadFile" name="fichier"
 		size="50"> <input type="hidden" name="ac" value="1" /> <input
-		class="btn btn-default" type="submit" name="envoyer" value="Publier">
+		class="btn" type="submit" name="envoyer" value="Publier">
 </form>
 <hr />
 <script type="text/javascript">

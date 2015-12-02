@@ -2,33 +2,29 @@
 @session_start();
 verifLoginWithArray($_SESSION, 1, true);
     ?>
-
+	<h1>Gestion du diaporama</h1>
 	<div id="slideshow">
 	<?php
     
     require "slider.inc.php";
     ?>
 	</div>
-	<?php
-    echo "<h1>Liste des images : </h1>";
-    $tab = getDiapos();
-    echo "<table class='table table-bordered' id='list-photos-full'>";
-    if (count($tab) > 0) {
-        require_once 'list_photos.php';
-    } else {
-        echo "<tr><td>Aucune image n'a été trouvée</td></tr>";
-    }
-    echo "</table>";
-    
-    echo "<h1>Ajouter une nouvelle image : </h1>";
-    ?>
+	    <h2>Nouvelle image</h2>
 	<form action="slider_traitement.php" method="post"
 		enctype="multipart/form-data" id="formS">
 		<label for="fichier">Photo : <input type="file" id="uploadFile"
-			name="fichier"></label> <input class="btn btn-default" type="submit"
+			name="fichier"></label> <input class="btn" type="submit"
 			value="Ajouter">
 		<div id="msgReturn"></div>
 	</form>
+	<?php
+    echo "<h2>Liste des images</h2>";
+    $tab = getDiapos();
+    echo "<div  id='list-photos-full'>";
+    require_once 'list_photos.php';
+    echo "</div>";
+    
+    ?>
 
 
 <script type="text/javascript">

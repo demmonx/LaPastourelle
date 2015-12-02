@@ -3,14 +3,12 @@ verifLoginWithArray($_SESSION, 1, true);
   
 // récupération des informations à ajouter dans la page
 $coord = getCoordonnees();
-if (count($coord) < 0) {
-    echo "Aucune information à afficher";
-} // else
-
 ?>
+<h1>Coordonnées</h1>
+
 <form action="gestion_coord_traitement.php" method="post"
 	enctype="multipart/form-data" id="formS">
-	<table>
+	<table class='table table-bordered'>
 		<tr>
 			<th>Téléphone</th>
 			<td><input type='text'
@@ -43,7 +41,7 @@ echo "<textarea name='adresse' class='form-compteRendu' required>" .
 				name='mail' required /></td>
 		</tr>
 	</table>
-	<input type="submit" value='Modifier' />
+	<input type="submit" class='btn' value='Modifier' />
 	<div id='msgReturn'></div>
 	'
 </form>

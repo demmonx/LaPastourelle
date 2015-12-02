@@ -3,8 +3,8 @@
 @header('Content-Type: text/html; charset=utf-8');
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
-echo "<h2>Liste des fichiers disponibles</h2>";
-echo "<table><tr><th>Fichier</th><th>Suppression</th></tr>";
+echo "<h2>Liste des contenus disponibles</h2>";
+echo "<table class='table table-bordered'><tr><th>Fichier</th><th>Suppression</th></tr>";
 $files = getFile();
 foreach ($files as $file) {
     echo "<tr>";

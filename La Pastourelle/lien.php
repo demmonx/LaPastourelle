@@ -7,14 +7,15 @@ $liens = getLinks();
 if (count($liens) <= 0) {
     echo "Aucun lien à afficher";
 }
-echo "<table>";
+echo "<table class='table'>";
 foreach ($liens as $link) {
-    ?>
-<tr>
-	<td><?php echo $link['nom'];?></td>
-	<td><a href="<?php echo $link['url'];?>"><img
-			src='<?php echo $link['img'];?>' /></a></td>
-</tr>
-<?php
+  
+echo "<tr><td><a href=". $link['url'].">".$link['nom']."</a></td>";
+if (!empty($link['img'])) {
+echo "<td><a href=". $link['url']."><img	src='". $link['img']."' /></a></td>";
+} else {
+			echo "<td></td>";
+}
+echo "</tr>";
 }
 echo "</table>";

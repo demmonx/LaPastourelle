@@ -20,7 +20,7 @@ try {
 				required /></td>
 		</tr>
 	</table>
-	</a><input type="submit" value="Connexion" />
+	</a><input class='btn' type="submit" value="Connexion" />
 	<div id='msgReturn'></div>
 </FORM>
 <script language="javascript">
@@ -44,7 +44,7 @@ $(document).ready(function () {
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
                     if (html.search("connecté") >= 0) {
-                    $('#msgReturn').append("<br /><a href='javascript:history.back()'>Cliquez-ici pour revenir à la page précédente</a>");  // affichage du résultat
+                    	history.back();
                     }
                     form.get(0).reset();                    
                 }

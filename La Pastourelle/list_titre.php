@@ -14,10 +14,20 @@ if (! isset($lang) || ! $lang) {
     $langage = getLanguage($lang);
 }
 $titre = getTitles();
+$lang = getLanguages();
 ?>
-<h1>Modification des traductions : <?php echo $langage['name'] ?></h1>
+<h1>Titres : <?php echo $langage['name'] ?></h1>
+Langue à modifier :
+<form action='list_titre.php' id='choix-langue' method='GET'>
+	<select name='lang'><option value=''>Langue</option>
+	<?php
+foreach ($lang as $item)
+    echo "<option value='" . $item['id'] . "'>" . $item['name'] . "</option>";
+?>
+	</select> <input class='btn' type='submit' value='Choisir' />
+</form>
 <FORM METHOD='POST' id='actuTitle' ACTION='gestion_titre_traitement.php'>
-	<table>
+	<table class='table table-bordered'>
 		<tr>
 			<th>Titre</th>
 			<th>Valeur</th>
@@ -38,7 +48,7 @@ $titre = getTitles();
     ?>
 			</table>
 	<input type="hidden" name="lang" value=" <?php echo $langage["id"]; ?>" />
-	<input type='submit' value='Modifier' />
+	<input class='btn' type='submit' value='Modifier' />
 	<div id='msgReturn'></div>
 </FORM>
 <script language="javascript">
@@ -57,6 +67,17 @@ $(document).ready(function () {
                     $('#msgReturn').append(html);  // affichage du résultat
                 }
             });
+    });
+
+	function afficher(page, lang) {
+		if (lang !== '') {
+			  $(".modif-titre").load(page +"?lang=" + lang);
+		}
+	}
+    $('#choix-langue').on('submit', function (e) {
+        e.preventDefault();
+        var form = $(this);
+    	afficher(form.attr("action"), $("select[name=lang]", form).val());
     });
 });
 </script>

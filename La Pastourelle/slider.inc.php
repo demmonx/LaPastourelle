@@ -15,7 +15,7 @@ $(document).ready(function(){
     $('.slide-admin').slick({
         slidesToShow: 2,
         slidesToScroll: 1,
-    	dots: true,
+    	dots: false,
     	arrows: true,
     	infinite: true,
     });	

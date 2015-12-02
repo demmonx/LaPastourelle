@@ -1,15 +1,15 @@
 <?php
 verifLoginWithArray($_SESSION, 1, true);
 ?>
-<h1>Administration des pages</h1>
-<h4>Création d'une page</h4>
+<h1>Gestion des pages</h1>
+<h2>Création d'une page</h2>
 <form method="post" id="newPage" action="gestion_page_traitement.php">
-	<input type="text" name="nom" id='nomPage' placeholder="Nom" required /><br />
-	<input type="submit" value="Créer" />
+	<input type="text" name="nom" id='nomPage' placeholder="Nom" required /> 
+	<input class='btn' type="submit" value="Créer" />
 </form>
 <div id='ajout-result'></div>
 
-<h4>Gérer les pages</h4>
+<h2>Modifier les pages</h2>
 <div id='modif-page'>
 		<?php require 'list_page.php'; ?>
 	</div>

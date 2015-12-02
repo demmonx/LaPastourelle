@@ -1,18 +1,19 @@
 <?php
-@session_start();
-@header('Content-Type: text/html; charset=utf-8');
+@session_start ();
+@header ( 'Content-Type: text/html; charset=utf-8' );
 require_once 'traitement.inc.php';
-verifLoginWithArray($_SESSION, 1, true);
+verifLoginWithArray ( $_SESSION, 1, true );
 
 ?>
+<h1>Importation</h1>
 <!--  Formulaire d'ajout de contenu -->
 <h2>Ajouter un contenu</h2>
 <form method='post' id='formS' action='gest_content_traitement.php'
 	enctype="multipart/form-data">
 	<input type="radio" name="type" value='img' checked> Image <input
-		type="radio" name="type" value='video'> Vidéo<br> <label for="fichier">Photo
-		: <input type="file" id="uploadFile" name="fichier">
-	</label><input class="btn btn-default" type="submit" value="Ajouter">
+		type="radio" name="type" value='video'> Vidéo<br> <input type="file"
+		id="uploadFile" name="fichier"><br>
+	<input class="btn" type="submit" value="Ajouter">
 	<div id='msgReturn'></div>
 
 </form>

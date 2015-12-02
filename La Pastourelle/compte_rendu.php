@@ -14,8 +14,7 @@ if ($adminOk) {
 <form action='compte_rendu_traitement.php' method='post' id='new-cr'>
 	<textarea name='content' class='editor' placeholder='Contenu'></textarea>
 	<br /> <label>Date de réunion : </label><input type='text'
-		class='datepicker' name='date' placeholder="jj/mm/aaaa" required /> <input
-		type="submit" value="Ajouter" />
+		class='datepicker' name='date' placeholder="jj/mm/aaaa" required /> <input class='btn' type="submit" value="Ajouter" />
 </form>
 <?php
 }

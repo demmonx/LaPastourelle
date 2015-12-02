@@ -12,7 +12,7 @@ function getVoyage ()
     $return = array();
     $stmt = $bdd->prepare(
             "SELECT *
-			FROM logocarte
+			FROM voyage
 			JOIN countries P
 			ON P.id_pays=pays
 			JOIN continent C
@@ -28,6 +28,33 @@ function getVoyage ()
 }
 
 /**
+ * Met à jour la description d'un voyage donné
+ *
+ * @param string $valeur
+ *            Le nouveau contenu du voyage
+ * @param string $voyage
+ *            L'identifiant du voyage à mettre à jour
+ */
+function updateVoyage ($valeur, $voyage)
+{
+	
+	echo ($voyage);
+	
+	$bdd = new Connection();
+	
+	$stmt2 = $bdd->prepare(
+			"UPDATE voyage
+			SET texte = :valeur
+			WHERE id_voy = :id");
+	$stmt2->bindValue(":valeur", (empty($valeur) ? null : $valeur));
+	$stmt2->bindValue(":id", $voyage);
+	$stmt2->execute();
+	return true;
+}
+
+
+
+/**
  * Récpère les infos sur un voyage
  *
  * @param array $row
@@ -37,7 +64,7 @@ function getVoyage ()
 function extractVoyageFromARow ($row)
 {
     $return = array();
-    $return["id"] = $row["id_logo"];
+    $return["id"] = $row["id_voy"];
     $return["id_continent"] = $row["code_continent"];
     $return["continent"] = $row["cont_name"];
     $return["continent_code"] = $row["cont_name"];
@@ -296,7 +323,7 @@ function getLinks ()
     $retour = array();
     $cpt = 0;
     
-    $result = $bdd->prepare("SELECT * FROM lien_ext");
+    $result = $bdd->prepare("SELECT * FROM lien_ext ORDER BY lien_nom");
     $result->execute();
     while ($row = $result->fetch()) {
         $retour[$cpt ++] = extractLinkFromARow($row);
@@ -368,7 +395,7 @@ function getAnnuaire ($recherche, $typeRecherche, $role)
      * redondance inutile
      * Passage en requêtes préparées pouré viter l'injection SQL
      */
-    $rqt_membre = "SELECT id_membre, pseudo, email, telephone, nom, prenom, adresse, etat_annuaire FROM tuser 
+    $rqt_membre = "SELECT id_membre, pseudo, email, telephone, nom, prenom, adresse, etat_annuaire FROM tmembre_inscrit 
 			WHERE etat_validation=1 AND etat_annuaire = 1 ";
     if ($role == 0 && ! empty($recherche)) {
         $rqt_membre .= "AND :typeRecherche LIKE :recherche ORDER BY :recherche";
@@ -488,7 +515,7 @@ function getUnvalitedMember ()
      * recupération des membre à validere
      */
     $rqt_aValider = "SELECT *
-						FROM tuser WHERE etat_validation=0 ORDER BY nom";
+						FROM tmembre_inscrit WHERE etat_validation=0 ORDER BY nom";
     $result = $bdd->prepare($rqt_aValider);
     $result->execute();
     
@@ -512,7 +539,7 @@ function getMembers ()
     $bdd = new Connection();
     
     $stmt = $bdd->prepare(
-            "SELECT * FROM tuser WHERE etat_validation = 1 AND niveau=0 ORDER BY nom");
+            "SELECT * FROM tmembre_inscrit WHERE etat_validation = 1 AND niveau=0 ORDER BY nom");
     $result = $stmt->execute();
     $i = 0;
     while ($row = $stmt->fetch()) {
@@ -538,7 +565,7 @@ function getMember ($pseudo)
      * recupération des membre
      */
     $rqt_membre = "SELECT *
-						FROM tuser WHERE etat_validation=1 AND pseudo=? ORDER BY pseudo";
+						FROM tmembre_inscrit WHERE etat_validation=1 AND pseudo=? ORDER BY pseudo";
     $result = $bdd->prepare($rqt_membre);
     $result->bindValue(1, $pseudo);
     $result->execute();
@@ -764,7 +791,7 @@ function extractProductFromARow ($row)
     $tab_act['prix'] = $row["pd_prix"];
     $tab_act['name'] = isset($row["bt_nom_public"]) ? $row["bt_nom_public"] : null;
     $tab_act['img'] = isset($row["pd_img"]) ? $row["pd_img"] : null;
-    $tab_act['txt'] = isset($row["bt_content"]) ? stripnl2br($row["bt_content"]) : null;
+    $tab_act['txt'] = isset($row["bt_content"]) ? $row["bt_content"] : null;
     return $tab_act;
 }
 
@@ -816,7 +843,7 @@ function getCoordonnees ()
 function getId ($pseudo)
 {
     $bdd = new Connection();
-    $stmt = $bdd->prepare("SELECT * FROM tuser WHERE pseudo=?");
+    $stmt = $bdd->prepare("SELECT * FROM tmembre_inscrit WHERE pseudo=?");
     $stmt->bindValue(1, $pseudo);
     $stmt->execute();
     return $stmt->rowCount() == 1 ? $stmt->fetch()["id_membre"] : - 1;
@@ -1028,7 +1055,7 @@ function getDiapos ()
     $bdd = new Connection();
     $i = 0;
     $retour = array();
-    $sql = "SELECT * FROM diaporama";
+    $sql = "SELECT * FROM diaporama ORDER BY diapo_lien";
     $stmt = $bdd->prepare($sql);
     $stmt->execute();
     
@@ -1329,6 +1356,8 @@ function updateProduct ($nom, $desc, $produit, $langue)
     return true;
 }
 
+
+
 /**
  * Met à jour l'actualité pour un type et une langue selectionnée
  *
@@ -1400,7 +1429,7 @@ function deleteMessageLivre ($id)
 function deleteMembre ($id)
 {
     $bdd = new Connection();
-    $stmt = $bdd->prepare("DELETE FROM tuser WHERE id_membre =?");
+    $stmt = $bdd->prepare("DELETE FROM tmembre_inscrit WHERE id_membre =?");
     $stmt->bindValue(1, $id);
     $stmt->execute();
     return true;
@@ -1464,7 +1493,7 @@ function activerMembre ($id)
 {
     $bdd = new Connection();
     $stmt = $bdd->prepare(
-            "UPDATE tuser SET etat_validation = 1 WHERE id_membre = :id");
+            "UPDATE tmembre_inscrit SET etat_validation = 1 WHERE id_membre = :id");
     $stmt->bindValue(1, $id);
     $stmt->execute();
 }
@@ -1515,7 +1544,7 @@ function getBlogComment ($photo)
 {
     $retour = array();
     $sql = "SELECT C.*, U.pseudo FROM commentaire C 
-			JOIN  tuser U
+			JOIN  tmembre_inscrit U
 			ON C.auteur = U.id_membre
 			WHERE num_photo = ?";
     $bdd = new Connection();
@@ -1630,6 +1659,8 @@ function addBlogPic ($path, $description = null)
     $insert->execute();
     return true;
 }
+
+
 
 /**
  * MEt à jour la phrase de la semaine pour une langue donnée
@@ -1991,7 +2022,7 @@ function getAdmin ()
     $bdd = new Connection();
     $tab_membre = array();
     
-    $stmt = $bdd->prepare("SELECT * FROM tuser WHERE niveau=1 ORDER BY nom");
+    $stmt = $bdd->prepare("SELECT * FROM tmembre_inscrit WHERE niveau=1 ORDER BY nom");
     $result = $stmt->execute();
     $i = 0;
     while ($row = $stmt->fetch()) {
@@ -2013,7 +2044,7 @@ function getAdmin ()
 function setNiveauMembre ($id, $niveau)
 {
     $bdd = new Connection();
-    $sql = "UPDATE tuser SET niveau = ? WHERE id_membre = ?";
+    $sql = "UPDATE tmembre_inscrit SET niveau = ? WHERE id_membre = ?";
     $stmt = $bdd->prepare($sql);
     $stmt->bindValue(1, $niveau);
     $stmt->bindValue(2, $id);
@@ -2236,7 +2267,7 @@ function inscriptionBDD ($var)
     }
     
     // regarde si l'user existe deja
-    $rqt_user = "SELECT pseudo FROM tuser WHERE pseudo=?";
+    $rqt_user = "SELECT pseudo FROM tmembre_inscrit WHERE pseudo=?";
     $les_user = $bdd->prepare($rqt_user);
     $les_user->bindValue(1, $pseudo, PDO::PARAM_STR);
     $les_user->execute();
@@ -2246,7 +2277,7 @@ function inscriptionBDD ($var)
         return false;
     }
     // insertion dans la base de données du nouvel user
-    $sql = "INSERT INTO tuser (pseudo, motdepasse, email, etat_validation, niveau, telephone, nom, prenom, adresse, etat_annuaire)
+    $sql = "INSERT INTO tmembre_inscrit (pseudo, pass_secure, email, etat_validation, niveau, telephone, nom, prenom, adresse, etat_annuaire)
 						VALUES (:pseudo, :pass, :mail, 0, 0, :tel, :nom, :prenom, :adresse, :annuaire)";
     $stmt = $bdd->prepare($sql);
     $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
@@ -2474,7 +2505,7 @@ function setMemberToAnnuaire ($id, $val = true)
 {
     $bdd = new Connection();
     $req_del = $bdd->prepare(
-            "UPDATE tuser SET etat_annuaire = ? WHERE id_membre=?");
+            "UPDATE tmembre_inscrit SET etat_annuaire = ? WHERE id_membre=?");
     $req_del->bindValue(1, ($val ? 1 : 0));
     $req_del->bindValue(2, $id);
     $req_del->execute();
@@ -2497,13 +2528,13 @@ function updatePersonnalInfo ($info)
     
     // Cas où l'on change le password
     if (isset($info["pass"])) {
-        $sql = "UPDATE tuser SET motdepasse=:pass, email=:mail, telephone=:tel, nom=:nom, 
+        $sql = "UPDATE tmembre_inscrit SET pass_secure=:pass, email=:mail, telephone=:tel, nom=:nom, 
 				prenom=:prenom, adresse=:adresse, etat_annuaire=:annuaire 
 				WHERE id_membre=:id";
         $stmt = $bdd->prepare($sql);
         $stmt->bindValue(':pass', $info["pass"], PDO::PARAM_STR);
     } else {
-        $sql = "UPDATE tuser SET email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, 
+        $sql = "UPDATE tmembre_inscrit SET email=:mail, telephone=:tel, nom=:nom, prenom=:prenom, 
 				adresse=:adresse, etat_annuaire=:annuaire 
 				WHERE id_membre=:id";
         $stmt = $bdd->prepare($sql);
@@ -2677,7 +2708,7 @@ function addVoyage ($pays, $titre, $texte)
 {
     $bdd = new Connection();
     $addVoy = $bdd->prepare(
-            "INSERT INTO logocarte (pays, titre, texte)
+            "INSERT INTO voyage (pays, titre, texte)
 				VALUES(?, ?, ?)");
     $addVoy->bindValue(1, $pays);
     $addVoy->bindValue(2, $titre);
@@ -2697,7 +2728,7 @@ function addVoyage ($pays, $titre, $texte)
 function deleteVoyage ($id)
 {
     $bdd = new Connection();
-    $stmt1 = $bdd->prepare("DELETE FROM logocarte WHERE id_logo = ?");
+    $stmt1 = $bdd->prepare("DELETE FROM voyage WHERE id_voy = ?");
     $stmt1->bindValue(1, $id);
     $stmt1->execute();
     return true;
@@ -2731,12 +2762,12 @@ function getVoyageDetail ($id)
     $return = array();
     $stmt = $bdd->prepare(
             "SELECT *
-			FROM logocarte
+			FROM voyage
 			JOIN countries P
 			ON P.id_pays=pays
 			JOIN continent C
 			ON C.cont_id= P.code_continent
-			WHERE id_logo = ?");
+			WHERE id_voy = ?");
     $stmt->bindValue(1, $id);
     $result = $stmt->execute();
     if ($row = $stmt->fetch()) {
