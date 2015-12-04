@@ -1,35 +1,34 @@
 <?php
-checkLoginWithArray($_SESSION, 1);
+checkLoginWithArray ( $_SESSION, 1 );
+
+echo "<h1>Gestion des musiques</h1>";
 echo "<div id='player-content'>";
 require 'player.inc.php';
 echo "</div>";
 
-$tab = getMusics();
-// Génération de la liste pour l'admin
-echo "<h1>Listes des fichiers audio : </h1>";
-echo "<table id='liste-player-full'>";
-if (count($tab) != 0) {
-    require_once 'list_music.php';
-} else {
-    echo "<tr><td>Aucun fichier disponible</td></tr>";
-}
-echo '</table>';
-
 ?>
 <!--Formulaire d'ajout d'une musique-->
-<h1>Ajout d'une chanson :</h1>
+<h2>Nouvelle musique</h2>
 
 
 <form action="player_traitement.php" method="post"
 	enctype="multipart/form-data" class="formS">
 	<label for="fichier">Musique à ajouter : </label><input type="file"
-		name="fichier" id="uploadFile"><br /> <label for="nom">Titre : </label><input
-		type="text" name="nom" id="titre"><br /> <label for="band">Chanteur/Groupe
-		: </label><input type="text" name="band" id="groupe"><br /> <input
-		type="submit" value="Ajouter">
+		name="fichier" id="uploadFile"><br /> <input type="text" name="nom"
+		id="titre" placeholder='Titre'><br /> <input type="text" name="band" id="groupe"
+		placeholder='Groupe'><br /><br /> <input type="submit" class='btn'
+		value="Ajouter">
 	<div id="msgReturn"></div>
 
 </form>
+<?php 
+// Génération de la liste pour l'admin
+echo "<h2>Listes des musiques</h2>";
+echo "<div id='liste-player-full'>";
+	require_once 'list_music.php';
+echo '</div>';
+
+?>
 <script type="text/javascript">
 $(document).ready(function () {
 

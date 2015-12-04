@@ -5,7 +5,7 @@ echo "<h1>Modification d'un texte</h1>";
 $page = getPage();
 $langage = getLanguages();
 foreach ($langage as $lang) {
-    echo "<h4>" . $lang['name'] . "</h4>";
+    echo "<h2>" . $lang['name'] . "</h2>";
     foreach ($page as $item) {
         $content = getContent($item['id'], $lang['id']);
         ?>
@@ -19,7 +19,7 @@ foreach ($langage as $lang) {
         ?></textarea>
 			<input type='hidden' name='lang' value='<?php echo $lang['id']; ?>' />
 			<input type='hidden' name='page' value='<?php echo $item['id']; ?>' />
-			<br /> <input type='submit' value='Modifier' />
+			<br /> <input class='btn' type="submit" value='Modifier' />
 		</form>
 	</div>
 </div>

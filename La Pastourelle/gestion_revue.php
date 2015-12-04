@@ -1,18 +1,18 @@
 <?php
 verifLoginWithArray($_SESSION, 1, true);
 ?>
-<h1>Administration des revues</h1>
-<h4>Ajout d'une revue</h4>
+<h1>Gestion des revues</h1>
+<h2>Ajout d'une revue</h2>
 <form method="post" id="newRevue" action="gestion_revue_traitement.php"
 	enctype="multipart/form-data">
 	<label for="fichier">Photo : <input type="file" id="uploadFile"
 		name="fichier"></label> <input type="text" name="titre" id='titre'
-		placeholder="Titre" required /><br /> <input type="submit"
+		placeholder="Titre" required /><br /> <input class='btn' type="submit"
 		value="Ajouter" />
 </form>
 <div id='ajout-result'></div>
 
-<h4>Gérer les revues</h4>
+<h2>Modifier les revues</h2>
 <div id='modif-revue'>
 		<?php require 'list_revue.php'; ?>
 	</div>

@@ -1,40 +1,35 @@
 <?php
-@session_start();
+@session_start ();
 require_once 'traitement.inc.php';
-verifLoginWithArray($_SESSION, 1);
-echo "<table>";
-$tab = getLinks();
-if (count($tab) != 0) {
-    
-    echo "<tr>";
-    
-    echo "<th>Nom</th>";
-    echo "<th>URL</th>";
-    echo "<th>Image</th>";
-    echo "<th>Modifier</th>";
-    echo "<th>Supprimer</th>";
-    echo "</tr>";
-    // mise en forme
-    foreach ($tab as $row) {
-        echo "<tr>";
-        
-        echo "<td>" . $row["nom"] . "</td>";
-        echo "<td>" . $row["url"] . "</td>";
-        $delete_img = "<a class='delete' href='gestion_liens_traitement.php?ac=1&id=" .
-                 $row["id"] . "'><i class='fa fa-close fa-2x'></i></a>";
-        echo "<td>" .
-                 (! empty($row["img"]) ? $row["img"] . $delete_img : "Pas d'image") .
-                 "</td>";
-        echo "<td><form method='post' action='gestion_liens_traitement.php' class='change-img' enctype='multipart/form-data'>";
-        echo "<input type='file' id='uploadFile' name='fichier'>";
-        echo "<input class='btn btn-default' type='submit' value='Ajouter'>";
-        echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
-        echo "</form></td>";
-        echo "<td><a class='delete' href='gestion_liens_traitement.php?ac=2&id=" .
-                 $row["id"] .
-                 "'><i class='fa fa-close fa-2x'></i></a></td>";
-        echo "</tr>";
-    }
+verifLoginWithArray ( $_SESSION, 1 );
+echo "<table class='table table-bordered'>";
+$tab = getLinks ();
+if (count ( $tab ) != 0) {
+	
+	echo "<tr>";
+	
+	echo "<th>Nom</th>";
+	echo "<th>URL</th>";
+	echo "<th colspan='2'>Image</th>";
+	echo "<th>Modifier</th>";
+	echo "<th></th>";
+	echo "</tr>";
+	// mise en forme
+	foreach ( $tab as $row ) {
+		echo "<tr>";
+		
+		echo "<td>" . $row ["nom"] . "</td>";
+		echo "<td>" . $row ["url"] . "</td>";
+		$delete_img = "</td><td><a class='delete' href='gestion_liens_traitement.php?ac=1&id=" . $row ["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
+		echo "<td>" . (! empty ( $row ["img"] ) ? $row ["img"] . $delete_img : "Pas d'image</td><td>") . "</td>";
+		echo "<td><form method='post' action='gestion_liens_traitement.php' class='change-img' enctype='multipart/form-data'>";
+		echo "<input type='file' id='uploadFile' name='fichier'>";
+		echo "<input class='btn' type='submit' value='Ajouter'>";
+		echo "<input type='hidden' name='id' value='" . $row ["id"] . "' />";
+		echo "</form></td>";
+		echo "<td><a class='delete' href='gestion_liens_traitement.php?ac=2&id=" . $row ["id"] . "'><i class='fa fa-trash fa-2x'></i></a></td>";
+		echo "</tr>";
+	}
 }
 ?>
 </table>

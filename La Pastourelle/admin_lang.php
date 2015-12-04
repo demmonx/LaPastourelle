@@ -47,8 +47,8 @@ $(document).ready(function () {
 });
 </script>
 
-
-	<h1>Ajout d'une langue</h1>
+<h1>Gestion des langues</h1>
+	<h2>Ajout d'une langue</h2>
 
 <div class="identification">
 	<form class="form-horizontal" action="lang_maj_traitement.php"
@@ -63,7 +63,7 @@ foreach ($lang as $row) {
     echo "<option value=" . $row['id'] . ">" . $row["name"] . "</option>";
 }
 ?>
-		</select> <label class="control-label" for="fichier">Drapeau</label> <input
+		</select> <br><label class="control-label" for="fichier">Drapeau</label><input
 			type="file" name="fichier" size="20" id='uploadFile' /> <input
 			class="btn" type="submit" name="envoyer" value="Enregistrer" />
 		<div id="msgReturn"></div>
@@ -72,7 +72,7 @@ foreach ($lang as $row) {
 
 <hr />
 
-<h1>Suppression d'une langue</h1>
+<h2>Langues existantes</h2>
 <div class="identification" id="liste-lang">
 				<?php
     require "liste_lang.php";

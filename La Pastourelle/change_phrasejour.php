@@ -3,25 +3,26 @@ verifLoginWithArray($_SESSION, 1, true);
 // Formulaire qui changera la phrase du jour
 $languages = getLanguages();
 ?>
+<h1>Phrase de la semaine</h1>
 <form id="phraseMaj" class="form-horizontal"
 	action="change_phrasejour_traitement.php" method="post">
-	<table>
+	<table class='table table-bordered'>
 		<tr>
 			<th>Langue</th>
-			<th>Phrase</th>
+			<th>Contenu</th>
 		</tr>
 <?php
 foreach ($languages as $lang) {
     ?>
 	<tr>
 			<td><?php echo $lang['name'];?></td>
-			<td><textarea name="phrase[<?php echo $lang['id'];?>]"><?php echo getPhraseJour($lang['id']);?></textarea></td>
+			<td><textarea class='bigta' name="phrase[<?php echo $lang['id'];?>]"><?php echo getPhraseJour($lang['id']);?></textarea></td>
 		</tr>	
 <?php
 }
 ?> 
 </table>
-	<input class="btn" type="submit" value="OK" />
+	<input class="btn" type="submit" value="Modifier" />
 </form>
 <div id='msgReturn'></div>
 <script language="javascript">

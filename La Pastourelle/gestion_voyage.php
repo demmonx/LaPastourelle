@@ -3,6 +3,41 @@
 verifLoginWithArray ( $_SESSION, 1, true );
 ?>
 
+<h1>Gestion des voyages</h1>
+<h2>Ajouter un voyage</h2>
+<form action="gestion_voyage_traitement.php" method="POST" id="formS">
+
+	<select id='continent' name="continent">
+		<option value="">Continent</option>
+			<?php
+			$continents = getContinents ();
+			foreach ( $continents as $row )
+				echo "<option value=" . $row ['id'] . ">" . $row ['nom'] . "</option>";
+			?>		
+	</select> <br />
+	<select name='pays' id='pays'>
+			<?php
+			require 'get_pays.php';			
+			?>
+			
+	</select> <br />
+	 <input type="text" name="titre" placeholder='Titre' />
+			
+	<br /><textarea name="texte" class='editor' placeholder="Description"></textarea>
+
+	<br />
+	<input class="btn" type="submit" name="envoyer" value="Enregistrer" />
+	<div id="msgReturn"></div>
+
+</form>
+
+<h2>Modification des voyages</h2>
+<div id="liste-continent">
+	<?php
+    require "liste_voyage.php";
+    ?>
+</div>    
+
 <script type="text/javascript">
 $(document).ready(function () {
 
@@ -53,39 +88,4 @@ $(document).ready(function () {
     });
 });
 </script>
-
-
-<h1>Ajouter un voyage</h1>
-<form action="gestion_voyage_traitement.php" method="POST" id="formS">
-
-	<select id='continent' name="continent">
-		<option value="">Continent</option>
-			<?php
-			$continents = getContinents ();
-			foreach ( $continents as $row )
-				echo "<option value=" . $row ['id'] . ">" . $row ['nom'] . "</option>";
-			?>		
-	</select> <br />
-	<select name='pays' id='pays'>
-			<?php
-			require 'get_pays.php';			
-			?>
-			
-	</select> <br />
-	 <input type="text" name="titre" placeholder='Titre' />
-			
-	<br /><textarea name="texte" class='editor' placeholder="Description"></textarea>
-
-	<br />
-	<input class="btn" type="submit" name="envoyer" value="Enregistrer" />
-	<div id="msgReturn"></div>
-
-</form>
-
-<h1>Supprimer/Modifier un voyage</h1>
-<div id="liste-continent">
-	<?php
-    require "liste_voyage.php";
-    ?>
-</div>    
 

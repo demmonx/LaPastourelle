@@ -2,7 +2,7 @@
 @session_start();
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
-echo "<table>";
+echo "<table class='table table-bordered'>";
 $tab = getProducts();
 if (count($tab) != 0) {
     
@@ -10,9 +10,9 @@ if (count($tab) != 0) {
     
     echo "<th>Produit</th>";
     echo "<th>Prix</th>";
-    echo "<th>Image</th>";
+    echo "<th colspan='2'>Image</th>";
     echo "<th>Modifier</th>";
-    echo "<th>Supprimer</th>";
+    echo "<th></th>";
     echo "</tr>";
     // mise en forme
     foreach ($tab as $row) {
@@ -22,21 +22,19 @@ if (count($tab) != 0) {
         echo "<td><form method='post' action='produit_maj.php' class='change-prix'>";
         echo "<input type='number' step='0.01' name='newprix' value='" .
                  $row["prix"] . "' />";
-        echo "<input class='btn btn-default' type='submit' value='Modifier'>";
+        echo "<input class='btn' type='submit' value='Modifier'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
-        $delete_img = "<a class='delete' href='produit_maj.php?ac=1&id=" .
-                 $row["id"] . "'><i class='fa fa-close fa-2x'></i></a>";
-        echo "<td>" .
-                 (! empty($row["img"]) ? $row["img"] . $delete_img : "Pas d'image") .
-                 "</td>";
+        $delete_img = "<td><a class='delete' href='produit_maj.php?ac=1&id=" .
+                 $row["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
+		echo "<td>" . (! empty ( $row ["img"] ) ? $row ["img"] . $delete_img : "Pas d'image</td><td>");
         echo "<td><form method='post' action='produit_maj.php' class='change-img' enctype='multipart/form-data'>";
         echo "<input type='file' name='fichier'>";
-        echo "<input class='btn btn-default' type='submit' value='Ajouter'>";
+        echo "<input class='btn' type='submit' value='Ajouter'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
         echo "<td><a class='delete' href='produit_maj.php?ac=2&id=" . $row["id"] .
-                 "'><i class='fa fa-close fa-2x'></i></a></td>";
+                 "'><i class='fa fa-trash fa-2x'></i></a></td>";
         echo "</tr>";
     }
 }

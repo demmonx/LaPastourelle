@@ -3,14 +3,16 @@
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
     $tab = getMusics();
-    if (count($tab) != 0) {
+    if (count($tab) == 0) {
+    	exit("Aucune photo à afficher");
+    }
+        echo "<table class='table table-bordered'>";
         
         echo "<tr>";
         
         echo "<th>Titre</th>";
         echo "<th>Artiste</th>";
-        echo "<th>Statut</th>";
-        echo "<th>Activer / Désactiver</th>";
+        echo "<th colspan='2'>Statut</th>";
         echo "<th>Supprimer</th>";
         echo "</tr>";
         // mise en forme
@@ -19,18 +21,18 @@ verifLoginWithArray($_SESSION, 1);
             
             echo "<td>" . $row["titre"] . "</td>";
             echo "<td>" . $row["groupe"] . "</td>";
-            echo "<td>" . ($row["statut"] == 'A' ? "Activé" : "Désactivé") .
+            echo "<td>" . ($row["statut"] == 'A' ? "<i class='fa fa-check-circle-o fa-2x'></i>
+            		" : "<i class='fa fa-circle-o fa-2x'></i>") .
                      "</td>";
             echo "<td><a class='statut' href='player_traitement.php?ac=1&id=" .
                      $row["id"] . "'>" .
-                     ($row["statut"] == 'A' ? "Désactiver" : "Activer") .
+                      ($row["statut"] == 'A' ? "<i class='fa fa-close fa-2x'></i>" : "<i class='fa fa-check fa-2x'></i>") .
                      "</a></td>";
             echo "<td><a class='delete' href='player_traitement.php?ac=2&id=" .
                      $row["id"] .
-                     "'><i class='fa fa-close fa-2x'></i></a></td>";
+                     "'><i class='fa fa-trash fa-2x'></i></a></td>";
             echo "</tr>";
         }
-    }
 ?>
 <script type="text/javascript">
 $(document).ready(function () {

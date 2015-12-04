@@ -36,13 +36,13 @@ try {
     ?>
 <DIV id="liens">
 
-	<H2>ANNUAIRE</H2>
+	<H1>Annuaire</H1>
 
 
 
 	<form class="form-inline" action="index.php?page=annuaire"
 		method="POST">
-		<input class="span2" type="text" name="aRechercher" />
+		<input class="span2" type="text" placeholder="Recherche" name="aRechercher" />
 		<!-- Ajout d'une liste déroulante pour optimiser la recherche -->
 		<div class="input-append">
 			<SELECT class="span2" name="typeRecherche">
@@ -89,8 +89,9 @@ try {
         echo "	<TD>" . $row['tel'] . "</TD>";
         echo "	<TD>" . $row['adresse'] . "</TD>";
         if ($adminOk) {
-            echo "<TD><A class='btn btn-link' HREF='index.php?page=annuaire&id=" .
-                     $row['id'] . "'>Retirer</A></TD>";
+            echo "<TD><A title='Retirer' HREF='index.php?page=annuaire&id=" .
+                     $row['id'] . "'><i class='fa fa-user-times fa-2x'></i>
+                		</A></TD>";
         }
         echo "</TR>";
     }

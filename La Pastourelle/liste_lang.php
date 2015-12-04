@@ -7,7 +7,7 @@ $supported_lang = getSupportedLanguages();
 $allLang = getLanguages();
 // Affichage du drapeau correspondant
 if (count($allLang) > 1) {
-    echo '<table><tr><th>Langue</th><th>Action</th><th>Support</th></tr>';
+    echo '<table class="table table-bordered"><tr><th>Langue</th><th>Action</th><th>Support</th></tr>';
     foreach ($allLang as $lang) {
         
         // Vérifie si la langue est supporté ou pas

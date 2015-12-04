@@ -78,9 +78,9 @@ $(document).ready(function () {
     
     echo "<BR><BR>
 		
-			<H2>MODIFICATION DES DONNEES PERSONNELLES</H2>
+			<H1>Mes informations</H1>
 			<FORM id='modif' METHOD=POST ACTION='info_perso_trait.php'>
-				<TABLE>
+				<TABLE class='table'>
 					<TR>
 						<TD>Pseudo</TD>
 						<TD><strong>" . $le_psd . "</strong></TD>
@@ -123,10 +123,7 @@ $(document).ready(function () {
              $l_email . "' NAME='email'></TD>
 					</TR>
 					<TR>
-						<TD> cochez cette case si vous acceptez
-							 que les adminstrateurs puisse mettre
-							 vos coordonnées dans l'annuaire
-							 des membres présent sur ce site
+						<TD> Apparaître dans l'annuaire
 						</TD>";
     if ($l_etat_annuaire == 1) {
         echo "
@@ -141,7 +138,7 @@ $(document).ready(function () {
     echo "
 				</TABLE>
 				<BR>
-				<input type='submit' value='Modifier' />
+				<input class='btn' type='submit' value='Modifier' />
 			</FORM>
             <div id='msgReturn'></div>";
 ?>

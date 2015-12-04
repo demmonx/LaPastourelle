@@ -2,7 +2,7 @@
 @session_start();
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
-echo "<table>";
+echo "<table class='table table-bordered'>";
 $tab = getRevuePresse();
 if (count($tab) != 0) {
     

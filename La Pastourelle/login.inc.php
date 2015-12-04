@@ -17,7 +17,7 @@ function checkLogin($login, $pass, $level) {
 	// Vérification de l'existance d'un membre avec le pseudo $login et le mot
 	// de passe $pass
 	$bdd = new Connection ();
-	$req_connect = $bdd->prepare ( 'SELECT * FROM tuser WHERE pseudo = ? AND motdepasse = ?' );
+	$req_connect = $bdd->prepare ( 'SELECT * FROM tmembre_inscrit WHERE pseudo = ? AND pass_secure = ?' );
 	$req_connect->bindValue ( 1, $login );
 	$req_connect->bindValue ( 2, $pass );
 	$req_connect->execute ();
@@ -76,10 +76,13 @@ function verifLogin($pseudo, $pass, $level, $footer = false) {
 	try {
 		checkLogin ( $pseudo, $pass, $level );
 	} catch ( Exception $e ) {
-		if ($footer)
-			exit ( $e->getMessage () . footer () );
-		else
+			if ($footer) {
+			echo $e->getMessage ();
+		
+			exit (footer () );
+		} else {
 			exit ( $e->getMessage () );
+		}
 	}
 }
 
@@ -97,9 +100,12 @@ function verifLoginWithArray($infos, $level, $footer = false) {
 	try {
 		checkLoginWithArray ( $infos, $level );
 	} catch ( Exception $e ) {
-		if ($footer)
-			exit ( $e->getMessage () . footer () );
-		else
+		if ($footer) {
+			echo $e->getMessage ();
+		
+			exit (footer () );
+		} else {
 			exit ( $e->getMessage () );
+		}
 	}
 }

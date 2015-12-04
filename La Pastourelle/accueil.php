@@ -17,15 +17,15 @@ if (isset($titre["content"]))
 $actu = getActu($_SESSION['lang']);
 echo "<div class='slide-accueil'>";
 foreach ($actu as $row) {
-    echo "<div>";
-    if (isset($row['img']))
+    if (isset($row['img'])) {
+    	echo "<div>";
         echo "<img src='" . $row['img'] . "'><br /><br />";
     echo "<span class='comment'>" .
              (isset($row['txt']) ? nl2br(html_entity_decode($row['txt'])) : "") .
              "</span></div>";
+    }
 }
 echo "</div>"?>
-
 
 <script type="text/javascript">
 $(document).ready(function(){

@@ -78,7 +78,7 @@ foreach ( $les_photos as $row ) {
 					<input type="hidden" name="photo" value="' . $row ['id'] . '" />
 							<input type="hidden" name="ac" value="2" />
 			
-					<input class="btn btn-default" type="submit" value="Poster">
+					<input class="btn" type="submit" value="Poster">
 				</form>
 		';
 	echo "</div>";

@@ -1,11 +1,11 @@
 <?php
 verifLoginWithArray($_SESSION, 1, true);
 ?>
-<h1>Administration de l'actualité</h1>
+<h1>Gestion de l'actualité</h1>
 <h2>Création d'un type d'actualité</h2>
 <form method="post" id="newType" action="actu_type_maj.php">
-	<input type="text" name="nom" id='nomType' placeholder="Nom" required /><br />
-	<input type="submit" value="Créer" />
+	<input type="text" name="nom" id='nomType' placeholder="Nom" required /> 
+	<input class='btn' type="submit" value="Créer" />
 </form>
 <div id='ajout-result'></div>
 

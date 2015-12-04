@@ -18,10 +18,10 @@ $tab_planning = getPlanning ();
 echo "
 		<TABLE class='table table-bordered table-striped'>
 			<TR>
-				<TH>JOUR</TH>
-				<TH>DATE</TH>
-				<TH>LIEU</TH>
-				<TH>MUSICIENS</TH>";
+				<TH>Jour</TH>
+				<TH>Date</TH>
+				<TH>Lieu</TH>
+				<TH>Musiciens</TH>";
 if ($adminOk) {
 	echo "<TH colspan='3'>Actions</TH>";
 } // Ajout des colones de suppression
@@ -42,9 +42,9 @@ foreach ( $tab_planning as $row ) {
 	
 	echo "<TR><TD>" . $un_jour . "</TD><TD>" . $une_date . "</TD><TD>" . $un_lieu . "</TD><TD>" . $un_musiciens . "</TD> ";
 	if ($adminOk) {
-		echo "<TD><A class='delete btn btn-link' HREF='planning_traitement.php?ac=1&id=" . $unId . "'>";
-		echo "<img src='ressources/images/delete.png' alt='Supprimer' /> </A></TD>";
-		echo " <TD><A class='btn btn-link' HREF='index.php?page=modif_date_planning&id=" . $unId . "'> Modifier</A></TD>";
+		echo " <TD><A HREF='index.php?page=modif_date_planning&id=" . $unId . "'><i class='fa fa-pencil-square-o fa-2x'></i></A></TD>";
+		echo "<TD><A HREF='planning_traitement.php?ac=1&id=" . $unId . "'>";
+		echo "<i class='fa fa-close fa-2x'></i> </A></TD>";
 	}
 	echo "</tr>";
 }

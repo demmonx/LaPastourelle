@@ -9,7 +9,9 @@ $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $code = filter_input(INPUT_POST, 'lang', FILTER_SANITIZE_SPECIAL_CHARS);
 
 /* Cas d'erreur */
-if (! ($action && $id || $code && isset($_FILES["fichier"]) && !empty($_FILES["fichier"]["name"])))
+if (! ($action && $id ||
+         $code && isset($_FILES["fichier"]) && ! empty(
+                $_FILES["fichier"]["name"])))
     exit("L'action choisit n'est pas valide");
 
 /**
@@ -20,10 +22,14 @@ if ($action) {
     // On met à jour les infos
     switch ($action) {
         case 1:
-            if (deleteLang($id)) {
-                exit("Suppression effectuée avec succès");
-            } else {
-                exit("Erreur lors de la suppression");
+            try {
+                if (deleteLang($id)) {
+                    exit("Suppression effectuée avec succès");
+                } else {
+                    exit("Erreur lors de la suppression");
+                }
+            } catch (Exception $e) {
+                exit($e->getMessage());
             }
             break;
         default:

@@ -1,36 +1,40 @@
-
 @font-face {
-    font-family: Open Sans light;
-    src: url(fonts/OpenSans-Light.ttf);
+	font-family: Open Sans light;
+	src: url(fonts/OpenSans-Light.ttf);
 }
+
 .border-right {
-	border-right: 1px solid RGB(50,50,50);
+	border-right: 1px solid RGB(50, 50, 50);
 }
 
-header{
-	color:RGB(0,0,0);
+header {
+	color: RGB(0, 0, 0);
 	font-family: 'Open Sans light';
-		font-weight:lighter;
+	font-weight: lighter;
 	background: url('images/background-header.jpg');
 }
 
-footer{
+footer {
 	background: url('images/background-header.jpg');
-	color:RGB(0,0,0);
+	color: RGB(0, 0, 0);
 	font-family: 'Open Sans light';
+}
+
+section img {
+	max-width: 100%;
 }
 
 .row {
 	padding: 10px;
-	max-width:1500px;
-	margin:auto;
+	max-width: 1500px;
+	margin: auto;
 }
 
-section{
-	max-width:1200px;
-	margin:0 auto;
+section {
+	max-width: 1200px;
+	margin: 0 auto;
 	font-family: 'Open Sans light';
-	font-weight:bold;
+	font-weight: bold;
 }
 
 /* required for sticky footer */
@@ -39,22 +43,66 @@ html {
 	min-height: 100%;
 }
 
+.bigta {
+	width: 100%;
+	resizable: false;
+	scrollable: true;
+}
+
+	.titre-site {
+		font-style: italic;
+		position: relative; /* Pour faire passer le texte sur l'image */
+		text-align: center;
+	}
+
+@media ( max-width :768px) {
+	.logoAveyron {
+		display: none;
+	}	
+	.lang-chooser {
+		position:absolute;
+		bottom:30px;
+	}
+		.titre-site {
+		font-size: 40px;
+	}
+}
+
 @media ( min-width :768px) {
-	.navbar .navbar-nav {
-    display: inline-block;
-    float: none;
+	.logoAveyron {
+		display: none;
+	}
+	.navbar {
+		background: rgb(200, 200, 200)
+	}
+	.titre-site {
+		font-size: 40px;
+	}
 }
 
-.navbar .navbar-collapse {
-    text-align: center;
-}
-}
+@media ( max-width : 1000px) {
+	.lang-chooser {
+		position:absolute;
+		bottom:20px;
+	}
+	header {
+		height: 150px;
+	}
+	
+	.logo-container {		
+		display: none;
+	}
+	.row {
+		text-align: center;
+	}
+	.titre-site {
+		width: 100%;
+		margin: auto;
+	}
 
-@media ( max-width: 1400px) {
 	.footer {
 		position: relative;
 		width: 100%;
-		margin-top: 20px;
 	}
 	.slick-dots li button:before {
 		display: none
@@ -65,36 +113,85 @@ html {
 	body {
 		margin-bottom: auto;
 	}
+	.slide-top {
+		display: none;
+	}
 }
 
-@media ( min-width :1400px) {
+
+@media ( min-width : 1001px) {
+		/* Header */
+	.logoPastourelle {
+		width: 100px;
+	}
+	.lang-chooser {
+		position:absolute;
+		bottom:-10px;
+	}
+	.navbar .navbar-nav {
+		display: inline-block;
+		float: none;
+	}
+	.navbar .navbar-collapse {
+		text-align: center;
+	}
+	.logoAveyron {
+		width: 230px;
+		position: absolute;
+		top: -16px;
+		left: 30%;
+	}
 	.container {
 		margin-bottom: 150px;
 	}
 	.footer {
 		position: absolute;
 		bottom: 0;
-		height: 100px;
+		height: 120px;
 		width: 100%;
 	}
 	.slick-dots li button:before {
-	display: block;
-	position: relative;
-}
-	
+		display: block;
+		position: relative;
+	}
 	body {
-		margin-bottom: 100px;
+		margin-bottom: 150px;
 	}
 }
 
-.slide-top img {
-	margin: 5px;
+@media ( max-width : 1300px) {
+
+	.slide-top {
+		max-width: 200px;
+		left: 120px;
+		bottom: -15px;
+	}
 }
-	
-.slide-top {
-		max-height: 100px;
-		width: auto;
-		margin-bottom: 30px;
+
+@media ( min-width : 1301px) {
+	.logoPastourelle {
+		width: 125px;
+	}
+	.lang-chooser {
+		bottom:-45px;
+	}
+	.slide-top {
+		max-width: 250px;
+		left: 120px;
+		bottom: -15px;
+	}
+	.logoAveyron {
+		display: block;
+	}
+	.titre-site {
+		font-size: 50px;
+	}
+	.footer {
+		height: 100px;
+	}
+	body {
+		margin-bottom: 100px;
+	}
 }
 
 body {
@@ -106,14 +203,14 @@ body {
 .slide-accueil, .slide-admin {
 	width: 80%;
 	margin: auto;
-	text-align:center;
+	text-align: center;
 }
 
-.slide-accueil img{
-	max-height:450px;
-	width:auto;
-	margin:0 auto;
-	box-shadow:0px 0px 2px 1px RGBA(0,0,0,0.55);
+.slide-accueil img {
+	max-height: 450px;
+	width: auto;
+	margin: 0 auto;
+	box-shadow: 0px 0px 2px 1px RGBA(0, 0, 0, 0.55);
 }
 
 .slick-prev:before, .slick-next:before {
@@ -122,34 +219,27 @@ body {
 
 /** liens hypertexte */
 a {
-	color: rgb(50,50,50);
+	color: rgb(50, 50, 50);
 	text-decoration: none;
-	font-weight:bold;
-	transition:0.2s all;
+	font-weight: bold;
+	transition: 0.2s all;
 }
 
 a:hover {
-	color: rgb(0,0,0);
+	color: rgb(0, 0, 0);
 	text-decoration: none;
 }
 
-.lang-chooser {
-	position:absolute;
-	bottom:0;
-}
 .col-md-1 {
-	position:relative;
-min-height: 150px;
-margin:auto;
+	position: relative;
+	min-height: 150px;
+	margin: auto;
 }
-
 
 .img-lang {
-		max-width: 40px;
-		max-height: 40px;
-
-	}
-
+	max-width: 40px;
+	max-height: 40px;
+}
 
 /* Page compte rendu */
 .form-compteRendu {
@@ -174,37 +264,61 @@ figure {
 }
 
 .spoiler:hover {
-	cursor:pointer;	
+	cursor: pointer;
 }
 
-/* Header */
-
-
-
-.logoPastourelle{
-	width:125px;
+.playlist li:hover, .controls-player:hover {
+	color: rgb(0, 0, 0);
+	cursor: pointer;
 }
 
-.logoAveyron{
-	width:180px;
-	position:absolute;
-	top:-16px;
-	left:30%;
+.volume, .tracker {
+	width: 50%;
+	background: grey;
+	border-color: white;
 }
 
-.titre-site{
-	font-style:italic;
-	font-size:50px;
-	position:relative; /* Pour faire passer le texte sur l'image */
+.ui-slider-handle {
+	color: blue;
+}
+
+.ui-widget-content .ui-state-default {
+	background: grey;
+}
+
+.controls-player {
+	width: 50%;
+}
+
+.controls-player td {
+	padding: 10px;
+	margin: 5px;
+}
+
+.pause {
+	display: none;
+}
+
+section h1 {
 	text-align: center;
+	font-weight: bold;
+	border-bottom: 1px solid RGB(75, 75, 75);
+	width: 35%;
+	margin: auto;
+	margin-bottom: 20px;
+	padding-bottom: 5px;
 }
 
-section h1{
-	text-align:center;
-	font-weight:bold;
-	border-bottom:1px solid RGB(75,75,75);
-	width:35%;
-	margin:auto;
-	margin-bottom:20px;
-	padding-bottom:5px;
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+	border: 1px solid #cccccc;
+	color: white;
 }
+
+.error {
+	font-weight: bold;
+	color: blue;
+}
+  
+ 

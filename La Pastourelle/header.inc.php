@@ -31,10 +31,6 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css"
-	href="ressources/js/jquery-ui-1.11.4/jquery-ui.structure.css" />
-<link rel="stylesheet" type="text/css"
-	href="ressources/js/jquery-ui-1.11.4/jquery-ui.theme.css" />
-<link rel="stylesheet" type="text/css"
 	href="ressources/js/jquery-ui-1.11.4/jquery-ui.css" />
 <link rel="stylesheet"
 	href="ressources/font-awesome/css/font-awesome.css" type="text/css" />
@@ -42,16 +38,18 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 	type="text/css" />
 <link rel="stylesheet"
 	href="ressources/bootstrap/css/bootstrap-theme.css" type="text/css" />
-	<link rel="stylesheet"
-	href="ressources/bootstrap/css/normalize.css" type="text/css" />
+<link rel="stylesheet" href="ressources/bootstrap/css/normalize.css"
+	type="text/css" />
 <link rel="stylesheet"
 	href="ressources/smartmenus/addons/bootstrap/jquery.smartmenus.bootstrap.css"
 	type="text/css" />
 <link rel="stylesheet" type="text/css" href="ressources/slick/slick.css" />
 <link rel="stylesheet" type="text/css"
 	href="ressources/slick/slick-theme.css" />
-<link rel="stylesheet" media="all" href="ressources/style.css" type="text/css" />
-<link rel="icon" type="image/png" href="image/faviconlogo.png" />
+<link rel="stylesheet" media="all" href="ressources/style.css"
+	type="text/css" />
+<link rel="icon" type="image/png"
+	href="ressources/images/faviconlogo.png" />
 
 <!-- Diaporama -->
 <script type="text/javascript" src="ressources/js/jquery-1.9.1.min.js"></script>

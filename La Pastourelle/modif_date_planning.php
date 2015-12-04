@@ -47,12 +47,13 @@ $(document).ready(function () {
 
 <?php
     
-    $info_date = getDatePlanning($_GET["id"]);
+	$id= filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    $info_date = getDatePlanning($id);
     if (count($info_date) <= 0) {
         echo "Impossible de modifier l'élément sélectionné";
     } else {
         
-        echo "<H2>ADMINISTRATION DU PLANNING</H2>";
+        echo "<H1>Modification du planning</H1>";
         echo "<FORM METHOD='POST' id='modif' ACTION='modif_date_planning_traitement.php'>
 			<TABLE >
 				<TR><TD>Jour</TD><TD><INPUT required type=text id='jour' name='jour'  value='" .
@@ -68,7 +69,7 @@ $(document).ready(function () {
                  $info_date['joueur'] . "</textarea></TD></TR></TABLE>
 				<INPUT type=hidden name='id' id='id' value='" .
                  $info_date['id'] . "'>
-				<BR><input type='submit' value='Modifier'>
+				<BR><input class='btn' type='submit' value='Modifier'>
 		  </FORM><div id='msgReturn'></div>";
     }
     
