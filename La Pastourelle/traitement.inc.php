@@ -37,22 +37,19 @@ function getVoyage ()
  */
 function updateVoyage ($valeur, $voyage)
 {
-	
-	echo ($voyage);
-	
-	$bdd = new Connection();
-	
-	$stmt2 = $bdd->prepare(
-			"UPDATE voyage
+    echo ($voyage);
+    
+    $bdd = new Connection();
+    
+    $stmt2 = $bdd->prepare(
+            "UPDATE voyage
 			SET texte = :valeur
 			WHERE id_voy = :id");
-	$stmt2->bindValue(":valeur", (empty($valeur) ? null : $valeur));
-	$stmt2->bindValue(":id", $voyage);
-	$stmt2->execute();
-	return true;
+    $stmt2->bindValue(":valeur", (empty($valeur) ? null : $valeur));
+    $stmt2->bindValue(":id", $voyage);
+    $stmt2->execute();
+    return true;
 }
-
-
 
 /**
  * Récpère les infos sur un voyage
@@ -1356,8 +1353,6 @@ function updateProduct ($nom, $desc, $produit, $langue)
     return true;
 }
 
-
-
 /**
  * Met à jour l'actualité pour un type et une langue selectionnée
  *
@@ -1659,8 +1654,6 @@ function addBlogPic ($path, $description = null)
     $insert->execute();
     return true;
 }
-
-
 
 /**
  * MEt à jour la phrase de la semaine pour une langue donnée
@@ -2022,7 +2015,8 @@ function getAdmin ()
     $bdd = new Connection();
     $tab_membre = array();
     
-    $stmt = $bdd->prepare("SELECT * FROM tmembre_inscrit WHERE niveau=1 ORDER BY nom");
+    $stmt = $bdd->prepare(
+            "SELECT * FROM tmembre_inscrit WHERE niveau=1 ORDER BY nom");
     $result = $stmt->execute();
     $i = 0;
     while ($row = $stmt->fetch()) {
@@ -2463,6 +2457,14 @@ function deleteRevue ($id)
  */
 function deleteLang ($id)
 {
+    // Récupération des langues actives
+    $support = getSupportedLanguages();
+    
+    // Test s'il ne reste qu'une seule langue
+    if (count($support) == 1 && $support[array_search($id, $support)] == $id) {
+        throw new InvalidArgumentException(
+                "Impossible de supprimer la seule langue active");
+    }
     $bdd = new Connection();
     $stmt1 = $bdd->prepare("SELECT * FROM lang WHERE lang_id = ?");
     $stmt1->bindValue(1, $id);

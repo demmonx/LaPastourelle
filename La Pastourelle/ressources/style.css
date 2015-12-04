@@ -315,6 +315,10 @@ section h1 {
 	border: 1px solid #cccccc;
 	color: white;
 }
- 
+
+.error {
+	font-weight: bold;
+	color: blue;
+}
   
  
