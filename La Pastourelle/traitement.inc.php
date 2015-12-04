@@ -2084,12 +2084,49 @@ function getContent ($page, $lang)
     $stmt->bindValue(2, $page);
     $result = $stmt->execute();
     if ($row = $stmt->fetch()) {
-        $retour['txt'] = $row['texte'];
-        $retour['page'] = $row['txt_page'];
-        $retour['id'] = $row['txt_num'];
-        $retour['lang'] = $row['lang'];
+        $retour = extractPageFromARow($row);
     }
     
+    return $retour;
+}
+
+/**
+ * Récupère les infos des pages pour une langue donnée
+ *
+ * @param
+ *            intger lang La langue d'affichage
+ */
+function getPageTitre ($lang)
+{
+    $bdd = new Connection();
+    $retour = array();
+    $i = 0;
+    
+    $stmt = $bdd->prepare(
+            "SELECT * FROM texte JOIN page ON txt_page=page_id WHERE lang=?");
+    $stmt->bindValue(1, $lang);
+    $result = $stmt->execute();
+    while ($row = $stmt->fetch()) {
+        $retour[$i ++] = extractPageFromARow($row);
+    }
+    
+    return $retour;
+}
+
+/**
+ * Retourne les informations sur un texte depuis une ligne de BD
+ *
+ * @param array $row
+ *            Une ligne de base de donnée
+ */
+function extractPageFromARow ($row)
+{
+    $retour = array();
+    $retour['txt'] = $row['texte'];
+    $retour['page'] = $row['txt_page'];
+    $retour['id'] = $row['txt_num'];
+    $retour['lang'] = $row['lang'];
+    $retour['titre'] = $row['txt_titre'];
     return $retour;
 }
 
@@ -2171,8 +2208,10 @@ function deletePage ($id)
  *            intger lang La langue d'affichage
  * @param string $content
  *            Le nouveau contenu de la page
+ * @param string $titre
+ *            Le nouveau titre de la page
  */
-function setContent ($page, $lang, $content)
+function setContent ($page, $lang, $content, $titre)
 {
     $bdd = new Connection();
     
@@ -2189,13 +2228,15 @@ function setContent ($page, $lang, $content)
     
     // Si pas d'objet on insère à condition que le contenu ne soit pas vide,
     // sinon inutile
-    if ($stmt1->rowCount() == 0 && ! empty(trim($content))) {
+    if ($stmt1->rowCount() == 0 &&
+             ! empty(trim($content) && ! empty(trim($titre)))) {
         $stmt2 = $bdd->prepare(
                 "INSERT INTO texte
-			(txt_page, lang, texte) VALUES (:page, :lang, :content)");
+			(txt_page, lang, texte, txt_titre) VALUES (:page, :lang, :content, :titre)");
         $stmt2->bindValue(":page", $page);
         $stmt2->bindValue(":lang", $lang);
         $stmt2->bindValue(":content", $content);
+        $stmt2->bindValue(":titre", $titre);
         $stmt2->execute();
         return true;
     } else 
@@ -2207,9 +2248,11 @@ function setContent ($page, $lang, $content)
     
     $stmt2 = $bdd->prepare(
             "UPDATE texte
-			SET texte = :valeur
+			SET texte = :valeur,
+            txt_titre = :titre;
 			WHERE txt_num = :id");
     $stmt2->bindValue(":valeur", $content);
+    $stmt2->bindValue(":titre", $titre);
     $stmt2->bindValue(":id", $stmt1->fetch()["txt_num"]);
     $stmt2->execute();
     return true;

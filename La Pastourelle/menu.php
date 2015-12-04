@@ -104,6 +104,16 @@ $lang = $_SESSION['lang'];
 				
 				
 				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				<li><a href="index.php?page=blog"><i
 						class="fa fa-commenting-o fa-lg"></i> Blog</a>
 				
@@ -130,10 +140,10 @@ $lang = $_SESSION['lang'];
 						<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<?php
-    $pageDispo = getPage();
+    $pageDispo = getPageTitre($_SESSION['lang']);
     foreach ($pageDispo as $unePage) {
-        echo "<li><a href='index.php?page=generic&id=" . $unePage['id'] . "'>" .
-                 $unePage['nom'] . "</a></li>";
+        echo "<li><a href='index.php?page=generic&id=" . $unePage['page'] . "'>" .
+                 $unePage['titre'] . "</a></li>";
     }
     ?>
 						</ul></li>
