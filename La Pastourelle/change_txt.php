@@ -8,14 +8,18 @@ foreach ($langage as $lang) {
     echo "<h2>" . $lang['name'] . "</h2>";
     foreach ($page as $item) {
         $content = getContent($item['id'], $lang['id']);
+        $titre = ! empty($content['titre']) ? $content['titre'] : "";
         ?>
 <div>
-<?php echo $item['nom'] ?> : <span class='spoiler'><i class='fa fa-plus-square-o'></i></span>
+<?php echo $item['nom'] ?> : <span class='spoiler'><i
+		class='fa fa-plus-square-o'></i></span>
 	<div class="spoiler-hidden ">
 		<form action="change_text_traitement.php" class='update' method='post'>
+			<input type='text' value='<?php echo $titre;  ?>' placeholder='Titre'
+				name='titre' required />
 			<textarea class='editor' name='content'><?php
         
-        echo (isset($content['txt']) ? stripnl2br2($content["txt"]) : "");
+        echo (isset($content['txt']) ? stripnl2br($content["txt"]) : "");
         ?></textarea>
 			<input type='hidden' name='lang' value='<?php echo $lang['id']; ?>' />
 			<input type='hidden' name='page' value='<?php echo $item['id']; ?>' />
@@ -40,10 +44,10 @@ $(document).ready(function () {
 
         // Récupération des valeurs
         var content = $("textarea[name=content]", form).val();
-        alert(content);
+        var titre = $("input[name=titre]", form).val();
 
         // Vérifie pour éviter de lancer une requête fausse
-        if (content === '') {
+        if (content === '' && titre == '') {
             alert('Les champs doivent êtres remplis');
         } else {
             // Envoi de la requête HTTP en mode asynchrone

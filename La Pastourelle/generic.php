@@ -1,17 +1,24 @@
 <?php
 if (! isset($page))
-    exit("404 not found". footer());
+    exit("404 not found" . footer());
 
 if (isset($type)) {
     switch ($type) {
         case 'v':
             // Ecrit la méthode qui récupère les infos d'un seul voyage
             $content = getVoyageDetail($page);
+            $txt = $content['txt'];
+            $titre = $content['titre'];
             break;
         default:
             $content = getContent($page, $_SESSION['lang']);
+            $txt = $content['txt'];
+            $titre = $content['titre'];
     }
 } else {
     $content = getContent($page, $_SESSION['lang']);
+    $txt = $content['txt'];
+    $titre = $content['titre'];
 }
-echo (isset($content['txt']) ? nl2br(html_entity_decode($content['txt'])) : "Aucun contenu");
+echo "<h1>" . $titre . "</h1>";
+echo (isset($txt) ? nl2br(html_entity_decode($txt)) : "Aucun contenu");
