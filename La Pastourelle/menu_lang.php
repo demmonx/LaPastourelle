@@ -1,11 +1,16 @@
 <?php
 @session_start();
 require_once 'traitement.inc.php';
+require_once 'footer.inc.php';
+
 // Récupération de toutes les langues disponibles
 $languages = getSupportedLanguagesFull();
 // Récupération de la langue courante
 $current = getLanguage($_SESSION['lang']);
 
+if (count($current) == 0) {
+    exit("<span class='error'>Erreur critique, aucune langue disponible</span>");
+}
 // Affichage de l'image sans lien
 $img = " <img class='img-lang' src='" . $current['img'] . "' alt='" .
          $current["name_en"] . "'  />";
