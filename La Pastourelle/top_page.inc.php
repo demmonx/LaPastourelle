@@ -6,7 +6,7 @@
 		<div class="col-md-3 logo-container">
 			<figure>
 				<a href="index.php" title="Revenir à l'accueil"> <img
-					src="ressources/images/logo-small.png" class="logoPastourelle"
+					src="ressources/images/logo.png" class="logoPastourelle"
 					alt="La Pastourelle de Rodez" />
 				</a>
 				<figcaption>
@@ -16,7 +16,8 @@
 		</div>
 
 		<div class="col-md-3 col-xs-11 aveyron-carte">
-			<img src="ressources/images/aveyron.png" class="logoAveyron" alt="Logo de l'Aveyron" />
+			<img src="ressources/images/aveyron.png" class="logoAveyron"
+				alt="Logo de l'Aveyron" />
 			<div class='titre-site'>
 				La Pastourelle<br />Rodez
 			</div>
@@ -25,11 +26,12 @@
 		<div class="col-md-5">
 			<div class="slide-top">
 						<?php
-						$tab = getActiveDiapos ();
-						foreach ( $tab as $diapo ) {
-							echo "<div><img  class='img-responsive' src='" . $diapo ["lien"] . "'/></div>";
-						}
-						?>		
+    $tab = getActiveDiapos();
+    foreach ($tab as $diapo) {
+        echo "<div><img  class='img-responsive' src='" . $diapo["lien"] .
+                 "'/></div>";
+    }
+    ?>		
 		</div>
 
 			<!-- END HEADER -->

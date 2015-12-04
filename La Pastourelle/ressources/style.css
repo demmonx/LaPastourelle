@@ -120,6 +120,10 @@ html {
 
 
 @media ( min-width : 1001px) {
+		/* Header */
+	.logoPastourelle {
+		width: 100px;
+	}
 	.lang-chooser {
 		position:absolute;
 		bottom:-10px;
@@ -165,6 +169,9 @@ html {
 }
 
 @media ( min-width : 1301px) {
+	.logoPastourelle {
+		width: 125px;
+	}
 	.lang-chooser {
 		bottom:-45px;
 	}
@@ -175,10 +182,6 @@ html {
 	}
 	.logoAveyron {
 		display: block;
-	}
-	/* Header */
-	.logoPastourelle {
-		width: 125px;
 	}
 	.titre-site {
 		font-size: 50px;
@@ -305,13 +308,13 @@ section h1 {
 	margin-bottom: 20px;
 	padding-bottom: 5px;
 }
- 
+
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
 	border: 1px solid #cccccc;
 	color: white;
 }
-
+ 
   
  
