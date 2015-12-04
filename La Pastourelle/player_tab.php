@@ -10,6 +10,5 @@ if (isset($titre["content"]))
 
 require 'player.inc.php';
 require_once 'footer.inc.php';
+footer();
 ?>
-</body>
-</html>
