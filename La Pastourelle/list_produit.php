@@ -2,10 +2,9 @@
 @session_start();
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
-echo "<table class='table table-bordered'>";
 $tab = getProducts();
 if (count($tab) != 0) {
-    
+    echo "<table class='table table-bordered'>";
     echo "<tr>";
     
     echo "<th>Produit</th>";
@@ -27,7 +26,8 @@ if (count($tab) != 0) {
         echo "</form></td>";
         $delete_img = "<td><a class='delete' href='produit_maj.php?ac=1&id=" .
                  $row["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
-		echo "<td>" . (! empty ( $row ["img"] ) ? $row ["img"] . $delete_img : "Pas d'image</td><td>");
+        echo "<td>" .
+                 (! empty($row["img"]) ? $row["img"] . $delete_img : "Pas d'image</td><td>");
         echo "<td><form method='post' action='produit_maj.php' class='change-img' enctype='multipart/form-data'>";
         echo "<input type='file' name='fichier'>";
         echo "<input class='btn' type='submit' value='Ajouter'>";
@@ -37,6 +37,8 @@ if (count($tab) != 0) {
                  "'><i class='fa fa-trash fa-2x'></i></a></td>";
         echo "</tr>";
     }
+} else {
+    echo "Aucun produit disponible";
 }
 ?>
 </table>

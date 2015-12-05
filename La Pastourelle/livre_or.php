@@ -1,7 +1,10 @@
 <?php
 // Récupération des textes annexes de traduction pour cette zone
-$trad = getTraduction ( 'livre', $_SESSION ['lang'] );
-// Affichage du texte
+$titre = getTraduction('livre', $_SESSION['lang']);
+
+if (isset($titre["content"]))
+    echo "<h1>" . $titre["content"] . "</h1>";
+    // Affichage du texte
 echo "<div id='livre-container'>";
 require 'list_livre_or.php';
 echo "</div>";

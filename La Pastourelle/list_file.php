@@ -2,17 +2,25 @@
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
 require_once 'traitement.inc.php';
+require_once 'footer.inc.php';
 verifLoginWithArray($_SESSION, 1);
 echo "<h2>Liste des contenus disponibles</h2>";
-echo "<table class='table table-bordered'><tr><th>Fichier</th><th>Suppression</th></tr>";
+
+// Test si certains fichier sont disponibles
 $files = getFile();
+if (count($files) == 0) {
+    echo "Aucun fichier disponible";
+    exit(footer());
+}
+
+// Affiche la liste
+echo "<table class='table table-bordered'><tr><th>Fichier</th><th>Suppression</th></tr>";
 foreach ($files as $file) {
     echo "<tr>";
     echo "<td><a href='" . $file["adr"] . "' target='blank'>" . $file["adr"] .
              "</a></td>";
     echo "<td><a class='delete' href='gest_content_traitement.php?ac=1&id=" .
-             $file["id"] .
-             "'><i class='fa fa-close fa-2x'></i></a></td>";
+             $file["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
     echo "</tr>";
 }
 echo "</table>";

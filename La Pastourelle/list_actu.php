@@ -9,26 +9,30 @@ verifLoginWithArray($_SESSION, 1);
  */
 $type = getActuType();
 $langage = getLanguages();
-?>
+if (count($type) == 0) {
+    echo "Aucun type d'actualité disponible";
+} else {
+    ?>
 <FORM METHOD='POST' id='actuMaj' ACTION='actu_maj.php'>
 					<?php
-	foreach ($langage as $lang) {
-		echo "<h3 class='spoiler'>" . $lang['name'] . " <i class='fa fa-plus-square-o'></i></h3> ";
-		echo "<div class='spoiler-hidden' >";
+    foreach ($langage as $lang) {
+        echo "<h3 class='spoiler'>" . $lang['name'] .
+                 " <i class='fa fa-plus-square-o'></i></h3> ";
+        echo "<div class='spoiler-hidden' >";
         foreach ($type as $field) {
-        	echo "<div>";
-        	echo $field['name'] . " ";
-        	echo "<span class='spoiler'><i class='fa fa-plus-square-o'></i></span><div class='spoiler-hidden' >";
-        	// Formulaire de modification
-        	$content = getActuAdmin($lang["id"], $field["id"]);
-        	$content = isset($content["txt"]) ? $content["txt"] : "";
-        	echo "<textarea class='bigta' name='" . $field["type"] . "[" . $lang["id"] ."]'>";
-        	echo stripnl2br2($content);
-        	echo "</textarea>";
-        	echo "</div></div>";
+            echo "<div>";
+            echo $field['name'] . " ";
+            echo "<span class='spoiler'><i class='fa fa-plus-square-o'></i></span><div class='spoiler-hidden' >";
+            // Formulaire de modification
+            $content = getActuAdmin($lang["id"], $field["id"]);
+            $content = isset($content["txt"]) ? $content["txt"] : "";
+            echo "<textarea class='bigta' name='" . $field["type"] . "[" .
+                     $lang["id"] . "]'>";
+            echo stripnl2br2($content);
+            echo "</textarea>";
+            echo "</div></div>";
         }
         echo "</div>";
-        
     }
     ?>
 	<input class='btn' type='submit' value='Modifier' />
@@ -54,3 +58,4 @@ $(document).ready(function () {
 });
 </script>
 <script language="javascript" src='ressources/js/spoiler.js'></script>
+<?php }?>

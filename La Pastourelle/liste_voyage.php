@@ -19,17 +19,16 @@ if (count($allVoyage) > 0) {
         echo "
 				  <FORM method='post'  action='gestion_voyage_traitement.php' class='update'>
                     <input type='hidden' value='" .
-                 $voy["id"] .
-                 "' name='id' />
+                 $voy["id"] . "' name='id' />
 					<textarea name='content' class='editor'>" .
-                nl2br(html_entity_decode($voy["txt"])) . "</textarea><br />
+                 nl2br(html_entity_decode($voy["txt"])) . "</textarea><br />
 					<input class='btn' type='submit' value='Modifier'>
 				  </FORM>";
         echo "</div></div>";
     }
     echo "<br/>";
 } else {
-    echo "<p><b>Aucun voyage disponible</b></p>l";
+    echo "<p>Aucun voyage disponible</p>";
 }
 ?>
 

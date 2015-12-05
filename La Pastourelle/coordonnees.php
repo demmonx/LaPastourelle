@@ -1,5 +1,5 @@
  <?php
-
+require_once 'footer.inc.php';
 // récupération du titre de la page
 $titre = getTraduction("coord", $_SESSION['lang']);
 if (isset($titre["content"]))
@@ -7,8 +7,9 @@ if (isset($titre["content"]))
     
     // récupération des informations à ajouter dans la page
 $coord = getCoordonnees();
-if (count($coord) < 0) {
-    echo "Aucune information à afficher";
+if (count($coord) <= 0) {
+    echo "Nos coordonnées ne sont pas dispobibles";
+    exit(footer());
 } // else
 
 ?>

@@ -2,10 +2,10 @@
 @session_start();
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
-echo "<table class='table table-bordered'>";
+
 $tab = getRevuePresse();
 if (count($tab) != 0) {
-    
+    echo "<table class='table table-bordered'>";
     echo "<tr>";
     
     echo "<th>Titre</th>";
@@ -17,12 +17,14 @@ if (count($tab) != 0) {
         
         echo "<td>" . $row["titre"] . "</td>";
         echo "<td><a class='delete' href='gestion_revue_traitement.php?ac=1&id=" .
-                 $row["id"] .
-                 "'><i class='fa fa-close fa-2x'></i></a></td>";
+                 $row["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
         echo "</tr>";
     }
+    
+    echo "</table>";
+} else {
+    echo "Aucune revue à afficher";
 }
-echo "</table>";
 ?>
 </table>
 <script type="text/javascript">

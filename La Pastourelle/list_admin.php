@@ -27,8 +27,7 @@ foreach ($rep as $row) {
 		<TD>" . $row['pseudo'] . "</TD>
 		<TD>" . $row['email'] . "</TD>
 		<TD>" . $row['telephone'] . "</TD>
-		<TD>" . $row['adresse'] .
-             "</TD>
+		<TD>" . $row['adresse'] . "</TD>
 		<TD><A class='action'  HREF='gestion_admin_traitement.php?ac=1&id=" .
              $row['id'] . "'><i class='fa fa-level-down fa-2x'></i></A></TD>
 		</TR>
@@ -39,33 +38,37 @@ foreach ($rep as $row) {
 
 <h2>Membres</h2>
 
+<?php
+
+$rep = getMembers();
+if (count($rep) != 0) {
+    ?>
 <TABLE class='table table-bordered'>
 	<TR>
-		<H3>
-			<TH>Prenom</TH>
-			<TH>Nom</TH>
-			<TH>Pseudo</TH>
-			<TH>E-mail</TH>
-			<TH>Telephone</TH>
-			<TH>Adresse</TH>
-			<TH>Action</TH>
-		</H3>
+		<TH>Prenom</TH>
+		<TH>Nom</TH>
+		<TH>Pseudo</TH>
+		<TH>E-mail</TH>
+		<TH>Telephone</TH>
+		<TH>Adresse</TH>
+		<TH>Action</TH>
 	</TR>
 <?php
-$rep = getMembers();
-foreach ($rep as $row) {
-    echo "<TR>
+    foreach ($rep as $row) {
+        echo "<TR>
 		<TD><B>" . $row['prenom'] . "</B></TD>
 		<TD><B>" . $row['nom'] . "</B></TD>
 		<TD>" . $row['pseudo'] . "</TD>
 		<TD>" . $row['email'] . "</TD>
 		<TD>" . $row['telephone'] . "</TD>
-		<TD>" . $row['adresse'] .
-             "</TD>
+		<TD>" . $row['adresse'] . "</TD>
 		<TD><A class='action' HREF='gestion_admin_traitement.php?ac=2&id=" .
-             $row['id'] . "'><i class='fa fa-level-up fa-2x'></i></A></TD>
+                 $row['id'] . "'><i class='fa fa-level-up fa-2x'></i></A></TD>
 		</TR>
 		<TR></TR>";
+    }
+} else {
+    echo "Aucun membre à afficher";
 }
 ?>
 </TABLE>

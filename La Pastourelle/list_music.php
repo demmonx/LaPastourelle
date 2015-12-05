@@ -2,37 +2,36 @@
 @session_start();
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
-    $tab = getMusics();
-    if (count($tab) == 0) {
-    	exit("Aucune photo à afficher");
-    }
-        echo "<table class='table table-bordered'>";
-        
-        echo "<tr>";
-        
-        echo "<th>Titre</th>";
-        echo "<th>Artiste</th>";
-        echo "<th colspan='2'>Statut</th>";
-        echo "<th>Supprimer</th>";
-        echo "</tr>";
-        // mise en forme
-        foreach ($tab as $row) {
-            echo "<tr>";
-            
-            echo "<td>" . $row["titre"] . "</td>";
-            echo "<td>" . $row["groupe"] . "</td>";
-            echo "<td>" . ($row["statut"] == 'A' ? "<i class='fa fa-check-circle-o fa-2x'></i>
+$tab = getMusics();
+if (count($tab) == 0) {
+    exit("Aucune musique disponible");
+}
+echo "<table class='table table-bordered'>";
+
+echo "<tr>";
+
+echo "<th>Titre</th>";
+echo "<th>Artiste</th>";
+echo "<th colspan='2'>Statut</th>";
+echo "<th>Supprimer</th>";
+echo "</tr>";
+// mise en forme
+foreach ($tab as $row) {
+    echo "<tr>";
+    
+    echo "<td>" . $row["titre"] . "</td>";
+    echo "<td>" . $row["groupe"] . "</td>";
+    echo "<td>" . ($row["statut"] == 'A' ? "<i class='fa fa-check-circle-o fa-2x'></i>
             		" : "<i class='fa fa-circle-o fa-2x'></i>") .
-                     "</td>";
-            echo "<td><a class='statut' href='player_traitement.php?ac=1&id=" .
-                     $row["id"] . "'>" .
-                      ($row["statut"] == 'A' ? "<i class='fa fa-close fa-2x'></i>" : "<i class='fa fa-check fa-2x'></i>") .
-                     "</a></td>";
-            echo "<td><a class='delete' href='player_traitement.php?ac=2&id=" .
-                     $row["id"] .
-                     "'><i class='fa fa-trash fa-2x'></i></a></td>";
-            echo "</tr>";
-        }
+             "</td>";
+    echo "<td><a class='statut' href='player_traitement.php?ac=1&id=" .
+             $row["id"] . "'>" .
+             ($row["statut"] == 'A' ? "<i class='fa fa-close fa-2x'></i>" : "<i class='fa fa-check fa-2x'></i>") .
+             "</a></td>";
+    echo "<td><a class='delete' href='player_traitement.php?ac=2&id=" .
+             $row["id"] . "'><i class='fa fa-trash fa-2x'></i></a></td>";
+    echo "</tr>";
+}
 ?>
 <script type="text/javascript">
 $(document).ready(function () {

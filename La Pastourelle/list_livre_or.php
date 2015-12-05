@@ -2,19 +2,17 @@
 @session_start();
 require_once 'traitement.inc.php';
 try {
-	$adminOk = checkLoginWithArray($_SESSION, 1);
+    $adminOk = checkLoginWithArray($_SESSION, 1);
 } catch (Exception $e) {
-	$adminOk = false;
+    $adminOk = false;
 }
+
 $message = getMessageActifLivre();
-if (count($message) <= 0) {
-    echo "Aucun message à afficher";
-}
 foreach ($message as $row) {
     echo "<p>";
     if ($adminOk) {
         echo "<a class='delete' href='livre_or_traitement.php?ac=1&id=" .
-         $row['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
+                 $row['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
     }
     echo "<span >";
     // Traduit le format de date anglais en format français

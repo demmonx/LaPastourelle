@@ -2,9 +2,9 @@
 @session_start();
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
-echo "<table class='table table-bordered'>";
 $tab = getPage();
 if (count($tab) != 0) {
+    echo "<table class='table table-bordered'>";
     
     echo "<tr>";
     
@@ -17,12 +17,13 @@ if (count($tab) != 0) {
         
         echo "<td>" . $row["nom"] . "</td>";
         echo "<td><a class='delete' href='gestion_page_traitement.php?ac=1&id=" .
-                 $row["id"] .
-                 "'><i class='fa fa-close fa-2x'></i></a></td>";
+                 $row["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
         echo "</tr>";
     }
+    echo "</table>";
+} else {
+    echo "Aucune page disponible";
 }
-echo "</table>";
 ?>
 </table>
 <script type="text/javascript">
