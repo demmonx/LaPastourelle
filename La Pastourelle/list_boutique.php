@@ -1,7 +1,7 @@
 <?php
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 
 // Vérification si on a des produits
@@ -11,7 +11,7 @@ if (count($produit) == 0) {
 } else {
     $langage = getLanguages();
     ?>
-<FORM METHOD='POST' id='boutiqueMaj' ACTION='boutique_maj.php'>
+<FORM METHOD='POST' id='boutiqueMaj' ACTION='traitement_boutique.php'>
     					<?php
     foreach ($langage as $lang) {
         echo "<h3 class='spoiler'>" . $lang['name'] .

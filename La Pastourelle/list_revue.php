@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 
 $tab = getRevuePresse();
@@ -16,7 +16,7 @@ if (count($tab) != 0) {
         echo "<tr>";
         
         echo "<td>" . $row["titre"] . "</td>";
-        echo "<td><a class='delete' href='gestion_revue_traitement.php?ac=1&id=" .
+        echo "<td><a class='delete' href='traitement_revue.php?ac=1&id=" .
                  $row["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
         echo "</tr>";
     }

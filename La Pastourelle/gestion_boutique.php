@@ -3,7 +3,7 @@ verifLoginWithArray($_SESSION, 1, true);
 ?>
 <h1>Gestion de la boutique</h1>
 <h2>Ajout d'un produit</h2>
-<form method="post" id="newType" action="produit_maj.php">
+<form method="post" id="newType" action="traitement_produit.php">
 	<input type="text" name="nom" id='nomProd' placeholder="Nom" required /><br />
 	<input type="number" name="prix" step='0.01' id='prixProd'
 		placeholder="Prix en €" required /><br /> <input class='btn' type="submit"

@@ -1,7 +1,7 @@
 <?php
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 /*
  * Teste si on a reçu tous les champs, même vide
@@ -26,7 +26,7 @@ foreach ($lang as $item)
 ?>
 	</select> <input class='btn' type='submit' value='Choisir' />
 </form>
-<FORM METHOD='POST' id='actuTitle' ACTION='gestion_titre_traitement.php'>
+<FORM METHOD='POST' id='actuTitle' ACTION='traitement_titre.php'>
 	<table class='table table-bordered'>
 		<tr>
 			<th>Titre</th>

@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 $aValider = getUnvalitedMember();
 if (count($aValider) == 0) {
@@ -34,11 +34,11 @@ if (count($aValider) == 0) {
 				<td>" . $row['adresse'] . "</td>";
         echo "
 				<td>
-					<a class='valid-membre' href='demande_traitement.php?id=" . $row['id'] . "&ac=3'><i class='fa fa-check fa-2x'></i></a>
+					<a class='valid-membre' href='traitement_demande.php?id=" . $row['id'] . "&ac=3'><i class='fa fa-check fa-2x'></i></a>
 				</td>";
         echo "
 				<td>
-					<a class='delete-membre-valid' href='demande_traitement.php?id=" .
+					<a class='delete-membre-valid' href='traitement_demande.php?id=" .
                  $row['id'] . "&ac=4'><i class='fa fa-close fa-2x'></i></a>
 				</td>";
         echo "

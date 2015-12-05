@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 $tab_membre = getMembers();
 $cpt = 0;
@@ -28,7 +28,7 @@ if (count($tab_membre) == 0) {
         echo "	<TD>" . $row['email'] . "</TD>";
         echo "	<TD>" . $row['telephone'] . "</TD>";
         echo "	<TD>" . $row['adresse'] . "</TD>";
-        echo "<TD><A class='delete-membre' href='demande_traitement.php?id=" .
+        echo "<TD><A class='delete-membre' href='traitement_demande.php?id=" .
                  $row['id'] . "&ac=4'><i class='fa fa-close fa-2x'></i></A></TD>";
         echo "</TR>";
     }

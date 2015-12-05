@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 echo "<table class='table table-bordered'>";
 $tab = getLinks();
@@ -20,17 +20,17 @@ if (count($tab) != 0) {
         
         echo "<td>" . $row["nom"] . "</td>";
         echo "<td>" . $row["url"] . "</td>";
-        $delete_img = "</td><td><a class='delete' href='gestion_liens_traitement.php?ac=1&id=" .
+        $delete_img = "</td><td><a class='delete' href='traitement_liens.php?ac=1&id=" .
                  $row["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
         echo "<td>" .
                  (! empty($row["img"]) ? $row["img"] . $delete_img : "Pas d'image</td><td>") .
                  "</td>";
-        echo "<td><form method='post' action='gestion_liens_traitement.php' class='change-img' enctype='multipart/form-data'>";
+        echo "<td><form method='post' action='traitement_liens.php' class='change-img' enctype='multipart/form-data'>";
         echo "<input type='file' id='uploadFile' name='fichier'>";
         echo "<input class='btn' type='submit' value='Ajouter'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
-        echo "<td><a class='delete' href='gestion_liens_traitement.php?ac=2&id=" .
+        echo "<td><a class='delete' href='traitement_liens.php?ac=2&id=" .
                  $row["id"] . "'><i class='fa fa-trash fa-2x'></i></a></td>";
         echo "</tr>";
     }

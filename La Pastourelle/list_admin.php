@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 ?>
 
@@ -28,7 +28,7 @@ foreach ($rep as $row) {
 		<TD>" . $row['email'] . "</TD>
 		<TD>" . $row['telephone'] . "</TD>
 		<TD>" . $row['adresse'] . "</TD>
-		<TD><A class='action'  HREF='gestion_admin_traitement.php?ac=1&id=" .
+		<TD><A class='action'  HREF='traitement_admin.php?ac=1&id=" .
              $row['id'] . "'><i class='fa fa-level-down fa-2x'></i></A></TD>
 		</TR>
 		<TR></TR>";
@@ -62,7 +62,7 @@ if (count($rep) != 0) {
 		<TD>" . $row['email'] . "</TD>
 		<TD>" . $row['telephone'] . "</TD>
 		<TD>" . $row['adresse'] . "</TD>
-		<TD><A class='action' HREF='gestion_admin_traitement.php?ac=2&id=" .
+		<TD><A class='action' HREF='traitement_admin.php?ac=2&id=" .
                  $row['id'] . "'><i class='fa fa-level-up fa-2x'></i></A></TD>
 		</TR>
 		<TR></TR>";

@@ -3,7 +3,7 @@ checkLoginWithArray ( $_SESSION, 1 );
 
 echo "<h1>Gestion des musiques</h1>";
 echo "<div id='player-content'>";
-require 'player.inc.php';
+require 'inc.player.php';
 echo "</div>";
 
 ?>
@@ -11,7 +11,7 @@ echo "</div>";
 <h2>Nouvelle musique</h2>
 
 
-<form action="player_traitement.php" method="post"
+<form action="traitement_player.php" method="post"
 	enctype="multipart/form-data" class="formS">
 	<label for="fichier">Musique à ajouter : </label><input type="file"
 		name="fichier" id="uploadFile"><br /> <input type="text" name="nom"
@@ -35,7 +35,7 @@ $(document).ready(function () {
 	// Rafraichit la liste des music mais pas le player
 	function refresh() {
 		$("#liste-player-full").load("list_music.php");
-		$("#player-content").load("player.inc.php");
+		$("#player-content").load("inc.player.php");
 	}
 
 	// Ajout d'une nouvelle musique

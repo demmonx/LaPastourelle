@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 $tab = getPage();
 if (count($tab) != 0) {
@@ -16,7 +16,7 @@ if (count($tab) != 0) {
         echo "<tr>";
         
         echo "<td>" . $row["nom"] . "</td>";
-        echo "<td><a class='delete' href='gestion_page_traitement.php?ac=1&id=" .
+        echo "<td><a class='delete' href='traitement_page.php?ac=1&id=" .
                  $row["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
         echo "</tr>";
     }
