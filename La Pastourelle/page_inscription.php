@@ -48,7 +48,7 @@ $(document).ready(function () {
 </script>
 
 
-<h2>Inscription</h2>
+<h1>Inscription</h1>
 
 <div id="espace_reserve">
 	Attention ! L'inscription au site est <span>réservée</span> aux seuls <span>membres</span>
