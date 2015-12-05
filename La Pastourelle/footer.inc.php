@@ -37,7 +37,7 @@ function footer ()
         echo " - <a href='mailto:" . $coord['mail'] . "'>" . $coord['mail'] .
                  "</a>";
     }
-    echo "<br /><i>Affilié à la Fédération des Arts et Traditions Populaires du
+    echo "<br /><i>Affiliée à la Fédération des Arts et Traditions Populaires du
 Centre et Massif Central</i>";
     ?>
 	</div>
