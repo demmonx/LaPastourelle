@@ -456,9 +456,34 @@ zones textes à une seule en retirant celles qui sont inutiles.
 Enfin, il y a un problème avec les picèes de théâtre qui passent à "Pièce
 jouée" dès que l'on saisit une valeur, il faudrait donc réparer ce module.
 
+\chapter{Analyse de l'existant}
 \chapter{Les caractéristiques techniques}
 \section{Charte graphique}
 // TODO nouvelle charte graphique
+\section{Choix techniques}
+\subsection{Slick}
+Nous avons utilisé le module Slick, qui est un carroussel codé en jQuery, afin
+de proposer un diaporama fluide, efficace et personnalisable. Ainsi, que ce soit
+le diaporama du fil d'actualité, celui de l'administration des images, ou encore
+celui en haut à droite du site, il seront tous basés sur Slick car le système
+actuel est complexe et mal optimisé.
+
+\subsection{TinyMCE}
+Le module TinyMCE permet de proposer un éditeur de texte enrichit dans la mesure
+où il est possible d'ajouter simplement des images, des vidéos, des liens ou
+encore de faire de la mise en page. Il convient très bien pour une utilisation
+quotidienne et permettra au client de concevoir ses pages de manière rapide et
+en voyant ce qu'il fait car c'est un éditeur type \og WYSIWYG \fg{} (\og what you
+see is what you get \fg{}).
+
+\subsection{Bootstrap}
+Afin de gagner du développement avec le développement de l'aspect graphique,
+nous avons utilisé le template Bootstrap, qui met une large gamme d'outils à
+notre disposisions, notamment en ce qui concerne le responsive design et la
+gestion des menus. \\
+\par Toutefois, afin de proposer des menus déroulants à plusieurs niveaux, nous
+avons du le coupler à \og smartmenus \fg{} qui propose des fonctionnalités plus
+avancées pour les menus et les onglets déroulants.
 \section{Développement}
 \subsection{Eléments de sécurisation du site}
 Afin d'éviter l'injection SQL, nous avons utilisé PDO avec des requêtes
@@ -475,20 +500,11 @@ pourra pas accéder aux modules d'administration. \\
  \par Egalement, nous avons mis à jour le système de protection anti-robot, avec
  le système reCaptcha de google, plus facile à utiliser et surtout libre 
  d'utilisation.
-\subsection{Slick}
-Nous avons utilisé le module Slick, qui est un carroussel codé en jQuery, afin
-de proposer un diaporama fluide, efficace et personnalisable. Ainsi, que ce soit
-le diaporama du fil d'actualité, celui de l'administration des images, ou encore
-celui en haut à droite du site, il seront tous basés sur Slick car le système
-actuel est complexe et mal optimisé.
+ 
+ \subsection{Codes sources}
+ Les codes sources de l'application sont à téléchargés depuis GitHub :
+ https://github.com/demmonx/LaPastourelle
 
-\subsection{TinyMCE}
-Le module TinyMCE permet de proposer un éditeur de texte enrichit dans la mesure
-où il est possible d'ajouter simplement des images, des vidéos, des liens ou
-encore de faire de la mise en page. Il convient très bien pour une utilisation
-quotidienne et permettra au client de concevoir ses pages de manière rapide et
-en voyant ce qu'il fait car c'est un éditeur type \og WYSIWYG \fg{} (\og what you
-see is what you get \fg{}).
 \section{Base de données}
 Nous avons dû revoir l'intégralité de la base de donnée du site, car c'est un
 des élements qui mettait en péril les fonctionnalités du site web. En effet, les
@@ -521,6 +537,14 @@ point.
 \section{Scénarios de recette}
 \section{Manuel utilisateur}
 \section{Manuel administrateur}
+\section{Référencement}
+En ce qui concerne le référencement, nous avons simplement rajouté une
+description afin que celle-ci apparaisse lors d'une recherche sur un moteur,
+sous le titre. Afin d'améliorer le référencement, nous conseillons aux
+responsables de l'assocation de multiplier les partenariats, car pour améliorer
+le référencement de son site il suffit que son URL soit présente un grand nombre
+de fois sur Internet.
+
 \section{Hébergement et compte}
 Le site est hébergé sur OVH. Pour accéder au compte et pouvoir sauvegarder ou
 restaurer la base de données, les identifiants sont : \\

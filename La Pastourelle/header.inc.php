@@ -27,6 +27,9 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 <head>
 <title>Groupe Folklorique La Pastourelle de Rodez | Association de
 	danses dans l'aveyron</title>
+
+<meta name="description"
+	content="La Pastourelle de Rodez, association de danse folklorique Rouergate affiliée à la Fédération des Arts et Traditions Populaires du Centre et Massif Central" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
