@@ -11,9 +11,12 @@ $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
 $url = filter_input(INPUT_POST, 'url', FILTER_VALIDATE_URL);
 
 /* Cas d'erreur */
+if (filter_input(INPUT_POST, 'url', FILTER_SANITIZE_SPECIAL_CHARS) && ! $url) {
+    exit("Le lien n'est pas une url valide");
+}
 if (! ($nom && $url || $action && $id || $id_type && isset($_FILES["fichier"]) &&
          ! empty($_FILES["fichier"]["name"])))
-    exit("L'action choisit n'est pas valide");
+    exit("Les champs doivent être remplis");
 
 /**
  * On traite la partie ajout

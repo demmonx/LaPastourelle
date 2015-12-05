@@ -13,29 +13,43 @@ if (count($coord) <= 0) {
 } // else
 
 ?>
-<table>
+<table class='table'>
 	<tr>
-		<th>Téléphone :</th>
+		<th>Téléphone</th>
 		<td><?php echo convertPhoneNumber($coord['tel']); ?></td>
 	</tr>
 	<tr>
-		<th>Adresse :</th>
+		<th>Adresse</th>
 		<td><?php echo nl2br(html_entity_decode($coord['adr'])); ?></td>
 	</tr>
 	<tr>
-		<th>Carte :</th>
+		<th>Carte</th>
 		<td>
-
-			<figure>
-				<a href="<?php echo $coord['img']; ?>" title="Cliquez pour agrandir">
-					<img src="<?php echo $coord['img']; ?>" alt="Localisation" />
-					<figcaption>Cliquez ici pour agrandir</figcaption>
-				</a>
-			</figure>
+			<div class='map' id="map"></div>
 		</td>
 	</tr>
 	<tr>
-		<th>Mail :</th>
+		<th>Mail</th>
 		<td><a href="mailto:<?php echo $coord['mail']; ?>"><?php echo $coord['mail']; ?></a></td>
 	</tr>
 </table>
+<script>
+function initialize() {
+  var myLatLng = {lat: <?php echo $coord['lat']; ?>, lng: <?php echo $coord['long']; ?>};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 13,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'La Pastourelle'
+  });
+  
+}
+
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>

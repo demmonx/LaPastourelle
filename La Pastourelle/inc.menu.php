@@ -52,6 +52,7 @@ $lang = $_SESSION['lang'];
 								<li><a href='index.php?page=gestion_demande'> Valider une
 										demande</a></li>
 								<li><a href='index.php?page=gestion_admin'> Administrateurs</a></li>
+								<li><a href='index.php?page=gestion_users'> Utilisateurs</a></li>
 							</ul></li>
 
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -138,6 +139,8 @@ $lang = $_SESSION['lang'];
 				
 				
 				
+				
+				
 				<li><a href="index.php?page=page_blog"><i
 						class="fa fa-commenting-o fa-lg"></i> Blog</a>
 				
@@ -170,9 +173,8 @@ $lang = $_SESSION['lang'];
 				<?php
             foreach ($pageDispo as $unePage) {
                 echo "
-					<li><a href='index.php?page=page_generic&id=" .
-                         $unePage['page'] . "'>" . $unePage['titre'] .
-                         "</a></li>";
+					<li><a href='index.php?page=page_generic&id=" . $unePage['page'] . "'>" .
+                         $unePage['titre'] . "</a></li>";
             }
             ?>
 				</ul></li>

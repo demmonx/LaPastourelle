@@ -527,11 +527,33 @@ function getMembers ()
 }
 
 /**
+ * ************************
+ * Récupération des membres validés ou non + admin *
+ * ************************
+ */
+function getUsers ()
+{
+    $tab_membre = array(); // tableau contenant les informations des membres a
+                           // recuperer
+    
+    $bdd = new Connection();
+    
+    $stmt = $bdd->prepare("SELECT * FROM tmembre_inscrit ORDER BY nom");
+    $result = $stmt->execute();
+    $i = 0;
+    while ($row = $stmt->fetch()) {
+        $tab_membre[$i ++] = extractMembreFromARow($row);
+    }
+    
+    return $tab_membre;
+}
+
+/**
  * ******************************************
  * Récupération d'un membre avec son pseudo *
  * ******************************************
  */
-function getMember ($pseudo)
+function getMember ($id)
 {
     $bdd = new Connection();
     
@@ -542,9 +564,9 @@ function getMember ($pseudo)
      * recupération des membre
      */
     $rqt_membre = "SELECT *
-						FROM tmembre_inscrit WHERE etat_validation=1 AND pseudo=? ORDER BY pseudo";
+						FROM tmembre_inscrit WHERE id_membre=?";
     $result = $bdd->prepare($rqt_membre);
-    $result->bindValue(1, $pseudo);
+    $result->bindValue(1, $id);
     $result->execute();
     
     if ($row = $result->fetch()) {
@@ -562,6 +584,7 @@ function extractMembreFromARow ($row)
     $retour = array();
     $retour['id'] = $row['id_membre'];
     $retour['pseudo'] = $row['pseudo'];
+    $retour['pass'] = $row['pass_secure'];
     $retour["email"] = $row['email'];
     $retour["telephone"] = $row['telephone'];
     $retour["nom"] = $row['nom'];
@@ -795,9 +818,6 @@ function getCoordonnees ()
 {
     $bdd = new Connection();
     $tab_coord = array();
-    /**
-     * recupération des liens externes sous la forme : adr | mail | tel | img
-     */
     $rqt_coord = "SELECT * FROM coordonnees";
     
     $result = $bdd->prepare($rqt_coord);
@@ -807,8 +827,9 @@ function getCoordonnees ()
         $tab_coord['adr'] = $row['coord_adr'];
         $tab_coord['tel'] = $row['coord_tel'];
         $tab_coord['mail'] = $row['coord_mail'];
-        $tab_coord['img'] = $row['coord_img'];
         $tab_coord['id'] = $row['coord_num'];
+        $tab_coord['lat'] = $row['coord_lat'];
+        $tab_coord['long'] = $row['coord_long'];
     }
     
     return $tab_coord;
@@ -2271,7 +2292,7 @@ function inscriptionBDD ($var)
     
     // récupération des données du formulaire
     $pseudo = $var["pseudo"];
-    $mdp = sha1($var["mdp"]);
+    $mdp = better_crypt(sha1($var["mdp"]), 7);
     $email = $var["email"];
     $tel = $var["tel"];
     $nom = strtoupper($var["nom"]);
@@ -2644,27 +2665,21 @@ function convertPhoneNumber ($tel)
  *            L'adresse de l'association
  * @param string $mail
  *            L'adresse mail utilisée par l'association
- * @param string $image
- *            L'image de la localisation des bureaux
+ * @param float $lat
+ *            Latitude correspondant à la localisation des locaux
+ * @param float $long
+ *            Longitude correspondant à la localisation des locaux
  */
-function updateCoor ($tel, $adresse, $mail, $image = null)
+function updateCoor ($tel, $adresse, $mail, $lat, $long, $image = null)
 {
     $bdd = new Connection();
-    $sql = "UPDATE coordonnees SET coord_adr=:adr, coord_mail=:mail, coord_tel=:tel";
-    // Si on a l'image on change un peu la requete
-    if ($image != null) {
-        $sql .= ", coord_img=:img";
-        // On récup l'ancienne image et on la supprime du disque
-        $coord = getCoordonnees();
-        @unlink($coord["img"]);
-    }
+    $sql = "UPDATE coordonnees SET coord_adr=:adr, coord_mail=:mail, coord_long=:long, coord_lat=:lat, coord_tel=:tel";
     $stmt = $bdd->prepare($sql);
     $stmt->bindValue(':tel', $tel);
     $stmt->bindValue(':adr', $adresse);
     $stmt->bindValue(':mail', $mail);
-    if ($image != null) {
-        $stmt->bindValue(':img', $image);
-    }
+    $stmt->bindValue(':lat', $lat);
+    $stmt->bindValue(':long', $long);
     $stmt->execute();
 }
 
@@ -2770,9 +2785,9 @@ function getContinents ()
     $stmt = $bdd->prepare("SELECT * FROM continent ORDER BY cont_id");
     $stmt->execute();
     while ($row = $stmt->fetch()) {
-        $return[$i]["id"] = $row["id_cont"];
-        $return[$i]["code"] = $row["code"];
-        $return[$i]["nom"] = $row["nom"];
+        $return[$i]["id"] = $row["cont_id"];
+        $return[$i]["code"] = $row["cont_code"];
+        $return[$i]["nom"] = $row["cont_name"];
         $i ++;
     }
     return $return;
@@ -2800,4 +2815,31 @@ function getVoyageDetail ($id)
     }
     
     return $return;
+}
+
+// Original PHP code by Chirp Internet: www.chirp.com.au
+// Please acknowledge use of this code by including this header.
+function better_crypt ($input, $rounds = 10)
+{
+    $crypt_options = array(
+            'cost' => $rounds
+    );
+    return password_hash($input, PASSWORD_BCRYPT, $crypt_options);
+}
+
+/**
+ * Encrypte le contenu des mots de passe des utilisateurs avec un nouveau mot de
+ * passe plus fort
+ */
+function recrypt ()
+{
+    $tab = getUsers();
+    $bdd = new Connection();
+    $stmt = $bdd->prepare(
+            "UPDATE tmembre_inscrit SET pass_secure = ? WHERE id_membre = ?");
+    foreach ($tab as $user) {
+        $stmt->bindValue(1, better_crypt($user['pass'], 7));
+        $stmt->bindValue(2, $user['id']);
+        $stmt->execute();
+    }
 }

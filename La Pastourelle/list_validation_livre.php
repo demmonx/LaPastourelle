@@ -21,13 +21,14 @@ if (count($messNoValid) == 0) {
     foreach ($messNoValid as $row) {
         echo "<tr>";
         echo "<td>" . $row['date'] . "</td><td>" . $row['nom'] . "</td>
-				<td>" . nl2br(html_entity_decode($row['message'])) . "</td>";
+				<td>" .
+                 nl2br(html_entity_decode($row['message'])) . "</td>";
         echo "<td>";
-        echo "<a class='delete' href='traitement_demande.php?id=" . $row['id'] .
+        echo "<a class='valid' href='traitement_demande.php?id=" . $row['id'] .
                  "&ac=1'><i class='fa fa-check fa-2x'></i></a>";
         echo "</td>";
         echo "<td>";
-        echo "<a class='valid' href='traitement_demande.php?id=" . $row['id'] .
+        echo "<a class='delete' href='traitement_demande.php?id=" . $row['id'] .
                  "&ac=2'><i class='fa fa-close fa-2x'></i></a>";
         echo "</td>";
         echo "</tr>";

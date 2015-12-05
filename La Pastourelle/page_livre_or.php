@@ -45,6 +45,7 @@ $(document).ready(function () {
                     $('#ajout-result').append(html);  // affichage du résultat
                     if (html.search("succès") >= 0) {
                         form.get(0).reset();
+                        grecaptcha.reset();
                     }
                 }
             });

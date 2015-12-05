@@ -33,8 +33,9 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
-                    if (html.search("compte") >= 0) {
+                    if (html.search("inscription") >= 0) {
                     	form.get(0).reset();
+                    	grecaptcha.reset();
                     } else {
                     	$('#pass').val("");
                     }

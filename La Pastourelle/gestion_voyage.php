@@ -1,6 +1,6 @@
 <?php
 @session_start();
-verifLoginWithArray ( $_SESSION, 1, true );
+verifLoginWithArray($_SESSION, 1, true);
 ?>
 
 <h1>Gestion des voyages</h1>
@@ -10,23 +10,22 @@ verifLoginWithArray ( $_SESSION, 1, true );
 	<select id='continent' name="continent">
 		<option value="">Continent</option>
 			<?php
-			$continents = getContinents ();
-			foreach ( $continents as $row )
-				echo "<option value=" . $row ['id'] . ">" . $row ['nom'] . "</option>";
-			?>		
-	</select> <br />
-	<select name='pays' id='pays'>
+$continents = getContinents();
+foreach ($continents as $row)
+    echo "<option value=" . $row['id'] . ">" . $row['nom'] . "</option>";
+?>		
+	</select> <br /> <select name='pays' id='pays'>
 			<?php
-			require 'list_pays.php';			
-			?>
+require 'list_pays.php';
+?>
 			
-	</select> <br />
-	 <input type="text" name="titre" placeholder='Titre' />
-			
-	<br /><textarea name="texte" class='editor' placeholder="Description"></textarea>
+	</select> <br /> <input type="text" name="titre" placeholder='Titre' />
 
 	<br />
-	<input class="btn" type="submit" name="envoyer" value="Enregistrer" />
+	<textarea name="texte" class='editor' placeholder="Description"></textarea>
+
+	<br /> <input class="btn" type="submit" name="envoyer"
+		value="Enregistrer" />
 	<div id="msgReturn"></div>
 
 </form>
@@ -34,9 +33,9 @@ verifLoginWithArray ( $_SESSION, 1, true );
 <h2>Modification des voyages</h2>
 <div id="liste-continent">
 	<?php
-    require "list_voyage.php";
-    ?>
-</div>    
+require "list_voyage.php";
+?>
+</div>
 
 <script type="text/javascript">
 $(document).ready(function () {
@@ -61,6 +60,7 @@ $(document).ready(function () {
     $('#formS').on('submit', function (e) {
         e.preventDefault(); // Empeche de soumettre le formulaire
         var form = $(this); // L'objet jQuery du formulaire
+        tinyMCE.triggerSave();
 
         var pays = $('select[name=pays]', form).val();  // pays
         var titre = $('input[name=titre]', form).val();

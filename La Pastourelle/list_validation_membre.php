@@ -34,7 +34,8 @@ if (count($aValider) == 0) {
 				<td>" . $row['adresse'] . "</td>";
         echo "
 				<td>
-					<a class='valid-membre' href='traitement_demande.php?id=" . $row['id'] . "&ac=3'><i class='fa fa-check fa-2x'></i></a>
+					<a class='valid-membre' href='traitement_demande.php?id=" .
+                 $row['id'] . "&ac=3'><i class='fa fa-check fa-2x'></i></a>
 				</td>";
         echo "
 				<td>
@@ -55,7 +56,6 @@ $(document).ready(function () {
 	// Rafraichit la liste des music mais pas le player
 	function refresh() {
         $('#container-membre-valid').load("list_validation_membre.php");
-        $('#container-membre').load("list_membre_actif.php");
 	}
 
 	$('.delete-membre-valid').on('click', function (e) {
