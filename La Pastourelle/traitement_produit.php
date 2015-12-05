@@ -71,7 +71,7 @@ try {
                     "image/jpeg",
                     "image/pjpeg",
                     "image/gif"
-            ), $file);
+            ), $file, rand(5, 50000));
     // Insertion dans la BD
     if (insertImageProduct($image, $id_type)) {
         exit("Modification effectué avec succès");

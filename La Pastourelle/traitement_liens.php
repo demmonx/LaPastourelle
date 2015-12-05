@@ -67,7 +67,7 @@ if ($id_type) {
                         "image/jpeg",
                         "image/pjpeg",
                         "image/gif"
-                ), $file);
+                ), $file, rand(5, 50000));
         // Insertion dans la BD
         if (insertImageLink($image, $id_type)) {
             exit("Modification effectué avec succès");

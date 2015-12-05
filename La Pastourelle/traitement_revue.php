@@ -1,13 +1,15 @@
 <?php
 @session_start();
-@header ( 'Content-Type: text/html; charset=utf-8' );
+@header('Content-Type: text/html; charset=utf-8');
 require_once 'inc.function.php';
-verifLoginWithArray ( $_SESSION, 1);
+verifLoginWithArray($_SESSION, 1);
 // Teste les entrées
 $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $titre = filter_input(INPUT_POST, 'titre', FILTER_SANITIZE_SPECIAL_CHARS);
-if (! (($action && $id) || ($titre && isset($_FILES["fichier"]) && !empty($_FILES["fichier"]["name"])))) {
+if (! (($action && $id) ||
+         ($titre && isset($_FILES["fichier"]) &&
+         ! empty($_FILES["fichier"]["name"])))) {
     exit("Erreur lors de la réalisation de l'action");
 }
 
@@ -28,7 +30,7 @@ if ($action) {
 } // else
 
 if (strlen($titre) >= 100) {
-	exit("Le titre doit faire moins de 100 caractères");
+    exit("Le titre doit faire moins de 100 caractères");
 }
 $file = $_FILES["fichier"];
 
@@ -42,7 +44,7 @@ try {
                     "image/jpeg",
                     "image/pjpeg",
                     "image/gif"
-            ), $file);
+            ), $file, rand(5, 50000));
     
     // Insertion dans la BD
     if (addRevue($titre, $image)) {
