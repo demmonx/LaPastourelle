@@ -20,6 +20,7 @@ function footer ()
 </section>
 <!-- FOOTER -->
 <footer class="footer container-fluid">
+	<a href="#0" class="cd-top">Top</a>
 	<div class='row'>
 		<div class="col-md-8 border-right">
 <?php
