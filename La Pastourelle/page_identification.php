@@ -5,6 +5,7 @@ try {
 } catch (Exception $e) {
     // do nothing
 }
+
 ?>
 <H2>Identification</H2>
 <FORM ACTION="traitement_identification.php" class='login-form'

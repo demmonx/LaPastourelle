@@ -520,10 +520,29 @@ pourra pas accéder aux modules d'administration. \\
  le système reCaptcha de google, plus facile à utiliser et surtout libre 
  d'utilisation.
  
- \par Enfin, il nous a fallu recpder
+ \par Enfin, il nous a fallu recrypter les mots de passe avec une méthode de
+ cryptage à jour, disponible depuis PHP 5.6 car ils étaient encodés en SHA-1 et
+ il était très facile de les récupérer avec une Rainbow Table. Nous avons donc
+ utilisé le hashage SHA-1 pour assurer la compatibilité avec les mots de passe
+ existants, mais nous réencryptons pas dessus avec un algorithme plus
+ performant.
+ 
+ \subsection{Arborescence du site}
+ Les fichiers .php sont tous placés à la racine, nous avons ensuite les
+ répertoires suivants : \\
+ \begin{itemize}
+   \item diaporama : images qui défilent dans le bandeau
+   supérieur
+   \item musics : musiques qui sont jouées dans le lecteur audio
+   \item video : vidéo qui sont hébergées via l'outil d'importation
+   \item ressources : fichiers javascripts, polices, templates, css et logos 
+   \item image : dans chaque dossier des images en fonction de leur section sur
+   le site, et celles à la racine correspondent à celle importée via l'outil
+   d'importation
+ \end{itemize}
  
  \subsection{Convention de nommage}
- Pour nommer les fichiers et nous y retrouver, nous avons pris la règle suivant
+ Pour nommer les fichiers et nous y retrouver, nous avons pris la règle suivante
  : \\
  \begin{itemize}
    \item inc.x.php pour tous les fichiers devant être inclus

@@ -1,10 +1,12 @@
 <?php
 @session_start();
 require_once 'inc.function.php';
+require_once 'inc.footer.php';
 verifLoginWithArray($_SESSION, 1);
 $tab = getMusics();
 if (count($tab) == 0) {
-    exit("Aucune musique disponible");
+    echo "Aucune musique disponible";
+    exit(footer());
 }
 echo "<table class='table table-bordered'>";
 
@@ -32,6 +34,7 @@ foreach ($tab as $row) {
              $row["id"] . "'><i class='fa fa-trash fa-2x'></i></a></td>";
     echo "</tr>";
 }
+echo "</table>";
 ?>
 <script type="text/javascript">
 $(document).ready(function () {

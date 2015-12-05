@@ -23,18 +23,21 @@ $coord = getCoordonnees();
 echo "<textarea name='adresse' class='form-compteRendu' required>" .
          (isset($coord['adr']) ? stripnl2br2($coord['adr']) : "") .
          "</textarea></td>";
-?>
-		
-		
+?>		
 		
 		
 		
 		
 		</tr>
 		<tr>
-			<th>Carte</th>
-			<td><?php echo isset($coord['img']) ? $coord['img'] : ""; ?>
-			<input type="file" id="uploadFile" name="fichier"></td>
+			<th>Longitude</th>
+			<td><input required type='number' step='0.01' name='lat'
+				value='<?php echo isset($coord['lat']) ? $coord['lat'] : ""; ?>' /></td>
+		</tr>
+		<tr>
+			<th>Longitude</th>
+			<td><input required type='number' step='0.01' name='long'
+				value='<?php echo isset($coord['long']) ? $coord['long'] : ""; ?>' /></td>
 		</tr>
 		<tr>
 			<th>Mail</th>
@@ -45,7 +48,6 @@ echo "<textarea name='adresse' class='form-compteRendu' required>" .
 	</table>
 	<input type="submit" class='btn' value='Modifier' />
 	<div id='msgReturn'></div>
-	'
 </form>
 
 <script type="text/javascript">

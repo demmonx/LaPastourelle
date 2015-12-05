@@ -11,13 +11,17 @@ if (! ($pseudo && $pass)) {
 }
 
 try {
-	$pass = sha1($pass);
-    checkLogin($pseudo, $pass, 0);
+    $id = getId($pseudo);
+    $pass = sha1($pass);
+    $info = getMember($id);
+    if ($id < 0 || ! password_verify($pass, $info['pass'])) {
+        exit("Les informations n'ont pas permises de vous identifier");
+    }
+    checkLogin($pseudo, $info["pass"], 0);
     $_SESSION['pseudo'] = $pseudo;
-    $_SESSION['pass'] = $pass;
-    $_SESSION['id'] = getId($pseudo);
-    exit(
-            "Vous êtes maintenant connecté sur le site de La Pastourelle de Rodez");
+    $_SESSION['id'] = $info["id"];
+    $_SESSION['pass'] = $info["pass"];
+    exit("Vous êtes maintenant connecté sur le site de La Pastourelle de Rodez");
 } catch (Exception $e) {
     exit($e->getMessage());
 }

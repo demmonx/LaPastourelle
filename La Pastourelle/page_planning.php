@@ -46,6 +46,7 @@ $(document).ready(function () {
                 data: form.serialize(), // Envoie de toutes les données
                 success: function (html) { // Récupération de la réponse
                     $('#msgReturn').append(html);  // affichage du résultat
+                    form.get(0).reset();
                     $("#planning-container").load("list_planning.php");
                 }
             });
@@ -60,20 +61,23 @@ $(document).ready(function () {
 	<table>
 		<tr>
 			<td>Jour</td>
-			<td><INPUT type=text id='jour' name='jour' placeholder='Samedi' required /></td>
+			<td><INPUT type=text id='jour' name='jour' placeholder='Samedi'
+				required /></td>
 		</tr>
 		<tr>
-			<td>Date </td>
+			<td>Date</td>
 			<td><INPUT type=text id='date' class='datepicker' name='date'
 				required placeholder='07/12/2015' /></td>
 		</tr>
 		<tr>
 			<td>Lieu</td>
-			<td><INPUT placeholder='Rodez' type=text id='lieu' name='lieu' required /></td>
+			<td><INPUT placeholder='Rodez' type=text id='lieu' name='lieu'
+				required /></td>
 		</tr>
 		<tr>
 			<td>Musiciens</td>
-			<td><INPUT type=text id='musiciens' placeholder='AC/DC' name='musiciens' required /></td>
+			<td><INPUT type=text id='musiciens' placeholder='Guitariste'
+				name='musiciens' required /></td>
 		</tr>
 	</table>
 	<input type='submit' class='btn' value='Ajouter' />

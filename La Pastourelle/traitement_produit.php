@@ -8,8 +8,8 @@ $action = filter_input(INPUT_GET, 'ac', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $id_type = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
 $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-$prix = filter_input(INPUT_POST, 'prix', FILTER_SANITIZE_SPECIAL_CHARS);
-$newprix = filter_input(INPUT_POST, 'newprix', FILTER_SANITIZE_SPECIAL_CHARS);
+$prix = filter_input(INPUT_POST, 'prix', FILTER_VALIDATE_FLOAT);
+$newprix = filter_input(INPUT_POST, 'newprix', FILTER_VALIDATE_FLOAT);
 
 /* Cas d'erreur */
 if (! ($nom && $prix || $action && $id || $id_type && $newprix || $id_type &&

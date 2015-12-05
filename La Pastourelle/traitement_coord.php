@@ -6,12 +6,14 @@ verifLoginWithArray($_SESSION, 1);
 $tel = filter_input(INPUT_POST, 'tel', FILTER_SANITIZE_SPECIAL_CHARS);
 $adresse = filter_input(INPUT_POST, 'adresse', FILTER_SANITIZE_SPECIAL_CHARS);
 $mail = filter_input(INPUT_POST, 'mail', FILTER_VALIDATE_EMAIL);
+$lat = filter_input(INPUT_POST, 'lat', FILTER_VALIDATE_FLOAT);
+$long = filter_input(INPUT_POST, 'long', FILTER_VALIDATE_FLOAT);
 
 // Cas d'échec
 if (! $mail) {
     exit("L'adresse mail est invalide");
 }
-if (! $tel || ! $mail || ! $adresse) {
+if (! $tel || ! $mail || ! $adresse || ! $lat || ! $long) {
     exit("Les champs doivent être remplis");
 }
 if (strlen($tel) != 10) {
@@ -19,27 +21,8 @@ if (strlen($tel) != 10) {
 }
 
 if (strlen($mail) >= 100) {
-	exit("L'adresse mail doit faire moins de 100 caractères");
+    exit("L'adresse mail doit faire moins de 100 caractères");
 }
 
-// Si fichier on l'héberge
-if (isset($_FILES["fichier"]) && ! empty($_FILES["fichier"]["name"])) {
-    $file = $_FILES["fichier"];
-    try {
-        // Ajout du fichier sur le serveur
-        $image = upload_file("image/coordonnees/", 
-                array(
-                        "image/png",
-                        "image/x-png",
-                        "image/jpeg",
-                        "image/pjpeg",
-                        "image/gif"
-                ), $file);
-        updateCoor($tel, $adresse, $mail, $image);
-    } catch (Exception $e) {
-        exit($e->getMessage());
-    }
-} else { // sinon eon envoie tel quel
-    updateCoor($tel, $adresse, $mail);
-}
-exit("Les informations ont bien été mise à jour");
+updateCoor($tel, $adresse, $mail, $lat, $long);
+exit("Les informations ont bien été mises à jour");
