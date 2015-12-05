@@ -1,7 +1,7 @@
 <?php
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 /*
  * Teste si on a reçu tous les champs, même vide
@@ -13,7 +13,7 @@ if (count($type) == 0) {
     echo "Aucun type d'actualité disponible";
 } else {
     ?>
-<FORM METHOD='POST' id='actuMaj' ACTION='actu_maj.php'>
+<FORM METHOD='POST' id='actuMaj' ACTION='traitement_actu.php'>
 					<?php
     foreach ($langage as $lang) {
         echo "<h3 class='spoiler'>" . $lang['name'] .

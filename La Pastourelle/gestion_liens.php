@@ -3,7 +3,7 @@ verifLoginWithArray($_SESSION, 1, true);
 ?>
 <h1>Administration des liens</h1>
 <h2>Ajout d'un lien</h2>
-<form method="post" id="newLink" action="gestion_liens_traitement.php">
+<form method="post" id="newLink" action="traitement_liens.php">
 	<input type="text" name="nom" placeholder="Nom" required /><br /> <input
 		type="text" name="url" placeholder="URL" required /> <br /> <input class='btn' type="submit" value="Ajouter" />
 </form>

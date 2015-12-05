@@ -5,7 +5,7 @@ verifLoginWithArray ( $_SESSION, 1, true );
 
 <h1>Gestion des voyages</h1>
 <h2>Ajouter un voyage</h2>
-<form action="gestion_voyage_traitement.php" method="POST" id="formS">
+<form action="traitement_voyage.php" method="POST" id="formS">
 
 	<select id='continent' name="continent">
 		<option value="">Continent</option>
@@ -17,7 +17,7 @@ verifLoginWithArray ( $_SESSION, 1, true );
 	</select> <br />
 	<select name='pays' id='pays'>
 			<?php
-			require 'get_pays.php';			
+			require 'list_pays.php';			
 			?>
 			
 	</select> <br />
@@ -34,7 +34,7 @@ verifLoginWithArray ( $_SESSION, 1, true );
 <h2>Modification des voyages</h2>
 <div id="liste-continent">
 	<?php
-    require "liste_voyage.php";
+    require "list_voyage.php";
     ?>
 </div>    
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
 
 	$('#continent').on('change', function (e) {
         var code = $('#continent').val();
-        var url = "get_pays.php";
+        var url = "list_pays.php";
         if (code !== '') {
             url += "?id=" + code;
         }
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
 	// Rafraichit la liste des voyages
 	function refresh() {
-		$("#liste-continent").load("liste_voyage.php");
+		$("#liste-continent").load("list_voyage.php");
 	}
 
 	// Ajout d'un nouveau continent

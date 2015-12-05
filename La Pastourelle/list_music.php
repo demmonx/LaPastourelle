@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 $tab = getMusics();
 if (count($tab) == 0) {
@@ -24,11 +24,11 @@ foreach ($tab as $row) {
     echo "<td>" . ($row["statut"] == 'A' ? "<i class='fa fa-check-circle-o fa-2x'></i>
             		" : "<i class='fa fa-circle-o fa-2x'></i>") .
              "</td>";
-    echo "<td><a class='statut' href='player_traitement.php?ac=1&id=" .
+    echo "<td><a class='statut' href='traitement_player.php?ac=1&id=" .
              $row["id"] . "'>" .
              ($row["statut"] == 'A' ? "<i class='fa fa-close fa-2x'></i>" : "<i class='fa fa-check fa-2x'></i>") .
              "</a></td>";
-    echo "<td><a class='delete' href='player_traitement.php?ac=2&id=" .
+    echo "<td><a class='delete' href='traitement_player.php?ac=2&id=" .
              $row["id"] . "'><i class='fa fa-trash fa-2x'></i></a></td>";
     echo "</tr>";
 }
@@ -39,7 +39,7 @@ $(document).ready(function () {
 	// Rafraichit la liste des music mais pas le player
 	function refresh() {
 		$("#liste-player-full").load("list_music.php");
-		$("#player-content").load("player.inc.php");
+		$("#player-content").load("inc.player.php");
 	}
 
 	$('.delete').on('click', function (e) {

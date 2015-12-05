@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 try {
     $adminOk = checkLoginWithArray($_SESSION, 1);
 } catch (Exception $e) {
@@ -11,7 +11,7 @@ $message = getMessageActifLivre();
 foreach ($message as $row) {
     echo "<p>";
     if ($adminOk) {
-        echo "<a class='delete' href='livre_or_traitement.php?ac=1&id=" .
+        echo "<a class='delete' href='traitement_livre_or.php?ac=1&id=" .
                  $row['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
     }
     echo "<span >";

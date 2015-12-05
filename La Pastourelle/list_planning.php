@@ -1,7 +1,7 @@
 <?php
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
-require_once "traitement.inc.php";
+require_once "inc.function.php";
 verifLoginWithArray($_SESSION, 0);
 try {
     $adminOk = checkLoginWithArray($_SESSION, 1);
@@ -46,9 +46,10 @@ if (count($tab_planning) == 0) {
         echo "<TR><TD>" . $un_jour . "</TD><TD>" . $une_date . "</TD><TD>" .
                  $un_lieu . "</TD><TD>" . $un_musiciens . "</TD> ";
         if ($adminOk) {
-            echo " <TD><A HREF='index.php?page=modif_date_planning&id=" . $unId .
+            echo " <TD><A HREF='index.php?page=gestion_date_planning&id=" . $unId .
                      "'><i class='fa fa-pencil-square-o fa-2x'></i></A></TD>";
-            echo "<TD><A HREF='planning_traitement.php?ac=1&id=" . $unId . "'>";
+            echo "<TD><A class='delete' HREF='traitement_planning.php?ac=1&id=" .
+                     $unId . "'>";
             echo "<i class='fa fa-close fa-2x'></i> </A></TD>";
         }
         echo "</tr>";

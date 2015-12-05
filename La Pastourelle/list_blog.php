@@ -1,7 +1,7 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
-require_once 'footer.inc.php';
+require_once 'inc.function.php';
+require_once 'inc.footer.php';
 verifLoginWithArray($_SESSION, 0);
 try {
     $adminOk = checkLoginWithArray($_SESSION, 1);
@@ -40,7 +40,7 @@ foreach ($les_photos as $row) {
     echo "<div>";
     // si administrateur -> pour supprimer la photo
     if ($adminOk) {
-        echo "<div><a class='action' href='blog_traitement.php?ac=2&id=" .
+        echo "<div><a class='action' href='traitement_blog.php?ac=2&id=" .
                  $row['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
     }
     // la date de la photo
@@ -67,7 +67,7 @@ foreach ($les_photos as $row) {
         echo "<div>";
         // si administrateur -> pour supprimer un commentaire
         if ($adminOk) {
-            echo "<a class='action' href='blog_traitement.php?ac=1&id=" .
+            echo "<a class='action' href='traitement_blog.php?ac=1&id=" .
                      $resultat['id'] . "'><i class='fa fa-close fa-2x'></i></a> ";
         }
         // auteur du commentaire
@@ -82,9 +82,10 @@ foreach ($les_photos as $row) {
     // formulaire de commentaire
     echo '
 			<h3>Commenter</h3>
-				<form method="post" class="post-comment" action="blog_traitement.php">
+				<form method="post" class="post-comment" action="traitement_blog.php">
 					<textarea name="content"></textarea><br>
-					<input type="hidden" name="photo" value="' . $row['id'] . '" />
+					<input type="hidden" name="photo" value="' .
+             $row['id'] . '" />
 							<input type="hidden" name="ac" value="2" />
 			
 					<input class="btn" type="submit" value="Poster">
@@ -100,17 +101,17 @@ echo '<ul class="pagination">';
 if ($pageActuelle == 1) {
     echo '<li class="disabled"><span aria-hidden="true">&laquo;</span></li>';
 } else {
-    echo '<li><a href="index.php?page=blog&lapage=' . ($pageActuelle - 1) .
+    echo '<li><a href="index.php?page=page_blog&lapage=' . ($pageActuelle - 1) .
              '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
 }
 
 // Affiche les pages
 for ($i = 1; $i <= $nombreDePages; $i ++) {
     if ($i == $pageActuelle) {
-        echo "<li class='active'><a href='index.php?page=blog&lapage=" . $i .
+        echo "<li class='active'><a href='index.php?page=page_blog&lapage=" . $i .
                  "'>" . $i . "</a></li>";
     } else {
-        echo "<li><a href='index.php?page=blog&lapage=" . $i . "'>" . $i .
+        echo "<li><a href='index.php?page=page_blog&lapage=" . $i . "'>" . $i .
                  "</a></li>";
     }
 }
@@ -119,7 +120,7 @@ for ($i = 1; $i <= $nombreDePages; $i ++) {
 if ($pageActuelle == $nombreDePages) {
     echo '<li class="disabled"><span aria-hidden="true">&raquo;</span></li>';
 } else {
-    echo '<li><a href="index.php?page=blog&lapage=' . ($pageActuelle + 1) .
+    echo '<li><a href="index.php?page=page_blog&lapage=' . ($pageActuelle + 1) .
              '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
 }
 echo '</ul>';

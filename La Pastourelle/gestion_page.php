@@ -3,7 +3,7 @@ verifLoginWithArray($_SESSION, 1, true);
 ?>
 <h1>Gestion des pages</h1>
 <h2>Création d'une page</h2>
-<form method="post" id="newPage" action="gestion_page_traitement.php">
+<form method="post" id="newPage" action="traitement_page.php">
 	<input type="text" name="nom" id='nomPage' placeholder="Nom" required /> 
 	<input class='btn' type="submit" value="Créer" />
 </form>

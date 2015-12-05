@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once "traitement.inc.php";
+require_once "inc.function.php";
 verifLoginWithArray($_SESSION, 0);
 try {
     $admin = checkLoginWithArray($_SESSION, 0);
@@ -22,7 +22,7 @@ if (count($list) == 0) {
 foreach ($list as $row) {
     echo " <div>";
     if ($admin) {
-        $delete_img = "<a class='delete' href='compte_rendu_traitement.php?ac=1&id=" .
+        $delete_img = "<a class='delete' href='traitement_compte_rendu.php?ac=1&id=" .
                  $row["id"] . "'><i class='fa fa-close fa-2x'></i></a>";
         echo $delete_img . " ";
     }
@@ -31,7 +31,7 @@ foreach ($list as $row) {
     // Formulaire de modification
     if ($admin) {
         echo "
-				  <FORM method='post' action='compte_rendu_traitement.php' class='update'>
+				  <FORM method='post' action='traitement_compte_rendu.php' class='update'>
                     <input type='hidden' value='" . $row["id"] . "' name='id' />
 					<textarea class='editor' name='content' >" .
                  nl2br(html_entity_decode($row["txt"])) . "</textarea><br />

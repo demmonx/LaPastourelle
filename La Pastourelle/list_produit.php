@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
 $tab = getProducts();
 if (count($tab) != 0) {
@@ -18,22 +18,22 @@ if (count($tab) != 0) {
         echo "<tr>";
         
         echo "<td>" . $row["name_admin"] . "</td>";
-        echo "<td><form method='post' action='produit_maj.php' class='change-prix'>";
+        echo "<td><form method='post' action='traitement_produit.php' class='change-prix'>";
         echo "<input type='number' step='0.01' name='newprix' value='" .
                  $row["prix"] . "' />";
         echo "<input class='btn' type='submit' value='Modifier'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
-        $delete_img = "<td><a class='delete' href='produit_maj.php?ac=1&id=" .
+        $delete_img = "<td><a class='delete' href='traitement_produit.php?ac=1&id=" .
                  $row["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
         echo "<td>" .
                  (! empty($row["img"]) ? $row["img"] . $delete_img : "Pas d'image</td><td>");
-        echo "<td><form method='post' action='produit_maj.php' class='change-img' enctype='multipart/form-data'>";
+        echo "<td><form method='post' action='traitement_produit.php' class='change-img' enctype='multipart/form-data'>";
         echo "<input type='file' name='fichier'>";
         echo "<input class='btn' type='submit' value='Ajouter'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
         echo "</form></td>";
-        echo "<td><a class='delete' href='produit_maj.php?ac=2&id=" . $row["id"] .
+        echo "<td><a class='delete' href='traitement_produit.php?ac=2&id=" . $row["id"] .
                  "'><i class='fa fa-trash fa-2x'></i></a></td>";
         echo "</tr>";
     }

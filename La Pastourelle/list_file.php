@@ -1,8 +1,8 @@
 <?php
 @session_start();
 @header('Content-Type: text/html; charset=utf-8');
-require_once 'traitement.inc.php';
-require_once 'footer.inc.php';
+require_once 'inc.function.php';
+require_once 'inc.footer.php';
 verifLoginWithArray($_SESSION, 1);
 echo "<h2>Liste des contenus disponibles</h2>";
 
@@ -19,7 +19,7 @@ foreach ($files as $file) {
     echo "<tr>";
     echo "<td><a href='" . $file["adr"] . "' target='blank'>" . $file["adr"] .
              "</a></td>";
-    echo "<td><a class='delete' href='gest_content_traitement.php?ac=1&id=" .
+    echo "<td><a class='delete' href='traitement_content.php?ac=1&id=" .
              $file["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
     echo "</tr>";
 }

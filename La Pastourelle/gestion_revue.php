@@ -3,7 +3,7 @@ verifLoginWithArray($_SESSION, 1, true);
 ?>
 <h1>Gestion des revues</h1>
 <h2>Ajout d'une revue</h2>
-<form method="post" id="newRevue" action="gestion_revue_traitement.php"
+<form method="post" id="newRevue" action="traitement_revue.php"
 	enctype="multipart/form-data">
 	<label for="fichier">Photo : <input type="file" id="uploadFile"
 		name="fichier"></label> <input type="text" name="titre" id='titre'

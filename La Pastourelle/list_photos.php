@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once 'traitement.inc.php';
+require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
     $tab = getDiapos();
     if (count($tab) == 0) {
@@ -20,11 +20,11 @@ verifLoginWithArray($_SESSION, 1);
             echo "<td>" . ($row["statut"] == 'A' ? "<i class='fa fa-check-circle-o fa-2x'></i>
             		" : "<i class='fa fa-circle-o fa-2x'></i>") .
                      "</td>";
-            echo "<td><a class='statut' href='slider_traitement.php?ac=1&id=" .
+            echo "<td><a class='statut' href='traitement_slider.php?ac=1&id=" .
                      $row["id"] . "'>" .
                      ($row["statut"] == 'A' ? "<i class='fa fa-close fa-2x'></i>" : "<i class='fa fa-check fa-2x'></i>") .
                      "</a></td>";
-            echo "<td><a class='delete' href='slider_traitement.php?ac=2&id=" .
+            echo "<td><a class='delete' href='traitement_slider.php?ac=2&id=" .
                      $row["id"] .
                      "'><i class='fa fa-trash fa-2x'></i></a></td>";
             echo "</tr>";
@@ -35,7 +35,7 @@ $(document).ready(function () {
 
 	// Rafraichit la liste des music mais pas le player
 	function refresh() {
-		$("#slideshow").load("slider.inc.php");
+		$("#slideshow").load("inc.slider.php");
 		$("#list-photos-full").load("list_photos.php");
 	}
 
