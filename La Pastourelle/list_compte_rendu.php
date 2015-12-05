@@ -3,7 +3,7 @@
 require_once "inc.function.php";
 verifLoginWithArray($_SESSION, 0);
 try {
-    $admin = checkLoginWithArray($_SESSION, 0);
+    $admin = checkLoginWithArray($_SESSION, 1);
 } catch (Exception $e) {
     $admin = false;
 }

@@ -60,7 +60,8 @@ $lang = $_SESSION['lang'];
 								class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href='index.php?page=gestion_content'> Importer</a></li>
-								<li><a href='index.php?page=gestion_phrasejour'> Phrase du jour</a></li>
+								<li><a href='index.php?page=gestion_phrasejour'> Phrase de la
+										semaine</a></li>
 								<li class="dropdown"><a class="dropdown-toggle"
 									data-toggle="dropdown" href="#" role="button"
 									aria-haspopup="true" aria-expanded="false"> Pages <span
@@ -91,6 +92,8 @@ $lang = $_SESSION['lang'];
             <?php
         }
         ?>				
+				
+				
 				
 				
 				
@@ -167,8 +170,9 @@ $lang = $_SESSION['lang'];
 				<?php
             foreach ($pageDispo as $unePage) {
                 echo "
-					<li><a href='index.php?page=page_generic&id=" . $unePage['page'] . "'>" .
-                         $unePage['titre'] . "</a></li>";
+					<li><a href='index.php?page=page_generic&id=" .
+                         $unePage['page'] . "'>" . $unePage['titre'] .
+                         "</a></li>";
             }
             ?>
 				</ul></li>
