@@ -30,6 +30,8 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" media="all"
+	href="ressources/back-to-top/css/style.css" type="text/css" />
 <link rel="stylesheet" type="text/css"
 	href="ressources/js/jquery-ui-1.11.4/jquery-ui.css" />
 <link rel="stylesheet"
@@ -48,6 +50,7 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 	href="ressources/slick/slick-theme.css" />
 <link rel="stylesheet" media="all" href="ressources/style.css"
 	type="text/css" />
+
 <link rel="icon" type="image/png"
 	href="ressources/images/faviconlogo.png" />
 
@@ -68,6 +71,9 @@ if (count($supported_lang) > 0 && $supported_lang[array_search(
 	src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src="ressources/slick/slick.js"></script>
 <script type="text/javascript" src="ressources/js/datepicker-fr.js"></script>
+<script type="text/javascript" src="ressources/back-to-top/js/main.js"></script>
+<script type="text/javascript"
+	src="ressources/back-to-top/js/modernizr.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
