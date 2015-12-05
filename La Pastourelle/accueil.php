@@ -15,14 +15,21 @@ if (isset($titre["content"]))
     
     // Actualité
 $actu = getActu($_SESSION['lang']);
+
+// Cas où tous les types ont été supprimés
+if (count($actu) == 0) {
+    echo "Aucune actualité disponible";
+}
+
+// Affichage du slider
 echo "<div class='slide-accueil'>";
 foreach ($actu as $row) {
     if (isset($row['img'])) {
-    	echo "<div>";
+        echo "<div>";
         echo "<img src='" . $row['img'] . "'><br /><br />";
-    echo "<span class='comment'>" .
-             (isset($row['txt']) ? nl2br(html_entity_decode($row['txt'])) : "") .
-             "</span></div>";
+        echo "<span class='comment'>" .
+                 (isset($row['txt']) ? nl2br(html_entity_decode($row['txt'])) : "") .
+                 "</span></div>";
     }
 }
 echo "</div>"?>

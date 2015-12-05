@@ -1,32 +1,38 @@
 <?php
-@session_start ();
+@session_start();
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
 echo "<table class='table table-bordered'>";
-$tab = getActuType ();
-if (count ( $tab ) != 0) {
-	
-	echo "<tr>";
-	
-	echo "<th>Type</th>";
-	echo "<th colspan='2'>Image</th>";
-	echo "<th>Modifier</th>";
-	echo "<th></th>";
-	echo "</tr>";
-	// mise en forme
-	foreach ( $tab as $row ) {
-		echo "<tr>";
-		echo "<td>" . $row ["name"] . "</td>";
-		$delete_img = "</td><td><a class='delete' href='actu_type_maj.php?ac=1&id=" . $row ["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
-		echo "<td>" . (! empty ( $row ["img"] ) ? $row ["img"] . $delete_img : "Pas d'image</td><td>") . "</td>";
-		echo "<td><form method='post' action='actu_type_maj.php' class='change-img' enctype='multipart/form-data'>";
-		echo "<input type='file' id='uploadFile' name='fichier'>";
-		echo "<input class='btn ' type='submit' value='Ajouter'>";
-		echo "<input type='hidden' name='id' value='".$row ["id"]."' />";
-		echo "</form></td>";
-		echo "<td><a class='delete' href='actu_type_maj.php?ac=2&id=" . $row ["id"] . "'><i class='fa fa-trash fa-2x'></i></a></td>";
-		echo "</tr>";
-	}
+$tab = getActuType();
+if (count($tab) == 0) {
+    echo "Aucun type d'actualité disponible";
+} else {
+    
+    echo "<tr>";
+    
+    echo "<th>Type</th>";
+    echo "<th colspan='2'>Image</th>";
+    echo "<th>Modifier</th>";
+    echo "<th></th>";
+    echo "</tr>";
+    // mise en forme
+    foreach ($tab as $row) {
+        echo "<tr>";
+        echo "<td>" . $row["name"] . "</td>";
+        $delete_img = "</td><td><a class='delete' href='actu_type_maj.php?ac=1&id=" .
+                 $row["id"] . "'><i class='fa fa-close fa-2x'></i></a></td>";
+        echo "<td>" .
+                 (! empty($row["img"]) ? $row["img"] . $delete_img : "Pas d'image</td><td>") .
+                 "</td>";
+        echo "<td><form method='post' action='actu_type_maj.php' class='change-img' enctype='multipart/form-data'>";
+        echo "<input type='file' id='uploadFile' name='fichier'>";
+        echo "<input class='btn ' type='submit' value='Ajouter'>";
+        echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
+        echo "</form></td>";
+        echo "<td><a class='delete' href='actu_type_maj.php?ac=2&id=" .
+                 $row["id"] . "'><i class='fa fa-trash fa-2x'></i></a></td>";
+        echo "</tr>";
+    }
 }
 ?>
 </table>

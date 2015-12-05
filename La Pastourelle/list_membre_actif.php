@@ -4,9 +4,11 @@ require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
 $tab_membre = getMembers();
 $cpt = 0;
-$taille_tab = count($tab_membre);
-
-echo "
+if (count($tab_membre) == 0) {
+    echo "Aucun membre disponible";
+} else {
+    
+    echo "
 	<DIV id='liens'>
 		<TABLE class='table table-bordered' >
 			<TR>
@@ -17,23 +19,24 @@ echo "
 					<TH>Téléphone</TH>
 					<TH>Adresse</TH>
 			</TR>";
-
-foreach ($tab_membre as $row) {
-    echo "<TR>
+    
+    foreach ($tab_membre as $row) {
+        echo "<TR>
 					<TD><B>" . $row['nom'] . "</B></TD>";
-    echo "	<TD><B>" . $row['prenom'] . "</B></TD>";
-    echo "	<TD>" . $row['pseudo'] . "</TD>";
-    echo "	<TD>" . $row['email'] . "</TD>";
-    echo "	<TD>" . $row['telephone'] . "</TD>";
-    echo "	<TD>" . $row['adresse'] . "</TD>";
-    echo "<TD><A class='delete-membre' href='demande_traitement.php?id=" .
-             $row['id'] . "&ac=4'><i class='fa fa-close fa-2x'></i></A></TD>";
-    echo "</TR>";
-}
-
-echo "
+        echo "	<TD><B>" . $row['prenom'] . "</B></TD>";
+        echo "	<TD>" . $row['pseudo'] . "</TD>";
+        echo "	<TD>" . $row['email'] . "</TD>";
+        echo "	<TD>" . $row['telephone'] . "</TD>";
+        echo "	<TD>" . $row['adresse'] . "</TD>";
+        echo "<TD><A class='delete-membre' href='demande_traitement.php?id=" .
+                 $row['id'] . "&ac=4'><i class='fa fa-close fa-2x'></i></A></TD>";
+        echo "</TR>";
+    }
+    
+    echo "
 		</TABLE>
 	</DIV>";
+}
 ?>
 <script type="text/javascript">
 $(document).ready(function () {

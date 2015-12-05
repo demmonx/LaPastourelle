@@ -6,14 +6,20 @@ require_once 'footer.inc.php';
 $titre = getTraduction("boutique", $_SESSION['lang']);
 if (isset($titre["content"]))
     echo "<h1>" . $titre["content"] . "</h1>";
+    
+    // Si pas de produit dispo
+$prod = getBoutique($_SESSION['lang']);
+if (count($prod) <= 0) {
+    echo "Aucun produit à afficher";
+    exit(footer());
+}
+
+// Affichage bon de commande
 echo "Le formulaire d'achat à envoyer par courrier :
          <A HREF='ressources/bondecommande-fr.pdf'
          target='_blank'>Bon de commande</A>";
-// Actualité
-$prod = getBoutique($_SESSION['lang']);
-if (count($prod) <= 0) {
-    exit("Aucun produit à afficher".footer());
-}
+
+// Affichage liste produits
 echo "<table class='table table-bordered'>";
 foreach ($prod as $row) {
     echo "<tr>";

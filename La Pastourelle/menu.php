@@ -114,6 +114,16 @@ $lang = $_SESSION['lang'];
 				
 				
 				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				<li><a href="index.php?page=blog"><i
 						class="fa fa-commenting-o fa-lg"></i> Blog</a>
 				
@@ -133,20 +143,26 @@ $lang = $_SESSION['lang'];
 		<div class="collapse navbar-collapse navbar-menubuilder">
 			<ul class='nav navbar-nav'>
 				<li><a href="index.php"><i class="fa fa-home fa-lg"></i> <?php echo getTitre('accueil', $lang); ?></a></li>
+										<?php
+        $pageDispo = getPageTitre($_SESSION['lang']);
+        if (count($pageDispo) != 0) {
+            ?>
 				<li role="separator" class="divider"></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 					aria-expanded="false"><i class="fa fa-book fa-lg"></i> <?php echo getTitre('pres', $lang); ?>
-						<span class="caret"></span></a>
+						<span class="caret"></span> </a>
 					<ul class="dropdown-menu">
-						<?php
-    $pageDispo = getPageTitre($_SESSION['lang']);
-    foreach ($pageDispo as $unePage) {
-        echo "<li><a href='index.php?page=generic&id=" . $unePage['page'] . "'>" .
-                 $unePage['titre'] . "</a></li>";
-    }
-    ?>
-						</ul></li>
+				<?php
+            foreach ($pageDispo as $unePage) {
+                echo "
+					<li><a href='index.php?page=generic&id=" .
+                         $unePage['page'] . "'>" . $unePage['titre'] .
+                         "</a></li>";
+            }
+            ?>
+				</ul></li>
+				<?php }?>
 				<li role="separator" class="divider"></li>
 				<li><a href="index.php?page=boutique"><i
 						class="fa fa-shopping-cart fa-lg"></i> <?php echo getTitre('boutique', $lang); ?></a></li>

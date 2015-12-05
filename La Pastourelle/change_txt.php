@@ -1,8 +1,17 @@
 <?php
+require_once 'footer.inc.php';
 verifLoginWithArray($_SESSION, 1, true);
 
 echo "<h1>Modification d'un texte</h1>";
 $page = getPage();
+
+// Cas où il n'y a pas de page
+if (count($page) == 0) {
+    echo "Aucune page disponible";
+    exit(footer());
+}
+
+// sinon edition des pages existantes
 $langage = getLanguages();
 foreach ($langage as $lang) {
     echo "<h2>" . $lang['name'] . "</h2>";

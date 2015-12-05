@@ -378,52 +378,32 @@ function getRevuePresse ()
  * Récupération de la liste des membres *
  * **************************************
  */
-function getAnnuaire ($recherche, $typeRecherche, $role)
+function getAnnuaire ($recherche = null, $typeRecherche = null)
 {
     $bdd = new Connection();
-    // $tab_annuaire = array();
-    $tab_membre = array(); // tableau contenant les informations des revues de
-                           // presse
-                           // sous la forme : id | pseudo | email | telephone |
-                           // nom | prenom |adresse
+    $tab_membre = array();
     
     /*
      * Modification DEMERY 2015 - Suppresion de la table annuaire => Plus de
      * redondance inutile
      * Passage en requêtes préparées pouré viter l'injection SQL
      */
-    $rqt_membre = "SELECT id_membre, pseudo, email, telephone, nom, prenom, adresse, etat_annuaire FROM tmembre_inscrit 
+    $rqt_membre = "SELECT * FROM tmembre_inscrit 
 			WHERE etat_validation=1 AND etat_annuaire = 1 ";
-    if ($role == 0 && ! empty($recherche)) {
-        $rqt_membre .= "AND :typeRecherche LIKE :recherche ORDER BY :recherche";
-    } else 
-        if ($role == 1) {
-            $rqt_membre .= "ORDER BY :recherche";
-        } else {
-            $rqt_membre .= "ORDER BY nom";
-        }
+    if ($recherche != null && $typeRecherche != null) {
+        $rqt_membre .= "AND lower({$typeRecherche}) LIKE lower(:recherche) ORDER BY {$typeRecherche}";
+    }
     
     /* Exécution de la bonne requête */
     $stmt = $bdd->prepare($rqt_membre);
-    if ($role == 0 && ! empty($recherche)) {
-        $stmt->bindValue(':typeRecherche', $typeRecherche, PDO::PARAM_STR);
-    } else 
-        if ($role == 1 || ($role == 0 && ! empty($recherche))) {
-            $stmt->bindValue(':recherche', $recherche, PDO::PARAM_STR);
-        }
+    if ($recherche != null && $typeRecherche != null) {
+        $stmt->bindValue(':recherche', '%' . $recherche . '%', PDO::PARAM_STR);
+    }
     
     $result = $stmt->execute();
     $i = 0;
     while ($row = $stmt->fetch()) {
-        $tab_membre[$i]['id'] = $row['id_membre'];
-        $tab_membre[$i]['pseudo'] = $row['pseudo'];
-        $tab_membre[$i]['mail'] = $row['email'];
-        $tab_membre[$i]['tel'] = $row['telephone'];
-        $tab_membre[$i]['nom'] = $row['nom'];
-        $tab_membre[$i]['prenom'] = $row['prenom'];
-        $tab_membre[$i]['adresse'] = nl2br($row['adresse']);
-        $tab_membre[$i]['etat_annuaire'] = $row['etat_annuaire'];
-        $i ++;
+        $tab_membre[$i ++] = extractMembreFromARow($row);
     }
     
     return $tab_membre;

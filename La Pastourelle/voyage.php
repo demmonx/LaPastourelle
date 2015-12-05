@@ -2,7 +2,8 @@
 $test = getVoyage();
 
 if (count($test) <= 0) {
-    exit("Aucun continent trouvé".footer());
+    echo "Aucun voyage à afficher";
+    exit(footer());
 }
 $continent = ""; // Variable utilisée pour savoir si le continent à déjà été
                  // écrit

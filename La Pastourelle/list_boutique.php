@@ -3,37 +3,38 @@
 @header('Content-Type: text/html; charset=utf-8');
 require_once 'traitement.inc.php';
 verifLoginWithArray($_SESSION, 1);
-/*
- * Teste si on a reçu tous les champs, même vide
- * Pour cela, besoin de lister les champs à recevoir
- */
+
+// Vérification si on a des produits
 $produit = getProducts();
-$langage = getLanguages();
-?>
+if (count($produit) == 0) {
+    echo "Aucun produit disponible";
+} else {
+    $langage = getLanguages();
+    ?>
 <FORM METHOD='POST' id='boutiqueMaj' ACTION='boutique_maj.php'>
     					<?php
-	foreach ($langage as $lang) {
-		echo "<h3 class='spoiler'>" . $lang['name'] . " <i class='fa fa-plus-square-o'></i></h3> ";
-		echo "<div class='spoiler-hidden' >";
+    foreach ($langage as $lang) {
+        echo "<h3 class='spoiler'>" . $lang['name'] .
+                 " <i class='fa fa-plus-square-o'></i></h3> ";
+        echo "<div class='spoiler-hidden' >";
         foreach ($produit as $field) {
-        	echo "<div>";
-        	echo $field['name_admin'] . " ";
-        	echo "<span class='spoiler'><i class='fa fa-plus-square-o'></i></span><div class='spoiler-hidden' >";
-        	// Formulaire de modification
-        	$content = getBoutiqueAdmin($lang["id"], $field["id"]);
-        	echo "<input type='text' placeholder='Nom' value='" .
-        			(isset($content["name"]) ? $content["name"] : "") .
-        			"' name='" . $field["produit"] . "[" . $lang["id"] .
-        			"][name]' /><br>";
-        	$content = isset($content["txt"]) ? $content["txt"] : "";
-        	 echo "<textarea class='bigta' placeholder='Description' name='" . $field["produit"] . "[" . $lang["id"] .
-                     "][desc]'>";
+            echo "<div>";
+            echo $field['name_admin'] . " ";
+            echo "<span class='spoiler'><i class='fa fa-plus-square-o'></i></span><div class='spoiler-hidden' >";
+            // Formulaire de modification
+            $content = getBoutiqueAdmin($lang["id"], $field["id"]);
+            echo "<input type='text' placeholder='Nom' value='" .
+                     (isset($content["name"]) ? $content["name"] : "") .
+                     "' name='" . $field["produit"] . "[" . $lang["id"] .
+                     "][name]' /><br>";
+            $content = isset($content["txt"]) ? $content["txt"] : "";
+            echo "<textarea class='bigta' placeholder='Description' name='" .
+                     $field["produit"] . "[" . $lang["id"] . "][desc]'>";
             echo stripnl2br2($content);
             echo "</textarea>";
-        	echo "</div></div>";
+            echo "</div></div>";
         }
         echo "</div>";
-        
     }
     ?>
 	<input class='btn' type='submit' value='Modifier' />
@@ -59,3 +60,4 @@ $(document).ready(function () {
 });
 </script>
 <script language="javascript" src='ressources/js/spoiler.js'></script>
+<?php }?>
