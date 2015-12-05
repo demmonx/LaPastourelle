@@ -2,7 +2,7 @@
 @session_start();
 require_once 'inc.function.php';
 verifLoginWithArray($_SESSION, 1);
-$tab_membre = getMembers();
+$tab_membre = getUsers();
 $cpt = 0;
 if (count($tab_membre) == 0) {
     echo "Aucun membre disponible";
@@ -43,7 +43,7 @@ $(document).ready(function () {
 
 	// Rafraichit la liste des music mais pas le player
 	function refresh() {
-        $('#container-membre').load("list_membre_actif.php");
+        $('#container-membre').load("list_membres.php");
 	}
 
 	$('.delete-membre').on('click', function (e) {
