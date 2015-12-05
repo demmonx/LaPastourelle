@@ -607,7 +607,7 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \subsubsection{Validation d'un membre}
 \begin{enumerate}
 \item Ajouter deux utilisateurs
-\item Valider la demande du premier en se connectant en temps qu'administrateur
+\item Valider la demande du premier en se connectant en temps qu'administrateur (Administration -> Membres -> Valider une demande)
 \item Refuser l’autre utilisateur
 \item Se connecter avec le compte du premier utilisateur pour vérifier le fonctionnement
 \end{enumerate}
@@ -634,7 +634,7 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \end{enumerate}
 \subsubsection{Gestion de la boutique}
 \begin{enumerate}
-\item Ajouter un nouveau produit (Administration => Contenu => boutique)
+\item Ajouter un nouveau produit (Administration => Contenu => Boutique)
 \item Modifier son image pour le produit
 \item Modifier son prix
 \item Supprimer son image
@@ -648,14 +648,14 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \end{enumerate}
 \subsubsection{Gestion des musiques}
 \begin{enumerate}
-\item Ajouter une musique, avec son titre et son artiste (Administration => Contenu => musique)
+\item Ajouter une musique, avec son titre et son artiste (Administration => Contenu => Musiques)
 \item Désactiver cette musique pour l’enlever de la liste
 \item Réactiver cette musique pour la réafficher dans la liste
 \item Supprimer complètement la musique de la liste
 \end{enumerate}
 \subsubsection{Gestion des voyages}
 \begin{enumerate}
-\item Ajouter un voyage à la liste (Administration => Contenu => voyage)
+\item Ajouter un voyage à la liste (Administration -> Contenu -> Voyages)
 \item Modifier de la description du voyage créé et ajouter une image
 \item Supprimer ce voyage
 \end{enumerate}
@@ -667,13 +667,13 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \subsubsection{Gestion du livre d’or}
 \begin{enumerate}
 \item Envoyer deux message
-\item Valider un message
+\item Valider un message (Administration -> Membres -> Valider une demande)
 \item Refuser un message
 \item Supprimer le message restant
 \end{enumerate}
 \subsubsection{Gestion des partenaires}
 \begin{enumerate}
-\item Ajouter un partenaire
+\item Ajouter un partenaire (Administration -> Contenu -> Liens)
 \item Ajouter une photo pour le partenaire
 \item Supprimer la photo
 \item Supprimer le partenaire
@@ -707,20 +707,20 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \end{enumerate}
 \subsubsection{Supprimer un membre}
 \begin{enumerate}
- \item Aller sur la page de gestion des membres
+ \item Aller sur la page de gestion des membres (Administration -> Membres -> Utilisateurs)
  \item Supprimer l'utilisateur voulu
 \end{enumerate}
 
 \subsubsection{Importation}
 \begin{enumerate}
- \item Importer une photo 
+ \item Importer une photo (Administration -> Contenu -> Importation)
  \item Importer une vidéo
  \item Supprimer l'un des fichiers importé
 \end{enumerate}
 
 \subsubsection{Gestion des administrateurs}
 \begin{enumerate}
- \item Allez sur la page de gestion des administrateurs
+ \item Allez sur la page de gestion des administrateurs (Administration -> Membres -> Administrateurs)
  \item Donner les droits d'adminisitration à un membre
  \item Retirer les droits d'adminisitration de ce membre
  \item Retirer ses propres droits : impossible
@@ -728,7 +728,7 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 
 \subsubsection{Gestion des langues}
 \begin{enumerate}
- \item Ajouter une nouvelle langue (Administration -> Paramétrage -> Coordonnées)
+ \item Ajouter une nouvelle langue (Administration -> Paramétrage -> Langues)
  \item Supprimer la langue par défaut : impossible
  \item Renseigner toutes les informations nécessaires pour que la langue renseignée soit active
  \item Supprimer la langue par défaut
@@ -737,7 +737,7 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 
 \subsubsection{Gestion des titres}
 \begin{enumerate}
- \item Modifier les titres d'une langue (Administration -> Paramétrage -> Coordonnées)
+ \item Modifier les titres d'une langue (Administration -> Contenu -> Pages -> Titres)
  \item Supprimer la langue par défaut : impossible
  \item Renseigner toutes les informations nécessaires pour que la langue renseignée soit active
  \item Supprimer la langue par défaut

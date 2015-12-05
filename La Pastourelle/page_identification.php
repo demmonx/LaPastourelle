@@ -7,7 +7,7 @@ try {
 }
 
 ?>
-<H2>Identification</H2>
+<H1>Identification</H1>
 <FORM ACTION="traitement_identification.php" class='login-form'
 	METHOD="POST">
 	<table>
