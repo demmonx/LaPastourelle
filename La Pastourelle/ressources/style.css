@@ -305,9 +305,7 @@ figure {
 	background: grey;
 }
 
-.controls-player {
-	width: 50%;
-}
+
 
 .controls-player td {
 	padding: 10px;
@@ -346,8 +344,34 @@ section h1 {
 	
 }
 
-h3 {
-	margin-bottom: 0;
+.player {
+	width: 90%;
+	margin: auto;
+	border: 1px solid black;
+	background: rgb(240, 240, 240);
+	padding: 20px;
 }
+
+.player ul li {
+	list-style-type:none;
+}
+
+.controls-player {
+	width: 50%;
+}
+.volume, .tracker {
+	width: 90%;
+}
+
+.player .col-md-1, .col-md-10 {
+	padding: 2px;
+	min-height: auto;
+}
+
+.playlist {
+	margin-top: 10px;
+}
+
+
   
  
