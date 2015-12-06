@@ -11,17 +11,17 @@
 \BOOKMARK [2][]{subsection.1.3.3}{M\351thodes de suivi de projet}{section.1.3}% 11
 \BOOKMARK [2][]{subsection.1.3.4}{Plan de communication}{section.1.3}% 12
 \BOOKMARK [2][]{subsection.1.3.5}{Mod\350les de documents}{section.1.3}% 13
-\BOOKMARK [2][]{subsection.1.3.6}{Comit\351 de pilotage}{section.1.3}% 14
-\BOOKMARK [2][]{subsection.1.3.7}{Gestion de la configuration}{section.1.3}% 15
-\BOOKMARK [1][]{section.1.4}{Pilotage}{chapter.1}% 16
-\BOOKMARK [1][]{section.1.5}{Recettes}{chapter.1}% 17
-\BOOKMARK [1][]{section.1.6}{Migration}{chapter.1}% 18
-\BOOKMARK [1][]{section.1.7}{Plannification}{chapter.1}% 19
-\BOOKMARK [2][]{subsection.1.7.1}{Pr\351vision initiale}{section.1.7}% 20
-\BOOKMARK [2][]{subsection.1.7.2}{Evolution de la plannification}{section.1.7}% 21
-\BOOKMARK [2][]{subsection.1.7.3}{Avancement final}{section.1.7}% 22
-\BOOKMARK [1][]{section.1.8}{Compte rendu de r\351union}{chapter.1}% 23
-\BOOKMARK [2][]{subsection.1.8.1}{R\351union initiale avec le client \(21/10/2015\)}{section.1.8}% 24
+\BOOKMARK [2][]{subsection.1.3.6}{Gestion de la configuration}{section.1.3}% 14
+\BOOKMARK [1][]{section.1.4}{Pilotage}{chapter.1}% 15
+\BOOKMARK [1][]{section.1.5}{Recettes}{chapter.1}% 16
+\BOOKMARK [1][]{section.1.6}{Migration}{chapter.1}% 17
+\BOOKMARK [1][]{section.1.7}{Comit\351 de pilotage}{chapter.1}% 18
+\BOOKMARK [1][]{section.1.8}{Plannification}{chapter.1}% 19
+\BOOKMARK [2][]{subsection.1.8.1}{Pr\351vision initiale}{section.1.8}% 20
+\BOOKMARK [2][]{subsection.1.8.2}{Evolution de la plannification}{section.1.8}% 21
+\BOOKMARK [2][]{subsection.1.8.3}{Avancement final}{section.1.8}% 22
+\BOOKMARK [1][]{section.1.9}{Compte rendu de r\351union}{chapter.1}% 23
+\BOOKMARK [2][]{subsection.1.9.1}{R\351union initiale avec le client \(21/10/2015\)}{section.1.9}% 24
 \BOOKMARK [0][]{chapter.2}{Analyse de l'existant}{}% 25
 \BOOKMARK [0][]{chapter.3}{Les caract\351ristiques techniques}{}% 26
 \BOOKMARK [1][]{section.3.1}{Charte graphique}{chapter.3}% 27
@@ -40,37 +40,13 @@
 \BOOKMARK [0][]{chapter.4}{Le d\351ploiement de l'application Web}{}% 40
 \BOOKMARK [1][]{section.4.1}{Sc\351narios de recette}{chapter.4}% 41
 \BOOKMARK [2][]{subsection.4.1.1}{Administration}{section.4.1}% 42
-\BOOKMARK [3][]{subsubsection.4.1.1.1}{Validation d'un membre}{subsection.4.1.1}% 43
-\BOOKMARK [3][]{subsubsection.4.1.1.2}{Gestion du diaporama}{subsection.4.1.1}% 44
-\BOOKMARK [3][]{subsubsection.4.1.1.3}{Gestion de l'actualit\351}{subsection.4.1.1}% 45
-\BOOKMARK [3][]{subsubsection.4.1.1.4}{Gestion des texte}{subsection.4.1.1}% 46
-\BOOKMARK [3][]{subsubsection.4.1.1.5}{Gestion de la boutique}{subsection.4.1.1}% 47
-\BOOKMARK [3][]{subsubsection.4.1.1.6}{Gestion des revues de presse}{subsection.4.1.1}% 48
-\BOOKMARK [3][]{subsubsection.4.1.1.7}{Gestion des musiques}{subsection.4.1.1}% 49
-\BOOKMARK [3][]{subsubsection.4.1.1.8}{Gestion des voyages}{subsection.4.1.1}% 50
-\BOOKMARK [3][]{subsubsection.4.1.1.9}{Gestion des coordonn\351es}{subsection.4.1.1}% 51
-\BOOKMARK [3][]{subsubsection.4.1.1.10}{Gestion du livre d\220or}{subsection.4.1.1}% 52
-\BOOKMARK [3][]{subsubsection.4.1.1.11}{Gestion des partenaires}{subsection.4.1.1}% 53
-\BOOKMARK [3][]{subsubsection.4.1.1.12}{Gestion du blog}{subsection.4.1.1}% 54
-\BOOKMARK [3][]{subsubsection.4.1.1.13}{Gestion du planning}{subsection.4.1.1}% 55
-\BOOKMARK [3][]{subsubsection.4.1.1.14}{Gestion de l'annuaire}{subsection.4.1.1}% 56
-\BOOKMARK [3][]{subsubsection.4.1.1.15}{Compte Rendu}{subsection.4.1.1}% 57
-\BOOKMARK [3][]{subsubsection.4.1.1.16}{Supprimer un membre}{subsection.4.1.1}% 58
-\BOOKMARK [3][]{subsubsection.4.1.1.17}{Importation}{subsection.4.1.1}% 59
-\BOOKMARK [3][]{subsubsection.4.1.1.18}{Gestion des administrateurs}{subsection.4.1.1}% 60
-\BOOKMARK [3][]{subsubsection.4.1.1.19}{Gestion des langues}{subsection.4.1.1}% 61
-\BOOKMARK [3][]{subsubsection.4.1.1.20}{Gestion des titres}{subsection.4.1.1}% 62
-\BOOKMARK [2][]{subsection.4.1.2}{Recette c\364t\351 utilisateur}{section.4.1}% 63
-\BOOKMARK [3][]{subsubsection.4.1.2.1}{Blog}{subsection.4.1.2}% 64
-\BOOKMARK [3][]{subsubsection.4.1.2.2}{Votre avis}{subsection.4.1.2}% 65
-\BOOKMARK [3][]{subsubsection.4.1.2.3}{Livre d\220or}{subsection.4.1.2}% 66
-\BOOKMARK [3][]{subsubsection.4.1.2.4}{Fonctionnement player}{subsection.4.1.2}% 67
-\BOOKMARK [1][]{section.4.2}{Base de donn\351es}{chapter.4}% 68
-\BOOKMARK [1][]{section.4.3}{Manuel utilisateur}{chapter.4}% 69
-\BOOKMARK [1][]{section.4.4}{Manuel administrateur}{chapter.4}% 70
-\BOOKMARK [1][]{section.4.5}{R\351f\351rencement}{chapter.4}% 71
-\BOOKMARK [1][]{section.4.6}{H\351bergement et compte}{chapter.4}% 72
-\BOOKMARK [1][]{section.4.7}{Proc\351dure d'archivage}{chapter.4}% 73
-\BOOKMARK [1][]{section.4.8}{Proc\351dure de reprise apr\350s panne}{chapter.4}% 74
-\BOOKMARK [1][]{section.4.9}{Conformit\351 du site aux lois en vigueur}{chapter.4}% 75
-\BOOKMARK [1][]{section.4.10}{Support d'archivage}{chapter.4}% 76
+\BOOKMARK [2][]{subsection.4.1.2}{Recette c\364t\351 utilisateur}{section.4.1}% 43
+\BOOKMARK [1][]{section.4.2}{Base de donn\351es}{chapter.4}% 44
+\BOOKMARK [1][]{section.4.3}{Manuel utilisateur}{chapter.4}% 45
+\BOOKMARK [1][]{section.4.4}{Manuel administrateur}{chapter.4}% 46
+\BOOKMARK [1][]{section.4.5}{R\351f\351rencement}{chapter.4}% 47
+\BOOKMARK [1][]{section.4.6}{H\351bergement et compte}{chapter.4}% 48
+\BOOKMARK [1][]{section.4.7}{Proc\351dure d'archivage}{chapter.4}% 49
+\BOOKMARK [1][]{section.4.8}{Proc\351dure de reprise apr\350s panne}{chapter.4}% 50
+\BOOKMARK [1][]{section.4.9}{Conformit\351 du site aux lois en vigueur}{chapter.4}% 51
+\BOOKMARK [1][]{section.4.10}{Support d'archivage}{chapter.4}% 52

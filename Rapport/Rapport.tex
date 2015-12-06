@@ -288,8 +288,6 @@ de l'anvancée du projet et d'établir les divers travaux à effectuer.
 \end{figure}
 \newpage
 
-\subsection{Comité de pilotage}
-
 \subsection{Gestion de la configuration}
 Pour ce projet, le gestionnaire de configuration, Cyril, a décidé d'utiliser
 les logiciels suivants : \\ 
@@ -364,6 +362,14 @@ etre fournis.
  Une fois le site déployé, nous signerons une nouvelle recette afin d'assurer
 que tout a été correctement implémenté.
 
+\section{Comité de pilotage}
+Voici le compte rendu de l'unique réunion de comité de pilotage avec le client
+qui a eu lieu à la mi-novembre : 
+ \begin{landscape}
+   \includepdf{include/COPIL1.pdf}
+\end{landscape}
+\clearpage
+
 \newpage
 \section{Plannification}
 \subsection{Prévision initiale}
@@ -379,6 +385,7 @@ résultat de la première partie lui convenait.
 \clearpage
 
 \subsection{Evolution de la plannification}
+\subsubsection*{Checkpoint : 3 novembre 2015}
 Par la suite, la plannification a évolué, ainsi au 3 novembre 2015, soit juste
 après les vacances, il se trouve que nous en étions à ce niveau (voire page
 suivante). Ici, nous constatons que la plupart des tâches qui étaient à
@@ -401,6 +408,7 @@ travailler en binôme afin de rattraper le temps perdu.
 \end{figure}
 \end{landscape}
 
+\subsubsection*{Checkpoint : 15 novembre 2015}
 \par Au 15 novembre 2015, peu avant la deuxième réunion avec le client, le
 projet à avancé : les souhaits initiaux ont presque tous été réalisés, et il ne reste que
 quelques détails pour finir de coder le multilinguisme. \\
@@ -421,6 +429,7 @@ retiré de ce tableau les tâches terminée lors de la plannification précéden
 \end{figure}
 \end{landscape}
 
+\subsubsection*{Checkpoint : 5 décembre 2015}
 \par Au 5 décembre, juste avant la recette, le projet est presque terminé : nous
 avons réalisé l'intégralité des modules et effectuer différents tests, les
 manuels sont en cours de rédaction. \\
@@ -485,6 +494,7 @@ jouée" dès que l'on saisit une valeur, il faudrait donc réparer ce module.
 
 
 \chapter{Analyse de l'existant}
+\includepdf[pages={-}]{include/etude_graphique.pdf}
 \chapter{Les caractéristiques techniques}
 \section{Charte graphique}
 // TODO nouvelle charte graphique
@@ -607,25 +617,28 @@ convenablement les données. \\
 rajoutant les contraintes d'intégrité qui n'étaient pas présente initialement
 (clé étrangères, unicité, check). Vous trouverez ce document à la page suivante.
 
+// TODO mettre le schéma de la BD
+
+ \includepdf{include/diagramme_sql.pdf}
 
 \chapter{Le déploiement de l'application Web}
 \section{Scénarios de recette}
 \subsection{Administration}
-\subsubsection{Validation d'un membre}
+\subsubsection*{Validation d'un membre}
 \begin{enumerate}
 \item Ajouter deux utilisateurs
 \item Valider la demande du premier en se connectant en temps qu'administrateur (Administration -> Membres -> Valider une demande)
 \item Refuser l’autre utilisateur
 \item Se connecter avec le compte du premier utilisateur pour vérifier le fonctionnement
 \end{enumerate}
-\subsubsection{Gestion du diaporama}
+\subsubsection*{Gestion du diaporama}
 \begin{enumerate}
 \item Aller sur la page de modification du diaporama (Administration => Contenu => Diaporama)
 \item Ajouter une image, elle apparait dans la liste
 \item Supprimer une image du diaporama, elle n'est plus dans la liste
 \item Désactivation d’une image, elle apparait dans la liste mais plus sur le diaporama
 \end{enumerate}
-\subsubsection{Gestion de l'actualité}
+\subsubsection*{Gestion de l'actualité}
 \begin{enumerate}
 \item Créer une actualité (Administration => Contenu => Actualité)
 \item Ajouter une image pour l’actualité créée
@@ -633,13 +646,13 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \item Supprimer l’image associée, l'actualité est toujours présente mais n'apparait plus sur la page d'accueil car il n'y a pas de photo
 \item Supprimer l’actualité créée, on ne peut plus modifier le texte
 \end{enumerate}
-\subsubsection{Gestion des texte}
+\subsubsection*{Gestion des texte}
 \begin{enumerate}
 \item Créer d’une page (Administration -> Contenu -> Pages -> Gestion), elle n'apparait pas dans le menu \og Présentation \fg{}
 \item Ajouter un titre et un contenu (Administration -> Contenu -> Pages -> Textes), elle apparait maintenant dans le menu
 \item Suppression de la page
 \end{enumerate}
-\subsubsection{Gestion de la boutique}
+\subsubsection*{Gestion de la boutique}
 \begin{enumerate}
 \item Ajouter un nouveau produit (Administration -> Contenu -> Boutique)
 \item Modifier son image pour le produit
@@ -648,57 +661,57 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \item Ajouter/Modifier la description du produit dans plusieurs langues différentes
 \item Supprimer produit
 \end{enumerate}
-\subsubsection{Gestion des revues de presse}
+\subsubsection*{Gestion des revues de presse}
 \begin{enumerate}
 \item Ajouter une revue de presse (Administration -> Contenu -> revue)
 \item Supprimer cette revue
 \end{enumerate}
-\subsubsection{Gestion des musiques}
+\subsubsection*{Gestion des musiques}
 \begin{enumerate}
 \item Ajouter une musique, avec son titre et son artiste (Administration -> Contenu -> Musiques)
 \item Désactiver cette musique pour l’enlever de la liste
 \item Réactiver cette musique pour la réafficher dans la liste
 \item Supprimer complètement la musique de la liste
 \end{enumerate}
-\subsubsection{Gestion des voyages}
+\subsubsection*{Gestion des voyages}
 \begin{enumerate}
 \item Ajouter un voyage à la liste (Administration -> Contenu -> Voyages)
 \item Modifier de la description du voyage créé et ajouter une image
 \item Supprimer ce voyage
 \end{enumerate}
-\subsubsection{Gestion des coordonnées}
+\subsubsection*{Gestion des coordonnées}
 \begin{enumerate}
 \item Modifier les coordonnées (Administration -> Paramétrage -> Coordonnées)
 \item Vérifier le résultat sur la page des coordonnées
 \end{enumerate}
-\subsubsection{Gestion du livre d’or}
+\subsubsection*{Gestion du livre d’or}
 \begin{enumerate}
 \item Envoyer deux message
 \item Valider un message (Administration -> Membres -> Demandes)
 \item Refuser un message
 \item Supprimer le message restant
 \end{enumerate}
-\subsubsection{Gestion des partenaires}
+\subsubsection*{Gestion des partenaires}
 \begin{enumerate}
 \item Ajouter un partenaire (Administration -> Contenu -> Liens)
 \item Ajouter une photo pour le partenaire
 \item Supprimer la photo
 \item Supprimer le partenaire
 \end{enumerate}
-\subsubsection{Gestion du blog}
+\subsubsection*{Gestion du blog}
 \begin{enumerate}
 \item Ajouter une image avec sa description
 \item Ajouter un commentaire à l’image
 \item Supprimer un commentaire
 \item Supprimer l’image
 \end{enumerate}
-\subsubsection{Gestion du planning}
+\subsubsection*{Gestion du planning}
 \begin{enumerate}
 \item Ajouter un événement, avec des caractères quelconques
 \item Modifier l’événement
 \item Supprimer l’événement
 \end{enumerate}
-\subsubsection{Gestion de l'annuaire}
+\subsubsection*{Gestion de l'annuaire}
 \begin{enumerate}
 \item Inscrire un membre en cochant \og apparaître dans l'annuraire \fg{}
 \item Valider l'inscription avec un compte d'administration
@@ -706,26 +719,26 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \item Enlever ce membre de l'annuraire
 \item Utiliser la fonction de recherche pour chercher un adhérent dans la liste
 \end{enumerate}
-\subsubsection{Compte Rendu}
+\subsubsection*{Compte Rendu}
 \begin{enumerate}
 \item Ajouter un compte rendu avec son contenu
 \item Modifier le contenu d’un compte rendu
 \item Supprimer un compte rendu
 \end{enumerate}
-\subsubsection{Supprimer un membre}
+\subsubsection*{Supprimer un membre}
 \begin{enumerate}
  \item Aller sur la page de gestion des membres (Administration -> Membres -> Utilisateurs)
  \item Supprimer l'utilisateur voulu
 \end{enumerate}
 
-\subsubsection{Importation}
+\subsubsection*{Importation}
 \begin{enumerate}
  \item Importer une photo (Administration -> Contenu -> Importation)
  \item Importer une vidéo
  \item Supprimer l'un des fichiers importé
 \end{enumerate}
 
-\subsubsection{Gestion des administrateurs}
+\subsubsection*{Gestion des administrateurs}
 \begin{enumerate}
  \item Allez sur la page de gestion des administrateurs (Administration -> Membres -> Administrateurs)
  \item Donner les droits d'adminisitration à un membre
@@ -733,7 +746,7 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
  \item Retirer ses propres droits : impossible
 \end{enumerate}
 
-\subsubsection{Gestion des langues}
+\subsubsection*{Gestion des langues}
 \begin{enumerate}
  \item Ajouter une nouvelle langue (Administration -> Paramétrage -> Langues)
  \item Supprimer la langue par défaut : impossible
@@ -742,7 +755,7 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
  \item Supprimer la langue ajoutée : impossible car c'est l'unique langue restante
 \end{enumerate}
 
-\subsubsection{Gestion des titres}
+\subsubsection*{Gestion des titres}
 \begin{enumerate}
  \item Modifier les titres d'une langue (Administration -> Contenu -> Pages -> Titres)
  \item Supprimer la langue par défaut : impossible
@@ -752,25 +765,25 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \end{enumerate}
 
 \subsection{Recette côté utilisateur}
-\subsubsection{Blog}
+\subsubsection*{Blog}
 \begin{enumerate}
 \item Selectionner un billet à commenter, en changeant éventuellement de page
 \item Ajouter un commentaire
 \end{enumerate}
-\subsubsection{Votre avis}
+\subsubsection*{Votre avis}
 \begin{enumerate}
 \item Saisir des informations 
 \item Entrer le code de sécurité
 \item Envoyer le message
 \end{enumerate}
-\subsubsection{Livre d’or}
+\subsubsection*{Livre d’or}
 \begin{enumerate}
 \item Saisir des informations 
 \item Entrer le code de sécurité
 \item Envoyer le message
 \end{enumerate}
 
-\subsubsection{Fonctionnement player}
+\subsubsection*{Fonctionnement player}
 \begin{enumerate}
  \item Lancer une musique
  \item Changer le volume
@@ -797,7 +810,9 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 
 
 \section{Manuel utilisateur}
+// TODO taff de zgeg
 \section{Manuel administrateur}
+// TODO taff de zgeg
 \section{Référencement}
 En ce qui concerne le référencement, nous avons simplement rajouté une
 description afin que celle-ci apparaisse lors d'une recherche sur un moteur,
@@ -818,8 +833,8 @@ restaurer la base de données, les identifiants sont : \\
 \begin{itemize}
   \item Utilisateur : pastourebd2
   \item Base de donnée : pastourebd2
-  \item Mot de passe :  postgresql84-1.pro
-  \item Serveur : ik4FgR12zEgD \\
+  \item Mot de passe :  ik4FgR12zEgD
+  \item Serveur : postgresql84-1.pro \\
 \end{itemize}
 
 \par Enfin pour le FTP : \\
