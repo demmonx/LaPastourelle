@@ -438,10 +438,10 @@ phase de test sur le serveur distant avant de déployer.\\
 derniers jours ainsi que la liste des tâches (celle réalisée précédemment ont
 été retirées) :
 
-\include{include/Liste_tache_15-11}
+\include{include/Liste_tache_5-12}
 \begin{landscape}
 \begin{figure}[t]
-    \caption{Avancement du projet au 15 novembre 2015}
+    \caption{Avancement du projet au 55 décembre 2015}
    \includegraphics[scale=0.5]{include/gantt5-12.png}
 \end{figure}
 \end{landscape}
@@ -512,6 +512,13 @@ gestion des menus. \\
 \par Toutefois, afin de proposer des menus déroulants à plusieurs niveaux, nous
 avons du le coupler à \og smartmenus \fg{} qui propose des fonctionnalités plus
 avancées pour les menus et les onglets déroulants.
+
+\subsection{API Google Map}
+Nous avons choisi l'API de Google Map pour réaliser la carte située sur la page
+de coordonnée, ainsi l'interaction est plus facile vis-à-vis d'un internaute,
+car il est habitué à voir ce type de carte pour localiser des lieux un peu
+partout sur Internet. Ce système est aussi plus ergonomique et évolutif qu'une
+photo de carte.
 
 \subsection{Système de Gestion de Base de Données}
 En ce qui concerne le choix du SGBD, nous avions le choix entre MySQL et
@@ -628,13 +635,13 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \end{enumerate}
 \subsubsection{Gestion des texte}
 \begin{enumerate}
-\item Créer d’une page (Administration => Contenu => Pages => Gestion), elle n'apparait pas dans le menu \og Présentation \fg{}
-\item Ajouter un titre et un contenu (Administration => Contenu => Pages => Textes), elle apparait maintenant dans le menu
+\item Créer d’une page (Administration -> Contenu -> Pages -> Gestion), elle n'apparait pas dans le menu \og Présentation \fg{}
+\item Ajouter un titre et un contenu (Administration -> Contenu -> Pages -> Textes), elle apparait maintenant dans le menu
 \item Suppression de la page
 \end{enumerate}
 \subsubsection{Gestion de la boutique}
 \begin{enumerate}
-\item Ajouter un nouveau produit (Administration => Contenu => Boutique)
+\item Ajouter un nouveau produit (Administration -> Contenu -> Boutique)
 \item Modifier son image pour le produit
 \item Modifier son prix
 \item Supprimer son image
@@ -643,12 +650,12 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \end{enumerate}
 \subsubsection{Gestion des revues de presse}
 \begin{enumerate}
-\item Ajouter une revue de presse (Administration => Contenu => revue)
+\item Ajouter une revue de presse (Administration -> Contenu -> revue)
 \item Supprimer cette revue
 \end{enumerate}
 \subsubsection{Gestion des musiques}
 \begin{enumerate}
-\item Ajouter une musique, avec son titre et son artiste (Administration => Contenu => Musiques)
+\item Ajouter une musique, avec son titre et son artiste (Administration -> Contenu -> Musiques)
 \item Désactiver cette musique pour l’enlever de la liste
 \item Réactiver cette musique pour la réafficher dans la liste
 \item Supprimer complètement la musique de la liste
@@ -667,7 +674,7 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \subsubsection{Gestion du livre d’or}
 \begin{enumerate}
 \item Envoyer deux message
-\item Valider un message (Administration -> Membres -> Valider une demande)
+\item Valider un message (Administration -> Membres -> Demandes)
 \item Refuser un message
 \item Supprimer le message restant
 \end{enumerate}
@@ -775,6 +782,18 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
  
 \end{enumerate}
 
+
+
+\section{Base de données}
+Nous avons dû revoir l'intégralité de la base de donnée du site, car c'est un
+des élements qui mettait en péril les fonctionnalités du site web. En effet, les
+clés primaires définies étaient des champs varchar, du coup le passage de valeur
+dans l'URL engendrait des problèmes et il était impossible de traiter
+convenablement les données. \\
+
+\par Pour y remédier, nous avons refait une conception de la base de donnée, en
+rajoutant les contraintes d'intégrité qui n'étaient pas présente initialement
+(clé étrangères, unicité, check). Vous trouverez ce document à la page suivante.
 
 
 \section{Manuel utilisateur}
@@ -900,6 +919,10 @@ et diffuser quelque qu'en soit la finalité. \\
 
 \par Le système anti-robot reCaptcha est placé sous licence CreativeCommons 3.0,
 ainsi nous sommes libres de modifier, utiliser et diffuser le module. \\
+
+\par L'API de Google Maps est libre d'utilisation pour un nombre limité de
+requêtes par jours(inférieur à 20 000), c'est une API sous licence, par
+conséquent nous n'avons pas le droit de modifier et de diffuser les sources.
 
 \par Concernant les logos (tout ce qui touche à la Pastourelle), ils ont été
 redéssinés sous Photoshop afin d'ajouter la transparence qui n'était pas
