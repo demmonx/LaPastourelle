@@ -51,53 +51,43 @@ $(document).ready(function () {
 <h1>Inscription</h1>
 
 <div id="espace_reserve">
-	Attention ! L'inscription au site est <span>réservée</span> aux seuls <span>membres</span>
+	<p>Attention ! L'inscription au site est <span>réservée</span> aux seuls <span>membres</span>
 	de l'association.<br /> Si vous n'en faites pas partie, nous serions
-	ravis que vous nous rejoignez.
+	ravis que vous nous rejoignez.</p>
 </div>
 <form id='inscription' action="traitement_inscription.php" method="post">
-	<table>
+	<table class='table'>
 		<tr>
 			<td>Prénom</td>
-			<td><input type="text" value="" id='prenom' name="prenom" required></td>
+			<td><input type="text" value="" id='prenom' placeholder='Prénom' name="prenom" required></td>
 		</tr>
 		<tr>
 			<td>Nom</td>
-			<td><input type="text" value="" id='nom' name="nom" required></td>
-		</tr>
-		<tr>
-			<td colspan="2"><br></td>
+			<td><input type="text" value="" id='nom' placeholder='Nom' name="nom" required></td>
 		</tr>
 		<tr>
 			<td>Pseudo</td>
-			<td><input type="text" value="" id='pseudo' name="pseudo" required></td>
+			<td><input type="text" value="" placeholder='Pseudo' id='pseudo' name="pseudo" required></td>
 		</tr>
 		<tr>
 			<td>Mot de Passe</td>
-			<td><input type="password" value="" id='mdp' name="mdp" required></td>
-		</tr>
-		<tr>
-			<td colspan="2"><br></td>
+			<td><input type="password" value="" id='mdp' placeholder='Mot de passe' name="mdp" required></td>
 		</tr>
 		<tr>
 			<td>Adresse</td>
-			<td><textarea rows="4" id='adresse' name="adresse" required></textarea></td>
+			<td><textarea rows="4" id='adresse' name="adresse" placeholder='Adresse' required></textarea></td>
 		</tr>
 		<tr>
 			<td>Téléphone</td>
-			<td><input type="text" value="" id='tel' name="tel" required></td>
+			<td><input type="text" value="" id='tel' name="tel" placeholder='Téléphone' required></td>
 		</tr>
 		<tr>
 			<td>E-mail</td>
-			<td><input type="text" value="" id='mail' name="email" required></td>
+			<td><input type="text" value="" id='mail' placeholder='Email' name="email" required></td>
 		</tr>
 		<tr>
-			<td colspan="2"><br></td>
-		</tr>
-		<tr>
-			<td>Ajout de vos coordonnées dans l'annuaire des membres de
-				l'association. Oui si coché</td>
-			<td><input type="checkbox" name="etat_annuaire" value="true"></td>
+			<td>Apparaître dans l'annuaire</td>
+			<td><input type="checkbox" name="etat_annuaire" value="true"> Oui (si coché)</td>
 		</tr>
 	</table>
 	<div class="g-recaptcha"

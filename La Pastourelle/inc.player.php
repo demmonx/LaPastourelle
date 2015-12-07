@@ -11,6 +11,7 @@ function getPlayer ()
         ?>
 
 <div class="player">
+<div class='container-fluid'>
 	<div class="pl"></div>
 	<div>
 		<strong class="title"></strong>
@@ -24,12 +25,12 @@ function getPlayer ()
 			<td class="fwd"><i class="fa fa-step-forward fa-2x"></i></td>
 		</tr>
 	</table>
+		</div>
 	<div class='row'>
 		<div class='col-md-1'>
 			<i class="fa fa-hourglass fa-2x"></i>
 		</div>
 		<div class="tracker col-md-10"></div>
-
 	</div>
 	<div class='row'>
 		<div class='col-md-1'>

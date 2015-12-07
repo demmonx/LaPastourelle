@@ -83,6 +83,7 @@ html {
 	.navbar-default .navbar-nav > .open > a:focus,
 	.navbar {
 		background: #74A5E0;
+		border-color: #74A5E0;
 	}
 	 
 	.navbar-default .navbar-nav > .open > a,
@@ -92,10 +93,6 @@ html {
 	.navbar-default .navbar-nav > .open > a:hover,
 	.navbar-default .navbar-nav > li > a:hover {
 		color: #000000;
-	}
-	
-	nav {
-		background-image:linear-gradient(to right, white, black);
 	}
 
 	.titre-site {
@@ -356,7 +353,11 @@ section h1 {
 }
 
 .controls-player {
-	width: 50%;
+	width: 60%;
+}
+
+.player table {
+	margin: auto;
 }
 .volume, .tracker {
 	width: 90%;
@@ -367,6 +368,17 @@ section h1 {
 	min-height: auto;
 }
 
+.volume, .tracker {
+	padding-top: 10px;
+}
+
+.player > .container-fluid {
+	margin: auto;
+	width: 70%;
+	text-align: center;
+}
+
+
 .playlist {
 	margin-top: 10px;
 }
@@ -374,6 +386,10 @@ section h1 {
 .link {
 	max-width: 100px;
     max-height: 100px;
+}
+
+.title {
+	font-size: 20px;
 }
 
   

@@ -10,7 +10,7 @@ try {
 <H1>Identification</H1>
 <FORM ACTION="traitement_identification.php" class='login-form'
 	METHOD="POST">
-	<table>
+	<table class='table'>
 		<tr>
 			<td>Pseudo</td>
 			<td><input type="text" name="pseudo" placeholder="Pseudo" required /></td>
