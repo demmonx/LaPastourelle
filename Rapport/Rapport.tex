@@ -9,6 +9,8 @@
 \usepackage{tikz}
 \usepackage{tikz-uml}
 \usepackage{lscape}
+\usepackage{xcolor,listings}
+\usepackage{textcomp}
 \setlength{\columnseprule}{0.5pt}
  \parskip=10pt
 \usepackage{sidecap}
@@ -36,6 +38,8 @@
 \usepackage{caption}
 \usepackage{indentfirst}
 \setlength{\parindent}{15pt}
+\lstset{upquote=true}
+\definecolor{mygreen}{rgb}{0,0.6,0}
 
 
 \captionsetup[table]{labelformat=empty}
@@ -83,7 +87,7 @@ L'assocation La Pastourelle est une assocation de danses folkloriques
 aveyronnaises. Ce site est destiné aux membres de l'assocation mais aussi aux 
 visiteurs externes qui souhaitent suivre les actualités concernant les 
 évènements à venir. Il sera donc régulièrement mis à jour par les ayants 
-droits de l'assocation. Par conséquent, il faudra que le site soit à la fois 
+droits de l’association. Par conséquent, il faudra que le site soit à la fois 
 agréable pour les visiteurs, mais aussi pour toutes les personnes qui 
 s'occupent de la mise en forme du contenu.\\
 
@@ -617,9 +621,25 @@ convenablement les données. \\
 rajoutant les contraintes d'intégrité qui n'étaient pas présente initialement
 (clé étrangères, unicité, check). Vous trouverez ce document à la page suivante.
 
-// TODO mettre le schéma de la BD
 
  \includepdf{include/diagramme_sql.pdf}
+ \include{include/sql-logique}
+ \begin{multicols}{2}
+ 
+ \par Enfin, voici le script de création des tables :\\
+\lstinputlisting[
+           linewidth=\columnwidth,
+           breaklines=true,
+           language=SQL,
+           showspaces=false,
+           basicstyle=\ttfamily,
+           numbers=left,
+           numberstyle=\tiny,
+           commentstyle=\color{mygreen},
+           extendedchars=true
+        ]{include/rapport-pastourebd.sql}
+        \end{multicols}
+        
 
 \chapter{Le déploiement de l'application Web}
 \section{Scénarios de recette}
