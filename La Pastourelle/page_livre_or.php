@@ -18,7 +18,7 @@ echo "</div>";
 		<textarea name="message" class='form-compteRendu' required></textarea>
 	</p>
 	<span class="g-recaptcha"
-		data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></span> <input
+		data-sitekey="6Lf7kxITAAAAAOvjPQ9UKCgwZ0B3l-UztVdvWr_t"></span> <input
 		type="submit" class="btn" value="Envoyer" />
 	<div id="ajout-result"></div>
 </form>

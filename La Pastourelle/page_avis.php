@@ -16,7 +16,7 @@ if (isset($titre["content"]))
 		<textarea name="message" class='form-compteRendu' required></textarea>
 	</p>
 	<span class="g-recaptcha"
-		data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></span> <input
+		data-sitekey="6Lf7kxITAAAAAOvjPQ9UKCgwZ0B3l-UztVdvWr_t"></span> <input
 		class='btn' type="submit" value="Envoyer" />
 	<div id='msgReturn'></div>
 </form>
