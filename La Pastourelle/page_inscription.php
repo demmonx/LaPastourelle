@@ -101,7 +101,7 @@ $(document).ready(function () {
 		</tr>
 	</table>
 	<div class="g-recaptcha"
-		data-sitekey="6LdtxxETAAAAAHVeSXfnx22t002er0foPHhTADRT"></div>
+		data-sitekey="6Lf7kxITAAAAAOvjPQ9UKCgwZ0B3l-UztVdvWr_t"></div>
 
 	<br> <input class='btn' type='submit' value="S'inscrire" />
 </form>

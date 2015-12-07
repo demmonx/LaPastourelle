@@ -115,7 +115,7 @@ function verifCaptcha ($serveur, $valeur)
     if ($serveur['REQUEST_METHOD'] != 'POST') {
         return false;
     }
-    $key = '6LdtxxETAAAAAN5MKrpW49AdK_IaEZvkYEZ_UVfU';
+    $key = '6Lf7kxITAAAAAFpdkJDZVUi8wv1cuMGB1vKsE8_Z';
     $response = $valeur;
     $ip = $serveur['REMOTE_ADDR'];
     

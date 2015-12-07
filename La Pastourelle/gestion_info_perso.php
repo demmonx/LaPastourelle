@@ -56,9 +56,10 @@ $(document).ready(function () {
  * récupération des données personnelle
  */
 $pseudo = $_SESSION['pseudo'];
+$id = $_SESSION['id'];
 
 // récupération des liens dans la BD et traitement
-$tab_membre = getMember($pseudo);
+$tab_membre = getMember($id);
 $cpt = 0;
 $taille_tab = count($tab_membre);
 // while ($cpt < $taille_tab )
