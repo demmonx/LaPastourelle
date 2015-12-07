@@ -14,4 +14,9 @@ $(document).ready(function () {
         return false;  // bloque la fonction par défaut
     });
     
+    // On masque les éléments en JS pour les afficher si JS désactivé
+    $(".spoiler-hidden").each(function () {
+    	$(this).css('display', 'none');
+    });
+    
 });

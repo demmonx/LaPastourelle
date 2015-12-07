@@ -50,7 +50,7 @@ Centre et Massif Central</i>";
             echo '<b>Vous êtes Membre : ' . $_SESSION['pseudo'] . "</b>";
         }
         ?>
-       <br /> <a href="index.php?page=page_info_perso"><i
+       <br /> <a href="index.php?page=gestion_info_perso"><i
 				class="fa fa-user fa-lg"></i> Mon compte</a><br /> <a
 				href="index.php?page=page_deconnexion"><i
 				class="fa fa-sign-out fa-lg"></i> Se Déconnecter</a>

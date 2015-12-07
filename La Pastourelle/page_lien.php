@@ -12,7 +12,7 @@ foreach ($liens as $link) {
   
 echo "<tr><td><a href=". $link['url'].">".$link['nom']."</a></td>";
 if (!empty($link['img'])) {
-echo "<td><a href=". $link['url']."><img	src='". $link['img']."' /></a></td>";
+echo "<td><a href=". $link['url']."><img class='link' src='". $link['img']."' /></a></td>";
 } else {
 			echo "<td></td>";
 }

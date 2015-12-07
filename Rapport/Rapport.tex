@@ -9,6 +9,8 @@
 \usepackage{tikz}
 \usepackage{tikz-uml}
 \usepackage{lscape}
+\usepackage{xcolor,listings}
+\usepackage{textcomp}
 \setlength{\columnseprule}{0.5pt}
  \parskip=10pt
 \usepackage{sidecap}
@@ -36,6 +38,8 @@
 \usepackage{caption}
 \usepackage{indentfirst}
 \setlength{\parindent}{15pt}
+\lstset{upquote=true}
+\definecolor{mygreen}{rgb}{0,0.6,0}
 
 
 \captionsetup[table]{labelformat=empty}
@@ -79,11 +83,11 @@
 %SS\tableofcontents
 \chapter{Plan de Management de Projet}
 \section{Introduction}
-L'assocation La Pastourelle est une assocation de danses folkloriques 
-aveyronnaises. Ce site est destiné aux membres de l'assocation mais aussi aux 
+L’association la Pastourelle est une association de danses folkloriques 
+aveyronnaises. Ce site est destiné aux membres de l’association mais aussi aux 
 visiteurs externes qui souhaitent suivre les actualités concernant les 
-évènements à venir. Il sera donc régulièrement mis à jour par les ayants 
-droits de l'assocation. Par conséquent, il faudra que le site soit à la fois 
+événements à venir. Il sera donc régulièrement mis à jour par les ayants 
+droits de l’association. Par conséquent, il faudra que le site soit à la fois 
 agréable pour les visiteurs, mais aussi pour toutes les personnes qui 
 s'occupent de la mise en forme du contenu.\\
 
@@ -94,17 +98,17 @@ charges, après une analyse approfondie des besoins du client.
 
 \section{Présentation}
 \subsection{Les acteurs}
-Ce projet consistera à dialoguer avec une association, et plus particulièment 
+Ce projet consistera à dialoguer avec une association, et plus particulièrement 
 avec les personnes suivantes : 
 \begin{itemize}
-    \item Mr Pagès, secrétaire adjoint de l'assocation\\
+    \item Mr Pagès, secrétaire adjoint de l’association\\
 \end{itemize}
 
 \par A l'IUT, nos interlocuteurs sont Mr. Belières qui s'occupe de superviser 
 l'avancement du projet et de nous aider dans nos éventuels choix techniques, 
 ainsi que Mr. Rous qui est chargé du suivi de la gestion de projet.   \\
 
-\par Concernant notre équipe, elle est formé de quatre étudiants de deuxième 
+\par Concernant notre équipe, elle est formée de quatre étudiants de deuxième 
 année informatique : 
 \begin{itemize}
     \item Mickael Costa
@@ -122,14 +126,15 @@ un acteur extérieur, non-scolaire et non-informaticien, est un challenge car il
 faudra utiliser des supports de communication adaptés afin de se faire 
 comprendre. \\
 
-\par Concernant l'aspect technique, ce projet ne peut être que bénéfique car il 
+\par Concernant l'aspect technique, ce projet ne peut être que bénéfique, car 
+il 
 va nous apprendre à travailler sur un existant déjà bien établit. Ainsi, il va 
 falloir se plonger dans un code qui nous est étranger. Aussi, développer une 
-application Web, en l'occurence un site internet, est un plus car c'est une 
+application Web, en l’occurrence un site internet, est un plus car c'est une 
 domaine en pleine expansion actuellement.\\
 
 \par Enfin, nous pouvons dire que cette expérience sera facilement visible par 
-des personnes extérieurs et pourra ainsi nous aider dans la recherche d'un 
+des personnes extérieures et pourra ainsi nous aider dans la recherche d'un 
 emploi.
 \subsection{Cahier des charges}
 L'équipe projet s'engage à réaliser les taches suivantes :
@@ -159,7 +164,8 @@ possibilité d'ajouter du texte en anglais et en occitan
 taille des images, soit à une taille saisie, soit à une taille par défaut 
  \item Changer l'ordre d'affichage des revues
  \item Revoir la carte du monde : corriger le problème de doublon et de
-placement du drapeau, ou intégrer un nouveau système de localisation d’évènements
+placement du drapeau, ou intégrer un nouveau système de localisation 
+d’événements
  \item Changement du formulaire de la page des actualités : il faudrait unifier
  les champs afin de ne pas avoir à saisir trop d'informations inutiles
  \item Enlever la mention \og pièce jouée \fg automatique pour la partie théâtre
@@ -186,7 +192,7 @@ dans le passé
 \subsection{Charte du projet}
 Le but de ce projet est de pouvoir fournir un site fonctionnel à la MOA, 
 correspondant aux exigences initiales en ce qui concerne la mise à jour des 
-informations ou bien encore le multilangage, tout en fournissant une 
+informations ou bien encore le multi langage, tout en fournissant une 
 ergonomie facilitant la visite de personnes externes.\\
 
 \par Pour apprécier ce projet, le client pourra s'appuyer sur les éléments 
@@ -218,7 +224,7 @@ au projet à jour, ainsi que de rédiger les comptes rendus de réunion\\
 \par Concernant les différents livrables à fournir, nous devons rendre : 
 	\begin{itemize}
 	  \item le site hébergé, testé et fonctionnel
-	  \item un manuel d'utilisateur pour l'assocation
+	  \item un manuel d'utilisateur pour l’association
 	  \item un dossier projet, avec les schémas de conception et les codes d'accès pour modifier le site web
 	  \item un plan projet
 	\end{itemize}
@@ -230,7 +236,7 @@ Ce projet est particulier car il ne dure qu'un semestre, et par conséquent en
 l'ayant commencé mi-octobre et devant le rendre mi-décembre, il ne durera que 
 deux mois. \\
 \par Nous allons toutefois essayer de le scinder en deux, avec une première 
-partie de réponse aux exigences de l'assocation, et une seconde partie basée 
+partie de réponse aux exigences de l’association, et une seconde partie basée 
 sur des améliorations non-proposées mais envisageable.
 
 Nous avons dû réaliser divers documents afin d'assurer le suivi de projet : 
@@ -256,7 +262,7 @@ ainsi on obtient le tableau suivant :
 \subsection{Méthodes de suivi de projet}
 Nous avons décidé de suivre un modèle en V, car le projet est trop court pour 
 des itérations de 3 semaines, et ainsi nous pouvons tester les fonctionnalités 
-au fûr et à mesure qu'elles sont implantées.
+au fur et à mesure qu'elles sont implantées.
 \begin{figure}[htp] \centering{
 \includegraphics[scale=0.60]{include/cycle_v.pdf}}
 \caption{Modèle en V}
@@ -267,13 +273,14 @@ Durant les périodes scolaires, nous sommes tous présents sur Rodez, mais étan
 donné que pendant les vacances et les week-end nous rentrons dans nos 
 départements respectifs, il devient tout de suite plus difficile de communiquer.
 C'est pourquoi nous avons décidé d'utiliser Skype combiné à TeamViewer. Ces 
-deux outils nous permettent de travailler en binôme quelque soit la distance, 
-et ainsi de pouvoir intéragir avec le reste du groupe.\\
+deux outils nous permettent de travailler en binôme quelle que soit la 
+distance, 
+et ainsi de pouvoir interagir avec le reste du groupe.\\
 \par Toutefois, nous devons nous réunir régulièrement afin de définir la 
 stratégie à suivre et de programmer les réunions avec les différents 
-intervenants. A ce titre, il serait pertinent de rencontrer la MOA mi-octobre, 
+intervenants. À ce titre, il serait pertinent de rencontrer la MOA mi-octobre, 
 puis début novembre et enfin vers le 20-25 novembre afin de l'informer 
-de l'anvancée du projet et d'établir les divers travaux à effectuer.
+de l’avancée du projet et d'établir les divers travaux à effectuer.
 \newpage
 
 \subsection{Modèles de documents}
@@ -307,8 +314,8 @@ les logiciels suivants : \\
  \par En ce qui concerne le travail collaboratif, les codes sources seront
  hébergés sur GitHub de manière à pouvoir les manipuler facilement depuis
  n'importe où, et de toujours conserver la dernière version stable. Pour la
- partie gestion de la plannification, nous utilisons Redmine installé en SaaS
- sur OpenShift afin de pouvoir consulter les tâches à effctuer depuis n'importe
+ partie gestion de la planification, nous utilisons Redmine installé en SaaS
+ sur OpenShift afin de pouvoir consulter les tâches à effectuer depuis n'importe
  où, ainsi qu'accéder à la dernière version des documents projets, même si le
  rapport est hébergé sur Github.
  \par Github est un système d'hébergement de code source public dans la version 
@@ -325,7 +332,8 @@ les logiciels suivants : \\
  Une réunion projet est le moment où l'on pose des questions à la MOA afin de
 s'assurer du travail à accomplir, ou de proposer des éléments de réalisation.
  Un comité de pilotage (COPIL) a pour but de faire le point à un instant T sur
-l'avancée du projet et définir les taches qui devront etre accomplis dans le futur. \\
+l'avancée du projet et définir les taches qui devront être accomplis dans le 
+futur. \\
 
  \par Nous nous engageons à rencontrer le client plusieurs fois durant le
  projet. Tout d'abord avant les vacances de Toussaint afin d'éclaircir les
@@ -340,18 +348,18 @@ recette et les conditions de migration.
  La recette est l'acception du projet par le client. Pour cela, il est
 nécessaire d'établir des conditions préalables à la signature de celle-ci : \\
 \begin{itemize}
- \item les erreurs bloquantes : ce sont celles qui empechent l'accès au site.
- En cas d'erreur bloquante, la recette ne pourra pas etre signée. \\
-  \item les erreurs importantes : celles qui empechent un module de fonctionner,
+ \item les erreurs bloquantes : ce sont celles qui empêchent l'accès au site.
+ En cas d'erreur bloquante, la recette ne pourra pas être signée. \\
+  \item les erreurs importantes : celles qui empêchent un module de fonctionner,
   mais qui ne perturbe pas l'intégralité ni la stabilité du site. Nous nous
  autorisons un maximum de deux erreurs de ce type pour signer la recette. \\
   \item les erreurs minimes : celles qui sont relatives à l'aspect général du
-  site, elles n'empechent en rien le fonctionnement. Le recette ne sera pas
+  site, elles n’empêchent en rien le fonctionnement. La recette ne sera pas
   signée si plus de dix erreurs minimes sont détectées. \\
 \end{itemize}
 
 \par Pour signer la recette, tous les livrables exigés devront impérativement
-etre fournis.
+être fournis.
 
 \section{Migration}
  En ce qui concerne la migration du site et de sa base de données associée, nous
@@ -371,9 +379,9 @@ qui a eu lieu à la mi-novembre :
 \clearpage
 
 \newpage
-\section{Plannification}
+\section{Planification}
 \subsection{Prévision initiale}
-Initialement, nous avions prévus de suivre cette plannification, avec la
+Initialement, nous avions prévu de suivre cette planification, avec la
 première partie jusqu'au jalon définie avec un peu de précision, puis la suite
 beaucoup moins car nous devions faire le point avec le client pour voir si le
 résultat de la première partie lui convenait.
@@ -384,9 +392,9 @@ résultat de la première partie lui convenait.
 \end{landscape}
 \clearpage
 
-\subsection{Evolution de la plannification}
+\subsection{Evolution de la planification}
 \subsubsection*{Checkpoint : 3 novembre 2015}
-Par la suite, la plannification a évolué, ainsi au 3 novembre 2015, soit juste
+Par la suite, la planification a évolué, ainsi au 3 novembre 2015, soit juste
 après les vacances, il se trouve que nous en étions à ce niveau (voire page
 suivante). Ici, nous constatons que la plupart des tâches qui étaient à
 effectuer pour le retour des vacances n'ont pas été effectuées et, par
@@ -410,17 +418,19 @@ travailler en binôme afin de rattraper le temps perdu.
 
 \subsubsection*{Checkpoint : 15 novembre 2015}
 \par Au 15 novembre 2015, peu avant la deuxième réunion avec le client, le
-projet à avancé : les souhaits initiaux ont presque tous été réalisés, et il ne reste que
+projet à avancé : les souhaits initiaux ont presque tous été réalisés, et il ne 
+reste que
 quelques détails pour finir de coder le multilinguisme. \\
 \par Toutefois, le travail a été très mal organisé car seul Cyril a touché au
 code du site à ce jour ainsi qu'à la base de donnée. Notons que nous avons du
-refaire la conception de la base de donnée et passer tout le code source en MVC. Par
+refaire la conception de la base de donnée et passer tout le code source en MVC. 
+Par
 ailleurs, Clément et Mickael ont réalisé l'étude de l'existant en vu de proposer
 au client une nouvelle charte graphique, plus neuve et plus fonctionnelle. \\
 \par Ainsi, le retard que nous avions accumulé a été en grande partie rattrapé,
-mais comme nous le voyons au fûr et à mesure de l'avancée de nouvelles tâches se
+mais comme nous le voyons au fur et à mesure de l'avancée de nouvelles tâches se
 rajoutent quand nous détectons des problèmes à résoudre. Notons que nous avons
-retiré de ce tableau les tâches terminée lors de la plannification précédente :
+retiré de ce tableau les tâches terminée lors de la planification précédente :
 \include{include/Liste_tache_15-11}
 \begin{landscape}
 \begin{figure}[t]
@@ -443,7 +453,7 @@ recette et les divers manuel utilisateur.\\
 \par Au niveau de l'avancement, il ne nous reste que quelques retouches à
 effectuer au niveau du style et de la sécurité, et nous pourrons passer à la
 phase de test sur le serveur distant avant de déployer.\\
-\par En ce qui concerne la plannification, voilà le diagramme de Gantt de ses 20
+\par En ce qui concerne la planification, voilà le diagramme de Gantt de ses 20
 derniers jours ainsi que la liste des tâches (celle réalisée précédemment ont
 été retirées) :
 
@@ -617,9 +627,25 @@ convenablement les données. \\
 rajoutant les contraintes d'intégrité qui n'étaient pas présente initialement
 (clé étrangères, unicité, check). Vous trouverez ce document à la page suivante.
 
-// TODO mettre le schéma de la BD
 
  \includepdf{include/diagramme_sql.pdf}
+ \include{include/sql-logique}
+ \begin{multicols}{2}
+ 
+ \par Enfin, voici le script de création des tables :\\
+\lstinputlisting[
+           linewidth=\columnwidth,
+           breaklines=true,
+           language=SQL,
+           showspaces=false,
+           basicstyle=\ttfamily,
+           numbers=left,
+           numberstyle=\tiny,
+           commentstyle=\color{mygreen},
+           extendedchars=true
+        ]{include/rapport-pastourebd.sql}
+        \end{multicols}
+        
 
 \chapter{Le déploiement de l'application Web}
 \section{Scénarios de recette}
