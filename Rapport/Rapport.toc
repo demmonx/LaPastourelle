@@ -48,4 +48,4 @@
 \contentsline {section}{\numberline {D.V)}Proc\IeC {\'e}dure de reprise apr\IeC {\`e}s panne}{59}{section.4.5}
 \contentsline {section}{\numberline {D.VI)}Conformit\IeC {\'e} du site aux lois en vigueur}{59}{section.4.6}
 \contentsline {section}{\numberline {D.VII)}Support d'archivage}{60}{section.4.7}
-\contentsline {section}{\numberline {D.VIII)}Manuels d'utilisations}{60}{section.4.8}
+\contentsline {section}{\numberline {D.VIII)}Manuels d'utilisation}{60}{section.4.8}
