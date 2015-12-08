@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.16)  8 DEC 2015 19:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.16)  8 DEC 2015 21:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1400,7 +1400,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
  (./Rapport.aux
 (./include/Liste_tache_21-10.aux) (./include/Liste_tache_3-11.aux)
-(./include/Liste_tache_15-11.aux) (./include/Liste_tache_5-12.aux)
+(./include/Liste_tache_15-11.aux) (./include/Liste_tache_8-12.aux)
 (./include/sql-logique.aux))
 \openout1 = `Rapport.aux'.
 
@@ -1668,7 +1668,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5] <include/cycle_v.pdf, id=306, 650.45126pt x 330.52052pt>
+[5] <include/cycle_v.pdf, id=301, 650.45126pt x 330.52052pt>
 File: include/cycle_v.pdf Graphic file (type pdf)
 
 <use include/cycle_v.pdf>
@@ -1686,7 +1686,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6 <./include/cycle_v.pdf>]
-<include/copil_template.pdf, id=329, 597.23125pt x 845.1575pt>
+<include/copil_template.pdf, id=324, 597.23125pt x 845.1575pt>
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf>
@@ -1697,7 +1697,7 @@ File: include/copil_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/copil_template.pdf used on input line 287.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<include/copil_template.pdf, id=332, page=1, 597.23125pt x 845.1575pt>
+<include/copil_template.pdf, id=327, page=1, 597.23125pt x 845.1575pt>
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf, page 1>
@@ -1729,7 +1729,7 @@ Package pdftex.def Info: include/copil_template.pdf, page1 used on input line 2
 90.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
  [7 <./include/copil_template.pdf>]
-<include/recette_template.pdf, id=346, 597.23125pt x 845.1575pt>
+<include/recette_template.pdf, id=341, 597.23125pt x 845.1575pt>
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf>
@@ -1740,7 +1740,7 @@ File: include/recette_template.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/recette_template.pdf used on input line 292.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<include/recette_template.pdf, id=349, page=1, 597.23125pt x 845.1575pt>
+<include/recette_template.pdf, id=344, page=1, 597.23125pt x 845.1575pt>
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf, page 1>
@@ -1813,7 +1813,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10] <include/COPIL1.pdf, id=370, 593.21625pt x 842.14626pt>
+[10] <include/COPIL1.pdf, id=365, 593.21625pt x 842.14626pt>
 File: include/COPIL1.pdf Graphic file (type pdf)
 
 <use include/COPIL1.pdf>
@@ -1824,7 +1824,7 @@ File: include/COPIL1.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/COPIL1.pdf used on input line 378.
 (pdftex.def)             Requested size: 593.2148pt x 842.14421pt.
 
-<include/COPIL1.pdf, id=373, page=1, 593.21625pt x 842.14626pt>
+<include/COPIL1.pdf, id=368, page=1, 593.21625pt x 842.14626pt>
 File: include/COPIL1.pdf Graphic file (type pdf)
 
 <use include/COPIL1.pdf, page 1>
@@ -1897,7 +1897,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [13
 
-] <include/gantt22-10.pdf, id=389, 845.0471pt x 597.51233pt>
+] <include/gantt22-10.pdf, id=384, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf>
@@ -1908,7 +1908,7 @@ File: include/gantt22-10.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/gantt22-10.pdf used on input line 392.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 
-<include/gantt22-10.pdf, id=392, page=1, 845.0471pt x 597.51233pt>
+<include/gantt22-10.pdf, id=387, page=1, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
@@ -1992,7 +1992,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [16
 
-] <include/gantt3-11.png, id=427, 1205.50375pt x 856.19875pt>
+] <include/gantt3-11.png, id=422, 1205.50375pt x 856.19875pt>
 File: include/gantt3-11.png Graphic file (type png)
 
 <use include/gantt3-11.png>
@@ -2067,7 +2067,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [19
 
-] <include/gantt15-11.png, id=442, 842.14626pt x 762.85pt>
+] <include/gantt15-11.png, id=437, 842.14626pt x 762.85pt>
 File: include/gantt15-11.png Graphic file (type png)
 
 <use include/gantt15-11.png>
@@ -2111,9 +2111,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-\openout2 = `include/Liste_tache_5-12.aux'.
+\openout2 = `include/Liste_tache_8-12.aux'.
 
- (./include/Liste_tache_5-12.tex
+ (./include/Liste_tache_8-12.tex
 Underfull \hbox (badness 10000) in paragraph at lines 6--6
 []|\T1/iwonal/m/n/10.95 Réalisation do-cu-ments
  []
@@ -2183,12 +2183,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23] <include/gantt5-12.png, id=460, 1137.24875pt x 969.6225pt>
-File: include/gantt5-12.png Graphic file (type png)
+[23] <include/gantt8-12.png, id=455, 1137.24875pt x 989.6975pt>
+File: include/gantt8-12.png Graphic file (type png)
 
-<use include/gantt5-12.png>
-Package pdftex.def Info: include/gantt5-12.png used on input line 465.
-(pdftex.def)             Requested size: 568.62299pt x 484.81006pt.
+<use include/gantt8-12.png>
+Package pdftex.def Info: include/gantt8-12.png used on input line 465.
+(pdftex.def)             Requested size: 568.62299pt x 494.84753pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2196,7 +2196,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24 <./include/gantt5-12.png>]
+[24 <./include/gantt8-12.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 474--479
 
  []
@@ -2232,7 +2232,7 @@ Chapitre B.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=473, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=468, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf>
@@ -2256,7 +2256,7 @@ lusion: found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=481, page=1, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=475, page=1, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 1>
@@ -2291,7 +2291,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page1 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=529, page=2, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=524, page=2, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 2>
@@ -2314,7 +2314,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page2 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=548, page=3, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=543, page=3, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 3>
@@ -2337,7 +2337,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page3 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=555, page=4, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=550, page=4, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 4>
@@ -2360,7 +2360,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page4 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=562, page=5, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=557, page=5, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 5>
@@ -2383,7 +2383,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page5 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=568, page=6, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=563, page=6, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 6>
@@ -2406,7 +2406,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page6 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=574, page=7, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=569, page=7, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 7>
@@ -2429,7 +2429,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page7 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=588, page=8, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=583, page=8, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 8>
@@ -2452,7 +2452,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page8 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=594, page=9, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=589, page=9, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 9>
@@ -2475,7 +2475,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page9 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=600, page=10, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=595, page=10, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 10>
@@ -2498,7 +2498,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page10 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=612, page=11, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=607, page=11, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 11>
@@ -2521,7 +2521,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page11 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=618, page=12, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=613, page=12, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 12>
@@ -2544,7 +2544,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page12 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=627, page=13, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=622, page=13, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 13>
@@ -2567,7 +2567,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page13 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=636, page=14, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=631, page=14, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 14>
@@ -2590,7 +2590,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page14 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=644, page=15, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=639, page=15, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 15>
@@ -2613,7 +2613,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page15 used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/etude_graphique.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<include/etude_graphique.pdf, id=650, page=16, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=645, page=16, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 16>
@@ -2634,7 +2634,7 @@ Package pdftex.def Info: include/etude_graphique.pdf, page16 used on input line
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [42 <./include/etude_graphique.pdf>]
 Chapitre C.
-<include/charte_graphique.pdf, id=658, 845.07718pt x 597.55246pt>
+<include/charte_graphique.pdf, id=653, 845.07718pt x 597.55246pt>
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf>
@@ -2647,7 +2647,7 @@ Package pdftex.def Info: include/charte_graphique.pdf used on input line 514.
  [43
 
 ]
-<include/charte_graphique.pdf, id=665, page=1, 845.07718pt x 597.55246pt>
+<include/charte_graphique.pdf, id=660, page=1, 845.07718pt x 597.55246pt>
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf, page 1>
@@ -2678,7 +2678,7 @@ File: include/charte_graphique.pdf Graphic file (type pdf)
 Package pdftex.def Info: include/charte_graphique.pdf, page1 used on input line
  514.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
- [44 <./include/charte_graphique.pdf>] <include/charte_graphique.pdf, id=694, p
+ [44 <./include/charte_graphique.pdf>] <include/charte_graphique.pdf, id=689, p
 age=2, 845.07718pt x 597.55246pt>
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
@@ -2750,7 +2750,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[47] <include/diagramme_sql.pdf, id=725, 598.235pt x 845.1575pt>
+[47] <include/diagramme_sql.pdf, id=720, 598.235pt x 845.1575pt>
 File: include/diagramme_sql.pdf Graphic file (type pdf)
 
 <use include/diagramme_sql.pdf>
@@ -2767,7 +2767,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[48] <include/diagramme_sql.pdf, id=733, page=1, 598.235pt x 845.1575pt>
+[48] <include/diagramme_sql.pdf, id=728, page=1, 598.235pt x 845.1575pt>
 File: include/diagramme_sql.pdf Graphic file (type pdf)
 
 <use include/diagramme_sql.pdf, page 1>
@@ -3022,10 +3022,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 951--953
  []
 
 
-Package caption Warning: Unused \captionsetup[table] on input line 45.
-See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 970.
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1105, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf>
+Package pdftex.def Info: include/user_manual.pdf used on input line 970.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+File: include/user_manual.pdf Graphic file (type pdf)
+<use include/user_manual.pdf>
+Package pdftex.def Info: include/user_manual.pdf used on input line 970.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.78719pt.
@@ -3033,44 +3050,556 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [60]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 970.
- (./Rapport.aux (./include/Liste_tache_21-10.aux)
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1113, page=1, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 1>
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 970.
+
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 1>
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 1>
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 1>
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 1>
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [61 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1135, page=2, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 2>
+Package pdftex.def Info: include/user_manual.pdf, page2 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 2>
+Package pdftex.def Info: include/user_manual.pdf, page2 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 2>
+Package pdftex.def Info: include/user_manual.pdf, page2 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [62 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1140, page=3, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 3>
+Package pdftex.def Info: include/user_manual.pdf, page3 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 3>
+Package pdftex.def Info: include/user_manual.pdf, page3 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 3>
+Package pdftex.def Info: include/user_manual.pdf, page3 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [63 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1145, page=4, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 4>
+Package pdftex.def Info: include/user_manual.pdf, page4 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 4>
+Package pdftex.def Info: include/user_manual.pdf, page4 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 4>
+Package pdftex.def Info: include/user_manual.pdf, page4 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [64 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1150, page=5, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 5>
+Package pdftex.def Info: include/user_manual.pdf, page5 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 5>
+Package pdftex.def Info: include/user_manual.pdf, page5 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 5>
+Package pdftex.def Info: include/user_manual.pdf, page5 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [65 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1166, page=6, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 6>
+Package pdftex.def Info: include/user_manual.pdf, page6 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 6>
+Package pdftex.def Info: include/user_manual.pdf, page6 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 6>
+Package pdftex.def Info: include/user_manual.pdf, page6 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [66 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1174, page=7, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 7>
+Package pdftex.def Info: include/user_manual.pdf, page7 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 7>
+Package pdftex.def Info: include/user_manual.pdf, page7 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 7>
+Package pdftex.def Info: include/user_manual.pdf, page7 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [67 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1182, page=8, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 8>
+Package pdftex.def Info: include/user_manual.pdf, page8 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 8>
+Package pdftex.def Info: include/user_manual.pdf, page8 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 8>
+Package pdftex.def Info: include/user_manual.pdf, page8 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [68 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1187, page=9, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 9>
+Package pdftex.def Info: include/user_manual.pdf, page9 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 9>
+Package pdftex.def Info: include/user_manual.pdf, page9 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 9>
+Package pdftex.def Info: include/user_manual.pdf, page9 used on input line 970.
+
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [69 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1193, page=10, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 10>
+Package pdftex.def Info: include/user_manual.pdf, page10 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 10>
+Package pdftex.def Info: include/user_manual.pdf, page10 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 10>
+Package pdftex.def Info: include/user_manual.pdf, page10 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [70 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1201, page=11, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 11>
+Package pdftex.def Info: include/user_manual.pdf, page11 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 11>
+Package pdftex.def Info: include/user_manual.pdf, page11 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 11>
+Package pdftex.def Info: include/user_manual.pdf, page11 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [71 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1206, page=12, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 12>
+Package pdftex.def Info: include/user_manual.pdf, page12 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 12>
+Package pdftex.def Info: include/user_manual.pdf, page12 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 12>
+Package pdftex.def Info: include/user_manual.pdf, page12 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [72 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1215, page=13, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 13>
+Package pdftex.def Info: include/user_manual.pdf, page13 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 13>
+Package pdftex.def Info: include/user_manual.pdf, page13 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 13>
+Package pdftex.def Info: include/user_manual.pdf, page13 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [73 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1230, page=14, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 14>
+Package pdftex.def Info: include/user_manual.pdf, page14 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 14>
+Package pdftex.def Info: include/user_manual.pdf, page14 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 14>
+Package pdftex.def Info: include/user_manual.pdf, page14 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [74 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1237, page=15, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 15>
+Package pdftex.def Info: include/user_manual.pdf, page15 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 15>
+Package pdftex.def Info: include/user_manual.pdf, page15 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 15>
+Package pdftex.def Info: include/user_manual.pdf, page15 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [75 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1244, page=16, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 16>
+Package pdftex.def Info: include/user_manual.pdf, page16 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 16>
+Package pdftex.def Info: include/user_manual.pdf, page16 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 16>
+Package pdftex.def Info: include/user_manual.pdf, page16 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [76 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1251, page=17, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 17>
+Package pdftex.def Info: include/user_manual.pdf, page17 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 17>
+Package pdftex.def Info: include/user_manual.pdf, page17 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 17>
+Package pdftex.def Info: include/user_manual.pdf, page17 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [77 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1259, page=18, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 18>
+Package pdftex.def Info: include/user_manual.pdf, page18 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 18>
+Package pdftex.def Info: include/user_manual.pdf, page18 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 18>
+Package pdftex.def Info: include/user_manual.pdf, page18 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [78 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1267, page=19, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 19>
+Package pdftex.def Info: include/user_manual.pdf, page19 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 19>
+Package pdftex.def Info: include/user_manual.pdf, page19 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 19>
+Package pdftex.def Info: include/user_manual.pdf, page19 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [79 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1273, page=20, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 20>
+Package pdftex.def Info: include/user_manual.pdf, page20 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 20>
+Package pdftex.def Info: include/user_manual.pdf, page20 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 20>
+Package pdftex.def Info: include/user_manual.pdf, page20 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [80 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1281, page=21, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 21>
+Package pdftex.def Info: include/user_manual.pdf, page21 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 21>
+Package pdftex.def Info: include/user_manual.pdf, page21 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 21>
+Package pdftex.def Info: include/user_manual.pdf, page21 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [81 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1288, page=22, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 22>
+Package pdftex.def Info: include/user_manual.pdf, page22 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 22>
+Package pdftex.def Info: include/user_manual.pdf, page22 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 22>
+Package pdftex.def Info: include/user_manual.pdf, page22 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [82 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1295, page=23, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 23>
+Package pdftex.def Info: include/user_manual.pdf, page23 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 23>
+Package pdftex.def Info: include/user_manual.pdf, page23 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 23>
+Package pdftex.def Info: include/user_manual.pdf, page23 used on input line 970
+.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [83 <./include/user_manual.pdf>]
+
+Package caption Warning: Unused \captionsetup[table] on input line 45.
+See the caption package documentation for explanation.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 971.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 971.
+(./Rapport.aux (./include/Liste_tache_21-10.aux)
 (./include/Liste_tache_3-11.aux) (./include/Liste_tache_15-11.aux)
-(./include/Liste_tache_5-12.aux) (./include/sql-logique.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 970.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 970.
-
-
-Package rerunfilecheck Warning: File `Rapport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Rapport.out':
-(rerunfilecheck)             Before: 7A7D9783C3C6486779310A3F2A742726;3505
-(rerunfilecheck)             After:  4E22AF6366D929F7ADD656493EE9B9C5;3442.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 970.
+(./include/Liste_tache_8-12.aux) (./include/sql-logique.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 971.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 971.
+Package rerunfilecheck Info: File `Rapport.out' has not changed.
+(rerunfilecheck)             Checksum: 57962FAC71490C22B577985E24DB874F;3441.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 971.
  ) 
 Here is how much of TeX's memory you used:
- 26391 strings out of 493304
- 472853 string characters out of 6139870
+ 26487 strings out of 493304
+ 475404 string characters out of 6139870
  1120273 words of memory out of 5000000
- 28859 multiletter control sequences out of 15000+600000
+ 28931 multiletter control sequences out of 15000+600000
  61682 words of font info for 48 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,92p,968b,2305s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section.4.9} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvi
-ps/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-s
-c.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr/s
-hare/texlive/texmf-dist/fonts/type1/nowacki/iwona/iwonal.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/nowacki/iwona/iwonam.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Rapport.pdf (61 pages, 3710253 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
+vips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona
+-sc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr
+/share/texlive/texmf-dist/fonts/type1/nowacki/iwona/iwonal.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/nowacki/iwona/iwonam.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on Rapport.pdf (84 pages, 5095718 bytes).
 PDF statistics:
- 1232 PDF objects out of 1440 (max. 8388607)
- 1002 compressed objects within 11 object streams
- 433 named destinations out of 1000 (max. 500000)
- 757 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1421 PDF objects out of 1440 (max. 8388607)
+ 1098 compressed objects within 11 object streams
+ 455 named destinations out of 1000 (max. 500000)
+ 879 words of extra memory for PDF output out of 10000 (max. 10000000)
 
