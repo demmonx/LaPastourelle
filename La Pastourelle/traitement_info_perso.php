@@ -38,13 +38,14 @@ if (! $prenom || ! $nom || ! $mdp || ! $adresse || ! $tel || ! $mail) {
 }
 
 $etat_annuaire = 0;
-if (isset($_POST["etat_annuaire"]) && $_POST["etat_annuaire"] == "true") {
+
+if (isset($_POST["etat_annuaire"])) {
     $etat_annuaire = 1;
 }
 $mdp = better_crypt(sha1($mdp), 7);
 $info = array(
         "mail" => $mail,
-        "pass" => isset($pass) && $pass ? $pass : null,
+        "pass" => isset($mdp) && $mdp ? $mdp : null,
         "nom" => $nom,
         "prenom" => $prenom,
         "adresse" => $adresse,

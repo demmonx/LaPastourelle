@@ -96,11 +96,11 @@ echo "<BR><BR>
         				<TD><INPUT TYPE='text' VALUE='" . $le_prenom . "' NAME='prenom' id='prenom'></TD>
 					</TR>
 					<TR>
-						<TD>Nouveau Mot de Passe</TD>
+						<TD>Nouveau mot de passe</TD>
 						<TD><INPUT TYPE='password' NAME='Nmdp' id='mdp'></TD>
 					</TR>
 					<TR>
-						<TD>Retaper le Mot de Passe </TD>
+						<TD>Retaper le mot de passe </TD>
 						<TD><INPUT TYPE='password' NAME='mdp2' id='mdp2'></TD>
 					</TR>
 					<TR>
@@ -118,18 +118,9 @@ echo "<BR><BR>
 					</TR>
 					<TR>
 						<TD> Apparaître dans l'annuaire
-						</TD>";
-if ($l_etat_annuaire == 1) {
-    echo "
-						<TD><INPUT TYPE='checkbox' NAME='etat_annuaire[]' VALUE='1' checked></TD>
-					</TR>";
-} else {
-    echo "
-					<TR>
-						<TD><INPUT TYPE='checkbox' NAME='etat_annuaire[]' VALUE='0'></TD>
-					</TR>";
-}
-echo "
+						</TD>
+						<TD><INPUT TYPE='checkbox' NAME='etat_annuaire[]' ".($l_etat_annuaire == 1 ? "checked" : "") . "> Oui (si coché)</TD>
+					</TR>
 				</TABLE>
 				<BR>
 				<input class='btn' type='submit' value='Modifier' />
