@@ -24,7 +24,6 @@ foreach ($list as $voyage) {
     // Teste si le pays à déjà été écrit
     if ($pays != $voyage["pays"]) {
         echo "<h3>" . $voyage["pays"] . "</h3>";
-        echo "<br/>";
     }
     echo "<a href='index.php?page=page_generic&type=v&id=" . $voyage['id'] . "'>" .
              $voyage['titre'] . "</a>";

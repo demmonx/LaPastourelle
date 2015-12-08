@@ -2300,7 +2300,7 @@ function inscriptionBDD ($var)
     $adresse = $var["adresse"];
     $etat_annuaire = 0;
     
-    if (isset($var["etat_annuaire"]) && $var["etat_annuaire"] == "true") {
+    if (isset($var["etat_annuaire"])) {
         $etat_annuaire = 1;
     }
     

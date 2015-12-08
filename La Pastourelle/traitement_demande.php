@@ -31,6 +31,9 @@ if ($action) {
 			exit ( "Le membre a bien été validé" );
 			break;
 		case 4 :
+			if ($id == $_SESSION['id']) {
+				exit("Impossible de supprimer son propre compte");
+			}
 			deleteMembre ($id);
 			exit ( "Le membre a bien été supprimé" );
 			break;
