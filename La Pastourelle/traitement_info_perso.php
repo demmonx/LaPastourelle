@@ -45,7 +45,7 @@ if (isset($_POST["etat_annuaire"])) {
 $mdp = better_crypt(sha1($mdp), 7);
 $info = array(
         "mail" => $mail,
-        "pass" => isset($mdp) && $mdp ? $mdp : null,
+        "pass" => isset($mdp2) && !empty($mdp2) ? $mdp : null,
         "nom" => $nom,
         "prenom" => $prenom,
         "adresse" => $adresse,

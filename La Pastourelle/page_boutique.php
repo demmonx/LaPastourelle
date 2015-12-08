@@ -15,9 +15,14 @@ if (count($prod) <= 0) {
 }
 
 // Affichage bon de commande
-echo "Le formulaire d'achat à envoyer par courrier :
-         <A HREF='ressources/bondecommande-fr.pdf'
-         target='_blank'>Bon de commande</A>";
+$lang = getLanguage($_SESSION['lang']);
+$file = "ressources/bondecommande-fr.pdf";
+if (file_exists("ressources/bondecommande-".$lang['code'].".pdf")) {
+	$file = "ressources/bondecommande-".$lang['code'].".pdf";
+}
+echo "<p>Le formulaire d'achat à envoyer par courrier :
+         <A HREF='".$file."'
+         target='_blank'><button class='btn'>Bon de commande</button></A></p>";
 
 // Affichage liste produits
 echo "<table class='table table-bordered'>";

@@ -3,8 +3,8 @@
 Id & Tâche & Statut & Priorité & Estimée (h) & Début & Fin & Réalisé \\ \hline
 
 %prio urgente %
-45 & Réalisation documents projets & Terminée & Urgente & 15 & 02/12/2015 &
-09/12/2015 & 100\% \\ \hline
+45 & Réalisation documents projets & A réaliser & Urgente & 15 & 02/12/2015 &
+09/12/2015 & 50\% \\ \hline
  41 & Titre et menus & Terminée & Urgente &  2 & 28/11/2015 & 09/12/2015 & 100\%
  \\
  \hline
@@ -41,8 +41,8 @@ Id & Tâche & Statut & Priorité & Estimée (h) & Début & Fin & Réalisé \\ \h
  22/11/2015 & 09/12/2015 & 100\% \\ \hline 
  37 & Amélioration de l'existant & Terminé & Moyenne &  15 & 22/11/2015 &
  09/12/2015 & 100\% \\ \hline 
- 36 & Migration site Web & Terminée & Moyenne &  10 & 09/12/2015 & 16/12/2015
- & 100\% \\ \hline
+ 36 & Migration site Web & A réaliser & Moyenne &  10 & 09/12/2015 & 16/12/2015
+ & 0 \\ \hline
   35 & Réalisation de la première version de la maquette & Terminé & Moyenne & 
   4 & 17/11/2015 & 09/12/2015 & 100\% \\ \hline 
   34 & Étude comparative de sites existants & Terminé & Moyenne &  4 &
@@ -52,8 +52,7 @@ Id & Tâche & Statut & Priorité & Estimée (h) & Début & Fin & Réalisé \\ \h
 26 & Correction d'erreurs dans le back office & Terminée &
 Moyenne & 20 & 05/11/2015 & 18/11/2015 & 100\%  \\ \hline
 24 & Recoder l'administration du
-	multilingue & Terminée & Moyenne & 3 & 21/10/15 & 18/11/15 & 100\%  \\ 
-\hline
+	multilangue & Terminée & Moyenne & 3 & 21/10/15 & 18/11/15 & 100\%  \\ \hline
 	
 	 \end{tabular}
 	 \newpage
@@ -62,11 +61,11 @@ Moyenne & 20 & 05/11/2015 & 18/11/2015 & 100\%  \\ \hline
 Id & Tâche & Statut & Priorité & Estimée (h) & Début & Fin & Réalisé \\ \hline
 %prio basse%	
 43 &  Remettre les bonnes images pour les voyages déjà
-existants & Terminée & Basse & 2 & 30/11/2015 & 09/12/2015 & 100\% \\ \hline
+existants & A réaliser & Basse & 2 & 30/11/2015 & 09/12/2015 & 0 \\ \hline
  20 & Inclure un captcha & Terminée & Basse & 2 & 13/11/15 &
 	09/12/15 & 100\%  \\ \hline
-19 & Revoir l'ergonomie et la présentation & Terminée & Basse & 4 & 13/11/15
-	& 09/12/15 & 100\% \\ \hline
+19 & Revoir l'ergonomie et la présentation & A réaliser & Basse & 4 & 13/11/15
+	& 09/12/15 & 0 \\ \hline
 18 & Changer les photos de la boutique & Terminée & Basse & 1 & 13/11/15 &
 	09/12/15 & 100\%  \\ \hline
 17 & Repenser le bon de commande & Terminée & Basse & 2 & 13/11/15 & 09/12/15

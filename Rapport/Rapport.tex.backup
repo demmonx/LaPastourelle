@@ -80,7 +80,7 @@
 \begin{document}
 \maketitle
 \setcounter{tocdepth}{5}
-%SS\tableofcontents
+\tableofcontents
 \chapter{Plan de Management de Projet}
 \section{Introduction}
 L’association la Pastourelle est une association de danses folkloriques 
@@ -128,8 +128,8 @@ comprendre. \\
 
 \par Concernant l'aspect technique, ce projet ne peut être que bénéfique, car 
 il 
-va nous apprendre à travailler sur un existant déjà bien établit. Ainsi, il va 
-falloir se plonger dans un code qui nous est étranger. Aussi, développer une 
+va nous apprendre à travailler sur un existant déjà bien établi. Ainsi, il va 
+falloir se plonger dans un code qui nous ait étranger. Aussi, développer une 
 application Web, en l’occurrence un site internet, est un plus car c'est une 
 domaine en pleine expansion actuellement.\\
 
@@ -137,7 +137,7 @@ domaine en pleine expansion actuellement.\\
 des personnes extérieures et pourra ainsi nous aider dans la recherche d'un 
 emploi.
 \subsection{Cahier des charges}
-L'équipe projet s'engage à réaliser les taches suivantes :
+L'équipe projet s'engage à réaliser les tâches suivantes :
 \subsubsection*{Tâches prioritaires}
 Elles sont obligatoires et sont la cause de la rénovation du site, elles doivent être menées à terme en priorité. 
 
@@ -236,8 +236,8 @@ Ce projet est particulier car il ne dure qu'un semestre, et par conséquent en
 l'ayant commencé mi-octobre et devant le rendre mi-décembre, il ne durera que 
 deux mois. \\
 \par Nous allons toutefois essayer de le scinder en deux, avec une première 
-partie de réponse aux exigences de l’association, et une seconde partie basée 
-sur des améliorations non-proposées mais envisageable.
+partie de réponses aux exigences de l’association, et une seconde partie basée 
+sur des améliorations non-proposées mais envisageables.
 
 Nous avons dû réaliser divers documents afin d'assurer le suivi de projet : 
 \begin{itemize}
@@ -262,7 +262,7 @@ ainsi on obtient le tableau suivant :
 \subsection{Méthodes de suivi de projet}
 Nous avons décidé de suivre un modèle en V, car le projet est trop court pour 
 des itérations de 3 semaines, et ainsi nous pouvons tester les fonctionnalités 
-au fûr et à mesure qu'elles sont implantées.
+au fur et à mesure qu'elles sont implantées.
 \begin{figure}[htp] \centering{
 \includegraphics[scale=0.60]{include/cycle_v.pdf}}
 \caption{Modèle en V}
@@ -273,11 +273,11 @@ Durant les périodes scolaires, nous sommes tous présents sur Rodez, mais étan
 donné que pendant les vacances et les week-end nous rentrons dans nos 
 départements respectifs, il devient tout de suite plus difficile de communiquer.
 C'est pourquoi nous avons décidé d'utiliser Skype combiné à TeamViewer. Ces 
-deux outils nous permettent de travailler en binôme quelque soit la distance, 
-et ainsi de pouvoir interagir avec le reste du groupe.\\
+deux outils nous permettent de travailler en binôme quelle que soit la 
+distance, et ainsi de pouvoir interagir avec le reste du groupe.\\
 \par Toutefois, nous devons nous réunir régulièrement afin de définir la 
 stratégie à suivre et de programmer les réunions avec les différents 
-intervenants. A ce titre, il serait pertinent de rencontrer la MOA mi-octobre, 
+intervenants. À ce titre, il serait pertinent de rencontrer la MOA mi-octobre, 
 puis début novembre et enfin vers le 20-25 novembre afin de l'informer 
 de l’avancée du projet et d'établir les divers travaux à effectuer.
 \newpage
@@ -301,20 +301,21 @@ les logiciels suivants : \\
 \begin{tabular}{ | c | c | c | }
 \hline 
    Logiciel & Version & Plugin  \\ \hline 
-   LaTeX & 2.22 & tickzuml \\ \hline 
-   LibreOffice & 4.2.8 & spellchecker \\ \hline 
+   LaTeX & 2.22 &  \\ \hline
    Eclipse PHP & Luna & texclipse, egit, pdf4linux \\ \hline
    PHP & 5.6 & PDO \\ \hline
    Apache & 2 & \\ \hline
    MySQL & 5.6.27 & \\ \hline
    PhpMyAdmin & 4.5 & \\ \hline
+   PostgreSQL & 9.4.5 & \\ \hline
+   pgAdmin & 1.2 & \\ \hline
  \end{tabular}
  
  \par En ce qui concerne le travail collaboratif, les codes sources seront
  hébergés sur GitHub de manière à pouvoir les manipuler facilement depuis
  n'importe où, et de toujours conserver la dernière version stable. Pour la
- partie gestion de la plannification, nous utilisons Redmine installé en SaaS
- sur OpenShift afin de pouvoir consulter les tâches à effctuer depuis n'importe
+ partie gestion de la planification, nous utilisons Redmine installé en SaaS
+ sur OpenShift afin de pouvoir consulter les tâches à effectuer depuis n'importe
  où, ainsi qu'accéder à la dernière version des documents projets, même si le
  rapport est hébergé sur Github.
  \par Github est un système d'hébergement de code source public dans la version 
@@ -331,13 +332,14 @@ les logiciels suivants : \\
  Une réunion projet est le moment où l'on pose des questions à la MOA afin de
 s'assurer du travail à accomplir, ou de proposer des éléments de réalisation.
  Un comité de pilotage (COPIL) a pour but de faire le point à un instant T sur
-l'avancée du projet et définir les taches qui devront etre accomplis dans le futur. \\
+l'avancée du projet et définir les tâches qui devront être accomplis dans le 
+futur. \\
 
  \par Nous nous engageons à rencontrer le client plusieurs fois durant le
  projet. Tout d'abord avant les vacances de Toussaint afin d'éclaircir les
- taches à accomplir durant une réunion projet. Ensuite, nous le rencontrerons
+ tâches à accomplir durant une réunion projet. Ensuite, nous le rencontrerons
  autour de mi-novembre pour un COPIL qui portera sur les exigences du client qui
- ont été accomplis jusqu'à présent (taches urgentes et importantes). 
+ ont été accomplis jusqu'à présent (tâches urgentes et importantes). 
  \par Enfin, il
  faudra faire un dernier comité de pilotage le 8 ou le 9 décembre afin de
  présenter les scénarios de test, les modifications effectuées, établir la
@@ -346,18 +348,18 @@ recette et les conditions de migration.
  La recette est l'acception du projet par le client. Pour cela, il est
 nécessaire d'établir des conditions préalables à la signature de celle-ci : \\
 \begin{itemize}
- \item les erreurs bloquantes : ce sont celles qui empechent l'accès au site.
- En cas d'erreur bloquante, la recette ne pourra pas etre signée. \\
-  \item les erreurs importantes : celles qui empechent un module de fonctionner,
+ \item les erreurs bloquantes : ce sont celles qui empêchent l'accès au site.
+ En cas d'erreur bloquante, la recette ne pourra pas être signée. \\
+  \item les erreurs importantes : celles qui empêchent un module de fonctionner,
   mais qui ne perturbe pas l'intégralité ni la stabilité du site. Nous nous
  autorisons un maximum de deux erreurs de ce type pour signer la recette. \\
   \item les erreurs minimes : celles qui sont relatives à l'aspect général du
-  site, elles n'empechent en rien le fonctionnement. Le recette ne sera pas
+  site, elles n’empêchent en rien le fonctionnement. La recette ne sera pas
   signée si plus de dix erreurs minimes sont détectées. \\
 \end{itemize}
 
 \par Pour signer la recette, tous les livrables exigés devront impérativement
-etre fournis.
+être fournis.
 
 \section{Migration}
  En ce qui concerne la migration du site et de sa base de données associée, nous
@@ -366,7 +368,8 @@ etre fournis.
  l'ensemble des fonctionnalités sur le nouveau site afin de s'assurer que tout
  est déployé correctement.
  Une fois le site déployé, nous signerons une nouvelle recette afin d'assurer
-que tout a été correctement implémenté.
+que tout a été correctement implémenté, et à cette occasion nous remettrons 
+l'intégralité des livrables aux clients.
 
 \section{Comité de pilotage}
 Voici le compte rendu de l'unique réunion de comité de pilotage avec le client
@@ -377,36 +380,36 @@ qui a eu lieu à la mi-novembre :
 \clearpage
 
 \newpage
-\section{Plannification}
+\section{Planification}
 \subsection{Prévision initiale}
-Initialement, nous avions prévus de suivre cette plannification, avec la
+Initialement, nous avions prévu de suivre cette planification, avec la
 première partie jusqu'au jalon définie avec un peu de précision, puis la suite
 beaucoup moins car nous devions faire le point avec le client pour voir si le
 résultat de la première partie lui convenait.
 \par
-\include{include/Liste_tache_21-10}
+\include{include/Liste_tâche_21-10}
  \begin{landscape}
    \includepdf{include/gantt22-10.pdf}
 \end{landscape}
 \clearpage
 
-\subsection{Evolution de la plannification}
+\subsection{Evolution de la planification}
 \subsubsection*{Checkpoint : 3 novembre 2015}
-Par la suite, la plannification a évolué, ainsi au 3 novembre 2015, soit juste
+Par la suite, la planification a évolué, ainsi au 3 novembre 2015, soit juste
 après les vacances, il se trouve que nous en étions à ce niveau (voire page
 suivante). Ici, nous constatons que la plupart des tâches qui étaient à
 effectuer pour le retour des vacances n'ont pas été effectuées et, par
-conséquent, nous sommes très en retard sur le planning car nous avions prévus
+conséquent, nous sommes très en retard sur le planning car nous avions prévu
 initialement d'effectuer la démonstration avec le client à la mi-novembre.
 \par Toutefois, ce retard s'explique par la grande majorité du groupe débute sur
-php et n'est pas capable de développer rapidement, ou de s'intégrer sur une
-solution déjà développée comme c'est le cas ici. Toutefois, le but de ce projet
+PHP et n'est pas capable de développer rapidement, ou de s'intégrer sur une
+solution déjà développée comme c'est le cas ici. Cependant, le but de ce projet
 est avant tout que tout le monde participe à son développement, donc nous devons
 faire avec et les développeurs les plus habiles doivent aider ceux qui sont en
-difficultés. 
+difficulté. 
 \par Par conséquent, il est fortement envisageable que nous nous mettions à
 travailler en binôme afin de rattraper le temps perdu.
-\include{include/Liste_tache_3-11}
+\include{include/Liste_tâche_3-11}
 \begin{landscape}
 \begin{figure}[t]
     \caption{Avancement du projet au 3 novembre 2015}
@@ -416,18 +419,21 @@ travailler en binôme afin de rattraper le temps perdu.
 
 \subsubsection*{Checkpoint : 15 novembre 2015}
 \par Au 15 novembre 2015, peu avant la deuxième réunion avec le client, le
-projet à avancé : les souhaits initiaux ont presque tous été réalisés, et il ne reste que
+projet a avancé : les souhaits initiaux ont presque tous été réalisés, et il ne 
+reste que
 quelques détails pour finir de coder le multilinguisme. \\
 \par Toutefois, le travail a été très mal organisé car seul Cyril a touché au
 code du site à ce jour ainsi qu'à la base de donnée. Notons que nous avons du
-refaire la conception de la base de donnée et passer tout le code source en MVC. Par
+refaire la conception de la base de donnée et passer tout le code source en 
+MVC. 
+Par
 ailleurs, Clément et Mickael ont réalisé l'étude de l'existant en vu de proposer
 au client une nouvelle charte graphique, plus neuve et plus fonctionnelle. \\
 \par Ainsi, le retard que nous avions accumulé a été en grande partie rattrapé,
-mais comme nous le voyons au fûr et à mesure de l'avancée de nouvelles tâches se
+mais comme nous le voyons au fur et à mesure de l'avancée de nouvelles tâches se
 rajoutent quand nous détectons des problèmes à résoudre. Notons que nous avons
-retiré de ce tableau les tâches terminée lors de la plannification précédente :
-\include{include/Liste_tache_15-11}
+retiré de ce tableau les tâches terminée lors de la planification précédente :
+\include{include/Liste_tâche_15-11}
 \begin{landscape}
 \begin{figure}[t]
     \caption{Avancement du projet au 15 novembre 2015}
@@ -449,11 +455,11 @@ recette et les divers manuel utilisateur.\\
 \par Au niveau de l'avancement, il ne nous reste que quelques retouches à
 effectuer au niveau du style et de la sécurité, et nous pourrons passer à la
 phase de test sur le serveur distant avant de déployer.\\
-\par En ce qui concerne la plannification, voilà le diagramme de Gantt de ses 20
+\par En ce qui concerne la planification, voilà le diagramme de Gantt de ses 20
 derniers jours ainsi que la liste des tâches (celle réalisée précédemment ont
 été retirées) :
 
-\include{include/Liste_tache_5-12}
+\include{include/Liste_tâche_5-12}
 \begin{landscape}
 \begin{figure}[t]
     \caption{Avancement du projet au 55 décembre 2015}
@@ -469,9 +475,9 @@ derniers jours ainsi que la liste des tâches (celle réalisée précédemment o
 Lors de la réunion initiale avec le client, nous lui avons fait part de nos 
 interrogations sur les tâches à réaliser. Ainsi, Mr Pagès nous a indiqué que les
 plus gros problèmes étaient situés sur les outils de back-office, en raison de 
-l'âge du site mais aussi des équipes de développeurs qui se sont succédées pour
+l'âge du site mais aussi des équipes de développeurs qui se sont suivies pour
 le réaliser. \\
-\par En ce qui concerne la partie multilangue, il faut conserver les photos
+\par En ce qui concerne la partie multi-langue, il faut conserver les photos
 indépendamment de la langue d'utilisation de façon à ne pas devoir les ajouter
 n-fois. Pour ce qui est de l'occitan, la traduction des textes sera fournie.
 Le masque de saisie est également un gros soucis, car il empêche
@@ -494,7 +500,7 @@ donc vérifier le filtrage des caractères pour résoudre le problème. \\
 CAPTCHA car le site a subit des attaques de robot dans le passé.
 La saisie d'actualité doit également être modifiée, il faudrait passer de 5/6
 zones textes à une seule en retirant celles qui sont inutiles.
-Enfin, il y a un problème avec les picèes de théâtre qui passent à "Pièce
+Enfin, il y a un problème avec les pièces de théâtre qui passent à "Pièce
 jouée" dès que l'on saisit une valeur, il faudrait donc réparer ce module.
 
 
@@ -506,7 +512,7 @@ jouée" dès que l'on saisit une valeur, il faudrait donc réparer ce module.
 // TODO nouvelle charte graphique
 \section{Choix techniques}
 \subsection{Slick}
-Nous avons utilisé le module Slick, qui est un carroussel codé en jQuery, afin
+Nous avons utilisé le module Slick, qui est un carrousel codé en jQuery, afin
 de proposer un diaporama fluide, efficace et personnalisable. Ainsi, que ce soit
 le diaporama du fil d'actualité, celui de l'administration des images, ou encore
 celui en haut à droite du site, il seront tous basés sur Slick car le système
@@ -523,7 +529,7 @@ see is what you get \fg{}).
 \subsection{Bootstrap}
 Afin de gagner du développement avec le développement de l'aspect graphique,
 nous avons utilisé le template Bootstrap, qui met une large gamme d'outils à
-notre disposisions, notamment en ce qui concerne le responsive design et la
+notre dispositions, notamment en ce qui concerne le responsive design et la
 gestion des menus. \\
 \par Toutefois, afin de proposer des menus déroulants à plusieurs niveaux, nous
 avons du le coupler à \og smartmenus \fg{} qui propose des fonctionnalités plus
@@ -567,18 +573,18 @@ des droits d'accès, nous avons augmenté la flexibilité à l'aide d'un systèm
 numérique, ainsi un simple opérateur \og > \fg{} permet de définir le niveau
 d'autorisation. Par exemple, si le niveau du membre est \og > 1 \fg{}, il ne
 pourra pas accéder aux modules d'administration. \\
- \par Egalement, nous avons mis à jour le système de protection anti-robot, avec
+ \par Également, nous avons mis à jour le système de protection anti-robot, avec
  le système reCaptcha de google, plus facile à utiliser et surtout libre 
  d'utilisation.
  
- \par Enfin, il nous a fallu recrypter les mots de passe avec une méthode de
+ \par Enfin, il nous a fallu encrypter les mots de passe avec une méthode de
  cryptage à jour, disponible depuis PHP 5.6 car ils étaient encodés en SHA-1 et
  il était très facile de les récupérer avec une Rainbow Table. Nous avons donc
  utilisé le hashage SHA-1 pour assurer la compatibilité avec les mots de passe
- existants, mais nous réencryptons pas dessus avec un algorithme plus
+ existants, mais nous ré-encryptons pas dessus avec un algorithme plus
  performant.
  
- \subsection{Arborescence du site}
+ \subsection{Arborescence}
  Les fichiers .php sont tous placés à la racine, nous avons ensuite les
  répertoires suivants : \\
  \begin{itemize}
@@ -586,7 +592,7 @@ pourra pas accéder aux modules d'administration. \\
    supérieur
    \item musics : musiques qui sont jouées dans le lecteur audio
    \item video : vidéo qui sont hébergées via l'outil d'importation
-   \item ressources : fichiers javascripts, polices, templates, css et logos 
+   \item ressources : fichiers javascript, polices, templates, css et logos 
    \item image : dans chaque dossier des images en fonction de leur section sur
    le site, et celles à la racine correspondent à celle importée via l'outil
    d'importation
@@ -599,14 +605,14 @@ pourra pas accéder aux modules d'administration. \\
    \item inc.x.php pour tous les fichiers devant être inclus
    \item class.x.php pour tous les fichiers objets
    \item page\_x.php pour tous les fichiers qui ne concernent pas
-   l'adminisitration
+   l’administration
    \item gestion\_x.php pour tous les formulaires d'administration
    \item traitement\_x.php pour tous les fichiers de traitement de formulaire \\
  \end{itemize}
  
  \par Nous aurions également placer ces divers éléments dans des dossiers
  distincts, cependant en raison d'un manque de temps nous n'avons pas réorganisé
- la structure du site jusqu'àce point.
+ la structure du site jusqu'à ce point.
  
  \subsection{Codes sources}
  Les codes sources de l'application sont à téléchargés depuis GitHub :
@@ -614,7 +620,7 @@ pourra pas accéder aux modules d'administration. \\
 
 \section{Base de données}
 Nous avons dû revoir l'intégralité de la base de donnée du site, car c'est un
-des élements qui mettait en péril les fonctionnalités du site web. En effet, les
+des éléments qui mettait en péril les fonctionnalités du site web. En effet, les
 clés primaires définies étaient des champs varchar, du coup le passage de valeur
 dans l'URL engendrait des problèmes et il était impossible de traiter
 convenablement les données. \\
@@ -656,22 +662,26 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \subsubsection*{Gestion du diaporama}
 \begin{enumerate}
 \item Aller sur la page de modification du diaporama (Administration => Contenu => Diaporama)
-\item Ajouter une image, elle apparait dans la liste
+\item Ajouter une image, elle apparaît dans la liste
 \item Supprimer une image du diaporama, elle n'est plus dans la liste
-\item Désactivation d’une image, elle apparait dans la liste mais plus sur le diaporama
+\item Désactivation d’une image, elle apparaît dans la liste mais plus sur le 
+diaporama
 \end{enumerate}
 \subsubsection*{Gestion de l'actualité}
 \begin{enumerate}
 \item Créer une actualité (Administration => Contenu => Actualité)
 \item Ajouter une image pour l’actualité créée
 \item Ajouter un contenu
-\item Supprimer l’image associée, l'actualité est toujours présente mais n'apparait plus sur la page d'accueil car il n'y a pas de photo
+\item Supprimer l’image associée, l'actualité est toujours présente mais 
+n’apparaît plus sur la page d'accueil car il n'y a pas de photo
 \item Supprimer l’actualité créée, on ne peut plus modifier le texte
 \end{enumerate}
 \subsubsection*{Gestion des texte}
 \begin{enumerate}
-\item Créer d’une page (Administration -> Contenu -> Pages -> Gestion), elle n'apparait pas dans le menu \og Présentation \fg{}
-\item Ajouter un titre et un contenu (Administration -> Contenu -> Pages -> Textes), elle apparait maintenant dans le menu
+\item Créer d’une page (Administration -> Contenu -> Pages -> Gestion), elle 
+n’apparaît pas dans le menu \og Présentation \fg{}
+\item Ajouter un titre et un contenu (Administration -> Contenu -> Pages -> 
+Textes), elle apparaît maintenant dans le menu
 \item Suppression de la page
 \end{enumerate}
 \subsubsection*{Gestion de la boutique}
@@ -692,7 +702,7 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \begin{enumerate}
 \item Ajouter une musique, avec son titre et son artiste (Administration -> Contenu -> Musiques)
 \item Désactiver cette musique pour l’enlever de la liste
-\item Réactiver cette musique pour la réafficher dans la liste
+\item Réactiver cette musique pour la ré afficher dans la liste
 \item Supprimer complètement la musique de la liste
 \end{enumerate}
 \subsubsection*{Gestion des voyages}
@@ -735,10 +745,10 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \end{enumerate}
 \subsubsection*{Gestion de l'annuaire}
 \begin{enumerate}
-\item Inscrire un membre en cochant \og apparaître dans l'annuraire \fg{}
+\item Inscrire un membre en cochant \og apparaître dans l’annuaire \fg{}
 \item Valider l'inscription avec un compte d'administration
-\item Le membre apparait dans l'annuraire
-\item Enlever ce membre de l'annuraire
+\item Le membre apparaît dans l’annuaire
+\item Enlever ce membre de l’annuaire
 \item Utiliser la fonction de recherche pour chercher un adhérent dans la liste
 \end{enumerate}
 \subsubsection*{Compte Rendu}
@@ -763,8 +773,8 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \subsubsection*{Gestion des administrateurs}
 \begin{enumerate}
  \item Allez sur la page de gestion des administrateurs (Administration -> Membres -> Administrateurs)
- \item Donner les droits d'adminisitration à un membre
- \item Retirer les droits d'adminisitration de ce membre
+ \item Donner les droits d’administration à un membre
+ \item Retirer les droits d’administration de ce membre
  \item Retirer ses propres droits : impossible
 \end{enumerate}
 
@@ -786,10 +796,10 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
  \item Impossible de supprimer la langue active car c'est l'unique langue restante
 \end{enumerate}
 
-\subsection{Recette côté utilisateur}
+\subsection{Utilisateur}
 \subsubsection*{Blog}
 \begin{enumerate}
-\item Selectionner un billet à commenter, en changeant éventuellement de page
+\item Sélectionner un billet à commenter, en changeant éventuellement de page
 \item Ajouter un commentaire
 \end{enumerate}
 \subsubsection*{Votre avis}
@@ -805,7 +815,7 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \item Envoyer le message
 \end{enumerate}
 
-\subsubsection*{Fonctionnement player}
+\subsubsection*{Fonctionnement du lecteur audio}
 \begin{enumerate}
  \item Lancer une musique
  \item Changer le volume
@@ -818,32 +828,19 @@ rajoutant les contraintes d'intégrité qui n'étaient pas présente initialemen
 \end{enumerate}
 
 
-
-\section{Base de données}
-Nous avons dû revoir l'intégralité de la base de donnée du site, car c'est un
-des élements qui mettait en péril les fonctionnalités du site web. En effet, les
-clés primaires définies étaient des champs varchar, du coup le passage de valeur
-dans l'URL engendrait des problèmes et il était impossible de traiter
-convenablement les données. \\
-
-\par Pour y remédier, nous avons refait une conception de la base de donnée, en
-rajoutant les contraintes d'intégrité qui n'étaient pas présente initialement
-(clé étrangères, unicité, check). Vous trouverez ce document à la page suivante.
-
-
 \section{Manuel utilisateur}
-// TODO taff de zgeg
+%// TODO taff de zgeg
 \section{Manuel administrateur}
-// TODO taff de zgeg
+% TODO taff de zgeg
 \section{Référencement}
 En ce qui concerne le référencement, nous avons simplement rajouté une
 description afin que celle-ci apparaisse lors d'une recherche sur un moteur,
 sous le titre. Afin d'améliorer le référencement, nous conseillons aux
-responsables de l'assocation de multiplier les partenariats, car pour améliorer
+responsables de l’association de multiplier les partenariats, car pour améliorer
 le référencement de son site il suffit que son URL soit présente un grand nombre
 de fois sur Internet.
 
-\section{Hébergement et compte}
+\section{Hébergement et comptes}
 Le site est hébergé sur OVH. Pour accéder au compte et pouvoir sauvegarder ou
 restaurer la base de données, les identifiants sont : \\
 \begin{itemize}
@@ -888,7 +885,7 @@ manipulation est plus complexe qu'au-dessus :
   \item Saisissez les identifiants donnés dans la section précédente
   \item Cliquez sur \og Exporter \fg{}
   \item Choisissez sur \og Structure et données \fg{}
-  \item Selectionnez le format \og SQL \fg{}
+  \item Sélectionnez le format \og SQL \fg{}
   \item Prenez l'option \og Exporter \fg{} au lieu de \og Voir \fg{}
   \item Validez en appuyant sur \og Exporter \fg{}
   \item Enregistrez le fichier sur votre ordinateur personnel en précisant la
@@ -898,7 +895,7 @@ manipulation est plus complexe qu'au-dessus :
 \section{Procédure de reprise après panne}
 En cas de panne importante du site Web, par exemple si une personne mal
 intentionnée arrive à supprimer des fichiers ou des informations dans la base de
-donnée, il va être nécessaire de restaurer l'état du site à une version
+données, il va être nécessaire de restaurer l'état du site à une version
 antérieur, fonctionnelle. \\
 \par \textbf{Attention toutefois, cela engendrera une perte
 des modifications réalisées depuis la dernière sauvegarde}, d'où l'intérêt de
@@ -918,7 +915,7 @@ sauvegarder régulièrement. \\
   \item Rendez-vous sur le site : https://phppgadmin.ovh.net/
   \item Saisissez les identifiants donnés dans la section précédente
   \item Dans le menu de gauche, cliquez sur les \og + \fg{} de manière à voir
-  apparaitre l'onglet \og Tables \fg{} et sélectionnez le
+  apparaître l'onglet \og Tables \fg{} et sélectionnez-le
   \item Cochez toutes les cases et faites \og Supprimer \fg{} depuis le menu
   d'action
   \item Cochez la case \og CASCADE \fg{} et confirmer la suppression
@@ -927,25 +924,25 @@ sauvegarder régulièrement. \\
   \item Renseignez le fichier à importer, en dessous du champ texte, il
   correspond à la sauvegarde de la base de donnée que vous voulez restaurer
   \item Cliquez sur \og Lancer \fg{} et attendre qu'une nouvelle pas s'affiche,
-  avec un certain nombre d'information sur ce qui a été importé \\
+  avec un certain nombre d'informations sur ce qui a été importé \\
 \end{itemize}
 
 \par A partir d'ici, le site est de nouveau opérationnel
 
 \section{Conformité du site aux lois en vigueur}
-Le site Web est déployé avec des polices typographiques et des icones provenant
-de font-awesome, une librairie d'icones et de polices vectorielles sous licence
+Le site Web est déployé avec des polices typographiques et des icônes provenant
+de font-awesome, une librairie d’icônes et de polices vectorielles sous licence
 GPL et libre utilisation pour un projet professionnel et amateur. \\
 
 \par Pour les images hébergées par la Pastourelle, elle provienne de répétitions
 ou de concert, et ne dépendent par de la conception du site Web, mais du contenu
 qu'en a fait le client. Par conséquent, nous supposons que pour les photos qui
-seront hébergées, une demande de droit à l'image aura été préalablement effctuée
-auprès des ayant droits. \\
+seront hébergées, une demande de droit à l'image aura été préalablement 
+effectuée auprès des ayants droits. \\
 
 \par Pour les deux modules utilisés, à savoir Slick et TinyMCE, Slick est sous
 licence MIT, qui donne le droit de modification, utilisation, etc pour une
-utilisation amateure et commerciale du module. TinyMCE est en revanche sous
+utilisation amateur et commerciale du module. TinyMCE est en revanche sous
 licence LGPL pour sa version Community, c'est à dire qu'on peut l'utiliser pour
 un but commercial ou amateur, mais il y a des restrictions concernant la
 modification et la diffusion des codes sources. \\
@@ -962,7 +959,7 @@ requêtes par jours(inférieur à 20 000), c'est une API sous licence, par
 conséquent nous n'avons pas le droit de modifier et de diffuser les sources.
 
 \par Concernant les logos (tout ce qui touche à la Pastourelle), ils ont été
-redéssinés sous Photoshop afin d'ajouter la transparence qui n'était pas
+redessinés sous Photoshop afin d'ajouter la transparence qui n'était pas
 présente. Enfin pour les drapeaux de langues, il faudrait en utiliser sous
 licence GPL, qui seront récupérés par le client sur Internet en fonction des
 langues qu'il souhaite rendre disponible sur son site.
