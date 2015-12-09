@@ -95,7 +95,7 @@ CREATE TABLE produits_contenu (
 CREATE TABLE tmembre_inscrit (
   id_membre SERIAL PRIMARY KEY,
   pseudo varchar(30) NOT NULL,
-  pass_secure varchar(100) NOT NULL,
+  pass_secure varchar(255) NOT NULL,
   niveau integer NOT NULL CHECK (niveau IN (0, 1)),
   email varchar(100) DEFAULT NULL,
   etat_validation integer NOT NULL CHECK (etat_validation IN (0,1)),
