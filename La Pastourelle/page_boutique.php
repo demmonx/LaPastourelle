@@ -27,14 +27,16 @@ echo "<p>Le formulaire d'achat à envoyer par courrier :
 // Affichage liste produits
 echo "<table class='table table-bordered'>";
 foreach ($prod as $row) {
+	if (isset($row['name'])) {
     echo "<tr>";
     echo "<td>" . (isset($row['img']) ? "<img width='50px' height='50px' src='" .
              $row['img'] . "'>" : "") . "</td>";
-    echo "<td>" . (isset($row['name']) ? $row['name'] : "") . "</td>";
+    echo "<td>" .  $row['name'] . "</td>";
     echo "<td>" . (isset($row['txt']) ? $row['txt'] : "") . "</td>";
     echo "<td>" . (isset($row['prix']) ? number_format($row['prix'], 2, '.', 
             ' ') . " €" : "") . "</td>";
     echo "</tr>";
+	}
 }
 ?>
 </table>

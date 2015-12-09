@@ -30,6 +30,8 @@
 \usepackage{lmodern} % Pour changer le pack de police.
 \usepackage{etoolbox}
 \usepackage{colortbl}
+\usepackage{float}
+
 \usepackage[final]{pdfpages} 
 \usepackage{titlesec}
 \usepackage{multirow}
@@ -371,13 +373,6 @@ nécessaire d'établir des conditions préalables à la signature de celle-ci : 
 que tout a été correctement implémenté, et à cette occasion nous remettrons 
 l'intégralité des livrables aux clients.
 
-\section{Comité de pilotage}
-Voici le compte rendu de l'unique réunion de comité de pilotage avec le client
-qui a eu lieu à la mi-novembre : 
- \begin{landscape}
-   \includepdf{include/COPIL1.pdf}
-\end{landscape}
-\clearpage
 
 \newpage
 \section{Planification}
@@ -440,8 +435,8 @@ retiré de ce tableau les tâches terminée lors de la planification précédent
 \end{figure}
 \end{landscape}
 
-\subsubsection*{Checkpoint : 8 décembre 2015}
-\par Au 8 décembre, juste avant la recette, le est terminé : nous
+\subsection{Avancement final}
+\par Au 8 décembre, juste avant la recette, le projet est terminé : nous
 avons réalisé l'intégralité des modules et effectuer les différents tests, le 
 pré-déploiement du site a été effectué avec succès, seul les manuels sont en 
 cours de rédaction. \\
@@ -465,8 +460,24 @@ derniers jours ainsi que la liste des tâches (celle réalisée précédemment o
    \includegraphics[scale=0.5]{include/gantt8-12.png}
 \end{figure}
 \end{landscape}
+\includepdf{include/suivi_charge.pdf}
 
-\subsection{Avancement final}
+Nous voyons sur le tableau de suivi qu'il y a peu d'écart par rapport à ce qui 
+avait été estimé initialement, seulement une douzaine d'heures supplémentaires. 
+Ces écarts de plannification s'explique en partie par les différences de niveau 
+au sein de l'équipe qui ont engendrés du travail en double et/ou une estimation 
+erroné car la personne qui a estimé a compté le temps qu'elle aurait mis, et 
+non celui qu'un autre aurait mis. \\
+
+\par Aussi en orange nous voyons les écarts qui commencent à être importants. 
+Ceux-ci sont causés par le fait que certaines tâches ont été réalisés au sein 
+d'autres, comme par exemple le multilinguisme qui a été réalisé dans la partie 
+\og correction du back-office \fg{} et dans  \og administration du multilingue 
+\fg{}, alors qu'il était prévu pour la tâche \og version multilingue \fg{}.
+
+\par Enfin, en ce qui concerne le rapport, le temps de rédaction a explosé car 
+les documents auraient du être réalisés en même temps que le code, mais cela 
+n'a pas été le cas et il a fallu tout rédiger à 10 jours de la fin.
 
 
 \section{Compte rendu de réunion}
@@ -501,6 +512,19 @@ La saisie d'actualité doit également être modifiée, il faudrait passer de 5/
 zones textes à une seule en retirant celles qui sont inutiles.
 Enfin, il y a un problème avec les pièces de théâtre qui passent à "Pièce
 jouée" dès que l'on saisi une valeur, il faudrait donc réparer ce module.
+
+\section{COPIL et recettes}
+Voici le compte rendu de l'unique réunion de comité de pilotage avec le client
+qui a eu lieu à la mi-novembre : 
+ \begin{landscape}
+   \includepdf{include/COPIL1.pdf}
+\end{landscape}
+\clearpage
+
+ \begin{landscape}
+   \includepdf{include/recette1.pdf}
+\end{landscape}
+\clearpage
 
 
 
@@ -581,7 +605,9 @@ pourra pas accéder aux modules d'administration. \\
  
  \par Enfin, il nous a fallu encrypter les mots de passe avec une méthode de
  cryptage à jour, disponible depuis PHP 5.6 car ils étaient encodés en SHA-1 et
- il était très facile de les récupérer avec une Rainbow Table. Nous avons donc
+ il était très facile de les récupérer avec une Rainbow Table (table contenant 
+le texte brut et son équivalence crypté, permettant de faire des 
+correspondances). Nous avons donc
  utilisé le hashage SHA-1 pour assurer la compatibilité avec les mots de passe
  existants, mais nous ré-encryptons par dessus avec un algorithme plus
  performant, celui de base de PHP 5.5.
@@ -857,37 +883,55 @@ restaurer la base de données, les identifiants sont : \\
 \begin{itemize}
   \item Utilisateur : pastoure
   \item Mot de passe :  tQWTEXQj
-  \item Serveur : ftp.pastourelle-rodez.com
+  \item Serveur : ftp.pastourelle-rodez.com \\
 \end{itemize}
+
+ \par Ces identifiants sont à changer absolument dans les plus brefs délais car 
+ils représentent une grosse faille de sécurité.
 
 
 \section{Procédure d'archivage}
 Idéalement, il faudrait tous les mois sauvegarder la base de données contenant
 l'ensemble des informations de l'association, ainsi que les fichiers du site
 web, afin de ne pas perdre les modifications apportées sur les ressources
-(images, audio).
+(images, audio). En cas d'activité importante pour un mois donné, 
+éventuellement sauvegarder toutes les semaines.
 
 Pour cela, commençons par copier les fichiers du site  : 
-\begin{itemize}
+\begin{enumerate}
   \item Connectez vous sur le FTP du site via les identifiants donnés dans la
   section précédente, en utilisant le logiciel FileZilla ou équivalent.
   \item Copiez le dossier \og www \fg{} depuis le FTP sur votre ordinateur
   personnel, et précisez la date de la copie. \\
-\end{itemize}
+\end{enumerate}
 
 \par Ensuite, nous allons nous occuper de copier la base de données. La
 manipulation est plus complexe qu'au-dessus : 
-\begin{itemize}
+\begin{enumerate}
   \item Rendez-vous sur le site : https://phppgadmin.ovh.net/
-  \item Saisissez les identifiants donnés dans la section précédente
+  \item Saisissez les identifiants donnés dans la section précédente et 
+connectez-vous
+
+\begin{figure}[htp] \centering{
+\includegraphics[scale=1]{include/screen/postgres_login.png}}
+\caption{Connexion à PhpPgAdmin}
+\end{figure}
+
+  \item Cliquez sur \og pastourebd2 \fg{}
   \item Cliquez sur \og Exporter \fg{}
   \item Choisissez sur \og Structure et données \fg{}
   \item Sélectionnez le format \og SQL \fg{}
   \item Prenez l'option \og Exporter \fg{} au lieu de \og Voir \fg{}
+  
+  \begin{figure}[H] \centering{
+\includegraphics[scale=0.6]{include/screen/postgres_export.png}}
+\caption{Export de la base de données}
+\end{figure}
+
   \item Validez en appuyant sur \og Exporter \fg{}
   \item Enregistrez le fichier sur votre ordinateur personnel en précisant la
   date de la copie
-\end{itemize}
+\end{enumerate}
 
 \section{Procédure de reprise après panne}
 En cas de panne importante du site Web, par exemple si une personne mal
@@ -899,30 +943,47 @@ des modifications réalisées depuis la dernière sauvegarde}, d'où l'intérêt
 sauvegarder régulièrement. \\
 
 \par Pour restaurer les fichiers du site Web : 
-\begin{itemize}
+\begin{enumerate}
   \item Connectez vous sur le FTP du site via les identifiants donnés dans la
   section précédente, en utilisant le logiciel FileZilla ou équivalent.
   \item Supprimez le contenu du dossier \og www \fg{}
   \item Copiez le contenu du dossier de sauvegarde voulu, situé sur votre
   ordinateur dans le dossier \og www \fg{} du FTP. \\
-\end{itemize} 
+\end{enumerate} 
 
 \par Pour restaurer la base de donnée : 
-\begin{itemize}
+\begin{enumerate}
   \item Rendez-vous sur le site : https://phppgadmin.ovh.net/
   \item Saisissez les identifiants donnés dans la section précédente
   \item Dans le menu de gauche, cliquez sur les \og + \fg{} de manière à voir
   apparaître l'onglet \og Tables \fg{} et sélectionnez-le
   \item Cochez toutes les cases et faites \og Supprimer \fg{} depuis le menu
   d'action
-  \item Cochez la case \og CASCADE \fg{} et confirmer la suppression
+  
+    \begin{figure}[H] \centering{
+\includegraphics[scale=0.6]{include/screen/drop_table.png}}
+\caption{Suppression des tables}
+\end{figure}
+
+  \item Cochez la case \og CASCADE \fg{} et confirmer la suppression, sinon les 
+tables avec des dépendances ne pourront pas être supprimées
+  
+      \begin{figure}[H] \centering{
+\includegraphics[scale=0.6]{include/screen/cascade.png}}
+\caption{Activation du mode cascade}
+\end{figure}
+
   \item  Dans le menu de gauche, cliquez sur les \og pastourebd2 \fg{}
   \item Cliquez sur \og SQL \fg{} dans le menu principal (2ème onglet)
   \item Renseignez le fichier à importer, en dessous du champ texte, il
   correspond à la sauvegarde de la base de donnée que vous voulez restaurer
+      \begin{figure}[H] \centering{
+\includegraphics[scale=0.6]{include/screen/import.png}}
+\caption{Importation de la base de données}
+\end{figure}
   \item Cliquez sur \og Lancer \fg{} et attendre qu'une nouvelle pas s'affiche,
   avec un certain nombre d'informations sur ce qui a été importé \\
-\end{itemize}
+\end{enumerate}
 
 \par A partir d'ici, le site est de nouveau opérationnel
 
