@@ -1,12 +1,6 @@
 <?php
 @session_start();
 
-// Phrase du jour
-$phrase = getPhraseJour($_SESSION['lang']);
-if (isset($phrase) && $phrase != "") {
-    echo "<marquee scrollAmount=\"4\">Phrase de la semaine : " . $phrase .
-             " </marquee>";
-}
 
 // Titre
 $titre = getTraduction("accueil", $_SESSION['lang']);

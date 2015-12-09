@@ -16,36 +16,36 @@
 \contentsline {section}{\numberline {A.IV)}Pilotage}{9}{section.1.4}
 \contentsline {section}{\numberline {A.V)}Recettes}{9}{section.1.5}
 \contentsline {section}{\numberline {A.VI)}Migration}{10}{section.1.6}
-\contentsline {section}{\numberline {A.VII)}Comit\IeC {\'e} de pilotage}{10}{section.1.7}
-\contentsline {section}{\numberline {A.VIII)}Planification}{12}{section.1.8}
-\contentsline {subsection}{\numberline {A.VIII.1)}Pr\IeC {\'e}vision initiale}{12}{subsection.1.8.1}
-\contentsline {subsection}{\numberline {A.VIII.2)}Evolution de la planification}{15}{subsection.1.8.2}
-\contentsline {subsection}{\numberline {A.VIII.3)}Avancement final}{25}{subsection.1.8.3}
-\contentsline {section}{\numberline {A.IX)}Compte rendu de r\IeC {\'e}union}{25}{section.1.9}
-\contentsline {subsection}{\numberline {A.IX.1)}R\IeC {\'e}union initiale avec le client (21/10/2015)}{25}{subsection.1.9.1}
-\contentsline {chapter}{\numberline {B}Analyse de l'existant}{26}{chapter.2}
-\contentsline {chapter}{\numberline {C}Les caract\IeC {\'e}ristiques techniques}{43}{chapter.3}
-\contentsline {section}{\numberline {C.I)}Charte graphique}{43}{section.3.1}
-\contentsline {section}{\numberline {C.II)}Choix techniques}{46}{section.3.2}
-\contentsline {subsection}{\numberline {C.II.1)}Slick}{46}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {C.II.2)}TinyMCE}{46}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {C.II.3)}Bootstrap}{46}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {C.II.4)}API Google Map}{46}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {C.II.5)}Syst\IeC {\`e}me de Gestion de Base de Donn\IeC {\'e}es}{46}{subsection.3.2.5}
-\contentsline {section}{\numberline {C.III)}D\IeC {\'e}veloppement}{47}{section.3.3}
-\contentsline {subsection}{\numberline {C.III.1)}El\IeC {\'e}ments de s\IeC {\'e}curisation du site}{47}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {C.III.2)}Arborescence}{47}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {C.III.3)}Convention de nommage}{47}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {C.III.4)}Codes sources}{47}{subsection.3.3.4}
-\contentsline {section}{\numberline {C.IV)}Base de donn\IeC {\'e}es}{48}{section.3.4}
-\contentsline {chapter}{\numberline {D}Le d\IeC {\'e}ploiement de l'application Web}{54}{chapter.4}
-\contentsline {section}{\numberline {D.I)}Sc\IeC {\'e}narios de recette}{54}{section.4.1}
-\contentsline {subsection}{\numberline {D.I.1)}Administration}{54}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {D.I.2)}Utilisateur}{57}{subsection.4.1.2}
-\contentsline {section}{\numberline {D.II)}R\IeC {\'e}f\IeC {\'e}rencement}{58}{section.4.2}
-\contentsline {section}{\numberline {D.III)}H\IeC {\'e}bergement et comptes}{58}{section.4.3}
-\contentsline {section}{\numberline {D.IV)}Proc\IeC {\'e}dure d'archivage}{58}{section.4.4}
-\contentsline {section}{\numberline {D.V)}Proc\IeC {\'e}dure de reprise apr\IeC {\`e}s panne}{59}{section.4.5}
-\contentsline {section}{\numberline {D.VI)}Conformit\IeC {\'e} du site aux lois en vigueur}{59}{section.4.6}
-\contentsline {section}{\numberline {D.VII)}Support d'archivage}{60}{section.4.7}
-\contentsline {section}{\numberline {D.VIII)}Manuels d'utilisation}{60}{section.4.8}
+\contentsline {section}{\numberline {A.VII)}Planification}{11}{section.1.7}
+\contentsline {subsection}{\numberline {A.VII.1)}Pr\IeC {\'e}vision initiale}{11}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {A.VII.2)}Evolution de la planification}{14}{subsection.1.7.2}
+\contentsline {subsection}{\numberline {A.VII.3)}Avancement final}{20}{subsection.1.7.3}
+\contentsline {section}{\numberline {A.VIII)}Compte rendu de r\IeC {\'e}union}{25}{section.1.8}
+\contentsline {subsection}{\numberline {A.VIII.1)}R\IeC {\'e}union initiale avec le client (21/10/2015)}{25}{subsection.1.8.1}
+\contentsline {section}{\numberline {A.IX)}COPIL et recettes}{25}{section.1.9}
+\contentsline {chapter}{\numberline {B}Analyse de l'existant}{28}{chapter.2}
+\contentsline {chapter}{\numberline {C}Les caract\IeC {\'e}ristiques techniques}{45}{chapter.3}
+\contentsline {section}{\numberline {C.I)}Charte graphique}{45}{section.3.1}
+\contentsline {section}{\numberline {C.II)}Choix techniques}{48}{section.3.2}
+\contentsline {subsection}{\numberline {C.II.1)}Slick}{48}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {C.II.2)}TinyMCE}{48}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {C.II.3)}Bootstrap}{48}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {C.II.4)}API Google Map}{48}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {C.II.5)}Syst\IeC {\`e}me de Gestion de Base de Donn\IeC {\'e}es}{48}{subsection.3.2.5}
+\contentsline {section}{\numberline {C.III)}D\IeC {\'e}veloppement}{49}{section.3.3}
+\contentsline {subsection}{\numberline {C.III.1)}El\IeC {\'e}ments de s\IeC {\'e}curisation du site}{49}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {C.III.2)}Arborescence}{49}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {C.III.3)}Convention de nommage}{49}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {C.III.4)}Codes sources}{49}{subsection.3.3.4}
+\contentsline {section}{\numberline {C.IV)}Base de donn\IeC {\'e}es}{50}{section.3.4}
+\contentsline {chapter}{\numberline {D}Le d\IeC {\'e}ploiement de l'application Web}{56}{chapter.4}
+\contentsline {section}{\numberline {D.I)}Sc\IeC {\'e}narios de recette}{56}{section.4.1}
+\contentsline {subsection}{\numberline {D.I.1)}Administration}{56}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {D.I.2)}Utilisateur}{59}{subsection.4.1.2}
+\contentsline {section}{\numberline {D.II)}R\IeC {\'e}f\IeC {\'e}rencement}{60}{section.4.2}
+\contentsline {section}{\numberline {D.III)}H\IeC {\'e}bergement et comptes}{60}{section.4.3}
+\contentsline {section}{\numberline {D.IV)}Proc\IeC {\'e}dure d'archivage}{60}{section.4.4}
+\contentsline {section}{\numberline {D.V)}Proc\IeC {\'e}dure de reprise apr\IeC {\`e}s panne}{62}{section.4.5}
+\contentsline {section}{\numberline {D.VI)}Conformit\IeC {\'e} du site aux lois en vigueur}{65}{section.4.6}
+\contentsline {section}{\numberline {D.VII)}Support d'archivage}{65}{section.4.7}
+\contentsline {section}{\numberline {D.VIII)}Manuels d'utilisation}{65}{section.4.8}
