@@ -78,6 +78,7 @@ $lang = $_SESSION['lang'];
 								<li><a href='index.php?page=gestion_actu'> Actualités</a></li>
 								<li><a href='index.php?page=gestion_liens'> Liens</a></li>
 								<li><a href='index.php?page=gestion_voyage'> Voyages</a></li>
+								<li><a href='index.php?page=gestion_lien_video'> Médias</a></li>
 							</ul></li>
 
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -92,55 +93,6 @@ $lang = $_SESSION['lang'];
             <?php
         }
         ?>				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				
 				<li><a href="index.php?page=page_blog"><i
 						class="fa fa-commenting-o fa-lg"></i> Blog</a>
@@ -188,8 +140,14 @@ $lang = $_SESSION['lang'];
 				<li><a href="index.php?page=page_revue_presse"><i
 						class="fa fa-newspaper-o fa-lg"></i> <?php echo getTitre('revue', $lang); ?></a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="page_player_tab.php" target="_blank"><i
-						class="fa fa-music fa-lg"></i> <?php echo getTitre('music', $lang); ?></a></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+					aria-expanded="false"><i class="fa fa-music fa-lg"></i> <?php echo getTitre('media', $lang); ?>
+						<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="page_player_tab.php" target="_blank"> <?php echo getTitre('music', $lang); ?></a></li>
+						<li><a href="index.php?page=page_video"> <?php echo getTitre('video', $lang); ?></a></li>
+					</ul></li>
 				<li role="separator" class="divider"></li>
 				<li><a href="index.php?page=page_voyage"><i
 						class="fa fa-globe fa-lg"></i>

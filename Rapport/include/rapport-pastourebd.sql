@@ -177,8 +177,7 @@ CREATE TABLE playlist (
   music_lien varchar(255)  NOT NULL UNIQUE,
   music_nom varchar(100)  NOT NULL,
   music_active char(1)  NOT NULL CHECK (music_active IN ('A','F')),
-  music_groupe varchar(100) DEFAULT NULL,
-  UNIQUE (music_lien)
+  music_groupe varchar(100) DEFAULT NULL
 );
 
 -- Les revues de presse concernant l'association
@@ -220,4 +219,10 @@ CREATE TABLE traduction (
   code_titre integer NOT NULL REFERENCES titre(titre_num) ON DELETE CASCADE,
   content varchar(100) NOT NULL,
   PRIMARY KEY (code_lang,code_titre)
+);
+
+CREATE TABLE video_link (
+	vid_id SERIAL PRIMARY KEY,
+	vid_url varchar(255) NOT NULL UNIQUE,
+	vid_titre varchar(100) NOT NULL
 );

@@ -12,5 +12,8 @@ if (! ($lang && $page && $content && $titre)) {
     exit("Les champs doivent être remplis");
 }
 
+if (strlen($titre) >= 100) {
+	exit("Le nom doit faire moins de 100 caractères");
+}
 setContent($page, $lang, $content, $titre);
 exit("Mise à jour réussie");

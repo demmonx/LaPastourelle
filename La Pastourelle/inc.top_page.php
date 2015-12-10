@@ -42,6 +42,14 @@
 
 		</div>
 	</div>
+	<?php // Phrase du jour
+$phrase = getPhraseJour($_SESSION['lang']);
+if (isset($phrase) && $phrase != "") {
+    echo "<marquee class='phrase-jour' scrollAmount='5'>" . $phrase .
+             " </marquee>";
+}
+?>
+	
 </header>
 <!-- fin - header  -->
 <?php require 'inc.menu.php'; ?>

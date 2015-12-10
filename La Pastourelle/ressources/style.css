@@ -156,9 +156,10 @@ html {
 		text-align: center;
 	}
 	.logoAveyron {
-		width: 230px;
+		width: 200px;
 		position: absolute;
 		top: -16px;
+		height: auto;
 		left: 30%;
 	}
 	.container {
@@ -196,7 +197,7 @@ html {
 		bottom:-45px;
 	}
 	.slide-top {
-		max-width: 250px;
+		max-width: 270px;
 		left: 120px;
 		bottom: -15px;
 	}
@@ -391,4 +392,3 @@ section h1 {
 .title {
 	font-size: 20px;
 }
- 

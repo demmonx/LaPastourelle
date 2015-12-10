@@ -2,6 +2,61 @@
 require_once ("class.connection.php");
 require_once ("inc.login.php");
 
+/** 
+ * Ajoute un média dans la base de données
+ * @param string $url Url du média
+ * @param string $name Titre qui sera affiché
+ */
+function addMedia($name, $url) {
+	$bdd = new Connection();
+	$stmt = $bdd->prepare("SELECT * FROM video_link WHERE vid_url = ?");
+	$stmt->bindValue(1, $url);
+	$stmt->execute();
+	
+	// Ajout si n'existe pas déjà
+	if ($stmt->rowCount() == 0) {
+		$stmt = $bdd->prepare("INSERT INTO video_link (vid_url, vid_titre) VALUES (?, ?)");
+		$stmt->bindValue(1, $url);
+		$stmt->bindValue(2, $name);
+		$stmt->execute();
+		return true;
+	}
+	return false;
+}
+
+/**
+ * @return array la liste des médias disponibles
+ */
+function getMedias() {
+	$bdd = new Connection();
+	$stmt = $bdd->prepare("SELECT * FROM video_link");
+	$stmt->execute();
+	$return = array();
+	$i = 0;
+	
+	while($row = $stmt->fetch()) {
+		$return[$i]['id'] = $row['vid_id'];
+		$return[$i]['url'] = $row['vid_url'];
+		$return[$i]['name'] = $row['vid_titre'];
+		$i++;
+	}
+	
+	return $return;
+}
+
+/**
+ * Supprime un média de la base de données
+ * @param integer $id Le média à supprimer
+ */
+function deleteMedia($id) {
+	$bdd = new Connection();
+	$stmt = $bdd->prepare("DELETE FROM video_link WHERE video_id = ?");
+	$stmt->bindValue(1, $id);
+	$stmt->execute();
+	return true;
+}
+
+
 /**
  * Retourne tous les continents dans lesquels un voyages à été effectué par la
  * pastourelle

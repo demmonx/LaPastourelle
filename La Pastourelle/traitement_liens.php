@@ -22,6 +22,9 @@ if (! ($nom && $url || $action && $id || $id_type && isset($_FILES["fichier"]) &
  * On traite la partie ajout
  */
 if ($nom) {
+	if (strlen($nom) >= 100) {
+		exit("Le nom doit faire moins de 100 caractères");
+	}
     try {
         addLink($nom, $url);
         exit("Ajout effectué avec succès");
