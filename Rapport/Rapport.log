@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.16)  9 DEC 2015 22:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.5.30)  10 DEC 2015 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Rapport.tex
 (./Rapport.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@chapter=\count80
@@ -25,19 +25,19 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2008/03/30 v1.1d Input encoding file
+Package: inputenc 2014/04/30 v1.2b Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+File: t1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
@@ -187,7 +187,7 @@ Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+File: ot1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00B8 (decimal 184)
@@ -218,7 +218,7 @@ Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+File: omsenc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -245,7 +245,7 @@ Now handling font encoding U ...
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
@@ -273,7 +273,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks17
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
@@ -282,7 +282,7 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsaveapp=\count93
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -309,70 +309,77 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen111
 \Gin@req@width=\dimen112
 )
-(/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
-(/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
-(/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty
-(/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-common.tex
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks18
-)
-(/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box26
+\pgfutil@tempdima=\dimen113
+\pgfutil@tempdimb=\dimen114
 
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box26
 (/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
-(/usr/share/texmf/tex/generic/pgf/utilities/pgfrcs.code.tex
-Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2013/12/20 v3.0.0 (rcs-revision 1.28)
 ))
-Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
+Package: pgf 2013/12/18 v3.0.0 (rcs-revision 1.14)
 
-(/usr/share/texmf/tex/latex/pgf/basiclayer/pgfcore.sty
-(/usr/share/texmf/tex/latex/pgf/systemlayer/pgfsys.sty
-(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
 
-(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks19
 \pgfkeys@temptoks=\toks20
 
-(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
 \pgfkeys@tmptoks=\toks21
 ))
-\pgf@x=\dimen113
-\pgf@y=\dimen114
-\pgf@xa=\dimen115
-\pgf@ya=\dimen116
-\pgf@xb=\dimen117
-\pgf@yb=\dimen118
-\pgf@xc=\dimen119
-\pgf@yc=\dimen120
+\pgf@x=\dimen115
+\pgf@y=\dimen116
+\pgf@xa=\dimen117
+\pgf@ya=\dimen118
+\pgf@xb=\dimen119
+\pgf@yb=\dimen120
+\pgf@xc=\dimen121
+\pgf@yc=\dimen122
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
 \c@pgf@counta=\count95
 \c@pgf@countb=\count96
 \c@pgf@countc=\count97
 \c@pgf@countd=\count98
-
-(/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
+\t@pgf@toka=\toks22
+\t@pgf@tokb=\toks23
+\t@pgf@tokc=\toks24
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
-Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
+Driver file for pgf: pgfsys-pdftex.def
 
-(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2009/05/22  (rcs-revision 1.26)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2013/07/18  (rcs-revision 1.33)
 
-(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )))
-(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
 \pgfsyssoftpath@smallbuffer@items=\count99
 \pgfsyssoftpath@bigbuffer@items=\count100
 )
-(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
-))
-(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
@@ -389,170 +396,200 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
 
-(/usr/share/texmf/tex/generic/pgf/math/pgfmath.code.tex
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathcalc.code.tex
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen121
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen123
 \pgfmath@count=\count101
 \pgfmath@box=\box27
-\pgfmath@toks=\toks22
-\pgfmath@stack@operand=\toks23
-\pgfmath@stack@operation=\toks24
+\pgfmath@toks=\toks25
+\pgfmath@stack@operand=\toks26
+\pgfmath@stack@operation=\toks27
 )
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.code.tex
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex)
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.random.code.tex)
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex)
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count102
 ))
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
-\pgf@picminx=\dimen122
-\pgf@picmaxx=\dimen123
-\pgf@picminy=\dimen124
-\pgf@picmaxy=\dimen125
-\pgf@pathminx=\dimen126
-\pgf@pathmaxx=\dimen127
-\pgf@pathminy=\dimen128
-\pgf@pathmaxy=\dimen129
-\pgf@xx=\dimen130
-\pgf@xy=\dimen131
-\pgf@yx=\dimen132
-\pgf@yy=\dimen133
-\pgf@zx=\dimen134
-\pgf@zy=\dimen135
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen124
+\pgf@picmaxx=\dimen125
+\pgf@picminy=\dimen126
+\pgf@picmaxy=\dimen127
+\pgf@pathminx=\dimen128
+\pgf@pathmaxx=\dimen129
+\pgf@pathminy=\dimen130
+\pgf@pathmaxy=\dimen131
+\pgf@xx=\dimen132
+\pgf@xy=\dimen133
+\pgf@yx=\dimen134
+\pgf@yy=\dimen135
+\pgf@zx=\dimen136
+\pgf@zy=\dimen137
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
-\pgf@path@lastx=\dimen136
-\pgf@path@lasty=\dimen137
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen138
+\pgf@path@lasty=\dimen139
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
-File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
-\pgf@shorten@end@additional=\dimen138
-\pgf@shorten@start@additional=\dimen139
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
+File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
+\pgf@shorten@end@additional=\dimen140
+\pgf@shorten@start@additional=\dimen141
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
+File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
 \pgfpic=\box28
 \pgf@hbox=\box29
 \pgf@layerbox@main=\box30
 \pgf@picture@serial@count=\count103
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
-\pgflinewidth=\dimen140
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
+File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
+\pgflinewidth=\dimen142
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
-File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
-\pgf@pt@x=\dimen141
-\pgf@pt@y=\dimen142
-\pgf@pt@temp=\dimen143
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
+File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
+\pgf@pt@x=\dimen143
+\pgf@pt@y=\dimen144
+\pgf@pt@temp=\dimen145
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
 File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
+File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
+\pgfarrowsep=\dimen146
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
-\pgf@max=\dimen144
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen147
 \pgf@sys@shading@range@num=\count104
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
-File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
+File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
 \pgfexternal@startupbox=\box31
 ))
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
-File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
 )
-(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
 )))
-(/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2013/10/31  (rcs-revision 1.34)
 \pgfnodeparttextbox=\box32
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2013/07/31  (rcs-revision 1.12)
 )
-(/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.0 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen148
+\pgf@nodesepend=\dimen149
 )
-(/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
-Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen145
-\pgf@nodesepend=\dimen146
-)
-(/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
-Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
-))
-(/usr/share/texmf/tex/latex/pgf/utilities/pgffor.sty
-(/usr/share/texmf/tex/latex/pgf/utilities/pgfkeys.sty
-(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
-(/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
-\pgffor@iter=\dimen147
-\pgffor@skip=\dimen148
-\pgffor@stack=\toks25
-\pgffor@toks=\toks26
-))
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.0 (rcs-revision 1.1)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.0 (rcs-revision 1.25)
 
-(/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
-File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen150
+\pgffor@skip=\dimen151
+\pgffor@stack=\toks28
+\pgffor@toks=\toks29
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2013/12/13 v3.0.0 (rcs-revision 1.142)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
 \pgf@plot@mark@count=\count105
-\pgfplotmarksize=\dimen149
+\pgfplotmarksize=\dimen152
 )
-\tikz@lastx=\dimen150
-\tikz@lasty=\dimen151
-\tikz@lastxsaved=\dimen152
-\tikz@lastysaved=\dimen153
-\tikzleveldistance=\dimen154
-\tikzsiblingdistance=\dimen155
+\tikz@lastx=\dimen153
+\tikz@lasty=\dimen154
+\tikz@lastxsaved=\dimen155
+\tikz@lastysaved=\dimen156
+\tikzleveldistance=\dimen157
+\tikzsiblingdistance=\dimen158
 \tikz@figbox=\box33
-\tikz@tempbox=\box34
+\tikz@figbox@bg=\box34
+\tikz@tempbox=\box35
+\tikz@tempbox@bg=\box36
 \tikztreelevel=\count106
 \tikznumberofchildren=\count107
 \tikznumberofcurrentchild=\count108
 \tikz@fig@count=\count109
 
-(/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 \pgfmatrixcurrentrow=\count110
 \pgfmatrixcurrentcolumn=\count111
 \pgf@matrix@numberofcolumns=\count112
 )
 \tikz@expandcount=\count113
 
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
-hs.code.tex
-File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
 ))) (./tikz-uml.sty
 Package: tikz-uml 2011/01/26
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
@@ -563,140 +600,143 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count116
 \calc@Bcount=\count117
-\calc@Adimen=\dimen156
-\calc@Bdimen=\dimen157
+\calc@Adimen=\dimen159
+\calc@Bdimen=\dimen160
 \calc@Askip=\skip43
 \calc@Bskip=\skip44
-LaTeX Info: Redefining \setlength on input line 76.
-LaTeX Info: Redefining \addtolength on input line 77.
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
 \calc@Ccount=\count118
 \calc@Cskip=\skip45
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
-Package: pgfopts 2011/06/02 v2.1 LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks27
-\pgfopts@list@add@b@toks=\toks28
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks30
+\pgfopts@list@add@b@toks=\toks31
 )
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackg
-rounds.code.tex
-File: tikzlibrarybackgrounds.code.tex 2010/02/08 v2.10 (rcs-revision 1.2)
-\pgf@layerbox@background=\box35
-\pgf@layerboxsaved@background=\box36
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.0 (rcs-revision 1.3)
+\pgf@layerbox@background=\box37
+\pgf@layerboxsaved@background=\box38
 )
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrow
-s.code.tex
-File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
 
-(/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
-File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
-\arrowsize=\dimen158
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
+tex
+File: pgflibraryarrows.code.tex 2013/09/23 v3.0.0 (rcs-revision 1.16)
+\arrowsize=\dimen161
 ))
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
-s.code.tex
-File: tikzlibraryshapes.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
 
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.geometric.code.tex
-File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
-
-(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.c
-ode.tex
-File: pgflibraryshapes.geometric.code.tex 2008/06/26 v2.10 (rcs-revision 1.1)
+File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.0 (rcs-revision 1.1)
 ))
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.misc.code.tex
-File: tikzlibraryshapes.misc.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
-
-(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.t
-ex
-File: pgflibraryshapes.misc.code.tex 2008/10/07 v2.10 (rcs-revision 1.3)
+File: pgflibraryshapes.misc.code.tex 2013/07/18 v3.0.0 (rcs-revision 1.5)
 ))
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.symbols.code.tex
-File: tikzlibraryshapes.symbols.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
-
-(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.cod
-e.tex
-File: pgflibraryshapes.symbols.code.tex 2009/10/27 v2.10 (rcs-revision 1.3)
+File: pgflibraryshapes.symbols.code.tex 2013/09/11 v3.0.0 (rcs-revision 1.6)
 ))
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.arrows.code.tex
-File: tikzlibraryshapes.arrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
-
-(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code
-.tex
-File: pgflibraryshapes.arrows.code.tex 2008/06/26 v2.10 (rcs-revision 1.1)
+File: pgflibraryshapes.arrows.code.tex 2008/06/26 v3.0.0 (rcs-revision 1.1)
 ))
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
-s.callouts.code.tex
-(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.co
-de.tex))
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.multipart.code.tex
-File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
-
-(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.c
-ode.tex
-File: pgflibraryshapes.multipart.code.tex 2010/01/07 v2.10 (rcs-revision 1.2)
-\pgfnodepartlowerbox=\box37
-\pgfnodeparttwobox=\box38
-\pgfnodepartthreebox=\box39
-\pgfnodepartfourbox=\box40
-\pgfnodeparttwentybox=\box41
-\pgfnodepartnineteenbox=\box42
-\pgfnodeparteighteenbox=\box43
-\pgfnodepartseventeenbox=\box44
-\pgfnodepartsixteenbox=\box45
-\pgfnodepartfifteenbox=\box46
-\pgfnodepartfourteenbox=\box47
-\pgfnodepartthirteenbox=\box48
-\pgfnodeparttwelvebox=\box49
-\pgfnodepartelevenbox=\box50
-\pgfnodeparttenbox=\box51
-\pgfnodepartninebox=\box52
-\pgfnodeparteightbox=\box53
-\pgfnodepartsevenbox=\box54
-\pgfnodepartsixbox=\box55
-\pgfnodepartfivebox=\box56
+File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.0 (rcs-revision 1.2)
+\pgfnodepartlowerbox=\box39
+\pgfnodeparttwobox=\box40
+\pgfnodepartthreebox=\box41
+\pgfnodepartfourbox=\box42
+\pgfnodeparttwentybox=\box43
+\pgfnodepartnineteenbox=\box44
+\pgfnodeparteighteenbox=\box45
+\pgfnodepartseventeenbox=\box46
+\pgfnodepartsixteenbox=\box47
+\pgfnodepartfifteenbox=\box48
+\pgfnodepartfourteenbox=\box49
+\pgfnodepartthirteenbox=\box50
+\pgfnodeparttwelvebox=\box51
+\pgfnodepartelevenbox=\box52
+\pgfnodeparttenbox=\box53
+\pgfnodepartninebox=\box54
+\pgfnodeparteightbox=\box55
+\pgfnodepartsevenbox=\box56
+\pgfnodepartsixbox=\box57
+\pgfnodepartfivebox=\box58
 )))
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.c
-ode.tex
-File: tikzlibraryfit.code.tex 2008/06/21 v2.10 (rcs-revision 1.3)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2013/07/12 v3.0.0 (rcs-revision 1.5)
 )
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshado
-ws.code.tex
-File: tikzlibraryshadows.code.tex 2008/01/13 v2.10 (rcs-revision 1.3)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2008/01/13 v3.0.0 (rcs-revision 1.3)
 
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadin
-gs.code.tex
-File: tikzlibraryfadings.code.tex 2009/11/15 v2.10 (rcs-revision 1.2)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2009/11/15 v3.0.0 (rcs-revision 1.2)
 
-(/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
-File: pgflibraryfadings.code.tex 2008/02/07 v2.10 (rcs-revision 1.3)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code
+.tex
+File: pgflibraryfadings.code.tex 2008/02/07 v3.0.0 (rcs-revision 1.3)
 )))
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
-ations.markings.code.tex
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
-ations.code.tex
-(/usr/share/texmf/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen159
-\pgfdecoratedremainingdistance=\dimen160
-\pgfdecoratedinputsegmentcompleteddistance=\dimen161
-\pgfdecoratedinputsegmentremainingdistance=\dimen162
-\pgf@decorate@distancetomove=\dimen163
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.markings.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex
+\pgfdecoratedcompleteddistance=\dimen162
+\pgfdecoratedremainingdistance=\dimen163
+\pgfdecoratedinputsegmentcompleteddistance=\dimen164
+\pgfdecoratedinputsegmentremainingdistance=\dimen165
+\pgf@decorate@distancetomove=\dimen166
 \pgf@decorate@repeatstate=\count119
-\pgfdecorationsegmentamplitude=\dimen164
-\pgfdecorationsegmentlength=\dimen165
+\pgfdecorationsegmentamplitude=\dimen167
+\pgfdecorationsegmentlength=\dimen168
 )
-\tikz@lib@dec@box=\box57
+\tikz@lib@dec@box=\box59
 )
-(/usr/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.m
-arkings.code.tex))
-\pgf@layerbox@background=\box58
-\pgf@layerboxsaved@background=\box59
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.markings.code.tex))
 \c@tikzumlPackageLayers=\count120
 \pgf@layerbox@package0=\box60
 \pgf@layerboxsaved@package0=\box61
@@ -805,27 +845,27 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count160
 \lst@gtempboxa=\box98
-\lst@token=\toks29
+\lst@token=\toks32
 \lst@length=\count161
-\lst@currlwidth=\dimen166
+\lst@currlwidth=\dimen169
 \lst@column=\count162
 \lst@pos=\count163
-\lst@lostspace=\dimen167
-\lst@width=\dimen168
+\lst@lostspace=\dimen170
+\lst@width=\dimen171
 \lst@newlines=\count164
 \lst@lineno=\count165
-\lst@maxwidth=\dimen169
+\lst@maxwidth=\dimen172
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
 \c@lstnumber=\count166
 \lst@skipnumbers=\count167
 \lst@framebox=\box99
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2013/08/26 1.5b listings configuration
+File: listings.cfg 2014/09/06 1.5e listings configuration
 ))
-Package: listings 2013/08/26 1.5b (Carsten Heinz)
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
@@ -848,7 +888,7 @@ Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu
-File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+File: ts1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00A4 (decimal 164)
@@ -984,26 +1024,26 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/sidecap/sidecap.sty
 Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
-\SC@BOXWD=\dimen170
-\SC@CAPWD=\dimen171
-\SC@tempdima=\dimen172
-\SC@tempdimb=\dimen173
+\SC@BOXWD=\dimen173
+\SC@CAPWD=\dimen174
+\SC@tempdima=\dimen175
+\SC@tempdimb=\dimen176
 \c@SC@C=\count168
 \SC@BOX=\box100
 )
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen174
-\WF@size=\dimen175
+\wrapoverhang=\dimen177
+\WF@size=\dimen178
 \c@WF@wrappedlines=\count169
 \WF@box=\box101
-\WF@everypar=\toks30
+\WF@everypar=\toks33
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen176
-\extrarowheight=\dimen177
-\NC@list=\toks31
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen179
+\extrarowheight=\dimen180
+\NC@list=\toks34
 \extratabsurround=\skip69
 \backup@length=\skip70
 )
@@ -1015,13 +1055,15 @@ Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
 \et@xins=\count170
 )
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
+Package: xkeyval 2014/05/25 v2.7 package option processing (HA)
 
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-\XKV@toks=\toks32
-\XKV@tempa@toks=\toks33
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks35
+\XKV@tempa@toks=\toks36
+)
 \XKV@depth=\count171
-File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
+File: xkeyval.tex 2014/05/25 v2.7 key=value parser (HA)
 ))
 \c@tkz@gr@a=\count172
 \c@tkz@gr@b=\count173
@@ -1034,32 +1076,39 @@ File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
 \c@tkz@gr@ta=\count180
 \c@tkz@gr@tb=\count181
 )
-(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryposit
-ioning.code.tex
-File: tikzlibrarypositioning.code.tex 2008/10/06 v2.10 (rcs-revision 1.7)
-) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2013/12/03 3.9h The Babel package
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.0 (rcs-revision 1.7)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2014/09/25 3.9l The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-french/frenchb.ldf
-Language: frenchb 2013/12/30 v2.6g French support from the babel system
+Language: frenchb 2014/09/16 v3.1b French support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2013/12/03 3.9h Babel common definitions
+File: babel.def 2014/09/25 3.9l Babel common definitions
 \babel@savecnt=\count182
-\U@D=\dimen178
+\U@D=\dimen181
 )
+\l@acadian = a dialect from \language\l@french 
+\l@canadien = a dialect from \language\l@french 
+\FBcolonskip=\skip71
+\FBthinskip=\skip72
 \FB@interchartokenstateORI=\count183
-Package babel Info: Making : an active character on input line 244.
-Package babel Info: Making ; an active character on input line 245.
-Package babel Info: Making ! an active character on input line 246.
-Package babel Info: Making ? an active character on input line 247.
-\FB@Mht=\dimen179
-\std@mcc=\count184
-\dec@mcc=\count185
-\listindentFB=\skip71
-\labelwidthFB=\skip72
-\leftmarginFB=\skip73
-\parindentFFN=\dimen180
+Package babel Info: Making : an active character on input line 371.
+Package babel Info: Making ; an active character on input line 372.
+Package babel Info: Making ! an active character on input line 373.
+Package babel Info: Making ? an active character on input line 374.
+\FBguillskip=\skip73
+\FBguill@level=\count184
+\FB@Mht=\dimen182
+\std@mcc=\count185
+\dec@mcc=\count186
+\listindentFB=\skip74
+\labelwidthFB=\skip75
+\leftmarginFB=\skip76
+\parindentFFN=\dimen183
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
@@ -1121,16 +1170,16 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen181
-\Hy@linkcounter=\count186
-\Hy@pagecounter=\count187
+\@linkdim=\dimen184
+\Hy@linkcounter=\count187
+\Hy@pagecounter=\count188
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count188
+\Hy@SavedSpaceFactor=\count189
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1144,17 +1193,17 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count189
+\c@Hy@tempcnt=\count190
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen182
-\Fld@menulength=\count190
-\Field@Width=\dimen183
-\Fld@charsize=\dimen184
+\XeTeXLinkMargin=\dimen185
+\Fld@menulength=\count191
+\Field@Width=\dimen186
+\Fld@charsize=\dimen187
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -1164,43 +1213,44 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count191
-\c@Item=\count192
-\c@Hfootnote=\count193
+\Hy@abspage=\count192
+\c@Item=\count193
+\c@Hfootnote=\count194
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count194
-\c@bookmark@seq@number=\count195
+\Fld@listcount=\count195
+\c@bookmark@seq@number=\count196
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip74
+\Hy@SectionHShift=\skip77
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
-\c@tracingmulticols=\count196
+Package: multicol 2014/10/28 v1.8i multicolumn formatting (FMi)
+\c@tracingmulticols=\count197
 \mult@box=\box102
-\multicol@leftmargin=\dimen185
-\c@unbalance=\count197
-\c@collectmore=\count198
-\doublecol@number=\count199
-\multicoltolerance=\count200
-\multicolpretolerance=\count201
-\full@width=\dimen186
-\page@free=\dimen187
-\premulticols=\dimen188
-\postmulticols=\dimen189
-\multicolsep=\skip75
-\multicolbaselineskip=\skip76
+\multicol@leftmargin=\dimen188
+\c@unbalance=\count198
+\c@collectmore=\count199
+\doublecol@number=\count200
+\multicoltolerance=\count201
+\multicolpretolerance=\count202
+\full@width=\dimen189
+\page@free=\dimen190
+\premulticols=\dimen191
+\postmulticols=\dimen192
+\multicolsep=\skip78
+\multicolbaselineskip=\skip79
 \partial@page=\box103
 \last@line=\box104
+\maxbalancingoverflow=\dimen193
 \mult@rightbox=\box105
 \mult@grightbox=\box106
 \mult@gfirstbox=\box107
@@ -1222,40 +1272,40 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \@tempa=\box123
 \@tempa=\box124
 \@tempa=\box125
-\c@columnbadness=\count202
-\c@finalcolumnbadness=\count203
-\last@try=\dimen190
-\multicolovershoot=\dimen191
-\multicolundershoot=\dimen192
+\c@columnbadness=\count203
+\c@finalcolumnbadness=\count204
+\last@try=\dimen194
+\multicolovershoot=\dimen195
+\multicolundershoot=\dimen196
 \mult@nat@firstbox=\box126
 \colbreak@box=\box127
-\multicol@sort@counter=\count204
+\mc@col@check@num=\count205
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip77
-\f@ncyO@elh=\skip78
-\f@ncyO@erh=\skip79
-\f@ncyO@olh=\skip80
-\f@ncyO@orh=\skip81
-\f@ncyO@elf=\skip82
-\f@ncyO@erf=\skip83
-\f@ncyO@olf=\skip84
-\f@ncyO@orf=\skip85
+\fancy@headwidth=\skip80
+\f@ncyO@elh=\skip81
+\f@ncyO@erh=\skip82
+\f@ncyO@olh=\skip83
+\f@ncyO@orh=\skip84
+\f@ncyO@elf=\skip85
+\f@ncyO@erf=\skip86
+\f@ncyO@olf=\skip87
+\f@ncyO@orf=\skip88
 )
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2011/10/22 v5.1d context-sensitive quotations
 
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
-\etb@tempcnta=\count205
+\etb@tempcnta=\count206
 )
-\csq@reset=\count206
-\csq@gtype=\count207
-\csq@glevel=\count208
-\csq@qlevel=\count209
-\csq@maxlvl=\count210
-\csq@tshold=\count211
-\csq@ltx@everypar=\toks34
+\csq@reset=\count207
+\csq@gtype=\count208
+\csq@glevel=\count209
+\csq@qlevel=\count210
+\csq@maxlvl=\count211
+\csq@tshold=\count212
+\csq@ltx@everypar=\toks37
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2011/10/22 v5.1d csquotes generic definitions
@@ -1307,15 +1357,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 )
 (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
-\everycr=\toks35
-\minrowclearance=\skip86
+\everycr=\toks38
+\minrowclearance=\skip89
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count212
-\float@exts=\toks36
+\c@float@type=\count213
+\float@exts=\toks39
 \float@box=\box128
-\@float@everytoks=\toks37
+\@float@everytoks=\toks40
 \@floatcapt=\box129
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
@@ -1328,24 +1378,24 @@ Package: eso-pic 2013/10/06 v2.0d eso-pic (RN)
 File: pppdftex.def 2013/08/25 v0.4v Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box130
-\AM@toc@title=\toks38
-\c@AM@survey=\count213
+\AM@toc@title=\toks41
+\c@AM@survey=\count214
 \AM@templatesizebox=\box131
 )
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \ttl@box=\box132
-\beforetitleunit=\skip87
-\aftertitleunit=\skip88
-\ttl@plus=\dimen193
-\ttl@minus=\dimen194
-\ttl@toksa=\toks39
-\titlewidth=\dimen195
-\titlewidthlast=\dimen196
-\titlewidthfirst=\dimen197
+\beforetitleunit=\skip90
+\aftertitleunit=\skip91
+\ttl@plus=\dimen197
+\ttl@minus=\dimen198
+\ttl@toksa=\toks42
+\titlewidth=\dimen199
+\titlewidthlast=\dimen200
+\titlewidthfirst=\dimen201
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen198
+\bigstrutjot=\dimen202
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
@@ -1353,15 +1403,15 @@ Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
-\captionmargin=\dimen199
-\captionmargin@=\dimen200
-\captionwidth=\dimen201
-\caption@tempdima=\dimen202
-\caption@indent=\dimen203
-\caption@parindent=\dimen204
-\caption@hangindent=\dimen205
+\captionmargin=\dimen203
+\captionmargin@=\dimen204
+\captionwidth=\dimen205
+\caption@tempdima=\dimen206
+\caption@indent=\dimen207
+\caption@parindent=\dimen208
+\caption@hangindent=\dimen209
 )
-\c@ContinuedFloat=\count214
+\c@ContinuedFloat=\count215
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -1373,8 +1423,8 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/iwona.sty
 Package: iwona 2005/10/03 v.1.2 Iwona package (MW)
-\c@mv@iwona=\count215
-\c@mv@iwonabold=\count216
+\c@mv@iwona=\count216
+\c@mv@iwonabold=\count217
 LaTeX Font Info:    Overwriting symbol font `operators' in version `iwona'
 (Font)                  OT1/cmr/m/n --> OT1/iwonalm/m/n on input line 58.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `iwona'
@@ -1413,28 +1463,28 @@ Package csquotes Info: ... found 'babel' package.
 (./include/sql-logique.aux))
 \openout1 = `Rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 82.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Try loading font information for T1+iwonal on input line 82
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Try loading font information for T1+iwonal on input line 84
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/t1iwonal.fd
@@ -1476,17 +1526,17 @@ File: t1iwonal.fd 2008/07/22 v0.995 font definition file for T1/iwonal (MW)
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count217
-\scratchdimen=\dimen206
+\scratchcounter=\count218
+\scratchdimen=\dimen210
 \scratchbox=\box133
-\nofMPsegments=\count218
-\nofMParguments=\count219
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count220
-\MPscratchDim=\dimen207
-\MPnumerator=\count221
-\makeMPintoPDFobject=\count222
-\everyMPtoPDFconversion=\toks41
+\nofMPsegments=\count219
+\nofMParguments=\count220
+\everyMPshowfont=\toks43
+\MPscratchCnt=\count221
+\MPscratchDim=\dimen211
+\MPnumerator=\count222
+\makeMPintoPDFobject=\count223
+\everyMPtoPDFconversion=\toks44
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1503,7 +1553,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\c@lstlisting=\count223
+\c@lstlisting=\count224
 
 (/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
@@ -1514,26 +1564,26 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 126.
 )
-\CenteringLeftskip=\skip89
-\RaggedLeftLeftskip=\skip90
-\RaggedRightLeftskip=\skip91
-\CenteringRightskip=\skip92
-\RaggedLeftRightskip=\skip93
-\RaggedRightRightskip=\skip94
-\CenteringParfillskip=\skip95
-\RaggedLeftParfillskip=\skip96
-\RaggedRightParfillskip=\skip97
-\JustifyingParfillskip=\skip98
-\CenteringParindent=\skip99
-\RaggedLeftParindent=\skip100
-\RaggedRightParindent=\skip101
-\JustifyingParindent=\skip102
+\CenteringLeftskip=\skip92
+\RaggedLeftLeftskip=\skip93
+\RaggedRightLeftskip=\skip94
+\CenteringRightskip=\skip95
+\RaggedLeftRightskip=\skip96
+\RaggedRightRightskip=\skip97
+\CenteringParfillskip=\skip98
+\RaggedLeftParfillskip=\skip99
+\RaggedRightParfillskip=\skip100
+\JustifyingParfillskip=\skip101
+\CenteringParindent=\skip102
+\RaggedLeftParindent=\skip103
+\RaggedRightParindent=\skip104
+\JustifyingParindent=\skip105
 )
-LaTeX Info: Redefining \degres on input line 82.
-LaTeX Info: Redefining \dots on input line 82.
-LaTeX Info: Redefining \up on input line 82.
+LaTeX Info: Redefining \degres on input line 84.
+LaTeX Info: Redefining \dots on input line 84.
+LaTeX Info: Redefining \up on input line 84.
 \AtBeginShipoutBox=\box134
-Package hyperref Info: Link coloring OFF on input line 82.
+Package hyperref Info: Link coloring OFF on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1541,11 +1591,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count224
+\c@section@level=\count225
 )
-LaTeX Info: Redefining \ref on input line 82.
-LaTeX Info: Redefining \pageref on input line 82.
-LaTeX Info: Redefining \nameref on input line 82.
+LaTeX Info: Redefining \ref on input line 84.
+LaTeX Info: Redefining \pageref on input line 84.
+LaTeX Info: Redefining \nameref on input line 84.
 
 (./Rapport.out) (./Rapport.out)
 \@outlinefile=\write5
@@ -1554,25 +1604,25 @@ LaTeX Info: Redefining \nameref on input line 82.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Try loading font information for OT1+iwonalm on input line 
-84.
+86.
 
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/ot1iwonalm.fd
 File: ot1iwonalm.fd 2005/10/05 v1.2 font definition file for OT1/iwonalm (MW)
 )
 LaTeX Font Info:    Try loading font information for OML+iwonal on input line 8
-4.
+6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/omliwonal.fd
 File: omliwonal.fd 2008/07/22 v0.995 font definition file for OML/iwonal (MW)
 )
 LaTeX Font Info:    Try loading font information for OMS+iwonal on input line 8
-4.
+6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/omsiwonal.fd
 File: omsiwonal.fd 2008/07/22 v0.995 font definition file for OMS/iwonal (MW)
 )
 LaTeX Font Info:    Try loading font information for OMX+iwonal on input line 8
-4.
+6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/omxiwonal.fd
 File: omxiwonal.fd 2008/07/22 v0.995 font definition file for OMX/iwonal (MW)
@@ -1583,15 +1633,20 @@ Overfull \hbox (0.61317pt too wide) detected at line 23
 \T1/iwonal/m/n/10.95 A.VIII) 
  []
 
+
+Overfull \hbox (0.70084pt too wide) detected at line 24
+\T1/iwonal/m/n/10.95 A.VIII.1 ) 
+ []
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30 ...line {C.II.1)}Slick}{48}{subsection.3.2.1}
+l.31 ...ne {A.X.5 )}Global}{30}{subsection.1.10.5}
                                                    [1
 
 ]
-Overfull \hbox (1.48917pt too wide) detected at line 51
+Overfull \hbox (1.48917pt too wide) detected at line 57
 \T1/iwonal/m/n/10.95 D.VIII) 
  []
 
@@ -1609,29 +1664,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [2]
 Chapitre A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--95
+Underfull \hbox (badness 10000) in paragraph at lines 90--97
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--112
+Underfull \hbox (badness 10000) in paragraph at lines 111--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--130
+Underfull \hbox (badness 10000) in paragraph at lines 126--132
 
  []
 
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 131--137
+Underfull \hbox (badness 10000) in paragraph at lines 133--139
 
  []
 
@@ -1642,32 +1697,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 195--199
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--207
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--215
+Underfull \hbox (badness 10000) in paragraph at lines 214--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--224
+Underfull \hbox (badness 10000) in paragraph at lines 227--229
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--240
+Underfull \hbox (badness 10000) in paragraph at lines 243--246
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
 
  []
 
@@ -1677,14 +1732,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5] <include/cycle_v.pdf, id=301, 650.45126pt x 330.52052pt>
+[5] <include/cycle_v.pdf, id=340, 650.45126pt x 330.52052pt>
 File: include/cycle_v.pdf Graphic file (type pdf)
 
 <use include/cycle_v.pdf>
-Package pdftex.def Info: include/cycle_v.pdf used on input line 269.
+Package pdftex.def Info: include/cycle_v.pdf used on input line 275.
 (pdftex.def)             Requested size: 390.27377pt x 198.31384pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--280
+Underfull \hbox (badness 10000) in paragraph at lines 280--286
 
  []
 
@@ -1695,113 +1750,113 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6 <./include/cycle_v.pdf>]
-<include/copil_template.pdf, id=324, 597.23125pt x 845.1575pt>
+<include/copil_template.pdf, id=363, 597.23125pt x 845.1575pt>
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf>
-Package pdftex.def Info: include/copil_template.pdf used on input line 289.
+Package pdftex.def Info: include/copil_template.pdf used on input line 295.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: include/copil_template.pdf Graphic file (type pdf)
  <use include/copil_template.pdf>
-Package pdftex.def Info: include/copil_template.pdf used on input line 289.
+Package pdftex.def Info: include/copil_template.pdf used on input line 295.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<include/copil_template.pdf, id=327, page=1, 597.23125pt x 845.1575pt>
+<include/copil_template.pdf, id=366, page=1, 597.23125pt x 845.1575pt>
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf, page 1>
 Package pdftex.def Info: include/copil_template.pdf, page1 used on input line 2
-89.
+95.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf, page 1>
 Package pdftex.def Info: include/copil_template.pdf, page1 used on input line 2
-89.
+95.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf, page 1>
 Package pdftex.def Info: include/copil_template.pdf, page1 used on input line 2
-89.
+95.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf, page 1>
 Package pdftex.def Info: include/copil_template.pdf, page1 used on input line 2
-89.
+95.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
 File: include/copil_template.pdf Graphic file (type pdf)
 
 <use include/copil_template.pdf, page 1>
 Package pdftex.def Info: include/copil_template.pdf, page1 used on input line 2
-92.
+98.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
  [7 <./include/copil_template.pdf>]
-<include/recette_template.pdf, id=341, 597.23125pt x 845.1575pt>
+<include/recette_template.pdf, id=379, 597.23125pt x 845.1575pt>
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf>
-Package pdftex.def Info: include/recette_template.pdf used on input line 294.
+Package pdftex.def Info: include/recette_template.pdf used on input line 300.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: include/recette_template.pdf Graphic file (type pdf)
  <use include/recette_template.pdf>
-Package pdftex.def Info: include/recette_template.pdf used on input line 294.
+Package pdftex.def Info: include/recette_template.pdf used on input line 300.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<include/recette_template.pdf, id=344, page=1, 597.23125pt x 845.1575pt>
+<include/recette_template.pdf, id=382, page=1, 597.23125pt x 845.1575pt>
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf, page 1>
 Package pdftex.def Info: include/recette_template.pdf, page1 used on input line
- 294.
+ 300.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf, page 1>
 Package pdftex.def Info: include/recette_template.pdf, page1 used on input line
- 294.
+ 300.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf, page 1>
 Package pdftex.def Info: include/recette_template.pdf, page1 used on input line
- 294.
+ 300.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf, page 1>
 Package pdftex.def Info: include/recette_template.pdf, page1 used on input line
- 294.
+ 300.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
 File: include/recette_template.pdf Graphic file (type pdf)
 
 <use include/recette_template.pdf, page 1>
 Package pdftex.def Info: include/recette_template.pdf, page1 used on input line
- 297.
+ 303.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
  [8 <./include/recette_template.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 300--302
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--339
+Underfull \hbox (badness 10000) in paragraph at lines 340--345
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--352
+Underfull \hbox (badness 10000) in paragraph at lines 356--358
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--355
+Underfull \hbox (badness 10000) in paragraph at lines 359--361
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--358
+Underfull \hbox (badness 10000) in paragraph at lines 361--364
 
  []
 
@@ -1812,7 +1867,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 358--361
+Underfull \hbox (badness 10000) in paragraph at lines 364--367
 
  []
 
@@ -1866,40 +1921,40 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [12
 
-] <include/gantt22-10.pdf, id=374, 845.0471pt x 597.51233pt>
+] <include/gantt22-10.pdf, id=412, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf>
-Package pdftex.def Info: include/gantt22-10.pdf used on input line 387.
+Package pdftex.def Info: include/gantt22-10.pdf used on input line 393.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
  <use include/gantt22-10.pdf>
-Package pdftex.def Info: include/gantt22-10.pdf used on input line 387.
+Package pdftex.def Info: include/gantt22-10.pdf used on input line 393.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 
-<include/gantt22-10.pdf, id=377, page=1, 845.0471pt x 597.51233pt>
+<include/gantt22-10.pdf, id=415, page=1, 845.0471pt x 597.51233pt>
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 387.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 393.
 (pdftex.def)             Requested size: 845.04504pt x 597.51086pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
  <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 387.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 393.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 387.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 393.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
  <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 387.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 393.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
 File: include/gantt22-10.pdf Graphic file (type pdf)
 
 <use include/gantt22-10.pdf, page 1>
-Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 387.
+Package pdftex.def Info: include/gantt22-10.pdf, page1 used on input line 393.
 (pdftex.def)             Requested size: 614.32619pt x 434.37515pt.
  [13
 
@@ -1961,11 +2016,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [15
 
-] <include/gantt3-11.png, id=412, 1205.50375pt x 856.19875pt>
+] <include/gantt3-11.png, id=450, 1205.50375pt x 856.19875pt>
 File: include/gantt3-11.png Graphic file (type png)
 
 <use include/gantt3-11.png>
-Package pdftex.def Info: include/gantt3-11.png used on input line 411.
+Package pdftex.def Info: include/gantt3-11.png used on input line 417.
 (pdftex.def)             Requested size: 602.75041pt x 428.09833pt.
 
 
@@ -1975,12 +2030,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16 <./include/gantt3-11.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 416--419
+Underfull \hbox (badness 10000) in paragraph at lines 422--425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--426
+Underfull \hbox (badness 10000) in paragraph at lines 425--432
 
  []
 
@@ -2036,11 +2091,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [18
 
-] <include/gantt15-11.png, id=427, 842.14626pt x 762.85pt>
+] <include/gantt15-11.png, id=465, 842.14626pt x 762.85pt>
 File: include/gantt15-11.png Graphic file (type png)
 
 <use include/gantt15-11.png>
-Package pdftex.def Info: include/gantt15-11.png used on input line 434.
+Package pdftex.def Info: include/gantt15-11.png used on input line 440.
 (pdftex.def)             Requested size: 421.0721pt x 381.42407pt.
 
 
@@ -2050,22 +2105,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19 <./include/gantt15-11.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 439--443
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--446
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 446--450
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 450--452
+Underfull \hbox (badness 10000) in paragraph at lines 450--453
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--457
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--459
 
  []
 
@@ -2152,11 +2207,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22] <include/gantt8-12.png, id=445, 1137.24875pt x 989.6975pt>
+[22] <include/gantt8-12.png, id=484, 1137.24875pt x 989.6975pt>
 File: include/gantt8-12.png Graphic file (type png)
 
 <use include/gantt8-12.png>
-Package pdftex.def Info: include/gantt8-12.png used on input line 460.
+Package pdftex.def Info: include/gantt8-12.png used on input line 467.
 (pdftex.def)             Requested size: 568.62299pt x 494.84753pt.
 
 
@@ -2166,72 +2221,94 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [23 <./include/gantt8-12.png>]
-<include/suivi_charge.pdf, id=453, 597.23125pt x 845.1575pt>
+Underfull \hbox (badness 10000) in paragraph at lines 472--479
+
+ []
+
+<include/suivi_charge.pdf, id=492, 597.23125pt x 845.1575pt>
 File: include/suivi_charge.pdf Graphic file (type pdf)
 
 <use include/suivi_charge.pdf>
-Package pdftex.def Info: include/suivi_charge.pdf used on input line 463.
+Package pdftex.def Info: include/suivi_charge.pdf used on input line 489.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: include/suivi_charge.pdf Graphic file (type pdf)
  <use include/suivi_charge.pdf>
-Package pdftex.def Info: include/suivi_charge.pdf used on input line 463.
+Package pdftex.def Info: include/suivi_charge.pdf used on input line 489.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<include/suivi_charge.pdf, id=456, page=1, 597.23125pt x 845.1575pt>
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24
+
+
+
+] <include/suivi_charge.pdf, id=500, page=1, 597.23125pt x 845.1575pt>
 File: include/suivi_charge.pdf Graphic file (type pdf)
 
 <use include/suivi_charge.pdf, page 1>
-Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 463
+Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 489
 .
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: include/suivi_charge.pdf Graphic file (type pdf)
  <use include/suivi_charge.pdf, page 1>
-Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 463
+Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 489
 .
 (pdftex.def)             Requested size: 561.86221pt x 795.10587pt.
 File: include/suivi_charge.pdf Graphic file (type pdf)
 
 <use include/suivi_charge.pdf, page 1>
-Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 463
+Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 489
 .
 (pdftex.def)             Requested size: 561.86221pt x 795.10587pt.
 File: include/suivi_charge.pdf Graphic file (type pdf)
  <use include/suivi_charge.pdf, page 1>
-Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 463
+Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 489
 .
 (pdftex.def)             Requested size: 561.86221pt x 795.10587pt.
 File: include/suivi_charge.pdf Graphic file (type pdf)
 
 <use include/suivi_charge.pdf, page 1>
-Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 463
+Package pdftex.def Info: include/suivi_charge.pdf, page1 used on input line 489
 .
 (pdftex.def)             Requested size: 561.86221pt x 795.10587pt.
- [24
+ [25 <./include/suivi_charge.pdf>]
+<include/temps_projet.png, id=512, 573.14125pt x 333.245pt>
+File: include/temps_projet.png Graphic file (type png)
 
+<use include/temps_projet.png>
+Package pdftex.def Info: include/temps_projet.png used on input line 495.
+(pdftex.def)             Requested size: 286.56992pt x 166.62209pt.
 
-
- <./include/suivi_charge.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 465--471
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 485--490
+Underfull \hbox (badness 10000) in paragraph at lines 492--496
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 490--497
+Underfull \hbox (badness 10000) in paragraph at lines 498--500
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--502
+Underfull \hbox (badness 10000) in paragraph at lines 506--511
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--509
+Underfull \hbox (badness 10000) in paragraph at lines 511--518
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--523
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--531
 
  []
 
@@ -2241,514 +2318,533 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25] <include/COPIL1.pdf, id=473, 593.21625pt x 842.14626pt>
+[26 <./include/temps_projet.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27] <include/COPIL1.pdf, id=522, 593.21625pt x 842.14626pt>
 File: include/COPIL1.pdf Graphic file (type pdf)
 
 <use include/COPIL1.pdf>
-Package pdftex.def Info: include/COPIL1.pdf used on input line 520.
+Package pdftex.def Info: include/COPIL1.pdf used on input line 542.
 (pdftex.def)             Requested size: 593.2148pt x 842.14421pt.
 File: include/COPIL1.pdf Graphic file (type pdf)
  <use include/COPIL1.pdf>
-Package pdftex.def Info: include/COPIL1.pdf used on input line 520.
+Package pdftex.def Info: include/COPIL1.pdf used on input line 542.
 (pdftex.def)             Requested size: 593.2148pt x 842.14421pt.
 
-<include/COPIL1.pdf, id=476, page=1, 593.21625pt x 842.14626pt>
+<include/COPIL1.pdf, id=525, page=1, 593.21625pt x 842.14626pt>
 File: include/COPIL1.pdf Graphic file (type pdf)
 
 <use include/COPIL1.pdf, page 1>
-Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 520.
+Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 542.
 (pdftex.def)             Requested size: 593.2148pt x 842.14421pt.
 File: include/COPIL1.pdf Graphic file (type pdf)
  <use include/COPIL1.pdf, page 1>
-Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 520.
+Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 542.
 (pdftex.def)             Requested size: 560.07637pt x 795.09999pt.
 File: include/COPIL1.pdf Graphic file (type pdf)
 
 <use include/COPIL1.pdf, page 1>
-Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 520.
+Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 542.
 (pdftex.def)             Requested size: 560.07637pt x 795.09999pt.
 File: include/COPIL1.pdf Graphic file (type pdf)
  <use include/COPIL1.pdf, page 1>
-Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 520.
+Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 542.
 (pdftex.def)             Requested size: 560.07637pt x 795.09999pt.
 File: include/COPIL1.pdf Graphic file (type pdf)
 
 <use include/COPIL1.pdf, page 1>
-Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 520.
+Package pdftex.def Info: include/COPIL1.pdf, page1 used on input line 542.
 (pdftex.def)             Requested size: 560.07637pt x 795.09999pt.
- [26
+ [28
 
  <./include/COPIL1.pdf>]
-<include/recette1.pdf, id=484, 588.1975pt x 843.15pt>
+<include/recette1.pdf, id=532, 588.1975pt x 843.15pt>
 File: include/recette1.pdf Graphic file (type pdf)
 
 <use include/recette1.pdf>
-Package pdftex.def Info: include/recette1.pdf used on input line 525.
+Package pdftex.def Info: include/recette1.pdf used on input line 547.
 (pdftex.def)             Requested size: 588.19606pt x 843.14793pt.
 File: include/recette1.pdf Graphic file (type pdf)
  <use include/recette1.pdf>
-Package pdftex.def Info: include/recette1.pdf used on input line 525.
+Package pdftex.def Info: include/recette1.pdf used on input line 547.
 (pdftex.def)             Requested size: 588.19606pt x 843.14793pt.
 
-<include/recette1.pdf, id=487, page=1, 588.1975pt x 843.15pt>
+<include/recette1.pdf, id=535, page=1, 588.1975pt x 843.15pt>
 File: include/recette1.pdf Graphic file (type pdf)
 
 <use include/recette1.pdf, page 1>
-Package pdftex.def Info: include/recette1.pdf, page1 used on input line 525.
+Package pdftex.def Info: include/recette1.pdf, page1 used on input line 547.
 (pdftex.def)             Requested size: 588.19606pt x 843.14793pt.
 File: include/recette1.pdf Graphic file (type pdf)
  <use include/recette1.pdf, page 1>
-Package pdftex.def Info: include/recette1.pdf, page1 used on input line 525.
+Package pdftex.def Info: include/recette1.pdf, page1 used on input line 547.
 (pdftex.def)             Requested size: 554.6828pt x 795.10846pt.
 File: include/recette1.pdf Graphic file (type pdf)
 
 <use include/recette1.pdf, page 1>
-Package pdftex.def Info: include/recette1.pdf, page1 used on input line 525.
+Package pdftex.def Info: include/recette1.pdf, page1 used on input line 547.
 (pdftex.def)             Requested size: 554.6828pt x 795.10846pt.
 File: include/recette1.pdf Graphic file (type pdf)
  <use include/recette1.pdf, page 1>
-Package pdftex.def Info: include/recette1.pdf, page1 used on input line 525.
+Package pdftex.def Info: include/recette1.pdf, page1 used on input line 547.
 (pdftex.def)             Requested size: 554.6828pt x 795.10846pt.
 File: include/recette1.pdf Graphic file (type pdf)
 
 <use include/recette1.pdf, page 1>
-Package pdftex.def Info: include/recette1.pdf, page1 used on input line 525.
+Package pdftex.def Info: include/recette1.pdf, page1 used on input line 547.
 (pdftex.def)             Requested size: 554.6828pt x 795.10846pt.
- [27
+ [29
 
 
 
  <./include/recette1.pdf>]
-Chapitre B.
-<include/etude_graphique.pdf, id=494, 597.55246pt x 845.07724pt>
-File: include/etude_graphique.pdf Graphic file (type pdf)
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
 
-<use include/etude_graphique.pdf>
-Package pdftex.def Info: include/etude_graphique.pdf used on input line 532.
-(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
-File: include/etude_graphique.pdf Graphic file (type pdf)
- <use include/etude_graphique.pdf>
-Package pdftex.def Info: include/etude_graphique.pdf used on input line 532.
-(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
- [28
+ []
 
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30
 
 
 ]
-<include/etude_graphique.pdf, id=501, page=1, 597.55246pt x 845.07724pt>
+Chapitre B.
+<include/etude_graphique.pdf, id=547, 597.55246pt x 845.07724pt>
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf>
+Package pdftex.def Info: include/etude_graphique.pdf used on input line 563.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+File: include/etude_graphique.pdf Graphic file (type pdf)
+ <use include/etude_graphique.pdf>
+Package pdftex.def Info: include/etude_graphique.pdf used on input line 563.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+ [31
+
+]
+<include/etude_graphique.pdf, id=554, page=1, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 1>
 Package pdftex.def Info: include/etude_graphique.pdf, page1 used on input line 
-532.
+563.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 1>
 Package pdftex.def Info: include/etude_graphique.pdf, page1 used on input line 
-532.
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 1>
 Package pdftex.def Info: include/etude_graphique.pdf, page1 used on input line 
-532.
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 1>
 Package pdftex.def Info: include/etude_graphique.pdf, page1 used on input line 
-532.
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 1>
 Package pdftex.def Info: include/etude_graphique.pdf, page1 used on input line 
-532.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [29 <./include/etude_graphique.pdf>]
-<include/etude_graphique.pdf, id=549, page=2, 597.55246pt x 845.07724pt>
-File: include/etude_graphique.pdf Graphic file (type pdf)
-
-<use include/etude_graphique.pdf, page 2>
-Package pdftex.def Info: include/etude_graphique.pdf, page2 used on input line 
-532.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/etude_graphique.pdf Graphic file (type pdf)
-
-<use include/etude_graphique.pdf, page 2>
-Package pdftex.def Info: include/etude_graphique.pdf, page2 used on input line 
-532.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/etude_graphique.pdf Graphic file (type pdf)
-
-<use include/etude_graphique.pdf, page 2>
-Package pdftex.def Info: include/etude_graphique.pdf, page2 used on input line 
-532.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [30 <./include/etude_graphique.pdf>]
-<include/etude_graphique.pdf, id=569, page=3, 597.55246pt x 845.07724pt>
-File: include/etude_graphique.pdf Graphic file (type pdf)
-
-<use include/etude_graphique.pdf, page 3>
-Package pdftex.def Info: include/etude_graphique.pdf, page3 used on input line 
-532.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/etude_graphique.pdf Graphic file (type pdf)
-
-<use include/etude_graphique.pdf, page 3>
-Package pdftex.def Info: include/etude_graphique.pdf, page3 used on input line 
-532.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/etude_graphique.pdf Graphic file (type pdf)
-
-<use include/etude_graphique.pdf, page 3>
-Package pdftex.def Info: include/etude_graphique.pdf, page3 used on input line 
-532.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [31 <./include/etude_graphique.pdf>]
-<include/etude_graphique.pdf, id=576, page=4, 597.55246pt x 845.07724pt>
-File: include/etude_graphique.pdf Graphic file (type pdf)
-
-<use include/etude_graphique.pdf, page 4>
-Package pdftex.def Info: include/etude_graphique.pdf, page4 used on input line 
-532.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/etude_graphique.pdf Graphic file (type pdf)
-
-<use include/etude_graphique.pdf, page 4>
-Package pdftex.def Info: include/etude_graphique.pdf, page4 used on input line 
-532.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/etude_graphique.pdf Graphic file (type pdf)
-
-<use include/etude_graphique.pdf, page 4>
-Package pdftex.def Info: include/etude_graphique.pdf, page4 used on input line 
-532.
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [32 <./include/etude_graphique.pdf>]
-<include/etude_graphique.pdf, id=582, page=5, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=602, page=2, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 5>
-Package pdftex.def Info: include/etude_graphique.pdf, page5 used on input line 
-532.
+<use include/etude_graphique.pdf, page 2>
+Package pdftex.def Info: include/etude_graphique.pdf, page2 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 5>
-Package pdftex.def Info: include/etude_graphique.pdf, page5 used on input line 
-532.
+<use include/etude_graphique.pdf, page 2>
+Package pdftex.def Info: include/etude_graphique.pdf, page2 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 5>
-Package pdftex.def Info: include/etude_graphique.pdf, page5 used on input line 
-532.
+<use include/etude_graphique.pdf, page 2>
+Package pdftex.def Info: include/etude_graphique.pdf, page2 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [33 <./include/etude_graphique.pdf>]
-<include/etude_graphique.pdf, id=588, page=6, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=621, page=3, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 6>
-Package pdftex.def Info: include/etude_graphique.pdf, page6 used on input line 
-532.
+<use include/etude_graphique.pdf, page 3>
+Package pdftex.def Info: include/etude_graphique.pdf, page3 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 6>
-Package pdftex.def Info: include/etude_graphique.pdf, page6 used on input line 
-532.
+<use include/etude_graphique.pdf, page 3>
+Package pdftex.def Info: include/etude_graphique.pdf, page3 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 6>
-Package pdftex.def Info: include/etude_graphique.pdf, page6 used on input line 
-532.
+<use include/etude_graphique.pdf, page 3>
+Package pdftex.def Info: include/etude_graphique.pdf, page3 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [34 <./include/etude_graphique.pdf>]
-<include/etude_graphique.pdf, id=594, page=7, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=628, page=4, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 7>
-Package pdftex.def Info: include/etude_graphique.pdf, page7 used on input line 
-532.
+<use include/etude_graphique.pdf, page 4>
+Package pdftex.def Info: include/etude_graphique.pdf, page4 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 7>
-Package pdftex.def Info: include/etude_graphique.pdf, page7 used on input line 
-532.
+<use include/etude_graphique.pdf, page 4>
+Package pdftex.def Info: include/etude_graphique.pdf, page4 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 7>
-Package pdftex.def Info: include/etude_graphique.pdf, page7 used on input line 
-532.
+<use include/etude_graphique.pdf, page 4>
+Package pdftex.def Info: include/etude_graphique.pdf, page4 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [35 <./include/etude_graphique.pdf>]
-<include/etude_graphique.pdf, id=608, page=8, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=635, page=5, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 8>
-Package pdftex.def Info: include/etude_graphique.pdf, page8 used on input line 
-532.
+<use include/etude_graphique.pdf, page 5>
+Package pdftex.def Info: include/etude_graphique.pdf, page5 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 8>
-Package pdftex.def Info: include/etude_graphique.pdf, page8 used on input line 
-532.
+<use include/etude_graphique.pdf, page 5>
+Package pdftex.def Info: include/etude_graphique.pdf, page5 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 8>
-Package pdftex.def Info: include/etude_graphique.pdf, page8 used on input line 
-532.
+<use include/etude_graphique.pdf, page 5>
+Package pdftex.def Info: include/etude_graphique.pdf, page5 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [36 <./include/etude_graphique.pdf>]
-<include/etude_graphique.pdf, id=615, page=9, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=642, page=6, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 9>
-Package pdftex.def Info: include/etude_graphique.pdf, page9 used on input line 
-532.
+<use include/etude_graphique.pdf, page 6>
+Package pdftex.def Info: include/etude_graphique.pdf, page6 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 9>
-Package pdftex.def Info: include/etude_graphique.pdf, page9 used on input line 
-532.
+<use include/etude_graphique.pdf, page 6>
+Package pdftex.def Info: include/etude_graphique.pdf, page6 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
-<use include/etude_graphique.pdf, page 9>
-Package pdftex.def Info: include/etude_graphique.pdf, page9 used on input line 
-532.
+<use include/etude_graphique.pdf, page 6>
+Package pdftex.def Info: include/etude_graphique.pdf, page6 used on input line 
+563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [37 <./include/etude_graphique.pdf>]
-<include/etude_graphique.pdf, id=621, page=10, 597.55246pt x 845.07724pt>
+<include/etude_graphique.pdf, id=648, page=7, 597.55246pt x 845.07724pt>
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf, page 7>
+Package pdftex.def Info: include/etude_graphique.pdf, page7 used on input line 
+563.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf, page 7>
+Package pdftex.def Info: include/etude_graphique.pdf, page7 used on input line 
+563.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf, page 7>
+Package pdftex.def Info: include/etude_graphique.pdf, page7 used on input line 
+563.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [38 <./include/etude_graphique.pdf>]
+<include/etude_graphique.pdf, id=662, page=8, 597.55246pt x 845.07724pt>
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf, page 8>
+Package pdftex.def Info: include/etude_graphique.pdf, page8 used on input line 
+563.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf, page 8>
+Package pdftex.def Info: include/etude_graphique.pdf, page8 used on input line 
+563.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf, page 8>
+Package pdftex.def Info: include/etude_graphique.pdf, page8 used on input line 
+563.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [39 <./include/etude_graphique.pdf>]
+<include/etude_graphique.pdf, id=668, page=9, 597.55246pt x 845.07724pt>
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf, page 9>
+Package pdftex.def Info: include/etude_graphique.pdf, page9 used on input line 
+563.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf, page 9>
+Package pdftex.def Info: include/etude_graphique.pdf, page9 used on input line 
+563.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/etude_graphique.pdf Graphic file (type pdf)
+
+<use include/etude_graphique.pdf, page 9>
+Package pdftex.def Info: include/etude_graphique.pdf, page9 used on input line 
+563.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [40 <./include/etude_graphique.pdf>]
+<include/etude_graphique.pdf, id=674, page=10, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 10>
 Package pdftex.def Info: include/etude_graphique.pdf, page10 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 10>
 Package pdftex.def Info: include/etude_graphique.pdf, page10 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 10>
 Package pdftex.def Info: include/etude_graphique.pdf, page10 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [38 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=632, pag
+ [41 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=685, pag
 e=11, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 11>
 Package pdftex.def Info: include/etude_graphique.pdf, page11 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 11>
 Package pdftex.def Info: include/etude_graphique.pdf, page11 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 11>
 Package pdftex.def Info: include/etude_graphique.pdf, page11 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [39 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=638, pag
+ [42 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=692, pag
 e=12, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 12>
 Package pdftex.def Info: include/etude_graphique.pdf, page12 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 12>
 Package pdftex.def Info: include/etude_graphique.pdf, page12 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 12>
 Package pdftex.def Info: include/etude_graphique.pdf, page12 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [40 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=647, pag
+ [43 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=701, pag
 e=13, 597.55246pt x 845.07718pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 13>
 Package pdftex.def Info: include/etude_graphique.pdf, page13 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.0303pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 13>
 Package pdftex.def Info: include/etude_graphique.pdf, page13 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.0303pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 13>
 Package pdftex.def Info: include/etude_graphique.pdf, page13 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.0303pt.
- [41 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=686, pag
+ [44 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=739, pag
 e=14, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 14>
 Package pdftex.def Info: include/etude_graphique.pdf, page14 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 14>
 Package pdftex.def Info: include/etude_graphique.pdf, page14 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 14>
 Package pdftex.def Info: include/etude_graphique.pdf, page14 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [42 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=695, pag
+ [45 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=747, pag
 e=15, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 15>
 Package pdftex.def Info: include/etude_graphique.pdf, page15 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 15>
 Package pdftex.def Info: include/etude_graphique.pdf, page15 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 15>
 Package pdftex.def Info: include/etude_graphique.pdf, page15 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [43 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=701, pag
+ [46 <./include/etude_graphique.pdf>] <include/etude_graphique.pdf, id=753, pag
 e=16, 597.55246pt x 845.07724pt>
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 16>
 Package pdftex.def Info: include/etude_graphique.pdf, page16 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 16>
 Package pdftex.def Info: include/etude_graphique.pdf, page16 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/etude_graphique.pdf Graphic file (type pdf)
 
 <use include/etude_graphique.pdf, page 16>
 Package pdftex.def Info: include/etude_graphique.pdf, page16 used on input line
- 532.
+ 563.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [44 <./include/etude_graphique.pdf>]
+ [47 <./include/etude_graphique.pdf>]
 Chapitre C.
-<include/charte_graphique.pdf, id=708, 845.07718pt x 597.55246pt>
+<include/charte_graphique.pdf, id=760, 845.07718pt x 597.55246pt>
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf>
-Package pdftex.def Info: include/charte_graphique.pdf used on input line 538.
+Package pdftex.def Info: include/charte_graphique.pdf used on input line 569.
 (pdftex.def)             Requested size: 845.07512pt x 597.551pt.
 File: include/charte_graphique.pdf Graphic file (type pdf)
  <use include/charte_graphique.pdf>
-Package pdftex.def Info: include/charte_graphique.pdf used on input line 538.
+Package pdftex.def Info: include/charte_graphique.pdf used on input line 569.
 (pdftex.def)             Requested size: 845.07512pt x 597.551pt.
- [45
+ [48
 
 ]
-<include/charte_graphique.pdf, id=715, page=1, 845.07718pt x 597.55246pt>
+<include/charte_graphique.pdf, id=768, page=1, 845.07718pt x 597.55246pt>
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf, page 1>
 Package pdftex.def Info: include/charte_graphique.pdf, page1 used on input line
- 538.
+ 569.
 (pdftex.def)             Requested size: 845.07512pt x 597.551pt.
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf, page 1>
 Package pdftex.def Info: include/charte_graphique.pdf, page1 used on input line
- 538.
+ 569.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf, page 1>
 Package pdftex.def Info: include/charte_graphique.pdf, page1 used on input line
- 538.
+ 569.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf, page 1>
 Package pdftex.def Info: include/charte_graphique.pdf, page1 used on input line
- 538.
+ 569.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf, page 1>
 Package pdftex.def Info: include/charte_graphique.pdf, page1 used on input line
- 538.
+ 569.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
- [46 <./include/charte_graphique.pdf>] <include/charte_graphique.pdf, id=743, p
+ [49 <./include/charte_graphique.pdf>] <include/charte_graphique.pdf, id=796, p
 age=2, 845.07718pt x 597.55246pt>
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf, page 2>
 Package pdftex.def Info: include/charte_graphique.pdf, page2 used on input line
- 538.
+ 569.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf, page 2>
 Package pdftex.def Info: include/charte_graphique.pdf, page2 used on input line
- 538.
+ 569.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: include/charte_graphique.pdf Graphic file (type pdf)
 
 <use include/charte_graphique.pdf, page 2>
 Package pdftex.def Info: include/charte_graphique.pdf, page2 used on input line
- 538.
+ 569.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
- [47 <./include/charte_graphique.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 556--560
+ [50 <./include/charte_graphique.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 588--592
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--575
+Underfull \hbox (badness 10000) in paragraph at lines 604--607
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 579--581
+Underfull \hbox (badness 10000) in paragraph at lines 611--613
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--594
+Underfull \hbox (badness 10000) in paragraph at lines 623--626
 
  []
 
@@ -2758,23 +2854,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 594--602
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 626--634
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 616--618
+Underfull \hbox (badness 10000) in paragraph at lines 648--650
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 638--639
+Underfull \hbox (badness 10000) in paragraph at lines 670--671
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--655
+Underfull \hbox (badness 10000) in paragraph at lines 682--687
 
  []
 
@@ -2784,15 +2880,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[49] <include/diagramme_sql.pdf, id=775, 598.235pt x 845.1575pt>
+[52] <include/diagramme_sql.pdf, id=828, 598.235pt x 845.1575pt>
 File: include/diagramme_sql.pdf Graphic file (type pdf)
 
 <use include/diagramme_sql.pdf>
-Package pdftex.def Info: include/diagramme_sql.pdf used on input line 661.
+Package pdftex.def Info: include/diagramme_sql.pdf used on input line 693.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 File: include/diagramme_sql.pdf Graphic file (type pdf)
  <use include/diagramme_sql.pdf>
-Package pdftex.def Info: include/diagramme_sql.pdf used on input line 661.
+Package pdftex.def Info: include/diagramme_sql.pdf used on input line 693.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 
 
@@ -2801,38 +2897,38 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[50] <include/diagramme_sql.pdf, id=782, page=1, 598.235pt x 845.1575pt>
+[53] <include/diagramme_sql.pdf, id=835, page=1, 598.235pt x 845.1575pt>
 File: include/diagramme_sql.pdf Graphic file (type pdf)
 
 <use include/diagramme_sql.pdf, page 1>
-Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 66
-1.
+Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 69
+3.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 File: include/diagramme_sql.pdf Graphic file (type pdf)
 
 <use include/diagramme_sql.pdf, page 1>
-Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 66
-1.
+Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 69
+3.
 (pdftex.def)             Requested size: 562.80652pt x 795.10587pt.
 File: include/diagramme_sql.pdf Graphic file (type pdf)
 
 <use include/diagramme_sql.pdf, page 1>
-Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 66
-1.
+Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 69
+3.
 (pdftex.def)             Requested size: 562.80652pt x 795.10587pt.
 File: include/diagramme_sql.pdf Graphic file (type pdf)
 
 <use include/diagramme_sql.pdf, page 1>
-Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 66
-1.
+Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 69
+3.
 (pdftex.def)             Requested size: 562.80652pt x 795.10587pt.
 File: include/diagramme_sql.pdf Graphic file (type pdf)
 
 <use include/diagramme_sql.pdf, page 1>
-Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 66
-1.
+Package pdftex.def Info: include/diagramme_sql.pdf, page1 used on input line 69
+3.
 (pdftex.def)             Requested size: 562.80652pt x 795.10587pt.
- [51 <./include/diagramme_sql.pdf>]
+ [54 <./include/diagramme_sql.pdf>]
 \openout2 = `include/sql-logique.aux'.
 
 
@@ -2851,12 +2947,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[52
+[55
 
 ] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
+File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 665--676
+Underfull \hbox (badness 10000) in paragraph at lines 697--708
 
  []
 
@@ -2872,7 +2968,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[53
+[56
 
 ]
 
@@ -2908,7 +3004,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[54]
+[57]
 
 ! Package inputenc Error: Unicode char \u8:Ã\lst@FillFixed@ not set up for use 
 with LaTeX.
@@ -2943,9 +3039,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[55]
+[58]
 Chapitre D.
-[56
+[59
 
 ]
 
@@ -2954,75 +3050,75 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[57]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.78719pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[58]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.78719pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[59]
-Underfull \hbox (badness 10000) in paragraph at lines 867--869
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 871--872
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 874--875
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 879--880
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 882--883
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 886--887
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.78719pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [60]
-Underfull \hbox (badness 10000) in paragraph at lines 904--906
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.78719pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[61]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.78719pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 911--913
 
  []
 
-<include/screen/postgres_login.png, id=1161, 383.4325pt x 249.93375pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 915--916
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 918--919
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 923--924
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 930--931
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.78719pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 948--950
+
+ []
+
+<include/screen/postgres_login.png, id=1213, 383.4325pt x 249.93375pt>
 File: include/screen/postgres_login.png Graphic file (type png)
 
 <use include/screen/postgres_login.png>
 Package pdftex.def Info: include/screen/postgres_login.png used on input line 9
-16.
+60.
 (pdftex.def)             Requested size: 383.43156pt x 249.93314pt.
 
-<include/screen/postgres_export.png, id=1162, 813.0375pt x 411.5375pt>
+<include/screen/postgres_export.png, id=1214, 813.0375pt x 411.5375pt>
 File: include/screen/postgres_export.png Graphic file (type png)
 
 <use include/screen/postgres_export.png>
 Package pdftex.def Info: include/screen/postgres_export.png used on input line 
-927.
+971.
 (pdftex.def)             Requested size: 487.82626pt x 246.92441pt.
 
 
@@ -3031,26 +3127,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[61 <./include/screen/postgres_login.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 937--941
+[64 <./include/screen/postgres_login.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 981--985
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 942--944
+Underfull \hbox (badness 10000) in paragraph at lines 986--988
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 950--952
+Underfull \hbox (badness 10000) in paragraph at lines 994--996
 
  []
 
-<include/screen/drop_table.png, id=1177, 520.94624pt x 828.09375pt>
+<include/screen/drop_table.png, id=1230, 520.94624pt x 828.09375pt>
 File: include/screen/drop_table.png Graphic file (type png)
 
 <use include/screen/drop_table.png>
-Package pdftex.def Info: include/screen/drop_table.png used on input line 964.
+Package pdftex.def Info: include/screen/drop_table.png used on input line 1008.
+
 (pdftex.def)             Requested size: 312.57016pt x 496.86009pt.
 
 
@@ -3059,12 +3156,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[62 <./include/screen/postgres_export.png>]
-<include/screen/cascade.png, id=1192, 413.545pt x 183.68625pt>
+[65 <./include/screen/postgres_export.png>]
+<include/screen/cascade.png, id=1245, 413.545pt x 183.68625pt>
 File: include/screen/cascade.png Graphic file (type png)
 
 <use include/screen/cascade.png>
-Package pdftex.def Info: include/screen/cascade.png used on input line 972.
+Package pdftex.def Info: include/screen/cascade.png used on input line 1016.
 (pdftex.def)             Requested size: 248.1289pt x 110.21259pt.
 
 
@@ -3073,20 +3170,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[63 <./include/screen/drop_table.png>]
-<include/screen/import.png, id=1199, 601.24625pt x 574.145pt>
+[66 <./include/screen/drop_table.png>]
+<include/screen/import.png, id=1253, 601.24625pt x 574.145pt>
 File: include/screen/import.png Graphic file (type png)
 
 <use include/screen/import.png>
-Package pdftex.def Info: include/screen/import.png used on input line 981.
+Package pdftex.def Info: include/screen/import.png used on input line 1025.
 (pdftex.def)             Requested size: 360.75052pt x 344.48965pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 984--986
+Underfull \hbox (badness 10000) in paragraph at lines 1028--1030
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 991--994
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1038
 
  []
 
@@ -3096,23 +3193,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[64 <./include/screen/cascade.png> <./include/screen/import.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 995--1000
+[67 <./include/screen/cascade.png> <./include/screen/import.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1039--1044
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1007
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1051
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1008--1011
+Underfull \hbox (badness 10000) in paragraph at lines 1052--1055
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1014
+Underfull \hbox (badness 10000) in paragraph at lines 1056--1058
 
  []
 
@@ -3120,11 +3217,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1012--1014
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1210, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1264, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
 <use include/user_manual.pdf>
-Package pdftex.def Info: include/user_manual.pdf used on input line 1031.
+Package pdftex.def Info: include/user_manual.pdf used on input line 1075.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
@@ -3132,7 +3229,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
 File: include/user_manual.pdf Graphic file (type pdf)
 <use include/user_manual.pdf>
-Package pdftex.def Info: include/user_manual.pdf used on input line 1031.
+Package pdftex.def Info: include/user_manual.pdf used on input line 1075.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
@@ -3144,558 +3241,558 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[65]
+[68]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1217, page=1, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1271, page=1, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
 <use include/user_manual.pdf, page 1>
-Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1031
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1075
 .
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 File: include/user_manual.pdf Graphic file (type pdf)
  <use include/user_manual.pdf, page 1>
-Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1031
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
 <use include/user_manual.pdf, page 1>
-Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1031
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
  <use include/user_manual.pdf, page 1>
-Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1031
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
 <use include/user_manual.pdf, page 1>
-Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1031
-.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [66 <./include/user_manual.pdf>]
-
-pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
-on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1241, page=2, 597.55246pt x 845.07724pt>
-File: include/user_manual.pdf Graphic file (type pdf)
-
-<use include/user_manual.pdf, page 2>
-Package pdftex.def Info: include/user_manual.pdf, page2 used on input line 1031
-.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 2>
-Package pdftex.def Info: include/user_manual.pdf, page2 used on input line 1031
-.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/user_manual.pdf Graphic file (type pdf)
-
-<use include/user_manual.pdf, page 2>
-Package pdftex.def Info: include/user_manual.pdf, page2 used on input line 1031
-.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [67 <./include/user_manual.pdf>]
-
-pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
-on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1246, page=3, 597.55246pt x 845.07724pt>
-File: include/user_manual.pdf Graphic file (type pdf)
-
-<use include/user_manual.pdf, page 3>
-Package pdftex.def Info: include/user_manual.pdf, page3 used on input line 1031
-.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 3>
-Package pdftex.def Info: include/user_manual.pdf, page3 used on input line 1031
-.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/user_manual.pdf Graphic file (type pdf)
-
-<use include/user_manual.pdf, page 3>
-Package pdftex.def Info: include/user_manual.pdf, page3 used on input line 1031
-.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [68 <./include/user_manual.pdf>]
-
-pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
-on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1251, page=4, 597.55246pt x 845.07724pt>
-File: include/user_manual.pdf Graphic file (type pdf)
-
-<use include/user_manual.pdf, page 4>
-Package pdftex.def Info: include/user_manual.pdf, page4 used on input line 1031
-.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 4>
-Package pdftex.def Info: include/user_manual.pdf, page4 used on input line 1031
-.
-(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
-File: include/user_manual.pdf Graphic file (type pdf)
-
-<use include/user_manual.pdf, page 4>
-Package pdftex.def Info: include/user_manual.pdf, page4 used on input line 1031
+Package pdftex.def Info: include/user_manual.pdf, page1 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [69 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1256, page=5, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1293, page=2, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 5>
-Package pdftex.def Info: include/user_manual.pdf, page5 used on input line 1031
+<use include/user_manual.pdf, page 2>
+Package pdftex.def Info: include/user_manual.pdf, page2 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 5>
-Package pdftex.def Info: include/user_manual.pdf, page5 used on input line 1031
+ <use include/user_manual.pdf, page 2>
+Package pdftex.def Info: include/user_manual.pdf, page2 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 5>
-Package pdftex.def Info: include/user_manual.pdf, page5 used on input line 1031
+<use include/user_manual.pdf, page 2>
+Package pdftex.def Info: include/user_manual.pdf, page2 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [70 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1272, page=6, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1298, page=3, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 6>
-Package pdftex.def Info: include/user_manual.pdf, page6 used on input line 1031
+<use include/user_manual.pdf, page 3>
+Package pdftex.def Info: include/user_manual.pdf, page3 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 6>
-Package pdftex.def Info: include/user_manual.pdf, page6 used on input line 1031
+ <use include/user_manual.pdf, page 3>
+Package pdftex.def Info: include/user_manual.pdf, page3 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 6>
-Package pdftex.def Info: include/user_manual.pdf, page6 used on input line 1031
+<use include/user_manual.pdf, page 3>
+Package pdftex.def Info: include/user_manual.pdf, page3 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [71 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1279, page=7, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1303, page=4, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 7>
-Package pdftex.def Info: include/user_manual.pdf, page7 used on input line 1031
+<use include/user_manual.pdf, page 4>
+Package pdftex.def Info: include/user_manual.pdf, page4 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 7>
-Package pdftex.def Info: include/user_manual.pdf, page7 used on input line 1031
+ <use include/user_manual.pdf, page 4>
+Package pdftex.def Info: include/user_manual.pdf, page4 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 7>
-Package pdftex.def Info: include/user_manual.pdf, page7 used on input line 1031
+<use include/user_manual.pdf, page 4>
+Package pdftex.def Info: include/user_manual.pdf, page4 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [72 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1288, page=8, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1309, page=5, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 8>
-Package pdftex.def Info: include/user_manual.pdf, page8 used on input line 1031
+<use include/user_manual.pdf, page 5>
+Package pdftex.def Info: include/user_manual.pdf, page5 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 8>
-Package pdftex.def Info: include/user_manual.pdf, page8 used on input line 1031
+ <use include/user_manual.pdf, page 5>
+Package pdftex.def Info: include/user_manual.pdf, page5 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 8>
-Package pdftex.def Info: include/user_manual.pdf, page8 used on input line 1031
+<use include/user_manual.pdf, page 5>
+Package pdftex.def Info: include/user_manual.pdf, page5 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [73 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1293, page=9, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1325, page=6, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 9>
-Package pdftex.def Info: include/user_manual.pdf, page9 used on input line 1031
+<use include/user_manual.pdf, page 6>
+Package pdftex.def Info: include/user_manual.pdf, page6 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 9>
-Package pdftex.def Info: include/user_manual.pdf, page9 used on input line 1031
+ <use include/user_manual.pdf, page 6>
+Package pdftex.def Info: include/user_manual.pdf, page6 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 9>
-Package pdftex.def Info: include/user_manual.pdf, page9 used on input line 1031
+<use include/user_manual.pdf, page 6>
+Package pdftex.def Info: include/user_manual.pdf, page6 used on input line 1075
 .
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [74 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1299, page=10, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1332, page=7, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 10>
-Package pdftex.def Info: include/user_manual.pdf, page10 used on input line 103
-1.
+<use include/user_manual.pdf, page 7>
+Package pdftex.def Info: include/user_manual.pdf, page7 used on input line 1075
+.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 10>
-Package pdftex.def Info: include/user_manual.pdf, page10 used on input line 103
-1.
+ <use include/user_manual.pdf, page 7>
+Package pdftex.def Info: include/user_manual.pdf, page7 used on input line 1075
+.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 10>
-Package pdftex.def Info: include/user_manual.pdf, page10 used on input line 103
-1.
+<use include/user_manual.pdf, page 7>
+Package pdftex.def Info: include/user_manual.pdf, page7 used on input line 1075
+.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [75 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1307, page=11, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1340, page=8, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 11>
-Package pdftex.def Info: include/user_manual.pdf, page11 used on input line 103
-1.
+<use include/user_manual.pdf, page 8>
+Package pdftex.def Info: include/user_manual.pdf, page8 used on input line 1075
+.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 11>
-Package pdftex.def Info: include/user_manual.pdf, page11 used on input line 103
-1.
+ <use include/user_manual.pdf, page 8>
+Package pdftex.def Info: include/user_manual.pdf, page8 used on input line 1075
+.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 11>
-Package pdftex.def Info: include/user_manual.pdf, page11 used on input line 103
-1.
+<use include/user_manual.pdf, page 8>
+Package pdftex.def Info: include/user_manual.pdf, page8 used on input line 1075
+.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [76 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1312, page=12, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1345, page=9, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 12>
-Package pdftex.def Info: include/user_manual.pdf, page12 used on input line 103
-1.
+<use include/user_manual.pdf, page 9>
+Package pdftex.def Info: include/user_manual.pdf, page9 used on input line 1075
+.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 12>
-Package pdftex.def Info: include/user_manual.pdf, page12 used on input line 103
-1.
+ <use include/user_manual.pdf, page 9>
+Package pdftex.def Info: include/user_manual.pdf, page9 used on input line 1075
+.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 12>
-Package pdftex.def Info: include/user_manual.pdf, page12 used on input line 103
-1.
+<use include/user_manual.pdf, page 9>
+Package pdftex.def Info: include/user_manual.pdf, page9 used on input line 1075
+.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [77 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1320, page=13, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1351, page=10, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 13>
-Package pdftex.def Info: include/user_manual.pdf, page13 used on input line 103
-1.
+<use include/user_manual.pdf, page 10>
+Package pdftex.def Info: include/user_manual.pdf, page10 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 13>
-Package pdftex.def Info: include/user_manual.pdf, page13 used on input line 103
-1.
+ <use include/user_manual.pdf, page 10>
+Package pdftex.def Info: include/user_manual.pdf, page10 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 13>
-Package pdftex.def Info: include/user_manual.pdf, page13 used on input line 103
-1.
+<use include/user_manual.pdf, page 10>
+Package pdftex.def Info: include/user_manual.pdf, page10 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [78 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1336, page=14, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1360, page=11, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 14>
-Package pdftex.def Info: include/user_manual.pdf, page14 used on input line 103
-1.
+<use include/user_manual.pdf, page 11>
+Package pdftex.def Info: include/user_manual.pdf, page11 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 14>
-Package pdftex.def Info: include/user_manual.pdf, page14 used on input line 103
-1.
+ <use include/user_manual.pdf, page 11>
+Package pdftex.def Info: include/user_manual.pdf, page11 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 14>
-Package pdftex.def Info: include/user_manual.pdf, page14 used on input line 103
-1.
+<use include/user_manual.pdf, page 11>
+Package pdftex.def Info: include/user_manual.pdf, page11 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [79 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1343, page=15, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1365, page=12, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 15>
-Package pdftex.def Info: include/user_manual.pdf, page15 used on input line 103
-1.
+<use include/user_manual.pdf, page 12>
+Package pdftex.def Info: include/user_manual.pdf, page12 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 15>
-Package pdftex.def Info: include/user_manual.pdf, page15 used on input line 103
-1.
+ <use include/user_manual.pdf, page 12>
+Package pdftex.def Info: include/user_manual.pdf, page12 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 15>
-Package pdftex.def Info: include/user_manual.pdf, page15 used on input line 103
-1.
+<use include/user_manual.pdf, page 12>
+Package pdftex.def Info: include/user_manual.pdf, page12 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [80 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1350, page=16, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1373, page=13, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 16>
-Package pdftex.def Info: include/user_manual.pdf, page16 used on input line 103
-1.
+<use include/user_manual.pdf, page 13>
+Package pdftex.def Info: include/user_manual.pdf, page13 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 16>
-Package pdftex.def Info: include/user_manual.pdf, page16 used on input line 103
-1.
+ <use include/user_manual.pdf, page 13>
+Package pdftex.def Info: include/user_manual.pdf, page13 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 16>
-Package pdftex.def Info: include/user_manual.pdf, page16 used on input line 103
-1.
+<use include/user_manual.pdf, page 13>
+Package pdftex.def Info: include/user_manual.pdf, page13 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [81 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1357, page=17, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1389, page=14, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 17>
-Package pdftex.def Info: include/user_manual.pdf, page17 used on input line 103
-1.
+<use include/user_manual.pdf, page 14>
+Package pdftex.def Info: include/user_manual.pdf, page14 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 17>
-Package pdftex.def Info: include/user_manual.pdf, page17 used on input line 103
-1.
+ <use include/user_manual.pdf, page 14>
+Package pdftex.def Info: include/user_manual.pdf, page14 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 17>
-Package pdftex.def Info: include/user_manual.pdf, page17 used on input line 103
-1.
+<use include/user_manual.pdf, page 14>
+Package pdftex.def Info: include/user_manual.pdf, page14 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [82 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1365, page=18, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1396, page=15, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 18>
-Package pdftex.def Info: include/user_manual.pdf, page18 used on input line 103
-1.
+<use include/user_manual.pdf, page 15>
+Package pdftex.def Info: include/user_manual.pdf, page15 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 18>
-Package pdftex.def Info: include/user_manual.pdf, page18 used on input line 103
-1.
+ <use include/user_manual.pdf, page 15>
+Package pdftex.def Info: include/user_manual.pdf, page15 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 18>
-Package pdftex.def Info: include/user_manual.pdf, page18 used on input line 103
-1.
+<use include/user_manual.pdf, page 15>
+Package pdftex.def Info: include/user_manual.pdf, page15 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [83 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1372, page=19, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1403, page=16, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 19>
-Package pdftex.def Info: include/user_manual.pdf, page19 used on input line 103
-1.
+<use include/user_manual.pdf, page 16>
+Package pdftex.def Info: include/user_manual.pdf, page16 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 19>
-Package pdftex.def Info: include/user_manual.pdf, page19 used on input line 103
-1.
+ <use include/user_manual.pdf, page 16>
+Package pdftex.def Info: include/user_manual.pdf, page16 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 19>
-Package pdftex.def Info: include/user_manual.pdf, page19 used on input line 103
-1.
+<use include/user_manual.pdf, page 16>
+Package pdftex.def Info: include/user_manual.pdf, page16 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [84 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1379, page=20, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1411, page=17, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 20>
-Package pdftex.def Info: include/user_manual.pdf, page20 used on input line 103
-1.
+<use include/user_manual.pdf, page 17>
+Package pdftex.def Info: include/user_manual.pdf, page17 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 20>
-Package pdftex.def Info: include/user_manual.pdf, page20 used on input line 103
-1.
+ <use include/user_manual.pdf, page 17>
+Package pdftex.def Info: include/user_manual.pdf, page17 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 20>
-Package pdftex.def Info: include/user_manual.pdf, page20 used on input line 103
-1.
+<use include/user_manual.pdf, page 17>
+Package pdftex.def Info: include/user_manual.pdf, page17 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [85 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1386, page=21, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1419, page=18, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 21>
-Package pdftex.def Info: include/user_manual.pdf, page21 used on input line 103
-1.
+<use include/user_manual.pdf, page 18>
+Package pdftex.def Info: include/user_manual.pdf, page18 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 21>
-Package pdftex.def Info: include/user_manual.pdf, page21 used on input line 103
-1.
+ <use include/user_manual.pdf, page 18>
+Package pdftex.def Info: include/user_manual.pdf, page18 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 21>
-Package pdftex.def Info: include/user_manual.pdf, page21 used on input line 103
-1.
+<use include/user_manual.pdf, page 18>
+Package pdftex.def Info: include/user_manual.pdf, page18 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [86 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1393, page=22, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1426, page=19, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 22>
-Package pdftex.def Info: include/user_manual.pdf, page22 used on input line 103
-1.
+<use include/user_manual.pdf, page 19>
+Package pdftex.def Info: include/user_manual.pdf, page19 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
- <use include/user_manual.pdf, page 22>
-Package pdftex.def Info: include/user_manual.pdf, page22 used on input line 103
-1.
+ <use include/user_manual.pdf, page 19>
+Package pdftex.def Info: include/user_manual.pdf, page19 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
-<use include/user_manual.pdf, page 22>
-Package pdftex.def Info: include/user_manual.pdf, page22 used on input line 103
-1.
+<use include/user_manual.pdf, page 19>
+Package pdftex.def Info: include/user_manual.pdf, page19 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
  [87 <./include/user_manual.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<include/user_manual.pdf, id=1400, page=23, 597.55246pt x 845.07724pt>
+<include/user_manual.pdf, id=1432, page=20, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 20>
+Package pdftex.def Info: include/user_manual.pdf, page20 used on input line 107
+5.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 20>
+Package pdftex.def Info: include/user_manual.pdf, page20 used on input line 107
+5.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 20>
+Package pdftex.def Info: include/user_manual.pdf, page20 used on input line 107
+5.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [88 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1439, page=21, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 21>
+Package pdftex.def Info: include/user_manual.pdf, page21 used on input line 107
+5.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 21>
+Package pdftex.def Info: include/user_manual.pdf, page21 used on input line 107
+5.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 21>
+Package pdftex.def Info: include/user_manual.pdf, page21 used on input line 107
+5.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [89 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1446, page=22, 597.55246pt x 845.07724pt>
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 22>
+Package pdftex.def Info: include/user_manual.pdf, page22 used on input line 107
+5.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+ <use include/user_manual.pdf, page 22>
+Package pdftex.def Info: include/user_manual.pdf, page22 used on input line 107
+5.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+File: include/user_manual.pdf Graphic file (type pdf)
+
+<use include/user_manual.pdf, page 22>
+Package pdftex.def Info: include/user_manual.pdf, page22 used on input line 107
+5.
+(pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
+ [90 <./include/user_manual.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./include/user_manual.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<include/user_manual.pdf, id=1454, page=23, 597.55246pt x 845.07724pt>
 File: include/user_manual.pdf Graphic file (type pdf)
 
 <use include/user_manual.pdf, page 23>
-Package pdftex.def Info: include/user_manual.pdf, page23 used on input line 103
-1.
+Package pdftex.def Info: include/user_manual.pdf, page23 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
  <use include/user_manual.pdf, page 23>
-Package pdftex.def Info: include/user_manual.pdf, page23 used on input line 103
-1.
+Package pdftex.def Info: include/user_manual.pdf, page23 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 File: include/user_manual.pdf Graphic file (type pdf)
 
 <use include/user_manual.pdf, page 23>
-Package pdftex.def Info: include/user_manual.pdf, page23 used on input line 103
-1.
+Package pdftex.def Info: include/user_manual.pdf, page23 used on input line 107
+5.
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
- [88 <./include/user_manual.pdf>]
+ [91 <./include/user_manual.pdf>]
 
 Package caption Warning: Unused \captionsetup[table] on input line 47.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1032.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1032.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1076.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1076.
 (./Rapport.aux (./include/Liste_tache_21-10.aux)
 (./include/Liste_tache_3-11.aux) (./include/Liste_tache_15-11.aux)
 (./include/Liste_tache_8-12.aux) (./include/sql-logique.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1032.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1032.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1076.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1076.
 
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 3DC85D80D15FEC51ACA3E3ED782C265D;3437.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1032.
+(rerunfilecheck)             Checksum: 4C2FDCAF846DA19C23A98D4CF1B7DFC3;3834.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1076.
  ) 
 Here is how much of TeX's memory you used:
- 26616 strings out of 493304
- 477636 string characters out of 6139870
- 1155061 words of memory out of 5000000
- 29008 multiletter control sequences out of 15000+600000
+ 28884 strings out of 493105
+ 542549 string characters out of 6137072
+ 1193044 words of memory out of 5000000
+ 31253 multiletter control sequences out of 15000+600000
  61682 words of font info for 48 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 56i,19n,92p,968b,2305s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 1141 hyphenation exceptions out of 8191
+ 55i,19n,92p,968b,2305s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
 vips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona
 -sc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr
 /share/texlive/texmf-dist/fonts/type1/nowacki/iwona/iwonal.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/nowacki/iwona/iwonam.pfb></usr/share/texmf/fonts/typ
 e1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Rapport.pdf (89 pages, 5856058 bytes).
+Output written on Rapport.pdf (92 pages, 5876890 bytes).
 PDF statistics:
- 1535 PDF objects out of 1728 (max. 8388607)
- 1185 compressed objects within 12 object streams
- 493 named destinations out of 1000 (max. 500000)
- 944 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1590 PDF objects out of 1728 (max. 8388607)
+ 1235 compressed objects within 13 object streams
+ 503 named destinations out of 1000 (max. 500000)
+ 997 words of extra memory for PDF output out of 10000 (max. 10000000)
 

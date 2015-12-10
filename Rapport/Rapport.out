@@ -22,29 +22,35 @@
 \BOOKMARK [1][]{section.1.8}{Compte rendu de r\351union}{chapter.1}% 22
 \BOOKMARK [2][]{subsection.1.8.1}{R\351union initiale avec le client \(21/10/2015\)}{section.1.8}% 23
 \BOOKMARK [1][]{section.1.9}{COPIL et recettes}{chapter.1}% 24
-\BOOKMARK [0][]{chapter.2}{Analyse de l'existant}{}% 25
-\BOOKMARK [0][]{chapter.3}{Les caract\351ristiques techniques}{}% 26
-\BOOKMARK [1][]{section.3.1}{Charte graphique}{chapter.3}% 27
-\BOOKMARK [1][]{section.3.2}{Choix techniques}{chapter.3}% 28
-\BOOKMARK [2][]{subsection.3.2.1}{Slick}{section.3.2}% 29
-\BOOKMARK [2][]{subsection.3.2.2}{TinyMCE}{section.3.2}% 30
-\BOOKMARK [2][]{subsection.3.2.3}{Bootstrap}{section.3.2}% 31
-\BOOKMARK [2][]{subsection.3.2.4}{API Google Map}{section.3.2}% 32
-\BOOKMARK [2][]{subsection.3.2.5}{Syst\350me de Gestion de Base de Donn\351es}{section.3.2}% 33
-\BOOKMARK [1][]{section.3.3}{D\351veloppement}{chapter.3}% 34
-\BOOKMARK [2][]{subsection.3.3.1}{El\351ments de s\351curisation du site}{section.3.3}% 35
-\BOOKMARK [2][]{subsection.3.3.2}{Arborescence}{section.3.3}% 36
-\BOOKMARK [2][]{subsection.3.3.3}{Convention de nommage}{section.3.3}% 37
-\BOOKMARK [2][]{subsection.3.3.4}{Codes sources}{section.3.3}% 38
-\BOOKMARK [1][]{section.3.4}{Base de donn\351es}{chapter.3}% 39
-\BOOKMARK [0][]{chapter.4}{Le d\351ploiement de l'application Web}{}% 40
-\BOOKMARK [1][]{section.4.1}{Sc\351narios de recette}{chapter.4}% 41
-\BOOKMARK [2][]{subsection.4.1.1}{Administration}{section.4.1}% 42
-\BOOKMARK [2][]{subsection.4.1.2}{Utilisateur}{section.4.1}% 43
-\BOOKMARK [1][]{section.4.2}{R\351f\351rencement}{chapter.4}% 44
-\BOOKMARK [1][]{section.4.3}{H\351bergement et comptes}{chapter.4}% 45
-\BOOKMARK [1][]{section.4.4}{Proc\351dure d'archivage}{chapter.4}% 46
-\BOOKMARK [1][]{section.4.5}{Proc\351dure de reprise apr\350s panne}{chapter.4}% 47
-\BOOKMARK [1][]{section.4.6}{Conformit\351 du site aux lois en vigueur}{chapter.4}% 48
-\BOOKMARK [1][]{section.4.7}{Support d'archivage}{chapter.4}% 49
-\BOOKMARK [1][]{section.4.8}{Manuels d'utilisation}{chapter.4}% 50
+\BOOKMARK [1][]{section.1.10}{Bilan}{chapter.1}% 25
+\BOOKMARK [2][]{subsection.1.10.1}{Cyril D\351mery}{section.1.10}% 26
+\BOOKMARK [2][]{subsection.1.10.2}{Mickael Costa}{section.1.10}% 27
+\BOOKMARK [2][]{subsection.1.10.3}{Thibaut M\351jane}{section.1.10}% 28
+\BOOKMARK [2][]{subsection.1.10.4}{Cl\351ment Zeghmati}{section.1.10}% 29
+\BOOKMARK [2][]{subsection.1.10.5}{Global}{section.1.10}% 30
+\BOOKMARK [0][]{chapter.2}{Analyse de l'existant}{}% 31
+\BOOKMARK [0][]{chapter.3}{Les caract\351ristiques techniques}{}% 32
+\BOOKMARK [1][]{section.3.1}{Charte graphique}{chapter.3}% 33
+\BOOKMARK [1][]{section.3.2}{Choix techniques}{chapter.3}% 34
+\BOOKMARK [2][]{subsection.3.2.1}{Slick}{section.3.2}% 35
+\BOOKMARK [2][]{subsection.3.2.2}{TinyMCE}{section.3.2}% 36
+\BOOKMARK [2][]{subsection.3.2.3}{Bootstrap}{section.3.2}% 37
+\BOOKMARK [2][]{subsection.3.2.4}{API Google Map}{section.3.2}% 38
+\BOOKMARK [2][]{subsection.3.2.5}{Syst\350me de Gestion de Base de Donn\351es}{section.3.2}% 39
+\BOOKMARK [1][]{section.3.3}{D\351veloppement}{chapter.3}% 40
+\BOOKMARK [2][]{subsection.3.3.1}{El\351ments de s\351curisation du site}{section.3.3}% 41
+\BOOKMARK [2][]{subsection.3.3.2}{Arborescence}{section.3.3}% 42
+\BOOKMARK [2][]{subsection.3.3.3}{Convention de nommage}{section.3.3}% 43
+\BOOKMARK [2][]{subsection.3.3.4}{Codes sources}{section.3.3}% 44
+\BOOKMARK [1][]{section.3.4}{Base de donn\351es}{chapter.3}% 45
+\BOOKMARK [0][]{chapter.4}{Le d\351ploiement de l'application Web}{}% 46
+\BOOKMARK [1][]{section.4.1}{Sc\351narios de recette}{chapter.4}% 47
+\BOOKMARK [2][]{subsection.4.1.1}{Administration}{section.4.1}% 48
+\BOOKMARK [2][]{subsection.4.1.2}{Utilisateur}{section.4.1}% 49
+\BOOKMARK [1][]{section.4.2}{R\351f\351rencement}{chapter.4}% 50
+\BOOKMARK [1][]{section.4.3}{H\351bergement et comptes}{chapter.4}% 51
+\BOOKMARK [1][]{section.4.4}{Proc\351dure d'archivage}{chapter.4}% 52
+\BOOKMARK [1][]{section.4.5}{Proc\351dure de reprise apr\350s panne}{chapter.4}% 53
+\BOOKMARK [1][]{section.4.6}{Conformit\351 du site aux lois en vigueur}{chapter.4}% 54
+\BOOKMARK [1][]{section.4.7}{Support d'archivage}{chapter.4}% 55
+\BOOKMARK [1][]{section.4.8}{Manuels d'utilisation}{chapter.4}% 56
