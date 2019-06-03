@@ -1,0 +1,36 @@
+version: '3'
+
+volumes:
+  postgres_data:
+      driver: local
+  src:
+
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: pastourebd2
+      POSTGRES_USER: pastourebd2
+      POSTGRES_PASSWORD: ik4FgR12zEgD
+  adminer:
+    image: adminer
+    ports:
+      - 8082:8080
+  webserver:
+    image: pastourelle:1.0
+    environment:
+      DB_HOST: postgres
+      DB_DRIVER: pgsql
+      DB_NAME: pastourebd2
+      DB_USER: pastourebd2
+      DB_PASSWD: ik4FgR12zEgD
+    volumes: 
+      - /home/cdemery/LaPastourelle/src:/var/www
+      - /home/cdemery/LaPastourelle/install:/install
+    ports:
+      - 9090:80
+    depends_on: 
+      - postgres
+    

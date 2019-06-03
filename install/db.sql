@@ -1,4 +1,4 @@
--- Toutes les langues présentes dans le monde
+-- Toutes les langues presentes dans le monde
 CREATE TABLE languages_world (
   id SERIAL PRIMARY KEY,
   nom_en varchar(100) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE lang (
   lang_img varchar(255) NOT NULL
 );
 
--- Les pages qui seront disponibles dans présentation
+-- Les pages qui seront disponibles dans presentation
 CREATE TABLE page (
   page_id SERIAL PRIMARY KEY,
   page_code varchar(30)  NOT NULL UNIQUE,
@@ -44,7 +44,7 @@ CREATE TABLE phrase_jour (
 );
 
 
--- Les types d'actualité
+-- Les types d'actualite
 CREATE TABLE actualite (
   act_id SERIAL PRIMARY KEY,
   act_type varchar(30) NOT NULL UNIQUE,
@@ -52,7 +52,7 @@ CREATE TABLE actualite (
   act_nom varchar(100) NOT NULL
 );
 
--- Contenu des actualités (description)
+-- Contenu des actualites (description)
 CREATE TABLE actu_content (
   id SERIAL UNIQUE NOT NULL,
   lang integer NOT NULL REFERENCES lang(lang_id) ON DELETE CASCADE,
@@ -61,7 +61,7 @@ CREATE TABLE actu_content (
   PRIMARY KEY(lang, actu)
 );
 
--- Les coordonnées pour joindre l'association
+-- Les coordonnees pour joindre l'association
 CREATE TABLE coordonnees (
   coord_adr text,
   coord_mail varchar(100) NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE produits(
   CHECK (pd_prix > 0)
 );
 
--- Les informations sur les produits traduites dans différentes langues
+-- Les informations sur les produits traduites dans differentes langues
 CREATE TABLE produits_contenu (
   bt_num SERIAL UNIQUE NOT NULL,
   bt_lang integer NOT NULL REFERENCES lang(lang_id) ON DELETE CASCADE,
@@ -95,7 +95,7 @@ CREATE TABLE produits_contenu (
 CREATE TABLE tmembre_inscrit (
   id_membre SERIAL PRIMARY KEY,
   pseudo varchar(30) NOT NULL,
-  pass_secure varchar(100) NOT NULL,
+  pass_secure varchar(255) NOT NULL,
   niveau integer NOT NULL CHECK (niveau IN (0, 1)),
   email varchar(100) DEFAULT NULL,
   etat_validation integer NOT NULL CHECK (etat_validation IN (0,1)),
@@ -130,7 +130,7 @@ CREATE TABLE diaporama (
   diapo_active char(1) NOT NULL CHECK (diapo_active IN ('A','F'))
 );
 
--- Tous les fichiers hébergés
+-- Tous les fichiers heberges
 CREATE TABLE uploaded_file (
   file_num SERIAL PRIMARY KEY ,
   file_adr varchar(255) NOT NULL UNIQUE
@@ -144,7 +144,7 @@ CREATE TABLE lien_ext(
   lien_nom varchar(100) NOT NULL
 );
 
--- Les messages envoyés sur le livre d'or
+-- Les messages envoyes sur le livre d'or
 CREATE TABLE livreor (
   id SERIAL PRIMARY KEY,
   "date" date NOT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE livreor (
   validation integer NOT NULL CHECK (validation IN (0,1))
 );
 
--- Les voyages effectués par l'assocation
+-- Les voyages effectues par l'assocation
 CREATE TABLE voyage (
   id_voy SERIAL PRIMARY KEY,
   pays integer NOT NULL REFERENCES countries(id_pays),
@@ -161,7 +161,7 @@ CREATE TABLE voyage (
   texte text
 );
 
--- Le planning des évènements à venir
+-- Le planning des evenements à venir
 CREATE TABLE planning (
   id_planning SERIAL PRIMARY KEY,
   pl_jour varchar(10) NOT NULL,
@@ -171,14 +171,13 @@ CREATE TABLE planning (
 );
 
 
--- Les musiques disponibles pour être jouée par le lecteur
+-- Les musiques disponibles pour être jouee par le lecteur
 CREATE TABLE playlist (
   music_id SERIAL PRIMARY KEY,
   music_lien varchar(255)  NOT NULL UNIQUE,
   music_nom varchar(100)  NOT NULL,
   music_active char(1)  NOT NULL CHECK (music_active IN ('A','F')),
-  music_groupe varchar(100) DEFAULT NULL,
-  UNIQUE (music_lien)
+  music_groupe varchar(100) DEFAULT NULL
 );
 
 -- Les revues de presse concernant l'association
@@ -188,7 +187,7 @@ CREATE TABLE revue_presse (
   presse_titre varchar(100) NOT NULL
 );
 
--- Le texte des différentes pages
+-- Le texte des differentes pages
 CREATE TABLE texte (
     txt_num SERIAL UNIQUE NOT NULL,
   txt_page integer NOT NULL REFERENCES page(page_id) ON DELETE CASCADE,
@@ -198,7 +197,7 @@ CREATE TABLE texte (
   PRIMARY KEY (txt_page,lang)
 );
 
--- Les comptes rendus d'assemblée générale
+-- Les comptes rendus d'assemblee generale
 CREATE TABLE compte_rendu (
   cr_num SERIAL PRIMARY KEY,
   cr_text text NOT NULL,
@@ -213,11 +212,17 @@ CREATE TABLE titre (
 );
 
 
--- La traduction des titres dans les différentes langues
+-- La traduction des titres dans les differentes langues
 CREATE TABLE traduction (
   trad_num SERIAL NOT NULL UNIQUE,
   code_lang integer NOT NULL REFERENCES lang(lang_id) ON DELETE CASCADE,
   code_titre integer NOT NULL REFERENCES titre(titre_num) ON DELETE CASCADE,
   content varchar(100) NOT NULL,
   PRIMARY KEY (code_lang,code_titre)
+);
+
+CREATE TABLE video_link (
+	vid_id SERIAL PRIMARY KEY,
+	vid_url varchar(255) NOT NULL UNIQUE,
+	vid_titre varchar(100) NOT NULL
 );
